@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join the course — The Bojin Method</title>
+  <meta name="description" content="Create your account and join the Health-Check Bojin Method — eight guided lessons, lifetime access, and a month of personal feedback from Yu-Ting Lan.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--jade)" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 4v16"></path></svg><span>The Bojin Method</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="landing.html">The method</a>
+      <a href="course.html">Course</a>
+    </div>
+    <div class="nav-cta">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light or dark theme">&#9681;</button>
+      <a class="btn" href="landing.html#guide">Free guide</a>
+    </div>
+  </nav>
+</header>
+<main id="top">
+<section class="section band reveal">
+  <div class="wrap center">
+    <p class="eyebrow">Join the course</p>
+    <hr class="rule" />
+    <h1>Create your account</h1>
+    <p class="lead">One account, lifetime access to all eight lessons — plus one month of personal feedback from Yu-Ting while your new routine takes root.</p>
+    <div class="demo-banner">
+      <p><strong>Preview checkout:</strong> payment on this page is simulated. No money moves and no card or PayPal details are asked for — the real PayPal checkout will be connected later. This is just so you can feel the full journey.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section reveal">
+  <div class="wrap wrap--narrow center">
+    <div class="gate">
+      <h3>Your details</h3>
+      <p class="muted">Create your login, confirm your order, and you're in.</p>
+      <form class="gate-form" id="signup-form">
+        <input class="field" type="text" name="name" placeholder="Your first name" aria-label="First name" required />
+        <input class="field" type="email" name="email" placeholder="Your email address" aria-label="Email address" required />
+        <input class="field" type="password" name="password" placeholder="Choose a password" aria-label="Choose a password" required />
+        <div class="order-row">
+          <span>The Health-Check Bojin Method — full course</span>
+          <strong>$149</strong>
+        </div>
+        <button class="btn" type="submit">Pay with PayPal — demo</button>
+      </form>
+      <p class="form-note">Lifetime access. One month of personal feedback included. 14-day money-back guarantee.</p>
+    </div>
+    <p class="form-note">Already enrolled? <a href="course.html">Sign in here</a>.</p>
+  </div>
+</section>
+
+<section class="section band-jade section--tight reveal">
+  <div class="wrap wrap--narrow center">
+    <p class="eyebrow">What happens next</p>
+    <hr class="rule" />
+    <p>The moment your payment clears, your library unlocks — all eight lessons, watchable on any device, in any order, as many times as you like. Your one-month feedback window with Yu-Ting starts the same day.</p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html" style="color:var(--ink)"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--jade)" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 4v16"></path></svg><span>The Bojin Method</span></a>
+      <p class="foot-note" style="margin-top:.6rem">A clinical-minded, meridian-based facial release method you can learn at home. Draft site for bojinfacetension.com.</p>
+    </div>
+    <div class="foot-note">&copy; 2026 The Bojin Method. Yu-Ting Lan.</div>
+  </div>
+</footer>
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var s=localStorage.getItem('bojin-theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  function cur(){ return root.getAttribute('data-theme') || 'dark'; }
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click',function(){ var n=cur()==='dark'?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem('bojin-theme',n);}catch(e){} });
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+  var f=document.getElementById('signup-form');
+  if(f){ f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var name=(f.querySelector('input[name="name"]')||{}).value||'';
+    var email=(f.querySelector('input[name="email"]')||{}).value||'';
+    try{ localStorage.setItem('bojin-member',JSON.stringify({ name:name, email:email })); }catch(err){}
+    location.href='course.html';
+  }); }
+});
+</script>
+</body>
+</html>
