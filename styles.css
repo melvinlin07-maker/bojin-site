@@ -12,7 +12,7 @@
   --paper-2:    #FFFFFF;   /* white — raised bands & cards */
   --paper-3:    #F2E6D8;   /* warm peach tint band */
   --ink:        #2A211C;   /* warm espresso text */
-  --ink-soft:   #8A7A6E;   /* warm taupe */
+  --ink-soft:   #77675A;   /* warm taupe */
   --jade:       #B45749;   /* terracotta peach (primary accent) */
   --jade-deep:  #9E4A3E;   /* deeper peach for hover / links */
   --brass:      #B45749;   /* alias — same peach family */
@@ -29,7 +29,7 @@
 
 /* peach "day mode" — the default look, also forced via the toggle */
 :root[data-theme="light"]{
-  --paper:#F7ECE1; --paper-2:#FFFFFF; --paper-3:#F2E6D8; --ink:#2A211C; --ink-soft:#8A7A6E;
+  --paper:#F7ECE1; --paper-2:#FFFFFF; --paper-3:#F2E6D8; --ink:#2A211C; --ink-soft:#77675A;
   --jade:#B45749; --jade-deep:#9E4A3E; --brass:#B45749; --line:#ECDCCE; --line-gold:#E3D2C0;
   --on-jade:#FFFFFF;
   --shadow:0 1px 2px rgba(74,42,30,.05), 0 12px 40px rgba(74,42,30,.10);
@@ -454,3 +454,50 @@ body.unlocked .gate{ display:none; }
 .capture{ text-align:center; }
 .capture .signup{ max-width:520px; margin:1.6rem auto 0; }
 .capture .form-note{ text-align:center; }
+
+/* ---------- library / guide index (lovenfit-style browse-by-concern) ---------- */
+.hero-full--short{ min-height:min(58vh,540px); }
+
+.stats-row{ display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(12px,2vw,20px); margin-top:1.8rem; }
+@media (max-width:560px){ .stats-row{ grid-template-columns:1fr; } }
+.stat-tile{ text-align:center; background:var(--paper-2); border:1px solid var(--line);
+  border-top:1px solid var(--line-gold); border-radius:12px; padding:1.3rem 1rem; }
+.stat-tile b{ display:block; font-family:var(--font-serif); font-weight:500; font-size:2.2rem;
+  color:var(--jade); line-height:1; margin-bottom:.35rem; }
+.stat-tile span{ font-size:.85rem; color:var(--ink-soft); letter-spacing:.04em; }
+
+.lib-search{ max-width:560px; margin:2rem auto 0; position:relative; }
+.lib-search .field{ padding-left:2.7rem; }
+.lib-search .search-ic{ position:absolute; left:1rem; top:50%; transform:translateY(-50%);
+  color:var(--ink-soft); width:18px; height:18px; pointer-events:none; }
+
+.filter-btn .cnt{ margin-left:.4em; opacity:.55; font-weight:400; }
+.filter-btn.is-active .cnt{ opacity:.8; }
+
+.lib-list{ display:flex; flex-direction:column; gap:1.1rem; margin-top:1.8rem; }
+.lib-row{ display:grid; grid-template-columns:264px 1fr; gap:0; align-items:stretch;
+  background:var(--paper-2); border:1px solid var(--line); border-top:1px solid var(--line-gold);
+  border-radius:14px; overflow:hidden; text-decoration:none;
+  transition:border-color .22s ease, transform .22s ease, box-shadow .22s ease; }
+.lib-row:hover{ border-color:var(--line-gold); transform:translateY(-3px); box-shadow:var(--shadow); text-decoration:none; }
+.lib-row__media{ overflow:hidden; background:var(--paper-3); }
+.lib-row__media img{ width:100%; height:100%; object-fit:cover; transition:transform .5s ease; min-height:190px; }
+.lib-row:hover .lib-row__media img{ transform:scale(1.04); }
+.lib-row__body{ padding:1.35rem 1.6rem 1.4rem; display:flex; flex-direction:column; gap:.5rem; }
+.lib-row__cat{ font-family:var(--font-sans); font-size:.68rem; letter-spacing:.16em; text-transform:uppercase; color:var(--jade); }
+.lib-row__q{ font-family:var(--font-serif); font-weight:500; font-size:1.5rem; line-height:1.18; color:var(--ink); margin:0; }
+.lib-row__why{ color:var(--ink-soft); font-size:1rem; line-height:1.6; margin:0; }
+.lib-row__meta{ margin-top:auto; padding-top:.5rem; font-family:var(--font-sans); font-size:.82rem;
+  color:var(--ink-soft); letter-spacing:.03em; }
+.lib-row__meta .arw{ color:var(--jade); }
+.lib-row:hover .lib-row__meta .arw{ margin-left:.15em; }
+@media (max-width:640px){
+  .lib-row{ grid-template-columns:1fr; }
+  .lib-row__media{ aspect-ratio:16/10; }
+  .lib-row__media img{ min-height:0; }
+}
+.lib-row.is-hidden{ display:none; }
+
+/* mini social proof strip */
+.proof{ display:grid; grid-template-columns:repeat(2,1fr); gap:clamp(20px,3vw,40px); margin-top:1.6rem; }
+@media (max-width:720px){ .proof{ grid-template-columns:1fr; } }

@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>The Bojin Journal — a little library of gentle face care, by concern</title>
-  <meta name="description" content="A free library of gentle, method-led face and neck care from bojin instructor Yu-Ting Lan — organised by concern: tired eyes, a softer jawline, smile lines, frown lines and glow.">
-  <meta property="og:title" content="The Bojin Journal — a little library of gentle face care, by concern">
-  <meta property="og:description" content="A free library of gentle, method-led face and neck care from bojin instructor Yu-Ting Lan — organised by concern: tired eyes, a softer jawline, smile lines, frown lines and glow.">
+  <title>The Bojin Journal — gentle face care, by the concern you actually have</title>
+  <meta name="description" content="Browse gentle, method-led face and neck guides from bojin instructor Yu-Ting Lan by concern — tired eyes, a softer jawline, smile lines, frown lines, glow. Each guide is a short read with a 5-minute ritual.">
+  <meta property="og:title" content="The Bojin Journal — gentle face care, by concern">
+  <meta property="og:description" content="Browse gentle, method-led face and neck guides by the concern you actually have — each a short read with a 5-minute ritual you can try tonight.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -33,125 +33,159 @@
 </header>
 <main id="top">
 
-<!-- Full-bleed photo hero -->
-<section class="hero-full">
+<!-- Short full-bleed hero — browse-by-concern header -->
+<section class="hero-full hero-full--short">
   <img class="hero-full__img" src="assets/facial-bojin-hands-on-lesson.jpg" alt="A hands-on bojin lesson">
   <span class="hero-full__scrim" aria-hidden="true"></span>
   <div class="wrap reveal">
     <p class="eyebrow">The Bojin Journal</p>
     <hr class="rule">
-    <h1 class="display">A little library of<br>gentle face care.</h1>
-    <p class="lead">Free, method-led guides from bojin instructor Yu-Ting Lan — organised by the concern you actually have. Start where your mirror bothers you most, and read only what fits.</p>
+    <h1 class="display">Browse by concern.</h1>
+    <p class="lead">Not sure what to search? Just tap the part of your face that bothers you most. Every guide is a short read with a gentle 5-minute ritual you can try tonight.</p>
   </div>
 </section>
 
-<!-- The card wall — browse by concern, filterable -->
+<!-- Stats + search + category chips + the guide library -->
 <section class="section reveal">
   <div class="wrap">
-    <p class="eyebrow center">Browse the library</p>
-    <hr class="rule">
-    <p class="lead center">Nine gentle guides, each a short read with a 5-minute ritual you can try tonight. Filter by the concern you have right now.</p>
+
+    <div class="stats-row">
+      <div class="stat-tile"><b>9</b><span>gentle guides</span></div>
+      <div class="stat-tile"><b>8</b><span>concerns &amp; topics</span></div>
+      <div class="stat-tile"><b>5 min</b><span>rituals to try tonight</span></div>
+    </div>
+
+    <div class="lib-search">
+      <svg class="search-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
+      <input class="field" type="search" id="libSearch" placeholder="Search — puffy eyes, jawline, gua sha…" aria-label="Search the guides">
+    </div>
 
     <div class="filter-bar" role="tablist" aria-label="Filter guides by concern">
-      <button class="filter-btn is-active" data-filter="all">All guides</button>
-      <button class="filter-btn" data-filter="eyes">Eyes</button>
-      <button class="filter-btn" data-filter="jaw">Jaw &amp; Neck</button>
-      <button class="filter-btn" data-filter="cheeks">Cheeks &amp; Smile Lines</button>
-      <button class="filter-btn" data-filter="brows">Brows &amp; Forehead</button>
-      <button class="filter-btn" data-filter="glow">Glow &amp; Circulation</button>
-      <button class="filter-btn" data-filter="method">The method</button>
-      <button class="filter-btn" data-filter="rituals">Rituals &amp; routines</button>
-      <button class="filter-btn" data-filter="myths">Myths &amp; real talk</button>
+      <button class="filter-btn is-active" data-filter="all">All<span class="cnt"></span></button>
+      <button class="filter-btn" data-filter="eyes">Eyes<span class="cnt"></span></button>
+      <button class="filter-btn" data-filter="jaw">Jaw &amp; Neck<span class="cnt"></span></button>
+      <button class="filter-btn" data-filter="cheeks">Cheeks &amp; Smile Lines<span class="cnt"></span></button>
+      <button class="filter-btn" data-filter="brows">Brows &amp; Forehead<span class="cnt"></span></button>
+      <button class="filter-btn" data-filter="glow">Glow &amp; Circulation<span class="cnt"></span></button>
+      <button class="filter-btn" data-filter="method">The method<span class="cnt"></span></button>
+      <button class="filter-btn" data-filter="rituals">Rituals &amp; routines<span class="cnt"></span></button>
+      <button class="filter-btn" data-filter="myths">Myths &amp; real talk<span class="cnt"></span></button>
     </div>
 
-    <div class="card-wall" id="wall">
-      <a class="wall-card" data-cat="eyes" href="blog-tired-puffy-eyes.html">
-        <div class="wall-card__media"><img src="assets/facial-bojin-modern-studio.jpg" alt="Learning a gentle eye reset in a small bojin class"></div>
-        <div class="wall-card__body">
-          <span class="wall-card__cat">Eyes</span>
-          <h3 class="wall-card__title">Tired, puffy eyes every morning?</h3>
-          <span class="wall-card__meta">4 min read <span class="arw">&rarr;</span></span>
+    <div class="lib-list" id="lib">
+
+      <a class="lib-row" data-cat="eyes" href="blog-tired-puffy-eyes.html">
+        <div class="lib-row__media"><img src="assets/facial-bojin-modern-studio.jpg" alt="Learning a gentle eye reset in a small bojin class"></div>
+        <div class="lib-row__body">
+          <span class="lib-row__cat">Eyes</span>
+          <h2 class="lib-row__q">Tired, puffy eyes every morning?</h2>
+          <p class="lib-row__why">After 40, thinner skin and slower overnight drainage let fluid pool around the eyes — so you wake up looking puffy and tired even after a full night's sleep.</p>
+          <span class="lib-row__meta">4 min read &middot; gentle eye reset <span class="arw">&rarr;</span></span>
         </div>
       </a>
 
-      <a class="wall-card" data-cat="jaw" href="blog-jawline-double-chin.html">
-        <div class="wall-card__media"><img src="assets/facial-bojin-studio-class.jpg" alt="A jaw and neck release taught hands-on"></div>
-        <div class="wall-card__body">
-          <span class="wall-card__cat">Jaw &amp; Neck</span>
-          <h3 class="wall-card__title">A softer jawline &amp; a little double chin</h3>
-          <span class="wall-card__meta">5 min read <span class="arw">&rarr;</span></span>
+      <a class="lib-row" data-cat="jaw" href="blog-jawline-double-chin.html">
+        <div class="lib-row__media"><img src="assets/facial-bojin-studio-class.jpg" alt="A jaw and neck release taught hands-on"></div>
+        <div class="lib-row__body">
+          <span class="lib-row__cat">Jaw &amp; Neck</span>
+          <h2 class="lib-row__q">A softer jawline and a little double chin?</h2>
+          <p class="lib-row__why">A softer jawline usually isn't just weight. Pooled fluid, a quietly clenched jaw and tech-neck posture all pull the lower face down.</p>
+          <span class="lib-row__meta">5 min read &middot; jaw &amp; neck release <span class="arw">&rarr;</span></span>
         </div>
       </a>
 
-      <a class="wall-card" data-cat="cheeks" href="blog-smile-lines-cheeks.html">
-        <div class="wall-card__media"><img src="assets/facial-bojin-face-massage-class.jpg" alt="Hands-on bojin practice on the cheeks and mid-face"></div>
-        <div class="wall-card__body">
-          <span class="wall-card__cat">Cheeks &amp; Smile Lines</span>
-          <h3 class="wall-card__title">Smile lines settling in, cheeks a little lower</h3>
-          <span class="wall-card__meta">5 min read <span class="arw">&rarr;</span></span>
+      <a class="lib-row" data-cat="cheeks" href="blog-smile-lines-cheeks.html">
+        <div class="lib-row__media"><img src="assets/facial-bojin-face-massage-class.jpg" alt="Hands-on bojin practice on the cheeks and mid-face"></div>
+        <div class="lib-row__body">
+          <span class="lib-row__cat">Cheeks &amp; Smile Lines</span>
+          <h2 class="lib-row__q">Smile lines settling in, cheeks a little lower?</h2>
+          <p class="lib-row__why">As the support under your mid-face loosens, cheeks sit a little lower and smile lines deepen — the gentle downward pull that quietly reads as "older."</p>
+          <span class="lib-row__meta">5 min read &middot; mid-face lift <span class="arw">&rarr;</span></span>
         </div>
       </a>
 
-      <a class="wall-card" data-cat="brows" href="blog-forehead-frown-lines.html">
-        <div class="wall-card__media"><img src="assets/facial-bojin-classroom-lesson.jpg" alt="Yu-Ting Lan teaching a brow and forehead release"></div>
-        <div class="wall-card__body">
-          <span class="wall-card__cat">Brows &amp; Forehead</span>
-          <h3 class="wall-card__title">Frown lines &amp; a heavy, tense brow</h3>
-          <span class="wall-card__meta">5 min read <span class="arw">&rarr;</span></span>
+      <a class="lib-row" data-cat="brows" href="blog-forehead-frown-lines.html">
+        <div class="lib-row__media"><img src="assets/facial-bojin-classroom-lesson.jpg" alt="Yu-Ting Lan teaching a brow and forehead release"></div>
+        <div class="lib-row__body">
+          <span class="lib-row__cat">Brows &amp; Forehead</span>
+          <h2 class="lib-row__q">Frown lines and a heavy, tense brow?</h2>
+          <p class="lib-row__why">Those vertical "11" lines come from brow muscles frowning all day — squinting at screens, and holding stress in your forehead without noticing.</p>
+          <span class="lib-row__meta">5 min read &middot; brow release <span class="arw">&rarr;</span></span>
         </div>
       </a>
 
-      <a class="wall-card" data-cat="glow" href="blog-dull-puffy-glow.html">
-        <div class="wall-card__media"><img src="assets/facial-bojin-class-taiwan.jpg" alt="A full-face bojin sweep taught in a small class"></div>
-        <div class="wall-card__body">
-          <span class="wall-card__cat">Glow &amp; Circulation</span>
-          <h3 class="wall-card__title">Dull, puffy, tired-looking skin</h3>
-          <span class="wall-card__meta">5 min read <span class="arw">&rarr;</span></span>
+      <a class="lib-row" data-cat="glow" href="blog-dull-puffy-glow.html">
+        <div class="lib-row__media"><img src="assets/facial-bojin-class-taiwan.jpg" alt="A full-face bojin sweep taught in a small class"></div>
+        <div class="lib-row__body">
+          <span class="lib-row__cat">Glow &amp; Circulation</span>
+          <h2 class="lib-row__q">Dull, puffy, tired-looking skin?</h2>
+          <p class="lib-row__why">After 40, circulation and lymph flow slow down, so skin looks flat and puffy and your serums seem to just sit on top instead of sinking in.</p>
+          <span class="lib-row__meta">5 min read &middot; full-face sweep <span class="arw">&rarr;</span></span>
         </div>
       </a>
 
-      <a class="wall-card" data-cat="method" href="blog-gua-sha-vs-bojin.html">
-        <div class="wall-card__media"><img src="assets/facial-bojin-workshop.jpg" alt="A bojin workshop showing the tool and technique"></div>
-        <div class="wall-card__body">
-          <span class="wall-card__cat">The method</span>
-          <h3 class="wall-card__title">Gua sha &amp; bojin: the tool and the technique</h3>
-          <span class="wall-card__meta">4 min read <span class="arw">&rarr;</span></span>
+      <a class="lib-row" data-cat="method" href="blog-gua-sha-vs-bojin.html">
+        <div class="lib-row__media"><img src="assets/facial-bojin-workshop.jpg" alt="A bojin workshop showing the tool and technique"></div>
+        <div class="lib-row__body">
+          <span class="lib-row__cat">The method</span>
+          <h2 class="lib-row__q">Does gua sha really work — or is it the technique?</h2>
+          <p class="lib-row__why">If your gua sha stone hasn't delivered the glow you hoped for, it's probably not the stone. The tool matters far less than the technique behind it.</p>
+          <span class="lib-row__meta">4 min read &middot; the method <span class="arw">&rarr;</span></span>
         </div>
       </a>
 
-      <a class="wall-card" data-cat="rituals" href="blog-morning-face-ritual.html">
-        <div class="wall-card__media"><img src="assets/hands-on-facial-bojin-practice.jpg" alt="Practising the morning face ritual"></div>
-        <div class="wall-card__body">
-          <span class="wall-card__cat">Rituals &amp; routines</span>
-          <h3 class="wall-card__title">The simple morning face ritual</h3>
-          <span class="wall-card__meta">4 min read <span class="arw">&rarr;</span></span>
+      <a class="lib-row" data-cat="rituals" href="blog-morning-face-ritual.html">
+        <div class="lib-row__media"><img src="assets/hands-on-facial-bojin-practice.jpg" alt="Practising the morning face ritual"></div>
+        <div class="lib-row__body">
+          <span class="lib-row__cat">Rituals &amp; routines</span>
+          <h2 class="lib-row__q">What should a simple morning face ritual look like?</h2>
+          <p class="lib-row__why">You don't need an hour or a shelf of products. A few gentle minutes each morning, done in the right order, do most of the work.</p>
+          <span class="lib-row__meta">4 min read &middot; morning routine <span class="arw">&rarr;</span></span>
         </div>
       </a>
 
-      <a class="wall-card" data-cat="myths" href="blog-gua-sha-not-working.html">
-        <div class="wall-card__media"><img src="assets/facial-bojin-hands-on-lesson.jpg" alt="A hands-on lesson correcting gua sha technique"></div>
-        <div class="wall-card__body">
-          <span class="wall-card__cat">Myths &amp; real talk</span>
-          <h3 class="wall-card__title">Gua sha not working? The simple fix</h3>
-          <span class="wall-card__meta">4 min read <span class="arw">&rarr;</span></span>
+      <a class="lib-row" data-cat="myths" href="blog-gua-sha-not-working.html">
+        <div class="lib-row__media"><img src="assets/facial-bojin-hands-on-lesson.jpg" alt="A hands-on lesson correcting gua sha technique"></div>
+        <div class="lib-row__body">
+          <span class="lib-row__cat">Myths &amp; real talk</span>
+          <h2 class="lib-row__q">Gua sha not giving you results?</h2>
+          <p class="lib-row__why">You bought the stone and watched the videos, and your skin looks about the same. You're not doing it wrong — what's usually missing is the method.</p>
+          <span class="lib-row__meta">4 min read &middot; the simple fix <span class="arw">&rarr;</span></span>
         </div>
       </a>
 
-      <a class="wall-card" data-cat="myths" href="blog-skip-expensive-facials.html">
-        <div class="wall-card__media"><img src="assets/bojin-horn-tool.jpg" alt="A hand-carved bojin horn tool"></div>
-        <div class="wall-card__body">
-          <span class="wall-card__cat">Myths &amp; real talk</span>
-          <h3 class="wall-card__title">You don't need expensive facials</h3>
-          <span class="wall-card__meta">5 min read <span class="arw">&rarr;</span></span>
+      <a class="lib-row" data-cat="myths" href="blog-skip-expensive-facials.html">
+        <div class="lib-row__media"><img src="assets/bojin-horn-tool.jpg" alt="A hand-carved bojin horn tool"></div>
+        <div class="lib-row__body">
+          <span class="lib-row__cat">Myths &amp; real talk</span>
+          <h2 class="lib-row__q">Do you really need expensive facials?</h2>
+          <p class="lib-row__why">Facials feel lovely, but they aren't the only way to keep skin bright and lifted. Here's what a few minutes of home care can really do.</p>
+          <span class="lib-row__meta">5 min read &middot; home care <span class="arw">&rarr;</span></span>
         </div>
       </a>
 
-      <p class="wall-empty" id="wallEmpty" hidden>No guides in that category yet — try another.</p>
     </div>
+    <p class="wall-empty" id="libEmpty" hidden>No guides match that yet — try another word or tap &ldquo;All&rdquo;.</p>
   </div>
 </section>
 
-<!-- Quiz invitation — the fastest way in -->
+<!-- Why-it-works / social proof -->
+<section class="section band reveal">
+  <div class="wrap">
+    <p class="eyebrow center">Why women keep practising</p>
+    <hr class="rule">
+    <p class="lead center">A few honest words from students, a few weeks into the habit.</p>
+    <div class="proof">
+      <blockquote class="quote">I started at 52 with zero beauty experience. Within a few weeks my eyes looked brighter in the morning and, honestly, less tired. The step-by-step order is what made it stick.
+        <cite>&mdash; Dana R.</cite></blockquote>
+      <blockquote class="quote">I now do a few minutes most evenings before my serum, and it soaks in better. I've skipped two spa appointments this season and don't miss them.
+        <cite>&mdash; Carol T.</cite></blockquote>
+    </div>
+    <p class="kicker muted center" style="margin-top:1.4rem">Individual experiences vary. This is gentle self-care, not medical treatment.</p>
+  </div>
+</section>
+
+<!-- Quiz invitation -->
 <section class="section--tight band-jade reveal">
   <div class="wrap wrap--narrow center">
     <p class="eyebrow">Not sure where to start?</p>
@@ -162,8 +196,8 @@
   </div>
 </section>
 
-<!-- Email capture — the required bottom of the wall -->
-<section class="section band capture reveal" id="guide">
+<!-- Email capture -->
+<section class="section capture reveal" id="guide">
   <div class="wrap wrap--narrow center">
     <p class="eyebrow">Free starter guide</p>
     <hr class="rule">
@@ -196,36 +230,44 @@
     b.addEventListener('click',function(){ var n=cur()==='dark'?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem('bojin-theme',n);}catch(e){} });
   });
 
-  /* category filter for the card wall */
-  var btns=document.querySelectorAll('.filter-btn');
-  var cards=document.querySelectorAll('.wall-card');
-  var empty=document.getElementById('wallEmpty');
-  btns.forEach(function(btn){
-    btn.addEventListener('click',function(){
-      var f=btn.getAttribute('data-filter');
-      btns.forEach(function(b){ b.classList.toggle('is-active', b===btn); });
-      var shown=0;
-      cards.forEach(function(c){
-        var match = (f==='all' || c.getAttribute('data-cat')===f);
-        c.classList.toggle('is-hidden', !match);
-        if(match) shown++;
-      });
-      if(empty) empty.hidden = shown>0;
+  /* search + category filter for the guide library */
+  var rows=[].slice.call(document.querySelectorAll('.lib-row'));
+  var chips=[].slice.call(document.querySelectorAll('.filter-btn'));
+  var search=document.getElementById('libSearch');
+  var empty=document.getElementById('libEmpty');
+  var state={cat:'all',q:''};
+  rows.forEach(function(r){ r.__t=(r.textContent||'').toLowerCase(); });
+  var counts={all:rows.length};
+  rows.forEach(function(r){ var c=r.getAttribute('data-cat'); counts[c]=(counts[c]||0)+1; });
+  chips.forEach(function(ch){ var s=ch.querySelector('.cnt'); var f=ch.getAttribute('data-filter'); if(s) s.textContent=' '+(counts[f]||0); });
+  function apply(){
+    var shown=0;
+    rows.forEach(function(r){
+      var mc = state.cat==='all' || r.getAttribute('data-cat')===state.cat;
+      var mq = !state.q || r.__t.indexOf(state.q)>=0;
+      var vis=mc&&mq; r.classList.toggle('is-hidden',!vis); if(vis) shown++;
     });
-  });
+    if(empty) empty.hidden = shown>0;
+  }
+  chips.forEach(function(ch){ ch.addEventListener('click',function(){
+    state.cat=ch.getAttribute('data-filter'); state.q=''; if(search) search.value='';
+    chips.forEach(function(x){ x.classList.toggle('is-active',x===ch); });
+    apply();
+  }); });
+  if(search){ search.addEventListener('input',function(){
+    state.q=search.value.trim().toLowerCase(); state.cat='all';
+    chips.forEach(function(x){ x.classList.toggle('is-active',x.getAttribute('data-filter')==='all'); });
+    apply();
+  }); }
 
   /* demo email capture */
   var form=document.getElementById('captureForm');
-  if(form){
-    form.addEventListener('submit',function(e){
-      e.preventDefault();
-      var email=form.querySelector('input[type=email]');
-      if(!email.value || email.value.indexOf('@')<1){ email.focus(); return; }
-      form.hidden=true;
-      var ok=document.getElementById('captureOk');
-      if(ok) ok.hidden=false;
-    });
-  }
+  if(form){ form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var email=form.querySelector('input[type=email]');
+    if(!email.value || email.value.indexOf('@')<1){ email.focus(); return; }
+    form.hidden=true; var ok=document.getElementById('captureOk'); if(ok) ok.hidden=false;
+  }); }
 
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
