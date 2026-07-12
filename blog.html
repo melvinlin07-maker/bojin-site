@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Bojin Journal — a little library of gentle face care, by concern</title>
+  <meta name="description" content="A free library of gentle, method-led face and neck care from bojin instructor Yu-Ting Lan — organised by concern: tired eyes, a softer jawline, smile lines, frown lines and glow.">
+  <meta property="og:title" content="The Bojin Journal — a little library of gentle face care, by concern">
+  <meta property="og:description" content="A free library of gentle, method-led face and neck care from bojin instructor Yu-Ting Lan — organised by concern: tired eyes, a softer jawline, smile lines, frown lines and glow.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--jade)" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 4v16"></path></svg><span>The Bojin Method</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="landing.html">The method</a>
+      <a href="blog.html" class="active">Journal</a>
+      <a href="quiz.html">Quiz</a>
+      <a href="course.html">Course</a>
+    </div>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
+    <div class="nav-cta">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light or dark theme">&#9681;</button>
+      <a class="btn" href="landing.html#guide">Free guide</a>
+    </div>
+  </nav>
+</header>
+<main id="top">
+
+<!-- Full-bleed photo hero -->
+<section class="hero-full">
+  <img class="hero-full__img" src="assets/facial-bojin-hands-on-lesson.jpg" alt="A hands-on bojin lesson">
+  <span class="hero-full__scrim" aria-hidden="true"></span>
+  <div class="wrap reveal">
+    <p class="eyebrow">The Bojin Journal</p>
+    <hr class="rule">
+    <h1 class="display">A little library of<br>gentle face care.</h1>
+    <p class="lead">Free, method-led guides from bojin instructor Yu-Ting Lan — organised by the concern you actually have. Start where your mirror bothers you most, and read only what fits.</p>
+  </div>
+</section>
+
+<!-- The card wall — browse by concern, filterable -->
+<section class="section reveal">
+  <div class="wrap">
+    <p class="eyebrow center">Browse the library</p>
+    <hr class="rule">
+    <p class="lead center">Nine gentle guides, each a short read with a 5-minute ritual you can try tonight. Filter by the concern you have right now.</p>
+
+    <div class="filter-bar" role="tablist" aria-label="Filter guides by concern">
+      <button class="filter-btn is-active" data-filter="all">All guides</button>
+      <button class="filter-btn" data-filter="eyes">Eyes</button>
+      <button class="filter-btn" data-filter="jaw">Jaw &amp; Neck</button>
+      <button class="filter-btn" data-filter="cheeks">Cheeks &amp; Smile Lines</button>
+      <button class="filter-btn" data-filter="brows">Brows &amp; Forehead</button>
+      <button class="filter-btn" data-filter="glow">Glow &amp; Circulation</button>
+      <button class="filter-btn" data-filter="method">The method</button>
+      <button class="filter-btn" data-filter="rituals">Rituals &amp; routines</button>
+      <button class="filter-btn" data-filter="myths">Myths &amp; real talk</button>
+    </div>
+
+    <div class="card-wall" id="wall">
+      <a class="wall-card" data-cat="eyes" href="blog-tired-puffy-eyes.html">
+        <div class="wall-card__media"><img src="assets/facial-bojin-modern-studio.jpg" alt="Learning a gentle eye reset in a small bojin class"></div>
+        <div class="wall-card__body">
+          <span class="wall-card__cat">Eyes</span>
+          <h3 class="wall-card__title">Tired, puffy eyes every morning?</h3>
+          <span class="wall-card__meta">4 min read <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="wall-card" data-cat="jaw" href="blog-jawline-double-chin.html">
+        <div class="wall-card__media"><img src="assets/facial-bojin-studio-class.jpg" alt="A jaw and neck release taught hands-on"></div>
+        <div class="wall-card__body">
+          <span class="wall-card__cat">Jaw &amp; Neck</span>
+          <h3 class="wall-card__title">A softer jawline &amp; a little double chin</h3>
+          <span class="wall-card__meta">5 min read <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="wall-card" data-cat="cheeks" href="blog-smile-lines-cheeks.html">
+        <div class="wall-card__media"><img src="assets/facial-bojin-face-massage-class.jpg" alt="Hands-on bojin practice on the cheeks and mid-face"></div>
+        <div class="wall-card__body">
+          <span class="wall-card__cat">Cheeks &amp; Smile Lines</span>
+          <h3 class="wall-card__title">Smile lines settling in, cheeks a little lower</h3>
+          <span class="wall-card__meta">5 min read <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="wall-card" data-cat="brows" href="blog-forehead-frown-lines.html">
+        <div class="wall-card__media"><img src="assets/facial-bojin-classroom-lesson.jpg" alt="Yu-Ting Lan teaching a brow and forehead release"></div>
+        <div class="wall-card__body">
+          <span class="wall-card__cat">Brows &amp; Forehead</span>
+          <h3 class="wall-card__title">Frown lines &amp; a heavy, tense brow</h3>
+          <span class="wall-card__meta">5 min read <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="wall-card" data-cat="glow" href="blog-dull-puffy-glow.html">
+        <div class="wall-card__media"><img src="assets/facial-bojin-class-taiwan.jpg" alt="A full-face bojin sweep taught in a small class"></div>
+        <div class="wall-card__body">
+          <span class="wall-card__cat">Glow &amp; Circulation</span>
+          <h3 class="wall-card__title">Dull, puffy, tired-looking skin</h3>
+          <span class="wall-card__meta">5 min read <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="wall-card" data-cat="method" href="blog-gua-sha-vs-bojin.html">
+        <div class="wall-card__media"><img src="assets/facial-bojin-workshop.jpg" alt="A bojin workshop showing the tool and technique"></div>
+        <div class="wall-card__body">
+          <span class="wall-card__cat">The method</span>
+          <h3 class="wall-card__title">Gua sha &amp; bojin: the tool and the technique</h3>
+          <span class="wall-card__meta">4 min read <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="wall-card" data-cat="rituals" href="blog-morning-face-ritual.html">
+        <div class="wall-card__media"><img src="assets/hands-on-facial-bojin-practice.jpg" alt="Practising the morning face ritual"></div>
+        <div class="wall-card__body">
+          <span class="wall-card__cat">Rituals &amp; routines</span>
+          <h3 class="wall-card__title">The simple morning face ritual</h3>
+          <span class="wall-card__meta">4 min read <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="wall-card" data-cat="myths" href="blog-gua-sha-not-working.html">
+        <div class="wall-card__media"><img src="assets/facial-bojin-hands-on-lesson.jpg" alt="A hands-on lesson correcting gua sha technique"></div>
+        <div class="wall-card__body">
+          <span class="wall-card__cat">Myths &amp; real talk</span>
+          <h3 class="wall-card__title">Gua sha not working? The simple fix</h3>
+          <span class="wall-card__meta">4 min read <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+
+      <a class="wall-card" data-cat="myths" href="blog-skip-expensive-facials.html">
+        <div class="wall-card__media"><img src="assets/bojin-horn-tool.jpg" alt="A hand-carved bojin horn tool"></div>
+        <div class="wall-card__body">
+          <span class="wall-card__cat">Myths &amp; real talk</span>
+          <h3 class="wall-card__title">You don't need expensive facials</h3>
+          <span class="wall-card__meta">5 min read <span class="arw">&rarr;</span></span>
+        </div>
+      </a>
+
+      <p class="wall-empty" id="wallEmpty" hidden>No guides in that category yet — try another.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Quiz invitation — the fastest way in -->
+<section class="section--tight band-jade reveal">
+  <div class="wrap wrap--narrow center">
+    <p class="eyebrow">Not sure where to start?</p>
+    <hr class="rule">
+    <h2>Let your face point the way.</h2>
+    <p class="lead">Answer five quick questions and we'll match you to the right 5-minute ritual — plus a free personalised starter guide. Takes about a minute.</p>
+    <p><a class="btn btn--lg" href="quiz.html">Take the 1-minute quiz &rarr;</a></p>
+  </div>
+</section>
+
+<!-- Email capture — the required bottom of the wall -->
+<section class="section band capture reveal" id="guide">
+  <div class="wrap wrap--narrow center">
+    <p class="eyebrow">Free starter guide</p>
+    <hr class="rule">
+    <h2 class="display">Give your face ten quiet minutes.</h2>
+    <p class="lead">Leave your email and the free guide — the condensed first lesson of the method — lands gently in your inbox. New journal entries follow, only when there's something worth sharing.</p>
+    <form class="signup" id="captureForm" novalidate>
+      <input class="field" type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
+      <button class="btn btn--lg" type="submit">Send me the guide</button>
+    </form>
+    <p class="form-note">No spam, ever. Unsubscribe in one click. This is self-care, not medical treatment.</p>
+    <p class="success-note" id="captureOk" hidden>Lovely — check your inbox in a few minutes for your free guide. 🌿</p>
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html" style="color:var(--ink)"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--jade)" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 4v16"></path></svg><span>The Bojin Method</span></a>
+      <p class="foot-note" style="margin-top:.6rem">A gentle, meridian-based facial release method you can learn at home.</p>
+    </div>
+    <div class="foot-note">&copy; 2026 The Bojin Method. Yu-Ting Lan.</div>
+  </div>
+</footer>
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var s=localStorage.getItem('bojin-theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  function cur(){ return root.getAttribute('data-theme') || 'light'; }
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click',function(){ var n=cur()==='dark'?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem('bojin-theme',n);}catch(e){} });
+  });
+
+  /* category filter for the card wall */
+  var btns=document.querySelectorAll('.filter-btn');
+  var cards=document.querySelectorAll('.wall-card');
+  var empty=document.getElementById('wallEmpty');
+  btns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var f=btn.getAttribute('data-filter');
+      btns.forEach(function(b){ b.classList.toggle('is-active', b===btn); });
+      var shown=0;
+      cards.forEach(function(c){
+        var match = (f==='all' || c.getAttribute('data-cat')===f);
+        c.classList.toggle('is-hidden', !match);
+        if(match) shown++;
+      });
+      if(empty) empty.hidden = shown>0;
+    });
+  });
+
+  /* demo email capture */
+  var form=document.getElementById('captureForm');
+  if(form){
+    form.addEventListener('submit',function(e){
+      e.preventDefault();
+      var email=form.querySelector('input[type=email]');
+      if(!email.value || email.value.indexOf('@')<1){ email.focus(); return; }
+      form.hidden=true;
+      var ok=document.getElementById('captureOk');
+      if(ok) ok.hidden=false;
+    });
+  }
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>

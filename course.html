@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Course library — The Bojin Method</title>
-  <meta name="description" content="Sign in to your Health-Check Bojin Method course library. Watch lesson one free, then unlock the full step-by-step face and neck bojin program.">
+  <meta name="description" content="Sign in to your Bojin Method course library. Watch lesson one free, then unlock the full step-by-step face and neck bojin program.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
@@ -17,8 +17,10 @@
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="landing.html">The method</a>
+      <a href="blog.html">Journal</a>
       <a href="course.html" class="active">Course</a>
     </div>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
     <div class="nav-cta">
       <button class="theme-toggle" data-theme-toggle aria-label="Toggle light or dark theme">&#9681;</button>
       <a class="btn" href="landing.html#guide">Free guide</a>
@@ -37,7 +39,7 @@
     <p class="eyebrow">Member area</p>
     <hr class="rule" />
     <h1 class="display">Your course library</h1>
-    <p class="lead">Everything you need to learn the Health-Check Bojin Method, one short lesson at a time. Lesson one is always free to watch, no sign in required.</p>
+    <p class="lead">Everything you need to learn the Bojin Method, one short lesson at a time. Lesson one is always free to watch, no sign in required.</p>
     <div class="demo-banner">
       <p><strong>Preview login:</strong> this is a demo of the member area. Type any email and any password to unlock and explore, or try the full journey — <a href="signup.html">create an account</a> and walk through the demo checkout. Real payment and secure sign in will be connected later; this preview only remembers you inside your own browser.</p>
     </div>
@@ -74,7 +76,7 @@
           </div>
         </div>
         <div class="lesson__meta"><span class="lesson__tag">Free preview</span>
-        <h3>01 · Welcome and the health-check mindset</h3>
+        <h3>01 · Welcome and the bojin mindset</h3>
         <p class="muted">Meet Yu-Ting, see how the method works, and learn the simple daily check that tells you where your face is holding tension.</p></div>
       </article>
 
@@ -230,7 +232,7 @@
   <div class="wrap">
     <div>
       <a class="brand" href="index.html" style="color:var(--ink)"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--jade)" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 4v16"></path></svg><span>The Bojin Method</span></a>
-      <p class="foot-note" style="margin-top:.6rem">A clinical-minded, meridian-based facial release method you can learn at home. Draft site for bojinfacetension.com.</p>
+      <p class="foot-note" style="margin-top:.6rem">A gentle, meridian-based facial release method you can learn at home. Draft site for bojinfacetension.com.</p>
     </div>
     <div class="foot-note">&copy; 2026 The Bojin Method. Yu-Ting Lan.</div>
   </div>
@@ -239,7 +241,7 @@
 (function(){
   var root=document.documentElement;
   try{var s=localStorage.getItem('bojin-theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
-  function cur(){ return root.getAttribute('data-theme') || 'dark'; }
+  function cur(){ return root.getAttribute('data-theme') || 'light'; }
   document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
     b.addEventListener('click',function(){ var n=cur()==='dark'?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem('bojin-theme',n);}catch(e){} });
   });
@@ -271,5 +273,6 @@ document.addEventListener('DOMContentLoaded',function(){
   if(out){ out.addEventListener('click',function(){ try{ localStorage.removeItem('bojin-member'); }catch(e){} location.reload(); }); }
 });
 </script>
+<script src="nav.js"></script>
 </body>
 </html>

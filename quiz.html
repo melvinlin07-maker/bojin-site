@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Find your 5-minute ritual — The Bojin Method quiz</title>
+  <meta name="description" content="Take the 1-minute quiz and discover which gentle 5-minute face and neck bojin ritual is right for you — then get a free personalised starter guide.">
+  <meta property="og:title" content="Find your 5-minute ritual — The Bojin Method quiz">
+  <meta property="og:description" content="Take the 1-minute quiz and discover which gentle 5-minute face and neck bojin ritual is right for you — then get a free personalised starter guide.">
+  <meta property="og:type" content="website">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* ---------- quiz-specific bits (only what styles.css doesn't cover) ---------- */
+    .quiz-shell{ max-width:600px; }
+    .quiz-step{ display:none; }
+    .quiz-step.is-active{ display:block; }
+
+    /* progress bar */
+    .quiz-progress{ margin:0 0 1.6rem; }
+    .quiz-progress__label{ font-family:var(--font-sans); font-size:.74rem; font-weight:600;
+      letter-spacing:.2em; text-transform:uppercase; color:var(--jade); margin:0 0 .55rem; }
+    .quiz-bar{ width:100%; height:4px; background:var(--line);
+      border-radius:999px; overflow:hidden; }
+    .quiz-bar__fill{ display:block; height:100%; width:0%; background:var(--jade);
+      border-radius:999px; transition:width .35s ease; }
+
+    /* option buttons */
+    .quiz-options{ display:flex; flex-direction:column; gap:.7rem; margin:1.5rem 0 0; }
+    .quiz-option{ display:block; width:100%; text-align:left;
+      font-family:var(--font-sans); font-size:1.02rem; font-weight:500; color:var(--ink);
+      background:var(--paper-2); border:1px solid var(--line);
+      border-radius:var(--radius); padding:1rem 1.15rem; cursor:pointer;
+      transition:border-color .18s ease, background .18s ease, transform .05s ease; }
+    .quiz-option:hover{ border-color:var(--jade); background:color-mix(in srgb, var(--jade) 8%, var(--paper-2)); }
+    .quiz-option:active{ transform:translateY(1px); }
+    .quiz-option.is-selected{ border-color:var(--jade); background:color-mix(in srgb, var(--jade) 12%, var(--paper-2)); }
+
+    /* back affordance */
+    .quiz-back{ display:inline-flex; align-items:center; gap:.4rem; margin-top:1.4rem;
+      background:transparent; border:0; cursor:pointer;
+      font-family:var(--font-sans); font-size:.85rem; letter-spacing:.03em; color:var(--ink-soft); }
+    .quiz-back:hover{ color:var(--jade-deep); }
+    .quiz-back[hidden]{ display:none; }
+
+    /* loading beat */
+    .quiz-loader{ display:flex; flex-direction:column; align-items:center; gap:1.2rem; padding:2rem 0; }
+    .quiz-spinner{ width:38px; height:38px; border-radius:50%;
+      border:3px solid var(--line); border-top-color:var(--jade); animation:quizspin .8s linear infinite; }
+    @keyframes quizspin{ to{ transform:rotate(360deg); } }
+    @media (prefers-reduced-motion: reduce){ .quiz-spinner{ animation:none; } }
+
+    .quiz-actions{ display:flex; flex-wrap:wrap; gap:.7rem; justify-content:center; margin-top:1.4rem; }
+    .quiz-form{ display:flex; flex-direction:column; gap:.8rem; margin-top:1.4rem; text-align:left; }
+    .quiz-form .btn{ width:100%; justify-content:center; }
+
+    @media (max-width:400px){
+      .quiz-option{ font-size:.98rem; padding:.9rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+<header class="site-header">
+  <nav class="nav" aria-label="Primary">
+    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--jade)" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 4v16"></path></svg><span>The Bojin Method</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="landing.html">The method</a>
+      <a href="blog.html">Journal</a>
+      <a href="course.html">Course</a>
+    </div>
+    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
+    <div class="nav-cta">
+      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light or dark theme">&#9681;</button>
+      <a class="btn" href="landing.html#guide">Free guide</a>
+    </div>
+  </nav>
+</header>
+<main id="top">
+<section class="section hero">
+  <div class="wrap wrap--narrow quiz-shell reveal">
+
+    <!-- ============ STEP 0: INTRO ============ -->
+    <div class="quiz-step is-active center" id="step-intro" data-step="intro">
+      <p class="eyebrow">Find your starting point</p>
+      <hr class="rule">
+      <h1>Which 5-minute ritual is right for your face?</h1>
+      <p class="lead">Answer five quick questions and we'll point you to the gentle at-home bojin ritual that fits your face right now — plus a free personalised starter guide. Takes about a minute.</p>
+      <p style="margin-top:1.6rem"><button class="btn btn--lg" type="button" id="quiz-start">Start the quiz</button></p>
+    </div>
+
+    <!-- ============ STEP 1–5: QUESTIONS ============ -->
+    <div class="quiz-step" id="step-question" data-step="question">
+      <div class="quiz-progress">
+        <p class="quiz-progress__label" id="quiz-count">Question 1 of 5</p>
+        <span class="quiz-bar"><span class="quiz-bar__fill" id="quiz-fill"></span></span>
+      </div>
+      <h2 id="quiz-q" style="font-size:clamp(1.6rem,3.4vw,2.2rem)">&nbsp;</h2>
+      <div class="quiz-options" id="quiz-options" role="group" aria-live="polite"></div>
+      <button class="quiz-back" type="button" id="quiz-back">&larr; Back</button>
+    </div>
+
+    <!-- ============ STEP 6: BUILDING RESULT ============ -->
+    <div class="quiz-step center" id="step-loading" data-step="loading">
+      <div class="quiz-loader">
+        <span class="quiz-spinner" aria-hidden="true"></span>
+        <p class="lead" style="margin:0">Building your result&hellip;</p>
+      </div>
+    </div>
+
+    <!-- ============ STEP 7: RESULT + EMAIL CAPTURE ============ -->
+    <div class="quiz-step" id="step-result" data-step="result">
+      <div class="center">
+        <p class="eyebrow" id="result-eyebrow">Your result</p>
+        <hr class="rule">
+        <h1 id="result-title" style="font-size:clamp(2rem,5vw,3rem)">&nbsp;</h1>
+        <p class="lead" id="result-body" style="margin-inline:auto">&nbsp;</p>
+      </div>
+
+      <div class="card" style="margin-top:1.8rem; text-align:left">
+        <p class="eyebrow" style="margin-bottom:.6rem">Start here</p>
+        <p style="margin-bottom:1rem" id="result-guide-lead">&nbsp;</p>
+        <p style="margin:0"><a class="btn btn--ghost" id="result-guide-link" href="#">Read your starter guide &rarr;</a></p>
+      </div>
+
+      <!-- =========================================================
+           DEMO PLACEHOLDER FORM.
+           This form does NOT post to any server. On submit it only
+           shows a success message client-side. Before launch, wire
+           the submit handler to systeme.io (form action / embed) or
+           to an n8n webhook so name + email are actually captured.
+           Do not treat this as a live opt-in until then.
+           ========================================================= -->
+      <div id="result-capture" style="margin-top:2rem; text-align:left">
+        <h2 style="font-size:clamp(1.5rem,3vw,2rem)">Get your free personalised starter guide</h2>
+        <p class="muted">We'll email your matched guide plus a gentle 3-day mini-plan you can start tonight.</p>
+        <form class="quiz-form" id="quiz-form" novalidate>
+          <label class="form-note" for="q-name" style="margin:0">Your first name</label>
+          <input class="field" type="text" id="q-name" name="name" placeholder="First name" autocomplete="given-name" required>
+          <label class="form-note" for="q-email" style="margin:0">Your email</label>
+          <input class="field" type="email" id="q-email" name="email" placeholder="you@example.com" autocomplete="email" required>
+          <button class="btn btn--lg" type="submit">Send me my starter guide</button>
+          <p class="form-note">No spam, ever. Unsubscribe in one click. We'll never share your email.</p>
+        </form>
+      </div>
+
+      <!-- success state, revealed after submit -->
+      <div id="result-success" hidden style="margin-top:2rem">
+        <p class="success-note">Beautiful &mdash; check your inbox for your starter guide.</p>
+        <div class="quiz-actions">
+          <a class="btn" href="landing.html#guide">See the free guide</a>
+          <a class="btn btn--ghost" href="course.html">Explore the course</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+</main>
+<footer class="site-footer">
+  <div class="wrap">
+    <div>
+      <a class="brand" href="index.html" style="color:var(--ink)"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--jade)" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 4v16"></path></svg><span>The Bojin Method</span></a>
+      <p class="foot-note" style="margin-top:.6rem">A gentle, meridian-based facial release method you can learn at home.</p>
+    </div>
+    <div class="foot-note">&copy; 2026 The Bojin Method. Yu-Ting Lan.</div>
+  </div>
+</footer>
+
+<script>
+/* ============================================================
+   QUIZ ENGINE — vanilla JS, no libraries.
+   ============================================================ */
+(function(){
+  // ---- zone definitions (result copy + matching guide) ----
+  var ZONES = {
+    "Eyes": {
+      guide: "blog-tired-puffy-eyes.html",
+      title: "Your focus: bright, rested eyes",
+      body: "The eye area is where tiredness shows first, and it's also where a soft few minutes make the quickest visible difference. Gentle drainage around the eyes can ease puffiness and help you look more awake — without tugging delicate skin.",
+      guideLead: "Begin with our gentle 5-minute eye reset. It's the easiest place to feel bojin working."
+    },
+    "Jaw & Neck": {
+      guide: "blog-jawline-double-chin.html",
+      title: "Your focus: a softer, lifted jawline",
+      body: "A blurry jawline and fullness under the chin are often about tension and sluggish drainage, not just weight. Releasing the jaw and neck helps everything look more defined and lifted — and it feels wonderful after a long day.",
+      guideLead: "Start with our calm 5-minute jaw and neck release to feel the difference."
+    },
+    "Cheeks & Smile Lines": {
+      guide: "blog-smile-lines-cheeks.html",
+      title: "Your focus: fuller cheeks, softer smile lines",
+      body: "Smile lines and midface softness are where slackness quietly reads as 'older.' Working the cheeks gently supports lift and circulation, so lines look softer and your face reads brighter and more awake.",
+      guideLead: "Start with our gentle cheek and smile-line ritual — a lovely daily lift."
+    },
+    "Brows & Forehead": {
+      guide: "blog-forehead-frown-lines.html",
+      title: "Your focus: a lighter, smoother brow",
+      body: "Frown lines and a heavy brow usually come from tension you carry without noticing. A few soft minutes releasing the forehead can ease that held tightness, so the whole upper face looks calmer and more open.",
+      guideLead: "Start with our forehead and frown-line release to let the brow soften."
+    },
+    "Glow & Circulation": {
+      guide: "blog-dull-puffy-glow.html",
+      title: "Your focus: fresh, glowing, less-puffy skin",
+      body: "Dullness and morning puffiness are often just sluggish circulation. Gentle bojin wakes the whole face up, helps your serum absorb, and brings back that lit-from-within look — in just a few quiet minutes.",
+      guideLead: "Start with our full-face glow and drainage ritual for an all-over refresh."
+    }
+  };
+
+  // ---- questions ----
+  // Q1 options carry a zone. Q2 carries a "nuance" used only as a tiebreaker.
+  var QUESTIONS = [
+    {
+      q: "When you look in the mirror, what bothers you most?",
+      options: [
+        { label: "Tired or puffy eyes", zone: "Eyes" },
+        { label: "A softer jawline or a little double chin", zone: "Jaw & Neck" },
+        { label: "Smile lines and softer cheeks", zone: "Cheeks & Smile Lines" },
+        { label: "Forehead lines and a heavy brow", zone: "Brows & Forehead" },
+        { label: "Overall dullness and puffiness", zone: "Glow & Circulation" }
+      ]
+    },
+    {
+      q: "How does your face feel most mornings?",
+      options: [
+        { label: "Puffy", nuance: "Glow & Circulation" },
+        { label: "Tight and tense", nuance: "Brows & Forehead" },
+        { label: "Dull and tired", nuance: "Eyes" },
+        { label: "Fine — I mostly want to maintain", nuance: null }
+      ]
+    },
+    {
+      q: "Have you tried gua sha before?",
+      options: [
+        { label: "Yes, I love it" },
+        { label: "Yes, but I did not see results" },
+        { label: "No, I am new to this" }
+      ]
+    },
+    {
+      q: "How many minutes a day can you realistically give?",
+      options: [
+        { label: "2–3" },
+        { label: "About 5" },
+        { label: "10 or more" }
+      ]
+    },
+    {
+      q: "Which sounds most like you?",
+      options: [
+        { label: "Under 40" },
+        { label: "40–49" },
+        { label: "50–59" },
+        { label: "60+" }
+      ]
+    }
+  ];
+
+  // ---- state ----
+  var current = 0;                    // index into QUESTIONS
+  var answers = new Array(QUESTIONS.length).fill(null); // stores selected option index
+
+  // ---- element refs ----
+  var steps = {
+    intro:    document.getElementById('step-intro'),
+    question: document.getElementById('step-question'),
+    loading:  document.getElementById('step-loading'),
+    result:   document.getElementById('step-result')
+  };
+  var elCount   = document.getElementById('quiz-count');
+  var elFill    = document.getElementById('quiz-fill');
+  var elQ       = document.getElementById('quiz-q');
+  var elOptions = document.getElementById('quiz-options');
+  var elBack    = document.getElementById('quiz-back');
+
+  function showStep(name){
+    Object.keys(steps).forEach(function(k){
+      steps[k].classList.toggle('is-active', k === name);
+    });
+    // scroll the shell into a comfortable view on step change
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  function renderQuestion(){
+    var Q = QUESTIONS[current];
+    elCount.textContent = 'Question ' + (current + 1) + ' of ' + QUESTIONS.length;
+    elFill.style.width = ((current) / QUESTIONS.length * 100) + '%';
+    elQ.textContent = Q.q;
+    elBack.hidden = (current === 0);
+
+    elOptions.innerHTML = '';
+    Q.options.forEach(function(opt, i){
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'quiz-option';
+      btn.textContent = opt.label;
+      if (answers[current] === i) btn.classList.add('is-selected');
+      btn.addEventListener('click', function(){ selectOption(i); });
+      elOptions.appendChild(btn);
+    });
+    showStep('question');
+  }
+
+  function selectOption(i){
+    answers[current] = i;
+    if (current < QUESTIONS.length - 1){
+      current++;
+      renderQuestion();
+    } else {
+      // completed last question
+      elFill.style.width = '100%';
+      finish();
+    }
+  }
+
+  function goBack(){
+    if (current > 0){
+      current--;
+      renderQuestion();
+    }
+  }
+
+  function computeZone(){
+    // Primary zone from Q1
+    var q1 = QUESTIONS[0].options[answers[0]];
+    var zone = q1.zone;
+
+    // Nuance from Q2: only used as a light tiebreaker/confirmation.
+    // If Q1 was the broad "Overall dullness and puffiness" (Glow) and Q2
+    // points somewhere more specific, follow the more specific concern.
+    var q2 = QUESTIONS[1].options[answers[1]];
+    if (q2 && q2.nuance && zone === "Glow & Circulation"){
+      zone = q2.nuance;
+    }
+    return zone;
+  }
+
+  function finish(){
+    showStep('loading');
+    setTimeout(function(){
+      renderResult();
+      showStep('result');
+    }, 1100);
+  }
+
+  function renderResult(){
+    var zone = computeZone();
+    var data = ZONES[zone] || ZONES["Glow & Circulation"];
+    document.getElementById('result-eyebrow').textContent = 'Your ritual: ' + zone;
+    document.getElementById('result-title').textContent = data.title;
+    document.getElementById('result-body').textContent = data.body;
+    document.getElementById('result-guide-lead').textContent = data.guideLead;
+    var link = document.getElementById('result-guide-link');
+    link.setAttribute('href', data.guide);
+  }
+
+  // ---- wire up ----
+  document.getElementById('quiz-start').addEventListener('click', function(){
+    current = 0;
+    renderQuestion();
+  });
+  elBack.addEventListener('click', goBack);
+
+  // ---- email capture (DEMO ONLY — does not post anywhere) ----
+  document.getElementById('quiz-form').addEventListener('submit', function(e){
+    e.preventDefault();
+    // NOTE: intentionally no fetch/POST. Wire to systeme.io / n8n before launch.
+    document.getElementById('result-capture').hidden = true;
+    document.getElementById('result-success').hidden = false;
+    document.getElementById('result-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+})();
+</script>
+
+<!-- theme toggle + reveal (verbatim from the rest of the site) -->
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var s=localStorage.getItem('bojin-theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
+  function cur(){ return root.getAttribute('data-theme') || 'light'; }
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
+    b.addEventListener('click',function(){ var n=cur()==='dark'?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem('bojin-theme',n);}catch(e){} });
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+})();
+</script>
+<script src="nav.js"></script>
+</body>
+</html>
