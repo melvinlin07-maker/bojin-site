@@ -3,63 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Find your 5-minute ritual — The Bojin Method quiz</title>
-  <meta name="description" content="Take the 1-minute quiz and discover which gentle 5-minute face and neck bojin ritual is right for you — then get a free personalised starter guide.">
-  <meta property="og:title" content="Find your 5-minute ritual — The Bojin Method quiz">
-  <meta property="og:description" content="Take the 1-minute quiz and discover which gentle 5-minute face and neck bojin ritual is right for you — then get a free personalised starter guide.">
+  <title>Face Tension Profile — a 1-minute self-check | The Bojin Method</title>
+  <meta name="description" content="A gentle 1-minute self-check: answer 8 quick questions about how your face feels and get a simple tension map, plus a personalised 3-minute reset for the area that needs it most. Self-assessment, not a medical diagnosis.">
+  <meta property="og:title" content="Face Tension Profile — a 1-minute self-check">
+  <meta property="og:description" content="See where your face holds the most tension, and get a gentle 3-minute reset matched to you.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Hanken+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <style>
-    /* ---------- quiz-specific bits (only what styles.css doesn't cover) ---------- */
-    .quiz-shell{ max-width:600px; }
-    .quiz-step{ display:none; }
-    .quiz-step.is-active{ display:block; }
-
-    /* progress bar */
-    .quiz-progress{ margin:0 0 1.6rem; }
-    .quiz-progress__label{ font-family:var(--font-sans); font-size:.74rem; font-weight:600;
-      letter-spacing:.2em; text-transform:uppercase; color:var(--jade); margin:0 0 .55rem; }
-    .quiz-bar{ width:100%; height:4px; background:var(--line);
-      border-radius:999px; overflow:hidden; }
-    .quiz-bar__fill{ display:block; height:100%; width:0%; background:var(--jade);
-      border-radius:999px; transition:width .35s ease; }
-
-    /* option buttons */
-    .quiz-options{ display:flex; flex-direction:column; gap:.7rem; margin:1.5rem 0 0; }
-    .quiz-option{ display:block; width:100%; text-align:left;
-      font-family:var(--font-sans); font-size:1.02rem; font-weight:500; color:var(--ink);
-      background:var(--paper-2); border:1px solid var(--line);
-      border-radius:var(--radius); padding:1rem 1.15rem; cursor:pointer;
-      transition:border-color .18s ease, background .18s ease, transform .05s ease; }
-    .quiz-option:hover{ border-color:var(--jade); background:color-mix(in srgb, var(--jade) 8%, var(--paper-2)); }
-    .quiz-option:active{ transform:translateY(1px); }
-    .quiz-option.is-selected{ border-color:var(--jade); background:color-mix(in srgb, var(--jade) 12%, var(--paper-2)); }
-
-    /* back affordance */
-    .quiz-back{ display:inline-flex; align-items:center; gap:.4rem; margin-top:1.4rem;
-      background:transparent; border:0; cursor:pointer;
-      font-family:var(--font-sans); font-size:.85rem; letter-spacing:.03em; color:var(--ink-soft); }
-    .quiz-back:hover{ color:var(--jade-deep); }
-    .quiz-back[hidden]{ display:none; }
-
-    /* loading beat */
-    .quiz-loader{ display:flex; flex-direction:column; align-items:center; gap:1.2rem; padding:2rem 0; }
-    .quiz-spinner{ width:38px; height:38px; border-radius:50%;
-      border:3px solid var(--line); border-top-color:var(--jade); animation:quizspin .8s linear infinite; }
-    @keyframes quizspin{ to{ transform:rotate(360deg); } }
-    @media (prefers-reduced-motion: reduce){ .quiz-spinner{ animation:none; } }
-
-    .quiz-actions{ display:flex; flex-wrap:wrap; gap:.7rem; justify-content:center; margin-top:1.4rem; }
-    .quiz-form{ display:flex; flex-direction:column; gap:.8rem; margin-top:1.4rem; text-align:left; }
-    .quiz-form .btn{ width:100%; justify-content:center; }
-
-    @media (max-width:400px){
-      .quiz-option{ font-size:.98rem; padding:.9rem 1rem; }
-    }
-  </style>
 </head>
 <body>
 <header class="site-header">
@@ -69,6 +21,7 @@
       <a href="index.html">Home</a>
       <a href="landing.html">The method</a>
       <a href="blog.html">Journal</a>
+      <a href="quiz.html" class="active">Quiz</a>
       <a href="course.html">Course</a>
       <a href="about.html">About</a>
     </div>
@@ -80,82 +33,33 @@
   </nav>
 </header>
 <main id="top">
-<section class="section hero">
-  <div class="wrap wrap--narrow quiz-shell reveal">
+<section class="section">
+  <div class="wrap wrap--narrow quiz-wrap">
 
-    <!-- ============ STEP 0: INTRO ============ -->
-    <div class="quiz-step is-active center" id="step-intro" data-step="intro">
-      <p class="eyebrow">Find your starting point</p>
-      <hr class="rule">
-      <h1>Which 5-minute ritual is right for your face?</h1>
-      <p class="lead">Answer five quick questions and we'll point you to the gentle at-home bojin ritual that fits your face right now — plus a free personalised starter guide. Takes about a minute.</p>
-      <p style="margin-top:1.6rem"><button class="btn btn--lg" type="button" id="quiz-start">Start the quiz</button></p>
+    <!-- Intro -->
+    <div id="quizIntro" class="quiz-intro reveal in">
+      <p class="eyebrow">Face Tension Profile</p>
+      <hr class="rule" style="margin-inline:auto">
+      <h1 class="display" style="font-size:clamp(2.4rem,6vw,3.4rem)">Where does your face hold tension?</h1>
+      <p class="lead" style="margin-inline:auto">Answer 8 quick questions about how your face <em>feels</em> — no camera, no scan, just your own sense of it. You'll get a simple tension map, and a gentle 3-minute reset for the area that needs it most.</p>
+      <p style="margin-top:1.4rem"><button class="btn btn--lg" id="quizStart">Start &mdash; takes about a minute &rarr;</button></p>
+      <p class="quiz-note quiz-note--center">A gentle self-assessment of how your face feels — not a medical diagnosis.</p>
     </div>
 
-    <!-- ============ STEP 1–5: QUESTIONS ============ -->
-    <div class="quiz-step" id="step-question" data-step="question">
-      <div class="quiz-progress">
-        <p class="quiz-progress__label" id="quiz-count">Question 1 of 5</p>
-        <span class="quiz-bar"><span class="quiz-bar__fill" id="quiz-fill"></span></span>
-      </div>
-      <h2 id="quiz-q" style="font-size:clamp(1.6rem,3.4vw,2.2rem)">&nbsp;</h2>
-      <div class="quiz-options" id="quiz-options" role="group" aria-live="polite"></div>
-      <button class="quiz-back" type="button" id="quiz-back">&larr; Back</button>
-    </div>
-
-    <!-- ============ STEP 6: BUILDING RESULT ============ -->
-    <div class="quiz-step center" id="step-loading" data-step="loading">
-      <div class="quiz-loader">
-        <span class="quiz-spinner" aria-hidden="true"></span>
-        <p class="lead" style="margin:0">Building your result&hellip;</p>
+    <!-- Quiz stage -->
+    <div id="quizStage" class="quiz-card reveal in" hidden>
+      <div class="quiz-progress" id="quizProgress" aria-hidden="true"></div>
+      <p class="quiz-zone" id="quizZone"></p>
+      <h2 class="quiz-q" id="quizQ"></h2>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-nav">
+        <button class="btn btn--ghost" id="quizBack">&larr; Back</button>
+        <span class="quiz-count" id="quizCount"></span>
       </div>
     </div>
 
-    <!-- ============ STEP 7: RESULT + EMAIL CAPTURE ============ -->
-    <div class="quiz-step" id="step-result" data-step="result">
-      <div class="center">
-        <p class="eyebrow" id="result-eyebrow">Your result</p>
-        <hr class="rule">
-        <h1 id="result-title" style="font-size:clamp(2rem,5vw,3rem)">&nbsp;</h1>
-        <p class="lead" id="result-body" style="margin-inline:auto">&nbsp;</p>
-      </div>
-
-      <div class="card" style="margin-top:1.8rem; text-align:left">
-        <p class="eyebrow" style="margin-bottom:.6rem">Start here</p>
-        <p style="margin-bottom:1rem" id="result-guide-lead">&nbsp;</p>
-        <p style="margin:0"><a class="btn btn--ghost" id="result-guide-link" href="#">Read your starter guide &rarr;</a></p>
-      </div>
-
-      <!-- =========================================================
-           DEMO PLACEHOLDER FORM.
-           This form does NOT post to any server. On submit it only
-           shows a success message client-side. Before launch, wire
-           the submit handler to systeme.io (form action / embed) or
-           to an n8n webhook so name + email are actually captured.
-           Do not treat this as a live opt-in until then.
-           ========================================================= -->
-      <div id="result-capture" style="margin-top:2rem; text-align:left">
-        <h2 style="font-size:clamp(1.5rem,3vw,2rem)">Get your free personalised starter guide</h2>
-        <p class="muted">We'll email your matched guide plus a gentle 3-day mini-plan you can start tonight.</p>
-        <form class="quiz-form" id="quiz-form" novalidate>
-          <label class="form-note" for="q-name" style="margin:0">Your first name</label>
-          <input class="field" type="text" id="q-name" name="name" placeholder="First name" autocomplete="given-name" required>
-          <label class="form-note" for="q-email" style="margin:0">Your email</label>
-          <input class="field" type="email" id="q-email" name="email" placeholder="you@example.com" autocomplete="email" required>
-          <button class="btn btn--lg" type="submit">Send me my starter guide</button>
-          <p class="form-note">No spam, ever. Unsubscribe in one click. We'll never share your email.</p>
-        </form>
-      </div>
-
-      <!-- success state, revealed after submit -->
-      <div id="result-success" hidden style="margin-top:2rem">
-        <p class="success-note">Beautiful &mdash; check your inbox for your starter guide.</p>
-        <div class="quiz-actions">
-          <a class="btn" href="landing.html#guide">See the free guide</a>
-          <a class="btn btn--ghost" href="course.html">Explore the course</a>
-        </div>
-      </div>
-    </div>
+    <!-- Result stage -->
+    <div id="quizResult" class="quiz-result reveal in" hidden></div>
 
   </div>
 </section>
@@ -164,229 +68,238 @@
   <div class="wrap">
     <div>
       <a class="brand" href="index.html" style="color:var(--ink)"><svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" style="color:var(--jade)" aria-hidden="true"><circle cx="12" cy="12" r="8"></circle><path d="M12 4v16"></path></svg><span>The Bojin Method</span></a>
-      <p class="foot-note" style="margin-top:.6rem">A gentle, meridian-based facial release method you can learn at home.</p>
+      <p class="foot-note" style="margin-top:.6rem">A gentle, at-home facial release method. This quiz is a self-assessment, not medical advice.</p>
     </div>
     <div class="foot-note">&copy; 2026 The Bojin Method. Yu-Ting Lan.</div>
   </div>
 </footer>
-
-<script>
-/* ============================================================
-   QUIZ ENGINE — vanilla JS, no libraries.
-   ============================================================ */
-(function(){
-  // ---- zone definitions (result copy + matching guide) ----
-  var ZONES = {
-    "Eyes": {
-      guide: "blog-tired-puffy-eyes.html",
-      title: "Your focus: bright, rested eyes",
-      body: "The eye area is where tiredness shows first, and it's also where a soft few minutes make the quickest visible difference. Gentle drainage around the eyes can ease puffiness and help you look more awake — without tugging delicate skin.",
-      guideLead: "Begin with our gentle 5-minute eye reset. It's the easiest place to feel bojin working."
-    },
-    "Jaw & Neck": {
-      guide: "blog-jawline-double-chin.html",
-      title: "Your focus: a softer, lifted jawline",
-      body: "A blurry jawline and fullness under the chin are often about tension and sluggish drainage, not just weight. Releasing the jaw and neck helps everything look more defined and lifted — and it feels wonderful after a long day.",
-      guideLead: "Start with our calm 5-minute jaw and neck release to feel the difference."
-    },
-    "Cheeks & Smile Lines": {
-      guide: "blog-smile-lines-cheeks.html",
-      title: "Your focus: fuller cheeks, softer smile lines",
-      body: "Smile lines and midface softness are where slackness quietly reads as 'older.' Working the cheeks gently supports lift and circulation, so lines look softer and your face reads brighter and more awake.",
-      guideLead: "Start with our gentle cheek and smile-line ritual — a lovely daily lift."
-    },
-    "Brows & Forehead": {
-      guide: "blog-forehead-frown-lines.html",
-      title: "Your focus: a lighter, smoother brow",
-      body: "Frown lines and a heavy brow usually come from tension you carry without noticing. A few soft minutes releasing the forehead can ease that held tightness, so the whole upper face looks calmer and more open.",
-      guideLead: "Start with our forehead and frown-line release to let the brow soften."
-    },
-    "Glow & Circulation": {
-      guide: "blog-dull-puffy-glow.html",
-      title: "Your focus: fresh, glowing, less-puffy skin",
-      body: "Dullness and morning puffiness are often just sluggish circulation. Gentle bojin wakes the whole face up, helps your serum absorb, and brings back that lit-from-within look — in just a few quiet minutes.",
-      guideLead: "Start with our full-face glow and drainage ritual for an all-over refresh."
-    }
-  };
-
-  // ---- questions ----
-  // Q1 options carry a zone. Q2 carries a "nuance" used only as a tiebreaker.
-  var QUESTIONS = [
-    {
-      q: "When you look in the mirror, what bothers you most?",
-      options: [
-        { label: "Tired or puffy eyes", zone: "Eyes" },
-        { label: "A softer jawline or a little double chin", zone: "Jaw & Neck" },
-        { label: "Smile lines and softer cheeks", zone: "Cheeks & Smile Lines" },
-        { label: "Forehead lines and a heavy brow", zone: "Brows & Forehead" },
-        { label: "Overall dullness and puffiness", zone: "Glow & Circulation" }
-      ]
-    },
-    {
-      q: "How does your face feel most mornings?",
-      options: [
-        { label: "Puffy", nuance: "Glow & Circulation" },
-        { label: "Tight and tense", nuance: "Brows & Forehead" },
-        { label: "Dull and tired", nuance: "Eyes" },
-        { label: "Fine — I mostly want to maintain", nuance: null }
-      ]
-    },
-    {
-      q: "Have you tried gua sha before?",
-      options: [
-        { label: "Yes, I love it" },
-        { label: "Yes, but I did not see results" },
-        { label: "No, I am new to this" }
-      ]
-    },
-    {
-      q: "How many minutes a day can you realistically give?",
-      options: [
-        { label: "2–3" },
-        { label: "About 5" },
-        { label: "10 or more" }
-      ]
-    },
-    {
-      q: "Which sounds most like you?",
-      options: [
-        { label: "Under 40" },
-        { label: "40–49" },
-        { label: "50–59" },
-        { label: "60+" }
-      ]
-    }
-  ];
-
-  // ---- state ----
-  var current = 0;                    // index into QUESTIONS
-  var answers = new Array(QUESTIONS.length).fill(null); // stores selected option index
-
-  // ---- element refs ----
-  var steps = {
-    intro:    document.getElementById('step-intro'),
-    question: document.getElementById('step-question'),
-    loading:  document.getElementById('step-loading'),
-    result:   document.getElementById('step-result')
-  };
-  var elCount   = document.getElementById('quiz-count');
-  var elFill    = document.getElementById('quiz-fill');
-  var elQ       = document.getElementById('quiz-q');
-  var elOptions = document.getElementById('quiz-options');
-  var elBack    = document.getElementById('quiz-back');
-
-  function showStep(name){
-    Object.keys(steps).forEach(function(k){
-      steps[k].classList.toggle('is-active', k === name);
-    });
-    // scroll the shell into a comfortable view on step change
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
-  function renderQuestion(){
-    var Q = QUESTIONS[current];
-    elCount.textContent = 'Question ' + (current + 1) + ' of ' + QUESTIONS.length;
-    elFill.style.width = ((current) / QUESTIONS.length * 100) + '%';
-    elQ.textContent = Q.q;
-    elBack.hidden = (current === 0);
-
-    elOptions.innerHTML = '';
-    Q.options.forEach(function(opt, i){
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'quiz-option';
-      btn.textContent = opt.label;
-      if (answers[current] === i) btn.classList.add('is-selected');
-      btn.addEventListener('click', function(){ selectOption(i); });
-      elOptions.appendChild(btn);
-    });
-    showStep('question');
-  }
-
-  function selectOption(i){
-    answers[current] = i;
-    if (current < QUESTIONS.length - 1){
-      current++;
-      renderQuestion();
-    } else {
-      // completed last question
-      elFill.style.width = '100%';
-      finish();
-    }
-  }
-
-  function goBack(){
-    if (current > 0){
-      current--;
-      renderQuestion();
-    }
-  }
-
-  function computeZone(){
-    // Primary zone from Q1
-    var q1 = QUESTIONS[0].options[answers[0]];
-    var zone = q1.zone;
-
-    // Nuance from Q2: only used as a light tiebreaker/confirmation.
-    // If Q1 was the broad "Overall dullness and puffiness" (Glow) and Q2
-    // points somewhere more specific, follow the more specific concern.
-    var q2 = QUESTIONS[1].options[answers[1]];
-    if (q2 && q2.nuance && zone === "Glow & Circulation"){
-      zone = q2.nuance;
-    }
-    return zone;
-  }
-
-  function finish(){
-    showStep('loading');
-    setTimeout(function(){
-      renderResult();
-      showStep('result');
-    }, 1100);
-  }
-
-  function renderResult(){
-    var zone = computeZone();
-    var data = ZONES[zone] || ZONES["Glow & Circulation"];
-    document.getElementById('result-eyebrow').textContent = 'Your ritual: ' + zone;
-    document.getElementById('result-title').textContent = data.title;
-    document.getElementById('result-body').textContent = data.body;
-    document.getElementById('result-guide-lead').textContent = data.guideLead;
-    var link = document.getElementById('result-guide-link');
-    link.setAttribute('href', data.guide);
-  }
-
-  // ---- wire up ----
-  document.getElementById('quiz-start').addEventListener('click', function(){
-    current = 0;
-    renderQuestion();
-  });
-  elBack.addEventListener('click', goBack);
-
-  // ---- email capture (DEMO ONLY — does not post anywhere) ----
-  document.getElementById('quiz-form').addEventListener('submit', function(e){
-    e.preventDefault();
-    // NOTE: intentionally no fetch/POST. Wire to systeme.io / n8n before launch.
-    document.getElementById('result-capture').hidden = true;
-    document.getElementById('result-success').hidden = false;
-    document.getElementById('result-success').scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
-})();
-</script>
-
-<!-- theme toggle + reveal (verbatim from the rest of the site) -->
 <script>
 (function(){
+  /* theme toggle */
   var root=document.documentElement;
   try{var s=localStorage.getItem('bojin-theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
   function cur(){ return root.getAttribute('data-theme') || 'light'; }
   document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
     b.addEventListener('click',function(){ var n=cur()==='dark'?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem('bojin-theme',n);}catch(e){} });
   });
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
-    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
+
+  /* ---------- Face Tension Profile data ---------- */
+  var ZONE_LABEL = {
+    'eyes':'Eyes',
+    'brows-forehead':'Brows & Forehead',
+    'cheeks-nasolabial':'Cheeks & Smile Lines',
+    'jaw-neck':'Jaw & Neck',
+    'glow-circulation':'Glow & Circulation'
+  };
+  var ZONE_SHORT = { 'eyes':'Eyes','brows-forehead':'Brows','cheeks-nasolabial':'Cheeks','jaw-neck':'Jaw & Neck','glow-circulation':'Glow' };
+  var RADAR = ['brows-forehead','eyes','cheeks-nasolabial','jaw-neck','glow-circulation'];
+
+  /* each option: label, sub, and points added to zones (option order = tension level 1..3) */
+  var QUESTIONS = [
+    { zone:'eyes', q:'How do your eyes look most mornings?', opts:[
+      {label:'Bright and rested', sub:'Barely any puffiness', add:{'eyes':15}},
+      {label:'A little tired', sub:'Some puffiness or heaviness', add:{'eyes':52}},
+      {label:'Puffy and tired', sub:'Heavy, tired-looking most days', add:{'eyes':90}}
+    ]},
+    { zone:'brows-forehead', q:'By evening, your forehead and between your brows feel…', opts:[
+      {label:'Relaxed', sub:'Smooth and easy', add:{'brows-forehead':15}},
+      {label:'A little tight', sub:'Some tension creeps in', add:{'brows-forehead':52}},
+      {label:'Tense and furrowed', sub:'You notice the "11" lines', add:{'brows-forehead':90}}
+    ]},
+    { zone:'cheeks-nasolabial', q:'Your cheeks and smile lines lately?', opts:[
+      {label:'Firm and fresh', sub:'Sitting high and even', add:{'cheeks-nasolabial':15}},
+      {label:'Softening a little', sub:'Lines a touch deeper', add:{'cheeks-nasolabial':52}},
+      {label:'Lower and lined', sub:'Cheeks lower, smile lines set in', add:{'cheeks-nasolabial':90}}
+    ]},
+    { zone:'jaw-neck', q:'Your jaw and neck feel…', opts:[
+      {label:'Loose and easy', sub:'No tightness', add:{'jaw-neck':15}},
+      {label:'A little tight', sub:'Some tension by day’s end', add:{'jaw-neck':52}},
+      {label:'Clenched and full', sub:'Tightness or fullness under the chin', add:{'jaw-neck':90}}
+    ]},
+    { zone:'glow-circulation', q:'Your skin overall looks…', opts:[
+      {label:'Fresh and glowy', sub:'Bright and awake', add:{'glow-circulation':15}},
+      {label:'A bit flat', sub:'Could look more awake', add:{'glow-circulation':52}},
+      {label:'Dull and puffy', sub:'Tired-looking, serums sit on top', add:{'glow-circulation':90}}
+    ]},
+    { zone:null, label:'A little about your days', q:'How many hours a day are you on screens?', opts:[
+      {label:'Under 2', sub:'', add:{}},
+      {label:'2 to 5', sub:'', add:{'eyes':15,'brows-forehead':10}},
+      {label:'5 or more', sub:'', add:{'eyes':30,'brows-forehead':20}}
+    ]},
+    { zone:null, label:'A little about your days', q:'Do you clench your jaw or hold stress in your face?', opts:[
+      {label:'Rarely', sub:'', add:{}},
+      {label:'Sometimes', sub:'', add:{'jaw-neck':15,'brows-forehead':10}},
+      {label:'Often', sub:'', add:{'jaw-neck':30,'brows-forehead':20}}
+    ]},
+    { zone:null, label:'A little about your days', q:'Lately, your sleep and water intake are…', opts:[
+      {label:'Pretty good', sub:'', add:{}},
+      {label:'So-so', sub:'', add:{'eyes':12,'glow-circulation':16}},
+      {label:'Not great', sub:'', add:{'eyes':25,'glow-circulation':32}}
+    ]}
+  ];
+
+  var RITUALS = {
+    'eyes':{ title:'Your 3-minute eye reset', steps:[
+      'Warm your hands, rest your ring fingers gently under your eyes and breathe slowly for a few seconds — no pressure, just warmth.',
+      'With a featherlight touch, sweep from the inner corner out toward your temples, ten slow times, to help ease puffiness.',
+      'Softly press the little hollows at the inner brow and the outer corners, hold, release. Your eyes should feel lighter and more awake.'
+    ]},
+    'brows-forehead':{ title:'Your 3-minute brow release', steps:[
+      'Rest three fingers across your forehead and breathe out slowly, letting the brow go heavy and soft.',
+      'Featherlight, smooth from the centre of your forehead outward to your temples, ten times.',
+      'Gently pinch-and-release along the brow bone, then the spot between your brows, until the tension lets go.'
+    ]},
+    'cheeks-nasolabial':{ title:'Your 3-minute cheek reset', steps:[
+      'Cup your cheeks in warm hands and take a slow breath, softening the whole midface.',
+      'With a light touch, sweep up and out from the smile lines toward the top of the cheekbone, ten times.',
+      'Gently glide along the cheekbone from nose to ear, hold and release, so the midface feels fresher.'
+    ]},
+    'jaw-neck':{ title:'Your 3-minute jaw & neck release', steps:[
+      'Warm your hands, let your jaw hang loose, and breathe out slowly.',
+      'Featherlight, stroke down the sides of the neck from under the ear toward the collarbone, ten times, to help everything feel lighter.',
+      'Gently massage the tight muscle at the angle of the jaw in slow circles, then release. The lower face should feel looser.'
+    ]},
+    'glow-circulation':{ title:'Your 3-minute full-face sweep', steps:[
+      'Warm your hands and rest them over your whole face for a few slow breaths.',
+      'With a light touch, sweep outward and upward across forehead, cheeks and jaw, ten slow passes, to wake up tired-looking skin.',
+      'Finish by gliding gently along the cheekbones and jaw, then sweep down the neck. Your face should look a little fresher and more rested.'
+    ]}
+  };
+
+  var ARTICLE = {
+    'eyes':'blog-tired-puffy-eyes.html',
+    'brows-forehead':'blog-forehead-frown-lines.html',
+    'cheeks-nasolabial':'blog-smile-lines-cheeks.html',
+    'jaw-neck':'blog-jawline-double-chin.html',
+    'glow-circulation':'blog-dull-puffy-glow.html'
+  };
+
+  /* ---------- state + elements ---------- */
+  var answers = new Array(QUESTIONS.length).fill(null);
+  var cur = 0;
+  var elIntro=document.getElementById('quizIntro');
+  var elStage=document.getElementById('quizStage');
+  var elResult=document.getElementById('quizResult');
+  var elProg=document.getElementById('quizProgress');
+  var elZone=document.getElementById('quizZone');
+  var elQ=document.getElementById('quizQ');
+  var elOpts=document.getElementById('quizOptions');
+  var elBack=document.getElementById('quizBack');
+  var elCount=document.getElementById('quizCount');
+
+  /* build progress dots once */
+  for(var d=0; d<QUESTIONS.length; d++){ var dot=document.createElement('span'); dot.className='quiz-dot'; elProg.appendChild(dot); }
+  var dots=elProg.querySelectorAll('.quiz-dot');
+
+  function render(){
+    var Q=QUESTIONS[cur];
+    elZone.textContent = Q.zone ? ZONE_LABEL[Q.zone] : (Q.label || '');
+    elQ.textContent = Q.q;
+    elOpts.innerHTML='';
+    Q.opts.forEach(function(opt, i){
+      var b=document.createElement('button');
+      b.className='quiz-opt'+(answers[cur]===i?' is-sel':'');
+      var bars='';
+      for(var k=0;k<3;k++){ bars+='<span class="b'+(k<=i?' on':'')+'"></span>'; }
+      b.innerHTML='<span class="quiz-lvl" aria-hidden="true">'+bars+'</span>'+
+        '<span class="quiz-opt-txt"><span class="quiz-opt-label">'+opt.label+'</span>'+
+        (opt.sub?'<span class="quiz-opt-sub">'+opt.sub+'</span>':'')+'</span>';
+      b.addEventListener('click', function(){ choose(i); });
+      elOpts.appendChild(b);
+    });
+    dots.forEach(function(dt, i){ dt.classList.toggle('is-done', i<cur); dt.classList.toggle('is-current', i===cur); });
+    elBack.style.visibility = cur===0 ? 'hidden' : 'visible';
+    elCount.textContent = 'Question '+(cur+1)+' of '+QUESTIONS.length;
+  }
+
+  function choose(i){
+    answers[cur]=i;
+    if(cur < QUESTIONS.length-1){ cur++; render(); window.scrollTo({top:0,behavior:'smooth'}); }
+    else{ showResult(); }
+  }
+  elBack.addEventListener('click', function(){ if(cur>0){ cur--; render(); } });
+
+  function computeScores(){
+    var sc={'eyes':0,'brows-forehead':0,'cheeks-nasolabial':0,'jaw-neck':0,'glow-circulation':0};
+    QUESTIONS.forEach(function(Q, qi){
+      var a=answers[qi]; if(a===null) return;
+      var add=Q.opts[a].add||{};
+      for(var z in add){ if(sc.hasOwnProperty(z)) sc[z]+=add[z]; }
+    });
+    for(var z2 in sc){ if(sc[z2]>100) sc[z2]=100; }
+    return sc;
+  }
+
+  function buildRadar(sc){
+    var cx=160, cy=150, R=98, n=RADAR.length;
+    function pt(i, rr){ var ang=(i*72-90)*Math.PI/180; return [cx+rr*Math.cos(ang), cy+rr*Math.sin(ang)]; }
+    var svg='<svg viewBox="0 0 320 300" role="img" aria-label="Your face tension map">';
+    [0.25,0.5,0.75,1].forEach(function(f){
+      var p=[]; for(var i=0;i<n;i++){ var q=pt(i,R*f); p.push(q[0].toFixed(1)+','+q[1].toFixed(1)); }
+      svg+='<polygon points="'+p.join(' ')+'" fill="none" stroke="var(--line)" stroke-width="1"/>';
+    });
+    for(var i=0;i<n;i++){ var q=pt(i,R); svg+='<line x1="'+cx+'" y1="'+cy+'" x2="'+q[0].toFixed(1)+'" y2="'+q[1].toFixed(1)+'" stroke="var(--line)" stroke-width="1"/>'; }
+    var dp=[]; for(var i2=0;i2<n;i2++){ var s=Math.max(6, sc[RADAR[i2]]||0); var q2=pt(i2, R*s/100); dp.push(q2[0].toFixed(1)+','+q2[1].toFixed(1)); }
+    svg+='<polygon points="'+dp.join(' ')+'" fill="var(--jade)" fill-opacity="0.26" stroke="var(--jade)" stroke-width="2"/>';
+    for(var i3=0;i3<n;i3++){ var s3=Math.max(6, sc[RADAR[i3]]||0); var q3=pt(i3, R*s3/100); svg+='<circle cx="'+q3[0].toFixed(1)+'" cy="'+q3[1].toFixed(1)+'" r="3.6" fill="var(--jade)"/>'; }
+    for(var i4=0;i4<n;i4++){ var lp=pt(i4, R+18); var x=lp[0], anchor=(x>cx+6?'start':(x<cx-6?'end':'middle'));
+      svg+='<text x="'+x.toFixed(1)+'" y="'+(lp[1]+3).toFixed(1)+'" text-anchor="'+anchor+'" font-size="11" font-weight="500" fill="var(--ink-soft)" font-family="var(--font-sans)">'+ZONE_SHORT[RADAR[i4]]+'</text>'; }
+    svg+='</svg>';
+    return svg;
+  }
+
+  function showResult(){
+    var sc=computeScores();
+    var top=RADAR[0], tv=-1;
+    RADAR.forEach(function(z){ if(sc[z]>tv){ tv=sc[z]; top=z; } });
+    var rit=RITUALS[top];
+    var chips='';
+    RADAR.forEach(function(z){ chips+='<span class="zone-chip'+(z===top?' top':'')+'">'+ZONE_SHORT[z]+' '+Math.round(sc[z])+'</span>'; });
+    var steps=''; rit.steps.forEach(function(s){ steps+='<li>'+s+'</li>'; });
+
+    elResult.innerHTML=
+      '<div class="center">'+
+        '<p class="eyebrow">Your Face Tension Profile</p><hr class="rule" style="margin-inline:auto">'+
+        '<h1 class="display" style="font-size:clamp(2rem,5vw,3rem)">Your face holds the most tension around your <span style="color:var(--jade-deep)">'+ZONE_LABEL[top].toLowerCase()+'</span>.</h1>'+
+        '<div class="radar-box">'+buildRadar(sc)+'</div>'+
+        '<div class="zone-scores">'+chips+'</div>'+
+        '<p class="lead" style="margin-inline:auto">Higher means more tension, lower means more rested. Here’s a gentle reset for the area asking for the most attention right now.</p>'+
+      '</div>'+
+      '<div class="quiz-card" style="margin-top:1.6rem;text-align:left">'+
+        '<p class="quiz-zone" style="text-align:left">'+ZONE_LABEL[top]+'</p>'+
+        '<h2 style="font-family:var(--font-serif);font-weight:500;margin:0 0 .3rem">'+rit.title+'</h2>'+
+        '<ol class="ritual">'+steps+'</ol>'+
+        '<p style="margin:0"><a class="btn btn--ghost" href="'+ARTICLE[top]+'">Read the full '+ZONE_SHORT[top].toLowerCase()+' guide &rarr;</a></p>'+
+      '</div>'+
+      '<div class="band-jade" style="margin-top:1.6rem;border-radius:14px;padding:1.8rem 1.4rem;text-align:center">'+
+        '<p class="eyebrow">Keep it going</p><hr class="rule" style="margin-inline:auto">'+
+        '<h2 style="font-family:var(--font-serif);font-weight:500">Get your personalised starter guide.</h2>'+
+        '<p class="lead" style="margin-inline:auto">Leave your email and we’ll send a gentle starter guide built around your '+ZONE_SHORT[top].toLowerCase()+' result — simple steps you can keep for good.</p>'+
+        '<form class="signup" id="quizForm" style="justify-content:center" novalidate>'+
+          '<input class="field" type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>'+
+          '<button class="btn btn--lg" type="submit">Send my guide</button>'+
+        '</form>'+
+        '<p class="form-note" style="text-align:center">No spam, ever. A self-assessment of how your face feels — not a medical diagnosis.</p>'+
+        '<p class="success-note" id="quizOk" hidden style="max-width:420px;margin:1rem auto 0">Lovely — check your inbox shortly for your personalised guide. 🌿</p>'+
+      '</div>'+
+      '<p class="center"><button class="restart" id="quizRestart">Start over</button></p>';
+
+    elStage.hidden=true; elIntro.hidden=true; elResult.hidden=false;
+    window.scrollTo({top:0,behavior:'smooth'});
+
+    var qf=document.getElementById('quizForm');
+    if(qf){ qf.addEventListener('submit',function(e){ e.preventDefault();
+      var em=qf.querySelector('input[type=email]'); if(!em.value || em.value.indexOf('@')<1){ em.focus(); return; }
+      qf.hidden=true; var ok=document.getElementById('quizOk'); if(ok) ok.hidden=false;
+    }); }
+    var rs=document.getElementById('quizRestart');
+    if(rs){ rs.addEventListener('click', function(){ answers=new Array(QUESTIONS.length).fill(null); cur=0;
+      elResult.hidden=true; elResult.innerHTML=''; elIntro.hidden=false; window.scrollTo({top:0,behavior:'smooth'}); }); }
+  }
+
+  document.getElementById('quizStart').addEventListener('click', function(){
+    elIntro.hidden=true; elStage.hidden=false; render(); window.scrollTo({top:0,behavior:'smooth'});
+  });
 })();
 </script>
 <script src="nav.js"></script>
