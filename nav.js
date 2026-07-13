@@ -1,3 +1,17 @@
+/* Meta Pixel — Bojin Funnel Pixel-US (751313064707787).
+   Loaded site-wide via nav.js so it survives page rewrites / new articles.
+   Fires PageView on every page. (Lead/Purchase get added at their action points later.) */
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '751313064707787');
+fbq('track', 'PageView');
+
 /* Shared mobile navigation — hamburger toggle for the top nav.
    Included on every page via <script src="nav.js"></script>.
    Works off the existing .site-header / .nav-links markup. */
