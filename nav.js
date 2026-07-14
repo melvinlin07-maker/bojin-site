@@ -12,6 +12,19 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '751313064707787');
 fbq('track', 'PageView');
 
+/* Google Analytics 4 — property for bojinfacetension.com (G-2VFEVY9Q1F).
+   Loaded site-wide via nav.js so it survives page rewrites / new articles. */
+(function(){
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VFEVY9Q1F';
+  document.head.appendChild(s);
+})();
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-2VFEVY9Q1F');
+
 /* Shared mobile navigation — hamburger toggle for the top nav.
    Included on every page via <script src="nav.js"></script>.
    Works off the existing .site-header / .nav-links markup. */
