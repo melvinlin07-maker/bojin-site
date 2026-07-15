@@ -64,3 +64,34 @@ gtag('config', 'G-2VFEVY9Q1F');
   bar.appendChild(links);
   footer.appendChild(bar);
 })();
+
+/* On article pages, upgrade the plain author line (.post-bio) into an
+   author card with avatar + a link to About — builds trust and E-E-A-T.
+   Only runs where .post-bio exists (i.e. blog articles), so other pages skip it. */
+(function(){
+  var bio = document.querySelector('.post-bio');
+  if(!bio || bio.getAttribute('data-authorcard')) return;
+  var card = document.createElement('div');
+  card.className = 'author-card';
+  card.setAttribute('data-authorcard','1');
+  card.style.cssText = 'display:flex;gap:1rem;align-items:flex-start;margin-top:1.8rem;padding-top:1.4rem;border-top:1px solid var(--edge, rgba(120,90,60,.16))';
+  var img = document.createElement('img');
+  img.src = 'assets/yu-ting-lan-bojin-instructor.png';
+  img.alt = 'Yu-Ting Lan, bojin instructor';
+  img.loading = 'lazy';
+  img.style.cssText = 'width:66px;height:66px;border-radius:50%;object-fit:cover;object-position:50% 18%;flex:none;background:#F1EADB';
+  var col = document.createElement('div');
+  var p = document.createElement('p');
+  p.className = 'foot-note';
+  p.style.cssText = 'margin:0;font-size:.92rem;line-height:1.6';
+  p.innerHTML = bio.innerHTML;
+  var a = document.createElement('a');
+  a.href = 'about.html';
+  a.innerHTML = 'Read Yu-Ting&rsquo;s story &rarr;';
+  a.style.cssText = 'display:inline-block;margin-top:.55rem;font-size:.9rem;font-weight:600';
+  col.appendChild(p);
+  col.appendChild(a);
+  card.appendChild(img);
+  card.appendChild(col);
+  bio.parentNode.replaceChild(card, bio);
+})();
