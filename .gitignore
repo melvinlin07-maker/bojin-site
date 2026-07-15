@@ -1,2 +1,19 @@
 # Internal notes / handoff / design docs — kept locally, never published to the live site.
 *.md
+
+# Raw source photos & videos — kept locally as material, never deployed to the live site.
+# (Optimized, web-ready images live under names like bojin-*.jpg / og/*.jpg and ARE committed.)
+assets/*.mp4
+assets/*.mov
+assets/*.MP4
+assets/*.MOV
+assets/2019*.jpg
+assets/2020*.jpg
+assets/2021*.jpg
+assets/2022*.jpg
+assets/2023*.jpg
+assets/2024*.jpg
+assets/P_*.jpg
+assets/早期*
+assets/7月*
+assets/老師最早期*
