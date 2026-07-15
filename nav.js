@@ -48,3 +48,19 @@ gtag('config', 'G-2VFEVY9Q1F');
   document.addEventListener('click', function(e){ if(header.classList.contains('nav-open') && !header.contains(e.target)) close(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
 })();
+
+/* Auto-append legal links (Privacy · Terms) to the footer on every page,
+   so all pages carry them without editing each file individually. */
+(function(){
+  var footer = document.querySelector('.site-footer');
+  if(!footer || footer.querySelector('.legal-links')) return;
+  var bar = document.createElement('div');
+  bar.className = 'wrap';
+  bar.style.cssText = 'margin-top:.2rem';
+  var links = document.createElement('div');
+  links.className = 'legal-links foot-note';
+  links.style.cssText = 'display:flex;gap:1.4rem;flex-wrap:wrap;border-top:1px solid var(--edge, rgba(120,90,60,.14));padding-top:1rem;margin-top:.6rem;width:100%';
+  links.innerHTML = '<a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a>';
+  bar.appendChild(links);
+  footer.appendChild(bar);
+})();
