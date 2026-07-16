@@ -101,9 +101,11 @@ gtag('config', 'G-2VFEVY9Q1F');
    lead magnet (the 5-zone face-tension PDF). Auto-covers all current and
    future articles; only runs where .post-bio exists (blog articles). */
 (function(){
-  if(!document.querySelector('.post-bio')) return;
   if(document.querySelector('.guide-cta')) return;
-  var anchor = document.querySelector('.related') || document.querySelector('.post-bio');
+  /* .post-bio is replaced by .author-card above, so anchor on either
+     (or the related block). Only article pages have these, so this
+     doubles as the "is this an article" guard. */
+  var anchor = document.querySelector('.related') || document.querySelector('.author-card') || document.querySelector('.post-bio');
   if(!anchor) return;
   var box = document.createElement('div');
   box.className = 'guide-cta reveal in';
