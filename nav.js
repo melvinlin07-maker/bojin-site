@@ -95,3 +95,28 @@ gtag('config', 'G-2VFEVY9Q1F');
   card.appendChild(col);
   bio.parentNode.replaceChild(card, bio);
 })();
+
+/* On article pages, insert a compact "free guide" opt-in CTA before the
+   Keep-reading / related block. Low-friction email capture for the blog
+   lead magnet (the 5-zone face-tension PDF). Auto-covers all current and
+   future articles; only runs where .post-bio exists (blog articles). */
+(function(){
+  if(!document.querySelector('.post-bio')) return;
+  if(document.querySelector('.guide-cta')) return;
+  var anchor = document.querySelector('.related') || document.querySelector('.post-bio');
+  if(!anchor) return;
+  var box = document.createElement('div');
+  box.className = 'guide-cta reveal in';
+  box.style.cssText = 'display:flex;flex-wrap:wrap;gap:1rem;align-items:center;justify-content:space-between;margin:1.8rem 0;padding:1.1rem 1.3rem;background:var(--paper-2,#FDF8F2);border:1px solid var(--edge, rgba(120,90,60,.16));border-left:3px solid var(--jade);border-radius:14px';
+  var txt = document.createElement('div');
+  txt.style.cssText = 'flex:1 1 16rem;font-size:.98rem;line-height:1.5;color:var(--ink)';
+  txt.innerHTML = '<strong>Not sure where your tension is?</strong> Take the free 2-minute 5-zone face check &mdash; find where your face holds tension, and feel it for yourself.';
+  var a = document.createElement('a');
+  a.className = 'btn';
+  a.href = 'guide.html';
+  a.style.cssText = 'flex:none';
+  a.innerHTML = 'Get the free guide &rarr;';
+  box.appendChild(txt);
+  box.appendChild(a);
+  anchor.parentNode.insertBefore(box, anchor);
+})();
