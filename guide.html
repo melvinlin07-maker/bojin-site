@@ -19,6 +19,11 @@
     .optin-box{margin:1.9rem auto 0;max-width:30rem;background:var(--paper-2,#FDF8F2);border:1px solid var(--edge,#E3D2C0);border-radius:18px;padding:1.6rem 1.5rem;box-shadow:var(--shadow-lift,0 10px 30px -14px rgba(60,40,25,.18))}
     .optin-box .optin-h{font-family:var(--font-serif,'Cormorant Garamond',serif);font-size:1.5rem;line-height:1.15;margin:0 0 .2rem;color:var(--ink)}
     .optin-box .optin-sub{font-size:.92rem;color:var(--muted,#8A7A6E);margin:0 0 1rem}
+    .optin-form{display:grid;gap:.7rem}
+    .optin-email{width:100%;padding:.85rem 1rem;font-size:1rem;font-family:inherit;color:var(--ink);background:var(--card,#fff);border:1.5px solid var(--edge,#E3D2C0);border-radius:12px;box-sizing:border-box}
+    .optin-email::placeholder{color:var(--muted,#8A7A6E)}
+    .optin-email:focus{outline:none;border-color:var(--jade);box-shadow:0 0 0 3px rgba(180,87,73,.16)}
+    .optin-form .btn{width:100%}
   </style>
 </head>
 <body>
@@ -57,10 +62,12 @@
     <div class="optin-box">
       <p class="optin-h">Where does your face hold tension?</p>
       <p class="optin-sub">Enter your email and your free guide is ready in seconds.</p>
-      <!-- systeme.io inline form (captures email into the list) -->
-      <div id="bojin-optin-form">
-        <script id="form-script-tag-24759460" src="https://go.bojinfacetension.com/public/remote/page/42586344b47b613828317e42f8b4ef8ae614a8ee.js"></script>
-      </div>
+      <!-- Brand-styled form; posts the email to systeme (list) via a hidden iframe, then we send the visitor to the guide -->
+      <form method="post" action="https://systeme.io/embedded/42586344/subscription" target="systeme-capture" id="optinForm" class="optin-form">
+        <input type="email" name="email" required placeholder="Enter your best email" class="optin-email" aria-label="Your email">
+        <button type="submit" class="btn btn--lg">Send me the free guide</button>
+      </form>
+      <iframe name="systeme-capture" title="subscription" style="display:none;width:0;height:0;border:0" aria-hidden="true"></iframe>
     </div>
 
     <p class="form-note" style="text-align:center;margin-top:1rem">Free &middot; No spam &middot; Unsubscribe anytime &middot; For self-care and educational purposes only. Not medical advice.</p>
@@ -90,6 +97,16 @@
     document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
   } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
 })();
+</script>
+<script>
+  (function(){
+    var f=document.getElementById('optinForm');
+    if(!f) return;
+    f.addEventListener('submit', function(){
+      // the email posts to systeme in the hidden iframe; send the visitor to their guide
+      setTimeout(function(){ window.location.href='guide-ready.html'; }, 700);
+    });
+  })();
 </script>
 <script src="nav.js"></script>
 </body>
