@@ -17,3 +17,6 @@ assets/P_*.jpg
 assets/早期*
 assets/7月*
 assets/老師最早期*
+
+# Internal content catalog — keep local, never publish
+content-library.json
