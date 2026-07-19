@@ -76,7 +76,7 @@ gtag('config', 'G-2VFEVY9Q1F');
   card.setAttribute('data-authorcard','1');
   card.style.cssText = 'display:flex;gap:1rem;align-items:flex-start;margin-top:1.8rem;padding-top:1.4rem;border-top:1px solid var(--edge, rgba(120,90,60,.16))';
   var img = document.createElement('img');
-  img.src = 'assets/yu-ting-lan-bojin-instructor.png';
+  img.src = 'assets/yu-ting-lan-bojin-instructor.webp';
   img.alt = 'Yu-Ting Lan, bojin instructor';
   img.loading = 'lazy';
   img.style.cssText = 'width:66px;height:66px;border-radius:50%;object-fit:cover;object-position:50% 18%;flex:none;background:#F1EADB';
