@@ -625,3 +625,5 @@ body.unlocked .gate{ display:none; }
 .related-grid a{display:flex;justify-content:space-between;align-items:center;gap:.6rem;padding:.85rem 1rem;background:var(--paper-2);border:1px solid var(--line);border-radius:12px;color:var(--ink);text-decoration:none;font-weight:500;font-size:.94rem;line-height:1.32;box-shadow:var(--shadow);transition:border-color .15s,color .15s}
 .related-grid a:hover{border-color:var(--jade);color:var(--jade-deep)}
 .related-grid a .arw{color:var(--jade);flex:none;font-size:1.05em}
+.related-begin{font-size:.95rem;margin:0 0 1.1rem;color:var(--ink)}
+.related-begin a{font-weight:600;color:var(--jade-deep)}
