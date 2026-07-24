@@ -303,12 +303,10 @@ body.unlocked .gate{ display:none; }
 .order-row strong{ font-family:var(--font-serif); font-size:1.2rem; color:var(--jade-deep); }
 
 /* reveal-on-scroll */
-.reveal{ opacity:0; transform:translateY(12px); transition:opacity .8s ease, transform .8s ease; }
+/* Fade-in removed: it could get stuck (JS/observer not firing) and leave
+   content invisible at the top of a page. Content is now always visible. */
+.reveal{ opacity:1 !important; transform:none !important; }
 .reveal.in{ opacity:1; transform:none; }
-@media (prefers-reduced-motion: reduce){ .reveal{ opacity:1; transform:none; transition:none; } }
-@media (scripting: none){ .reveal{ opacity:1; transform:none; } }
-/* On phones, skip the fade-in so content is never briefly blank at the top. */
-@media (max-width:720px){ .reveal{ opacity:1; transform:none; transition:none; } }
 
 :focus-visible{ outline:2px solid var(--jade); outline-offset:2px; border-radius:2px; }
 
