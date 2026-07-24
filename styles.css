@@ -627,3 +627,5 @@ body.unlocked .gate{ display:none; }
 .related-grid a .arw{color:var(--jade);flex:none;font-size:1.05em}
 .related-begin{font-size:.95rem;margin:0 0 1.1rem;color:var(--ink)}
 .related-begin a{font-weight:600;color:var(--jade-deep)}
+.next-read{margin-top:1.5rem}
+.next-read a{font-weight:600;color:var(--jade-deep);text-decoration:underline;text-underline-offset:2px}
