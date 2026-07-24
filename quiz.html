@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Face Tension Profile — a 1-minute self-check | The Bojin Method</title>
+  <title>Face Tension Profile: a 1-minute self-check | The Bojin Method</title>
   <meta name="description" content="A gentle 1-minute self-check: answer 8 quick questions about how your face feels and get a simple tension map, plus a personalised 3-minute reset for the area that needs it most. Self-assessment, not a medical diagnosis.">
-  <meta property="og:title" content="Face Tension Profile — a 1-minute self-check">
+  <meta property="og:title" content="Face Tension Profile: a 1-minute self-check">
   <meta property="og:description" content="See where your face holds the most tension, and get a gentle 3-minute reset matched to you.">
   <meta property="og:type" content="website">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,9 +42,9 @@
       <p class="eyebrow">Face Tension Profile</p>
       <hr class="rule" style="margin-inline:auto">
       <h1 class="display" style="font-size:clamp(2.4rem,6vw,3.4rem)">Where does your face hold tension?</h1>
-      <p class="lead" style="margin-inline:auto">Answer 8 quick questions about how your face <em>feels</em> — no camera, no scan, just your own sense of it. You'll get a simple tension map, and a gentle 3-minute reset for the area that needs it most.</p>
-      <p style="margin-top:1.4rem"><button class="btn btn--lg" id="quizStart">Start &mdash; takes about a minute &rarr;</button></p>
-      <p class="quiz-note quiz-note--center">A gentle self-assessment of how your face feels — not a medical diagnosis.</p>
+      <p class="lead" style="margin-inline:auto">Answer 8 quick questions about how your face <em>feels</em>. No camera, no scan, just your own sense of it. You'll get a simple tension map, and a gentle 3-minute reset for the area that needs it most.</p>
+      <p style="margin-top:1.4rem"><button class="btn btn--lg" id="quizStart">Start &middot; takes about a minute &rarr;</button></p>
+      <p class="quiz-note quiz-note--center">A gentle self-assessment of how your face feels, not a medical diagnosis.</p>
     </div>
 
     <!-- Quiz stage -->
@@ -141,7 +141,7 @@
 
   var RITUALS = {
     'eyes':{ title:'Your 3-minute eye reset', steps:[
-      'Warm your hands, rest your ring fingers gently under your eyes and breathe slowly for a few seconds — no pressure, just warmth.',
+      'Warm your hands, rest your ring fingers gently under your eyes and breathe slowly for a few seconds, no pressure, just warmth.',
       'With a gentle, comfortable touch, sweep from the inner corner out toward your temples, ten slow times, to help ease puffiness.',
       'Softly press the little hollows at the inner brow and the outer corners, hold, release. Your eyes should feel lighter and more awake.'
     ]},
@@ -275,13 +275,13 @@
       '<div class="band-jade" style="margin-top:1.6rem;border-radius:14px;padding:1.8rem 1.4rem;text-align:center">'+
         '<p class="eyebrow">Keep it going</p><hr class="rule" style="margin-inline:auto">'+
         '<h2 style="font-family:var(--font-serif);font-weight:500">Get your personalised starter guide.</h2>'+
-        '<p class="lead" style="margin-inline:auto">Leave your email and we’ll send a gentle starter guide built around your '+ZONE_SHORT[top].toLowerCase()+' result — simple steps you can keep for good.</p>'+
+        '<p class="lead" style="margin-inline:auto">Leave your email and we’ll send a gentle starter guide built around your '+ZONE_SHORT[top].toLowerCase()+' result, simple steps you can keep for years.</p>'+
         '<form class="signup" id="quizForm" style="justify-content:center" novalidate>'+
           '<input class="field" type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>'+
           '<button class="btn btn--lg" type="submit">Send my guide</button>'+
         '</form>'+
-        '<p class="form-note" style="text-align:center">No spam, ever. A self-assessment of how your face feels — not a medical diagnosis.</p>'+
-        '<p class="success-note" id="quizOk" hidden style="max-width:420px;margin:1rem auto 0">Lovely — check your inbox shortly for your personalised guide. 🌿</p>'+
+        '<p class="form-note" style="text-align:center">No spam, ever. A self-assessment of how your face feels, not a medical diagnosis.</p>'+
+        '<p class="success-note" id="quizOk" hidden style="max-width:420px;margin:1rem auto 0">Lovely, check your inbox shortly for your personalised guide. 🌿</p>'+
       '</div>'+
       '<p class="center"><button class="restart" id="quizRestart">Start over</button></p>';
 
