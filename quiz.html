@@ -277,11 +277,12 @@
         '<h2 style="font-family:var(--font-serif);font-weight:500">Get your personalised starter guide.</h2>'+
         '<p class="lead" style="margin-inline:auto">Leave your email and we’ll send a gentle starter guide built around your '+ZONE_SHORT[top].toLowerCase()+' result, simple steps you can keep for years.</p>'+
         '<form class="signup" id="quizForm" style="justify-content:center" novalidate>'+
+          '<input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">'+
           '<input class="field" type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>'+
           '<button class="btn btn--lg" type="submit">Send my guide</button>'+
         '</form>'+
         '<p class="form-note" style="text-align:center">No spam, ever. A self-assessment of how your face feels, not a medical diagnosis.</p>'+
-        '<p class="success-note" id="quizOk" hidden style="max-width:420px;margin:1rem auto 0">Lovely, check your inbox shortly for your personalised guide. 🌿</p>'+
+        '<p class="success-note" id="quizOk" hidden style="max-width:460px;margin:1rem auto 0">Lovely — your guide is on its way to your inbox. 🌿<br><a class="btn btn--lg" style="margin-top:.85rem" href="https://bojinfacetension.com/downloads/is-it-aging-or-tension-en.pdf" target="_blank" rel="noopener">Or open it right now →</a></p>'+
       '</div>'+
       '<p class="center"><button class="restart" id="quizRestart">Start over</button></p>';
 
@@ -290,8 +291,18 @@
 
     var qf=document.getElementById('quizForm');
     if(qf){ qf.addEventListener('submit',function(e){ e.preventDefault();
-      var em=qf.querySelector('input[type=email]'); if(!em.value || em.value.indexOf('@')<1){ em.focus(); return; }
+      var hp=qf.querySelector('input[name="company"]'); if(hp && hp.value){ return; }
+      var em=qf.querySelector('input[type=email]');
+      if(!em.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())){ em.focus(); return; }
+      var btn=qf.querySelector('button[type=submit]'); if(btn){ btn.disabled=true; }
       qf.hidden=true; var ok=document.getElementById('quizOk'); if(ok) ok.hidden=false;
+      try{
+        fetch('https://melvinlin07-n8n.zeabur.app/webhook/quiz-optin',{
+          method:'POST',
+          headers:{'Content-Type':'application/x-www-form-urlencoded'},
+          body:new URLSearchParams({email:em.value.trim(),source:'quiz'})
+        }).catch(function(){});
+      }catch(_){}
     }); }
     var rs=document.getElementById('quizRestart');
     if(rs){ rs.addEventListener('click', function(){ answers=new Array(QUESTIONS.length).fill(null); cur=0;
