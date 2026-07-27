@@ -44,6 +44,8 @@
     .yes-line{ background:var(--paper-2); border:1px solid var(--line-gold); border-left:3px solid var(--jade); border-radius:12px; padding:1rem 1.2rem; font-size:1rem; margin-top:1.2rem; }
     .tool-figure{ background:var(--paper-2); border:1px solid var(--line-gold); border-radius:18px; padding:2rem 1.6rem 1.4rem; box-shadow:var(--shadow); text-align:center; margin:.5rem 0 1.6rem; }
     .tool-figure svg{ width:100%; max-width:520px; height:auto; }
+    .tool-photo-mat{ display:inline-block; background:#F7ECE1; border-radius:14px; padding:1.3rem; }
+    .tool-photo-mat img{ display:block; width:100%; max-width:260px; height:auto; border-radius:8px; }
     .tool-cap{ font-size:.82rem; color:var(--ink-soft); margin-top:.6rem; }
     .spec-row{ display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; margin-top:1.1rem; }
     .spec{ font-family:var(--font-sans); font-size:.8rem; background:var(--paper-3); border:1px solid var(--line); border-radius:999px; padding:.35rem .9rem; color:var(--ink); }
@@ -72,8 +74,9 @@
     .compare-col p{ font-size:.92rem; margin:0 0 .9rem; line-height:1.5; }
     .compare-col p:last-child{ margin-bottom:0; }
     .compare-col .rl{ display:block; font-size:.66rem; letter-spacing:.1em; text-transform:uppercase; color:var(--gold-ink); font-weight:700; margin-bottom:.15rem; }
-    .gate{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:1.8rem 0 0; text-align:left; }
-    @media(max-width:640px){ .gate{ grid-template-columns:1fr; } }
+    .gate{ display:flex; flex-wrap:wrap; justify-content:center; gap:1rem; margin:1.8rem 0 0; text-align:left; }
+    .gate-card{ flex:1 1 260px; max-width:calc(50% - .5rem); }
+    @media(max-width:640px){ .gate-card{ max-width:100%; flex-basis:100%; } }
     .gate-card{ display:block; background:var(--paper-2); border:1px solid var(--line-gold); border-radius:16px; padding:1.4rem 1.4rem; box-shadow:var(--shadow); text-decoration:none; color:var(--ink); transition:.15s; }
     .gate-card:hover{ border-color:var(--jade); box-shadow:var(--shadow-lift); }
     .gate-card b{ display:block; font-family:var(--font-serif); font-size:1.22rem; color:var(--jade-deep); margin-bottom:.35rem; line-height:1.2; }
@@ -213,6 +216,7 @@
       <li>It isn&rsquo;t <b>pressing hard,</b> and it isn&rsquo;t barely touching. It&rsquo;s the right, comfortable pressure: firm enough to feel, never enough to hurt.</li>
     </ul>
     <p class="yes-line">What it <b>can</b> do is gentle and real: help your face look a little calmer, brighter, and more rested, and give you a few quiet minutes that are yours.</p>
+    <p><em>The complete can-and-cannot list, with nothing softened, is here: <a href="blog-what-bojin-can-and-cannot-do.html">what bojin can and cannot do</a>.</em></p>
   </div>
 </section>
 
@@ -231,24 +235,9 @@
     <h2 style="text-align:center">The bojin stick</h2>
 
     <div class="tool-figure">
-      <svg viewBox="0 0 560 150" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="A slim, polished stainless steel bojin stick: a broad flat edge on one end, tapering to a small rounded tip on the other.">
-        <defs>
-          <linearGradient id="steel" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#F4F6F8"/>
-            <stop offset="0.28" stop-color="#C7CDD3"/>
-            <stop offset="0.5" stop-color="#EAEDF0"/>
-            <stop offset="0.72" stop-color="#AEB6BE"/>
-            <stop offset="1" stop-color="#D3D9DE"/>
-          </linearGradient>
-        </defs>
-        <ellipse cx="280" cy="128" rx="250" ry="9" fill="#2A211C" opacity="0.07"/>
-        <path d="M18 44 C 60 40, 96 52, 120 66 C 150 72, 210 74, 250 76 C 300 78, 340 84, 372 92 C 400 99, 428 104, 452 108 C 470 111, 486 112, 500 112 L 500 118 C 486 118, 470 119, 452 116 C 428 112, 400 107, 372 100 C 340 92, 300 86, 250 84 C 210 82, 150 80, 120 74 C 96 88, 60 100, 18 96 C 8 88, 6 60, 18 44 Z" fill="url(#steel)" stroke="#9AA2AA" stroke-width="1"/>
-        <circle cx="512" cy="115" r="13" fill="url(#steel)" stroke="#9AA2AA" stroke-width="1"/>
-        <path d="M40 58 C 120 58, 260 70, 420 100" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0.55" stroke-linecap="round"/>
-        <text x="60" y="132" font-family="'Hanken Grotesk',system-ui,sans-serif" font-size="12" fill="#8A7A6E" text-anchor="middle">broad edge</text>
-        <text x="505" y="146" font-family="'Hanken Grotesk',system-ui,sans-serif" font-size="12" fill="#8A7A6E" text-anchor="middle">rounded tip</text>
-      </svg>
-      <p class="tool-cap">A clean product photo will go here soon. This is a diagram of the shape.</p>
+      <div class="tool-photo-mat">
+        <img src="assets/bojin-stick-steel.jpg" alt="A slim, polished stainless steel bojin stick: a broad flat edge on one end, tapering to a small rounded tip on the other.">
+      </div>
     </div>
 
     <p>The traditional tool is a <b>bojin stick</b>: a slim, polished stainless steel tool, shaped to follow the curves of the face. It has two working ends. A <b>broad, smooth edge</b> for larger areas like the forehead, cheeks, and neck, and a <b>small rounded tip</b> for delicate spots such as around the eyes.</p>
@@ -291,7 +280,7 @@
     <h2>The questions women ask me most</h2>
     <div class="faq">
       <h3>Is bojin just gua sha with a different name?</h3>
-      <p>No. They come from the same family of Chinese hands-on face care, so they feel related, but they&rsquo;re not the same thing. Gua sha usually means the tool and broad, gliding strokes. Bojin is its own more deliberate method: the order you work in, the angle you hold the tool, and the exact spot, at a comfortable pressure. You keep your gua sha stone and add the method.</p>
+      <p>No. They come from the same family of Chinese hands-on face care, so they feel related, but they&rsquo;re not the same thing. Gua sha usually means the tool and broad, gliding strokes. Bojin is its own more deliberate method: the order you work in, the angle you hold the tool, and the exact spot, at a comfortable pressure. You keep your gua sha stone and add the method. I answer the &ldquo;rebranded gua sha&rdquo; suspicion head-on, at full length, in <a href="blog-is-bojin-just-gua-sha-with-a-new-name.html">is bojin just gua sha with a fancier name?</a></p>
       <h3>Do I need to buy a special bojin stick to start?</h3>
       <p>No. You can begin with clean fingertips, or the smooth edge of a gua sha stone you already own. A bojin stick is the traditional tool the method was built around, and it holds the right angle for you, but it&rsquo;s something to add later, not a barrier to starting today.</p>
       <h3>Is it safe, and does it hurt?</h3>
@@ -301,9 +290,9 @@
       <h3>How long until I see a difference?</h3>
       <p>It varies from person to person, and there are no guarantees. Some women notice their face looks a little calmer, brighter, or less puffy the same day; deeper, everyday change is gradual and comes from gentle, regular practice. Think everyday freshness, not a dramatic before-and-after.</p>
       <h3>Will bojin get rid of my wrinkles or replace Botox?</h3>
-      <p>No, and it&rsquo;s honest to say so. It won&rsquo;t remove lines or do what an injection does. What it can do is soften held tension, support circulation, and help your face look a little more rested and relaxed. If you want a line changed at its source, that&rsquo;s a conversation for a board-certified professional.</p>
+      <p>No, and it&rsquo;s honest to say so. It won&rsquo;t remove lines or do what an injection does. What it can do is soften held tension and help your face look a little more rested and relaxed, gently and temporarily. I keep the complete honest list in <a href="blog-what-bojin-can-and-cannot-do.html">what bojin can and cannot do</a>, and if you&rsquo;ve had work done, <a href="blog-bojin-after-botox-or-filler-what-to-wait-for.html">here&rsquo;s what to wait for</a>. If you want a line changed at its source, that&rsquo;s a conversation for a board-certified professional.</p>
       <h3>How often should I practise?</h3>
-      <p>A few gentle minutes most days is plenty. Consistency matters far more than pressure or time: a calm five minutes, done regularly, serves your skin better than one long, forceful session.</p>
+      <p>Two or three gentle sessions a week, and the rest days are part of the plan. More often is not more results; the care you bring to each session matters far more than how many you fit in. The full honest answer, including how to read your own skin, is in <a href="blog-how-often-should-you-do-bojin.html">how often should you actually do this</a>.</p>
       <h3>Is bojin a medical treatment?</h3>
       <p>No. It&rsquo;s a gentle beauty and self-care ritual, not medical care, and it isn&rsquo;t a treatment for any condition. If you have a skin or health concern, or anything on your face appears suddenly, sits on one side, or comes with pain, please see your doctor rather than working on it at the mirror.</p>
     </div>
@@ -337,6 +326,11 @@
         <b>Not sure?</b>
         <span class="g-body">Let your face point the way. Answer a few quick questions and the 1-minute quiz will show you where your face is holding the most tension.</span>
         <span class="go">Take the 1-minute quiz &rarr;</span>
+      </a>
+      <a class="gate-card" href="blog-your-first-5-minutes-with-bojin.html">
+        <b>Nervous you&rsquo;ll do it wrong?</b>
+        <span class="g-body">Start impossibly small: five minutes, one cheek, the stone you already own. A first session designed so nothing can go wrong.</span>
+        <span class="go">Your first 5 minutes &rarr;</span>
       </a>
     </div>
   </div>
