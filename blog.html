@@ -576,6 +576,7 @@
   /* email capture */
   var form=document.getElementById('captureForm');
   if(form){ form.addEventListener('submit',function(){
+    if(window.bojinLead) bojinLead('blog');
     // the email posts to systeme in the hidden iframe; send the visitor to their guide
     setTimeout(function(){ window.location.href='guide-ready.html'; }, 700);
   }); }

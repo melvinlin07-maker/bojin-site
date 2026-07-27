@@ -181,11 +181,12 @@
   document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
     b.addEventListener('click',function(){ var n=cur()==='dark'?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem('bojin-theme',n);}catch(e){} });
   });
-  function wire(form){ if(!form) return; form.addEventListener('submit',function(){
+  function wire(form, src){ if(!form) return; form.addEventListener('submit',function(){
+    if(window.bojinLead) bojinLead(src);
     // the email posts to systeme in the hidden iframe; send the visitor to their guide
     setTimeout(function(){ window.location.href='guide-ready.html'; }, 700);
   }); }
-  wire(document.getElementById('optinTop')); wire(document.getElementById('optinBottom'));
+  wire(document.getElementById('optinTop'), 'landing-guide-top'); wire(document.getElementById('optinBottom'), 'landing-guide-bottom');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
     document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});

@@ -294,6 +294,7 @@
       var hp=qf.querySelector('input[name="company"]'); if(hp && hp.value){ return; }
       var em=qf.querySelector('input[type=email]');
       if(!em.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())){ em.focus(); return; }
+      if(window.bojinLead) bojinLead('quiz');
       var btn=qf.querySelector('button[type=submit]'); if(btn){ btn.disabled=true; }
       qf.hidden=true; var ok=document.getElementById('quizOk'); if(ok) ok.hidden=false;
       try{

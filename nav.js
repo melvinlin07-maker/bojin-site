@@ -37,6 +37,26 @@
   gtag('config', 'G-2VFEVY9Q1F');
 })();
 
+/* Fire a Lead conversion once, to Meta Pixel + GA4, from an opt-in form
+   submit. Call bojinLead('<source>') in each form's submit handler.
+   - Deduped per source per page load (double-clicks won't double-count).
+   - content_name / source carries which page produced the lead, so the
+     three forms that share one systeme list ID can still be told apart in
+     Events Manager / GA4.
+   - eventID is sent for future server-side dedup if systeme ever mirrors it.
+   - Off-production this is a harmless no-op: fbq/gtag are stubbed above. */
+window.bojinLead = function(source){
+  try{
+    source = source || 'form';
+    window.__bojinLeadFired = window.__bojinLeadFired || {};
+    if(window.__bojinLeadFired[source]) return;
+    window.__bojinLeadFired[source] = true;
+    var eid = 'lead-' + source + '-' + Date.now() + '-' + Math.round(Math.random()*1e6);
+    if(window.fbq) fbq('track','Lead',{content_name:source},{eventID:eid});
+    if(window.gtag) gtag('event','generate_lead',{source:source});
+  }catch(e){}
+};
+
 /* Shared mobile navigation — hamburger toggle for the top nav.
    Included on every page via <script src="nav.js"></script>.
    Works off the existing .site-header / .nav-links markup. */

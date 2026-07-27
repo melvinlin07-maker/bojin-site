@@ -104,6 +104,7 @@
     var f=document.getElementById('optinForm');
     if(!f) return;
     f.addEventListener('submit', function(){
+      if(window.bojinLead) bojinLead('guide');
       // the email posts to systeme in the hidden iframe; send the visitor to their guide
       setTimeout(function(){ window.location.href='guide-ready.html'; }, 700);
     });
