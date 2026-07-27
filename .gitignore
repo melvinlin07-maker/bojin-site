@@ -20,3 +20,10 @@ assets/老師最早期*
 
 # Internal content catalog — keep local, never publish
 content-library.json
+
+# Local snapshot folders — full copies of the site kept by hand.
+# MUST stay ignored: if these are ever committed, ~100 duplicate copies of every
+# page go live at public URLs and Google sees the whole site as duplicate content.
+# (Git history already holds every past version, so these are belt-and-braces only.)
+撥筋美國網站-圖片備份/
+撥筋美國網站-優化後預覽/

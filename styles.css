@@ -208,7 +208,10 @@ img{ max-width:100%; display:block; }
 .nav-toggle{ display:none; background:transparent; border:1px solid var(--line); border-radius:8px;
   width:40px; height:36px; cursor:pointer; color:var(--ink); align-items:center; justify-content:center; }
 .nav-toggle:hover{ border-color:var(--jade); color:var(--jade-deep); }
-@media (max-width:720px){
+/* Nav collapses to the hamburger below 880px. The desktop nav needs ~861px to
+   fit on one row, so 721-880px (tablet portrait / small laptop) must collapse
+   too, otherwise .nav-cta + .btn overflow and cause horizontal scroll. */
+@media (max-width:880px){
   .nav-toggle{ display:inline-flex; }
   .nav-cta{ display:none; }
   .nav-links{
@@ -321,6 +324,13 @@ body.unlocked .gate{ display:none; }
   border-radius:0 8px 8px 0; padding:1.2rem 1.4rem; margin:1.9rem 0; }
 .callout p{ margin:0; }
 .callout-label{ display:block; font-size:.72rem; letter-spacing:.16em; text-transform:uppercase; color:var(--jade); margin-bottom:.4rem; }
+/* negative list (what it is NOT) and positive list (what it IS / where to go) */
+.not-list,.yes-list{ list-style:none; margin:1.3rem 0; padding:0; }
+.not-list li,.yes-list li{ position:relative; padding:.75rem 0 .75rem 2.1rem; border-bottom:1px solid var(--line); font-size:1rem; line-height:1.55; }
+.not-list li:last-child,.yes-list li:last-child{ border-bottom:0; }
+.not-list li::before{ content:"\00D7"; position:absolute; left:.3rem; top:.7rem; color:var(--jade); font-weight:700; font-size:1.2rem; }
+.yes-list li::before{ content:"\2022"; position:absolute; left:.45rem; top:.62rem; color:var(--jade); font-weight:700; font-size:1.2rem; }
+.not-list li b,.yes-list li b{ color:var(--ink); }
 .steps{ counter-reset:step; list-style:none; padding:0; margin:1.3rem 0 1.7rem; }
 .steps li{ position:relative; padding:0 0 1.15rem 3rem; font-size:1.05rem; line-height:1.7; }
 .steps li::before{ counter-increment:step; content:counter(step); position:absolute; left:0; top:-2px;
