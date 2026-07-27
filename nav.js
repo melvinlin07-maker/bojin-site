@@ -1,29 +1,41 @@
-/* Meta Pixel — Bojin Funnel Pixel-US (751313064707787).
-   Loaded site-wide via nav.js so it survives page rewrites / new articles.
-   Fires PageView on every page. (Lead/Purchase get added at their action points later.) */
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '751313064707787');
-fbq('track', 'PageView');
-
-/* Google Analytics 4 — property for bojinfacetension.com (G-2VFEVY9Q1F).
-   Loaded site-wide via nav.js so it survives page rewrites / new articles. */
+/* ── Analytics + Meta Pixel, gated to the real domain ──────────────────────
+   Meta Pixel (Bojin Funnel Pixel-US 751313064707787) + GA4 (G-2VFEVY9Q1F),
+   loaded site-wide here so they survive page rewrites / new articles.
+   GUARD: only fire on *.bojinfacetension.com (apex, www, go subdomain). On
+   localhost / 127.0.0.1 / file:// / any preview we install harmless no-op
+   stubs and bail, so local development never pollutes the pixel or GA4.
+   (Fires PageView on every real page. Lead/Purchase get added later.) */
 (function(){
+  var PROD = /(^|\.)bojinfacetension\.com$/i.test(location.hostname);
+  window.dataLayer = window.dataLayer || [];
+  if(!PROD){
+    /* keep any fbq()/gtag() calls elsewhere from throwing off-production */
+    window.fbq = window.fbq || function(){};
+    window.gtag = window.gtag || function(){};
+    return;
+  }
+
+  /* Meta Pixel base code */
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+  n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)}(window, document,'script',
+  'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '751313064707787');
+  fbq('track', 'PageView');
+
+  /* Google Analytics 4 */
   var s = document.createElement('script');
   s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VFEVY9Q1F';
   document.head.appendChild(s);
+  window.gtag = function(){ dataLayer.push(arguments); };
+  gtag('js', new Date());
+  gtag('config', 'G-2VFEVY9Q1F');
 })();
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-2VFEVY9Q1F');
 
 /* Shared mobile navigation — hamburger toggle for the top nav.
    Included on every page via <script src="nav.js"></script>.
