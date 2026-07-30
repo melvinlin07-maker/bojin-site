@@ -13,9 +13,9 @@
   --paper-3:    #EFE1D2;   /* deeper peach tint band */
   --ink:        #2A211C;   /* warm espresso text */
   --ink-soft:   #77675A;   /* warm taupe */
-  --jade:       #B45749;   /* terracotta peach (primary accent) */
-  --jade-deep:  #9E4A3E;   /* deeper peach for hover / links */
-  --brass:      #B45749;   /* alias — same peach family */
+  --jade:       #A2455B;   /* rose wine (primary accent) — TRIAL, revert to #B45749 */
+  --jade-deep:  #85394B;   /* deeper rose wine for hover / links — revert to #9E4A3E */
+  --brass:      #A2455B;   /* alias — same rose family — revert to #B45749 */
   --gold:       #BB9B5E;   /* soft gold — fine lines / trim (decorative) */
   --gold-ink:   #8F6E2E;   /* antique gold — small-caps labels (legible) */
   --line:       #ECDCCE;   /* warm hairline */
@@ -34,7 +34,7 @@
 /* peach "day mode" — the default look, also forced via the toggle */
 :root[data-theme="light"]{
   --paper:#F7ECE1; --paper-2:#FDF8F2; --paper-3:#EFE1D2; --ink:#2A211C; --ink-soft:#77675A;
-  --jade:#B45749; --jade-deep:#9E4A3E; --brass:#B45749; --gold:#BB9B5E; --gold-ink:#8F6E2E;
+  --jade:#A2455B; --jade-deep:#85394B; --brass:#A2455B; --gold:#BB9B5E; --gold-ink:#8F6E2E;
   --line:#ECDCCE; --line-gold:#D9C6A2; --on-jade:#FFFFFF; --edge:rgba(255,255,255,.5);
   --shadow:0 1px 2px rgba(74,42,30,.05), 0 14px 30px -12px rgba(74,42,30,.16);
   --shadow-lift:0 2px 6px rgba(74,42,30,.06), 0 24px 48px -16px rgba(74,42,30,.24);
@@ -42,7 +42,7 @@
 /* warm espresso "night mode" — a dark companion to the peach, via the toggle */
 :root[data-theme="dark"]{
   --paper:#1E1714; --paper-2:#262019; --paper-3:#2E251E; --ink:#F3E9DF; --ink-soft:#B3A596;
-  --jade:#D5836F; --jade-deep:#E7A891; --brass:#D5836F; --gold:#C9A66A; --gold-ink:#D8B878;
+  --jade:#D98B9C; --jade-deep:#E7A9B6; --brass:#D98B9C; --gold:#C9A66A; --gold-ink:#D8B878;
   --line:#3A2E26; --line-gold:#4A3A2E; --on-jade:#2A1712; --edge:rgba(255,255,255,.09);
   --shadow:0 1px 2px rgba(0,0,0,.3), 0 14px 30px -12px rgba(0,0,0,.5);
   --shadow-lift:0 2px 6px rgba(0,0,0,.35), 0 24px 48px -16px rgba(0,0,0,.55);
