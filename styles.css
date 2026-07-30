@@ -235,6 +235,13 @@ img{ max-width:100%; display:block; }
   align-items:center; }
 .site-footer a{ color:var(--ink); }
 .foot-note{ font-size:.85rem; color:var(--ink-soft); max-width:52ch; }
+.foot-end{ display:flex; flex-direction:column; align-items:flex-end; gap:.75rem; }
+.foot-social{ display:flex; gap:.5rem; }
+.foot-social a{ width:38px; height:38px; border-radius:50%; display:inline-flex; align-items:center; justify-content:center;
+  border:1px solid var(--line); color:var(--ink-soft); transition:border-color .15s, color .15s, transform .12s; }
+.foot-social a:hover{ border-color:var(--jade); color:var(--jade); transform:translateY(-1px); }
+.foot-social svg{ width:18px; height:18px; }
+@media(max-width:720px){ .foot-end{ align-items:flex-start; } }
 
 /* ---------- hero helpers ---------- */
 .hero{ padding-block:clamp(72px,11vw,150px) clamp(48px,7vw,84px); position:relative; }
