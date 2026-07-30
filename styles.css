@@ -97,6 +97,8 @@ img{ max-width:100%; display:block; }
 .wrap--narrow{ max-width:var(--wrap-narrow); }
 .section{ padding-block:clamp(64px,9vw,120px); }
 .section--tight{ padding-block:clamp(44px,5vw,68px); }
+/* trim the empty space between the last section and the footer */
+main > section:last-child{ padding-bottom:clamp(20px,3vw,40px); }
 .band{ background:var(--paper-2); border-block:1px solid var(--line); }
 .band-jade{ background:var(--paper-3); border-block:1px solid var(--line-gold); }
 .center{ text-align:center; }
