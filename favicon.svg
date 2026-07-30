@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="The Bojin Method">
+  <rect width="64" height="64" rx="15" fill="#B45749"/>
+  <path d="M12 50 C 40 26, 82 20, 110 30 C 100 36, 58 38, 20 52 C 16 53, 12 52, 12 50 Z"
+        fill="#F7ECE1" transform="translate(6.7,10) scale(0.43)"/>
+  <path d="M12 50 C 40 26, 82 20, 110 30 C 100 36, 58 38, 20 52 C 16 53, 12 52, 12 50 Z"
+        fill="#F7ECE1" transform="translate(6.7,26) scale(0.43)" opacity="0.5"/>
+</svg>
