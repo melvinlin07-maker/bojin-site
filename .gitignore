@@ -1,6 +1,11 @@
 # Internal notes / handoff / design docs — kept locally, never published to the live site.
 *.md
 
+# Exceptions: project documentation that SHOULD be tracked (added 2026-08-08)
+!PROJECT.md
+!CLAUDE.md
+!DECISIONS.md
+
 # Raw source photos & videos — kept locally as material, never deployed to the live site.
 # (Optimized, web-ready images live under names like bojin-*.jpg / og/*.jpg and ARE committed.)
 assets/*.mp4
