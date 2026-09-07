@@ -389,9 +389,13 @@
     </label>
     <button id="startCamera" class="button" disabled>Open my private mirror</button>
     <button id="captureBefore" class="button" hidden disabled>Take my Before photo</button>
+    <button id="takeBeforeFallback" class="button secondary" type="button" disabled>Take Before with phone camera</button>
+    <button id="chooseBeforeFallback" class="button secondary" type="button" disabled>Choose Before from photo library</button>
+    <input id="cameraPicker" type="file" accept="image/*" capture="user" hidden>
+    <input id="libraryPicker" type="file" accept="image/*" hidden>
     <div id="browserHelp" class="card browser-help" hidden>
       <strong>Camera blocked in this browser?</strong>
-      <p class="small">Some in-app browsers block camera access even on HTTPS. Copy this link, then open it directly in Safari or Chrome.</p>
+      <p class="small">You can continue with the phone-camera or photo-library buttons above. Your photos still stay on this device.</p>
       <button id="copyLink" class="button secondary" type="button">Copy test link</button>
       <p id="copyStatus" class="small" role="status" aria-live="polite"></p>
     </div>
@@ -438,6 +442,8 @@
         <span>Show faint Before alignment photo</span>
       </label>
       <button id="captureAfter" class="button">Take my After photo</button>
+      <button id="takeAfterFallback" class="button secondary" type="button">Take After with phone camera</button>
+      <button id="chooseAfterFallback" class="button secondary" type="button">Choose After from photo library</button>
     </div>
 
     <div id="results" hidden>
@@ -568,6 +574,8 @@
   let cameraPending = false;
   let cameraGeneration = 0;
   let capturePending = false;
+  let photoOnlyMode = false;
+  let pickerTarget = "before";
   let generation = 0;
 
   function isLikelyInAppBrowser() {
@@ -606,6 +614,11 @@
   function updateCaptureButtons() {
     $("captureBefore").disabled = !cameraReady() || capturePending;
     $("captureAfter").disabled = !cameraReady() || capturePending;
+    const beforeFallbackDisabled = !$("consent").checked || capturePending;
+    $("takeBeforeFallback").disabled = beforeFallbackDisabled;
+    $("chooseBeforeFallback").disabled = beforeFallbackDisabled;
+    $("takeAfterFallback").disabled = capturePending;
+    $("chooseAfterFallback").disabled = capturePending;
   }
 
   video.addEventListener("loadeddata", updateCaptureButtons);
@@ -663,9 +676,14 @@
       stream.getVideoTracks().forEach(track => {
         track.addEventListener("ended", () => {
           if (!stream || !stream.getTracks().includes(track)) return;
-          pause("Camera disconnected. Reconnect before continuing.");
-          $("cameraStatus").textContent = "Camera disconnected.";
-          $("cameraStatus").hidden = false;
+          if (beforeURL) {
+            $("ghost").src = beforeURL;
+            $("ghost").hidden = false;
+            $("cameraStatus").hidden = true;
+          } else {
+            $("cameraStatus").textContent = "Camera disconnected.";
+            $("cameraStatus").hidden = false;
+          }
           $("retryCamera").hidden = false;
           updateCaptureButtons();
         });
@@ -675,24 +693,24 @@
       $("retryCamera").hidden = true;
       $("startCamera").hidden = true;
       $("captureBefore").hidden = step !== 1;
+      $("captureAfter").hidden = step !== 3;
+      if (step === 1) photoOnlyMode = false;
       updateCaptureButtons();
       return true;
     } catch (error) {
       if (requestGeneration !== cameraGeneration) return false;
       stopCamera();
       const messages = {
-        NotAllowedError: isLikelyInAppBrowser()
-          ? "This in-app browser denied camera access. Copy the link below and open it directly in Safari or Chrome."
-          : "Camera permission was denied. Allow camera access in your browser’s site settings, then reconnect.",
+        NotAllowedError: "Live camera permission was denied. Continue with the phone-camera or photo-library option below.",
         NotFoundError: "No camera was found on this device.",
-        NotReadableError: "The camera is unavailable. Close other apps using it, then reconnect.",
-        SecurityError: "This browser blocked camera access. Open the HTTPS page directly in Safari or Chrome."
+        NotReadableError: "The live camera is unavailable. Continue with the phone-camera or photo-library option below.",
+        SecurityError: "This browser blocked the live camera. Continue with the phone-camera or photo-library option below."
       };
       showError(messages[error.name] || "Could not open the camera. Check permissions and try again.");
       $("cameraStatus").textContent = "Your camera is not connected.";
       $("retryCamera").hidden = false;
       if (error.name === "NotAllowedError" || error.name === "SecurityError" || isLikelyInAppBrowser()) {
-        showBrowserHelp("Open this link in Safari or Chrome, then tap Allow when asked for camera access.");
+        showBrowserHelp("No live-camera access is required when you use one of the photo options above.");
       }
       return false;
     } finally {
@@ -745,6 +763,84 @@
       if (afterURL) URL.revokeObjectURL(afterURL);
       afterURL = url;
     }
+  }
+
+  function completePhoto(which, url, source) {
+    replacePhoto(which, url);
+
+    if (which === "before") {
+      photoOnlyMode = source === "picker";
+      if (photoOnlyMode) {
+        stopCamera();
+        $("ghost").src = beforeURL;
+        $("ghost").hidden = false;
+        $("cameraStatus").hidden = true;
+        $("retryCamera").hidden = true;
+      }
+      setStep(2);
+      $("cameraLabel").textContent = photoOnlyMode
+        ? "BEFORE PHOTO · ON-DEVICE GUIDE"
+        : "LIVE · RIGHT-SIDE RITUAL";
+      phaseIndex = -1;
+      renderTimer();
+      $("timerCard").classList.add("paused");
+    } else {
+      $("beforeImage").src = beforeURL;
+      $("afterImage").src = afterURL;
+      $("ghost").hidden = true;
+      $("cameraSection").hidden = true;
+      $("afterCapture").hidden = true;
+      $("results").hidden = false;
+      $("compareSlider").value = 50;
+      setComparison(50);
+      document.querySelectorAll('input[name="observation"]').forEach(input => input.checked = false);
+      $("viewReport").disabled = true;
+      stopCamera();
+    }
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  async function usePickedPhoto(which, input) {
+    const file = input.files && input.files[0];
+    input.value = "";
+    if (!file || capturePending) return;
+    if (!file.type.startsWith("image/")) {
+      showError("Please choose an image file.");
+      return;
+    }
+
+    capturePending = true;
+    const token = generation;
+    updateCaptureButtons();
+    showError("");
+    const url = URL.createObjectURL(file);
+
+    try {
+      const image = new Image();
+      await new Promise((resolve, reject) => {
+        image.onload = resolve;
+        image.onerror = reject;
+        image.src = url;
+      });
+      if (token !== generation) {
+        URL.revokeObjectURL(url);
+        return;
+      }
+      completePhoto(which, url, "picker");
+    } catch (error) {
+      URL.revokeObjectURL(url);
+      showError("This photo could not be opened. Please take or choose another image.");
+    } finally {
+      capturePending = false;
+      updateCaptureButtons();
+    }
+  }
+
+  function openPicker(which, inputId) {
+    if (which === "before" && !$("consent").checked) return;
+    pickerTarget = which;
+    $(inputId).value = "";
+    $(inputId).click();
   }
 
   function formatTime(seconds) {
@@ -814,9 +910,8 @@
 
   async function resume() {
     if (running) return;
-    if (!cameraReady()) {
-      $("ritualStatus").textContent = "Reconnect the camera before resuming.";
-      $("retryCamera").hidden = false;
+    if (!beforeURL) {
+      $("ritualStatus").textContent = "Take or choose your Before photo first.";
       return;
     }
     if (document.hidden) return;
@@ -840,6 +935,7 @@
     $("ghost").src = beforeURL;
     $("ghost").hidden = false;
     $("showGhost").checked = true;
+    $("captureAfter").hidden = photoOnlyMode || !cameraReady();
     setStep(3);
     updateCaptureButtons();
     window.scrollTo({ top: 0, behavior: "auto" });
@@ -864,28 +960,7 @@
         return;
       }
 
-      replacePhoto(which, url);
-
-      if (which === "before") {
-        setStep(2);
-        $("cameraLabel").textContent = "LIVE · RIGHT-SIDE RITUAL";
-        phaseIndex = -1;
-        renderTimer();
-        $("timerCard").classList.add("paused");
-      } else {
-        $("beforeImage").src = beforeURL;
-        $("afterImage").src = afterURL;
-        $("ghost").hidden = true;
-        $("cameraSection").hidden = true;
-        $("afterCapture").hidden = true;
-        $("results").hidden = false;
-        $("compareSlider").value = 50;
-        setComparison(50);
-        document.querySelectorAll('input[name="observation"]').forEach(input => input.checked = false);
-        $("viewReport").disabled = true;
-        stopCamera();
-      }
-      window.scrollTo({ top: 0, behavior: "auto" });
+      completePhoto(which, url, "live");
     } catch (error) {
       showError(error.message);
     } finally {
@@ -931,6 +1006,8 @@
     if (beforeURL) URL.revokeObjectURL(beforeURL);
     if (afterURL) URL.revokeObjectURL(afterURL);
     beforeURL = afterURL = null;
+    photoOnlyMode = false;
+    pickerTarget = "before";
 
     elapsedMs = 0;
     phaseIndex = -1;
@@ -938,6 +1015,9 @@
     $("startCamera").hidden = false;
     $("startCamera").disabled = true;
     $("captureBefore").hidden = true;
+    $("captureAfter").hidden = false;
+    $("cameraPicker").value = "";
+    $("libraryPicker").value = "";
     $("cameraSection").hidden = false;
     $("cameraStatus").hidden = false;
     $("cameraStatus").textContent = "Your private mirror is ready when you are.";
@@ -963,6 +1043,7 @@
 
   $("consent").addEventListener("change", () => {
     $("startCamera").disabled = !$("consent").checked || cameraPending;
+    updateCaptureButtons();
   });
   $("startCamera").addEventListener("click", openCamera);
   $("retryCamera").addEventListener("click", openCamera);
@@ -976,6 +1057,12 @@
   });
   $("captureBefore").addEventListener("click", () => capture("before"));
   $("captureAfter").addEventListener("click", () => capture("after"));
+  $("takeBeforeFallback").addEventListener("click", () => openPicker("before", "cameraPicker"));
+  $("chooseBeforeFallback").addEventListener("click", () => openPicker("before", "libraryPicker"));
+  $("takeAfterFallback").addEventListener("click", () => openPicker("after", "cameraPicker"));
+  $("chooseAfterFallback").addEventListener("click", () => openPicker("after", "libraryPicker"));
+  $("cameraPicker").addEventListener("change", event => usePickedPhoto(pickerTarget, event.target));
+  $("libraryPicker").addEventListener("change", event => usePickedPhoto(pickerTarget, event.target));
   $("startRitual").addEventListener("click", resume);
   $("pauseRitual").addEventListener("click", () => running ? pause() : resume());
   $("stopRitual").addEventListener("click", resetAll);
@@ -1009,7 +1096,8 @@
     $("ghost").src = beforeURL;
     $("ghost").hidden = false;
     $("showGhost").checked = true;
-    await openCamera();
+    $("captureAfter").hidden = photoOnlyMode || !cameraReady();
+    if (!photoOnlyMode && !cameraReady()) await openCamera();
     window.scrollTo({ top: 0, behavior: "auto" });
   });
 
