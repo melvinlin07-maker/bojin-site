@@ -1,0 +1,992 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#181514">
+  <meta name="referrer" content="no-referrer">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>The 3-Minute Facial Ritual</title>
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #181514;
+      --panel: #241f1c;
+      --gold: #d8b66c;
+      --white: #fff;
+      --muted: #d7c9bb;
+      --border: rgba(229, 192, 123, .22);
+    }
+
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--white);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    button, input, a { -webkit-tap-highlight-color: transparent; }
+    button, input { font: inherit; }
+    button, .button { touch-action: manipulation; }
+    button { cursor: pointer; }
+    button:disabled { cursor: not-allowed; opacity: .45; }
+
+    button:focus-visible, a:focus-visible, input:focus-visible {
+      outline: 3px solid white;
+      outline-offset: 4px;
+    }
+
+    .app {
+      max-width: 430px;
+      min-height: 100svh;
+      margin: auto;
+      padding: max(18px, env(safe-area-inset-top)) 20px max(28px, env(safe-area-inset-bottom));
+    }
+
+    header { text-align: center; margin-bottom: 18px; }
+    .brand { color: var(--gold); font-size: 11px; letter-spacing: .26em; }
+    .eyebrow { color: var(--gold); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; }
+
+    h1, h2 {
+      font-family: Georgia, "Times New Roman", serif;
+      font-weight: 400;
+      line-height: 1.15;
+    }
+
+    h1 { font-size: clamp(29px, 8vw, 38px); margin: 10px 0; }
+    h2 { font-size: 30px; margin: 12px 0; }
+    p { margin: 10px 0 16px; }
+    .muted { color: var(--muted); font-size: 14px; }
+    .small { font-size: 12px; color: var(--muted); }
+    .center { text-align: center; }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+      margin-top: 16px;
+      list-style: none;
+      padding: 0;
+    }
+
+    .steps li { color: var(--muted); font-size: 10px; }
+    .steps li::before {
+      display: block;
+      content: "";
+      height: 3px;
+      border-radius: 3px;
+      margin-bottom: 7px;
+      background: #56483f;
+    }
+    .steps li.active { color: var(--gold); }
+    .steps li.active::before { background: var(--gold); }
+
+    .camera {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      background: #0f0d0c;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    video, .overlay, .ghost {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    video { object-fit: cover; transform: scaleX(-1); }
+    .overlay { pointer-events: none; }
+    .ghost { object-fit: cover; opacity: .25; pointer-events: none; }
+
+    .camera-label {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 2;
+      padding: 6px 10px;
+      background: rgba(24, 21, 20, .82);
+      border-radius: 30px;
+      font-size: 10px;
+      letter-spacing: .12em;
+    }
+
+    .side-label {
+      position: absolute;
+      right: 12px;
+      top: 52px;
+      color: var(--gold);
+      font-size: 10px;
+      background: rgba(24, 21, 20, .82);
+      border-radius: 10px;
+      padding: 5px 8px;
+    }
+
+    .camera-status {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 30px;
+      background: rgba(15, 13, 12, .88);
+      z-index: 4;
+      color: var(--muted);
+    }
+
+    .privacy {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0;
+      padding: 30px 14px 13px;
+      background: linear-gradient(transparent, rgba(0, 0, 0, .88));
+      font-size: 10px;
+      text-align: center;
+      z-index: 3;
+    }
+
+    .alignment { fill: none; stroke: rgba(255, 255, 255, .38); stroke-width: 1.5; stroke-dasharray: 5 7; }
+    .track-base { fill: none; stroke: rgba(229, 192, 123, .2); stroke-width: 9; stroke-linecap: round; }
+    .track { fill: none; stroke: var(--gold); stroke-width: 4; stroke-linecap: round; }
+    #trailDot { fill: #fff4d8; filter: drop-shadow(0 0 6px var(--gold)); }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      padding: 16px;
+      border-radius: 18px;
+      margin: 16px 0;
+    }
+
+    .button {
+      display: block;
+      width: 100%;
+      border: 0;
+      border-radius: 14px;
+      padding: 16px;
+      background: var(--gold);
+      color: #181514;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+    }
+
+    .secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--gold);
+      margin-top: 10px;
+    }
+
+    .check {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 12px;
+      color: var(--muted);
+      margin: 16px 0;
+    }
+
+    .check input { accent-color: var(--gold); width: 19px; height: 19px; flex-shrink: 0; }
+    .timer-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .timer { color: var(--gold); font-size: 42px; font-variant-numeric: tabular-nums; line-height: 1.1; }
+
+    .rhythm {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+      background: rgba(229, 192, 123, .12);
+      display: grid;
+      place-items: center;
+      color: var(--gold);
+      font-size: 9px;
+      animation: breathe 4s ease-in-out infinite;
+    }
+
+    .paused .rhythm { animation-play-state: paused; }
+    @keyframes breathe {
+      0%, 100% { transform: scale(.82); opacity: .5; }
+      50% { transform: scale(1.13); opacity: 1; }
+    }
+
+    progress { width: 100%; height: 5px; accent-color: var(--gold); margin-top: 14px; }
+    .error { color: #ffd4cc; font-size: 13px; }
+    .controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+
+    .comparison {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      border-radius: 24px;
+      background: #0f0d0c;
+      border: 1px solid var(--border);
+      --split: 50%;
+    }
+
+    .comparison img { position: absolute; width: 100%; height: 100%; inset: 0; object-fit: cover; }
+    .comparison .before-layer { clip-path: inset(0 calc(100% - var(--split)) 0 0); }
+    .divider {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--split);
+      width: 2px;
+      background: var(--gold);
+      transform: translateX(-50%);
+      pointer-events: none;
+    }
+
+    .divider::after {
+      content: "<->";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: var(--gold);
+      color: var(--bg);
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      font-size: 13px;
+    }
+
+    .photo-tag {
+      position: absolute;
+      top: 12px;
+      background: rgba(24, 21, 20, .8);
+      padding: 5px 9px;
+      border-radius: 20px;
+      font-size: 10px;
+      pointer-events: none;
+    }
+
+    .photo-tag.left { left: 12px; }
+    .photo-tag.right { right: 12px; }
+    input[type="range"] { width: 100%; min-height: 44px; accent-color: var(--gold); }
+
+    .sides { display: flex; justify-content: space-between; gap: 10px; font-size: 11px; color: var(--muted); }
+    .choices { display: grid; gap: 8px; }
+    .choices label { border: 1px solid var(--border); padding: 12px; border-radius: 12px; font-size: 13px; }
+    .choices input { accent-color: var(--gold); margin-right: 8px; }
+
+    dialog {
+      width: min(420px, calc(100% - 32px));
+      max-height: 90svh;
+      overflow-y: auto;
+      padding: 25px;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      color: white;
+    }
+
+    dialog::backdrop { background: rgba(0, 0, 0, .8); }
+    footer { margin-top: 22px; text-align: center; }
+
+    @media (min-aspect-ratio: 9 / 16) and (max-height: 780px) {
+      .app { max-width: min(430px, calc(100svh * .54)); }
+      .camera,
+      .comparison { aspect-ratio: 9 / 13.8; }
+      h1 { font-size: 31px; }
+      h2 { font-size: 27px; }
+      .card { padding: 14px; margin: 12px 0; }
+    }
+
+    @media (max-width: 430px) and (max-height: 900px) {
+      .app { padding-left: 18px; padding-right: 18px; }
+      header { margin-bottom: 14px; }
+      .steps { margin-top: 12px; }
+      .steps li { font-size: 9px; }
+      .camera,
+      .comparison { aspect-ratio: 9 / 12; }
+      h1 { font-size: 32px; }
+      h2 { font-size: 27px; }
+      p { margin: 8px 0 12px; }
+      .card { padding: 14px; margin: 12px 0; }
+      .privacy { padding-bottom: 10px; font-size: 9px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .rhythm { animation: none; }
+    }
+  </style>
+</head>
+<body>
+<main class="app">
+  <header>
+    <div class="brand">THE FACIAL RITUAL</div>
+    <ol class="steps" aria-label="Your progress">
+      <li class="active" aria-current="step">01 · BEFORE</li>
+      <li>02 · RITUAL</li>
+      <li>03 · COMPARE</li>
+      <li>04 · EXPLORE</li>
+    </ol>
+  </header>
+
+  <section id="intro">
+    <div class="eyebrow">A quiet moment. One side first.</div>
+    <h1>Your morning ritual,<br>made visible.</h1>
+    <p class="muted">Try a gentle right-side facial massage, then compare your own photos. Any visible change may be subtle, temporary, or absent.</p>
+  </section>
+
+  <section id="cameraSection" aria-label="Private camera">
+    <div class="camera" id="cameraFrame">
+      <video id="video" autoplay playsinline muted aria-label="Mirrored front camera"></video>
+      <img id="ghost" class="ghost" alt="Faint before photo for alignment" hidden>
+
+      <svg class="overlay" viewBox="0 0 300 400" aria-hidden="true">
+        <ellipse class="alignment" cx="150" cy="166" rx="82" ry="111"></ellipse>
+        <path class="alignment" d="M102 149H127 M173 149H198 M150 64V78 M150 263V276"></path>
+        <g id="guidePaths" hidden>
+          <path id="trackBase" class="track-base"></path>
+          <path id="track" class="track"></path>
+          <circle id="trailDot" r="5"></circle>
+        </g>
+      </svg>
+
+      <div id="cameraLabel" class="camera-label">BEFORE · MIRRORED VIEW</div>
+      <div id="sideLabel" class="side-label" hidden>YOUR RIGHT SIDE →</div>
+      <div id="cameraStatus" class="camera-status">Your private mirror is ready when you are.</div>
+      <p class="privacy">100% On-Device Private: Camera stream is never uploaded.</p>
+    </div>
+    <p id="error" class="error" role="alert" hidden></p>
+    <button id="retryCamera" class="button secondary" hidden>Reconnect camera</button>
+  </section>
+
+  <section id="step1">
+    <div class="card">
+      <strong>Start with an honest baseline.</strong>
+      <p class="small">Face the light. Keep your eyes level with the guides, relax your jaw, and use a neutral expression. Keep the phone in the same position for both photos.</p>
+      <p class="small">The overlay is a positioning guide, not face tracking. Because this is mirrored like a bathroom mirror, your anatomical right appears on the right side of the screen.</p>
+    </div>
+
+    <details class="small">
+      <summary>Before you begin</summary>
+      <p>This is a cosmetic self-care demo, not treatment for swelling or a medical condition. Skip irritated or broken skin and unexplained, painful, or sudden swelling. If you have had a recent procedure or have a condition affecting safe massage, ask your clinician first.</p>
+      <p>Use very light, comfortable contact. Never press on the eyes or the front of the neck. Stop for pain, dizziness, numbness, or irritation.</p>
+    </details>
+
+    <label class="check">
+      <input type="checkbox" id="consent">
+      <span>I have read the precautions and understand this demo is for self-observation only. It does not measure or guarantee cosmetic change.</span>
+    </label>
+    <button id="startCamera" class="button" disabled>Open my private mirror</button>
+    <button id="captureBefore" class="button" hidden disabled>Take my Before photo</button>
+  </section>
+
+  <section id="step2" hidden>
+    <div class="card">
+      <div class="eyebrow">Your 3-minute right-side ritual</div>
+      <p>Don’t have a professional fascia tool yet? Start with your knuckle or the edge of a ceramic spoon.</p>
+      <p class="small">Use a clean, smooth, rounded edge with a little skin-friendly moisturizer for slip. A flat finger pad is the gentlest option. Never scrape or use a chipped spoon.</p>
+    </div>
+
+    <div class="card" id="timerCard">
+      <div class="timer-row">
+        <div>
+          <div id="phaseLabel" class="eyebrow">GET READY</div>
+          <div id="phaseTimer" class="timer" role="timer" aria-label="Seconds remaining in this phase">00:15</div>
+        </div>
+        <div class="center">
+          <div class="rhythm" aria-hidden="true">GENTLE</div>
+        </div>
+      </div>
+      <p id="phaseTitle"><strong>Position your face</strong></p>
+      <p id="phaseInstruction" class="small"></p>
+      <progress id="progress" max="180" value="0" aria-label="Ritual progress"></progress>
+      <div class="small"><span id="totalTimer">3:00</span> remaining · 15s prep + 3 × 45s + 30s rest</div>
+    </div>
+
+    <p class="small">Follow the indicated direction, lift your hand, and return to the start. Keep your face aligned; the paths do not follow head movement.</p>
+    <button id="startRitual" class="button">Begin my 3-minute ritual</button>
+    <div class="controls" id="ritualControls" hidden>
+      <button id="pauseRitual" class="button secondary">Pause</button>
+      <button id="stopRitual" class="button secondary">Stop &amp; reset</button>
+    </div>
+    <p id="ritualStatus" class="small" role="status" aria-live="polite"></p>
+  </section>
+
+  <section id="step3" hidden>
+    <div id="afterCapture">
+      <h2>Same light.<br>Same expression.</h2>
+      <p class="muted">Align with your faint Before photo. Relax your jaw and keep the same head angle. Hide the alignment photo when you are ready.</p>
+      <label class="check">
+        <input type="checkbox" id="showGhost" checked>
+        <span>Show faint Before alignment photo</span>
+      </label>
+      <button id="captureAfter" class="button">Take my After photo</button>
+    </div>
+
+    <div id="results" hidden>
+      <div class="eyebrow">Your own photos · No filters</div>
+      <h2>Look. Slide. Decide.</h2>
+
+      <div id="comparison" class="comparison">
+        <img id="afterImage" alt="Your full face after the right-side ritual">
+        <img id="beforeImage" class="before-layer" alt="Your full face before the ritual">
+        <span class="photo-tag left">BEFORE</span>
+        <span class="photo-tag right">AFTER</span>
+        <div class="divider"></div>
+      </div>
+
+      <label for="compareSlider" class="small">Slide to compare the same facial areas over time</label>
+      <input id="compareSlider" type="range" min="0" max="100" value="50" aria-label="Before and After photo reveal" aria-valuetext="50 percent Before, 50 percent After">
+
+      <div class="sides">
+        <span>← Your left: untreated</span>
+        <span>Your right: practiced →</span>
+      </div>
+
+      <p class="small">Slide fully left to view the entire After photo and compare the two sides. Natural asymmetry, lighting, expression, and head angle can affect appearance. This app does not analyze your face.</p>
+
+      <div class="card">
+        <strong>What do you notice?</strong>
+        <div class="choices" style="margin-top:12px">
+          <label><input type="radio" name="observation" value="visible">I notice a subtle visible difference</label>
+          <label><input type="radio" name="observation" value="comfort">My face feels more relaxed</label>
+          <label><input type="radio" name="observation" value="none">No clear difference / not sure</label>
+        </div>
+      </div>
+
+      <button id="viewReport" class="button" disabled>See my ritual recap</button>
+      <button id="retakeAfter" class="button secondary">Retake After photo</button>
+    </div>
+  </section>
+
+  <section id="step4" hidden>
+    <div class="eyebrow">Your ritual is complete</div>
+    <h2>A little care.<br>A more informed next step.</h2>
+    <p class="muted">Explore the full program, technique guidance, and tool details before deciding whether it fits your routine.</p>
+    <button id="reopenReport" class="button">View my recap &amp; next step</button>
+    <button id="backComparison" class="button secondary">Return to my comparison</button>
+  </section>
+
+  <footer>
+    <button id="reset" class="button secondary" hidden>Delete my photos &amp; restart</button>
+    <p class="small">Photos stay in this page’s memory. No analytics, uploads, or photo storage.</p>
+  </footer>
+</main>
+
+<dialog id="report" aria-labelledby="reportTitle">
+  <div class="eyebrow">Your self-reported ritual recap</div>
+  <h2 id="reportTitle">Make your next step intentional.</h2>
+  <p id="reportText"></p>
+      <p class="small">This prototype cannot assess skin firmness, deeper tissue change, or how long any visible difference may last. There is no established four-hour “fascia memory” rebound rule. Cosmetic massage results vary.</p>
+  <div class="card">
+    <strong>Want a guided routine?</strong>
+    <p class="small">Explore technique instruction and a purpose-designed tool. Review the program’s evidence, suitability, price, and return policy before purchasing.</p>
+  </div>
+  <a class="button" id="offerLink" href="https://example.com/offer" rel="noopener noreferrer" data-placeholder="true">
+    Explore the 14-Day Facial Tension Reset Program &amp; Bojin Tool Kit
+  </a>
+  <p class="small">Placeholder offer link. Replace only after the real program page, pricing, suitability notes, and return policy are approved.</p>
+  <button id="closeReport" class="button secondary">Back to my results</button>
+</dialog>
+
+<script>
+"use strict";
+
+(() => {
+  const $ = id => document.getElementById(id);
+  const video = $("video");
+  const TOTAL_SECONDS = 180;
+  const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // Anatomical right is screen-right because preview and photos are mirrored.
+  // Guides are fixed positioning aids, not landmark tracking.
+  const phases = [
+    {
+      seconds: 15,
+      label: "PREPARE · 15 SECONDS",
+      title: "Position your face",
+      instruction: "Apply a little moisturizer. Align your eyes and chin with the guide. Keep contact feather-light and your face relaxed.",
+      path: null
+    },
+    {
+      seconds: 45,
+      label: "PATH 1 OF 3 · RIGHT SIDE",
+      title: "Chin toward under-ear",
+      instruction: "Glide lightly from the right side of your chin along the jaw toward just below the ear. Lift off and return. Do not pull hard or press into the area under the jaw.",
+      path: "M160 263 C181 258 205 242 221 220"
+    },
+    {
+      seconds: 45,
+      label: "PATH 2 OF 3 · RIGHT SIDE",
+      title: "Below the cheekbone",
+      instruction: "With a soft finger pad, make tiny, comfortable circles below the right cheekbone, moving gradually outward. Stay away from the eye socket; do not dig in with a knuckle.",
+      path: "M174 192 C189 189 205 180 220 177"
+    },
+    {
+      seconds: 45,
+      label: "PATH 3 OF 3 · RIGHT SIDE",
+      title: "Behind-ear toward side-neck",
+      instruction: "Use flat finger pads for a feather-light skin stroke from just behind the right ear down the outer side of the neck. Avoid the front of the neck and any pulse point. This is not clinical lymphatic drainage.",
+      path: "M231 212 C237 239 232 267 224 298"
+    },
+    {
+      seconds: 30,
+      label: "REST · 30 SECONDS",
+      title: "Hands down. Let your face rest.",
+      instruction: "Relax your jaw and breathe normally. Keep the same lighting and camera position for your After photo. No need to force a visible difference.",
+      path: null
+    }
+  ];
+
+  let stream = null;
+  let step = 1;
+  let beforeURL = null;
+  let afterURL = null;
+  let phaseIndex = -1;
+  let elapsedMs = 0;
+  let previousTick = 0;
+  let running = false;
+  let started = false;
+  let animationId = 0;
+  let cameraPending = false;
+  let cameraGeneration = 0;
+  let capturePending = false;
+  let generation = 0;
+
+  function showError(message) {
+    $("error").textContent = message;
+    $("error").hidden = !message;
+  }
+
+  function setStep(next) {
+    step = next;
+    for (let i = 1; i <= 4; i++) $("step" + i).hidden = i !== next;
+    $("intro").hidden = next !== 1;
+    document.querySelectorAll(".steps li").forEach((item, index) => {
+      item.classList.toggle("active", index + 1 <= next);
+      if (index + 1 === next) item.setAttribute("aria-current", "step");
+      else item.removeAttribute("aria-current");
+    });
+    $("reset").hidden = next === 1;
+  }
+
+  function cameraReady() {
+    return !!stream &&
+      stream.getVideoTracks().some(t => t.readyState === "live") &&
+      video.readyState >= 2 && video.videoWidth > 0;
+  }
+
+  function updateCaptureButtons() {
+    $("captureBefore").disabled = !cameraReady() || capturePending;
+    $("captureAfter").disabled = !cameraReady() || capturePending;
+  }
+
+  video.addEventListener("loadeddata", updateCaptureButtons);
+  video.addEventListener("playing", updateCaptureButtons);
+
+  function stopCamera() {
+    cameraGeneration++;
+    if (stream) stream.getTracks().forEach(track => track.stop());
+    stream = null;
+    video.srcObject = null;
+    updateCaptureButtons();
+  }
+
+  async function openCamera() {
+    if (cameraPending) return false;
+    showError("");
+
+    if (!window.isSecureContext || !navigator.mediaDevices?.getUserMedia) {
+      showError("Camera access requires HTTPS or localhost and a supported browser. Open this page in Safari or Chrome on a secure website.");
+      return false;
+    }
+
+    cameraPending = true;
+    const requestGeneration = ++cameraGeneration;
+    $("startCamera").disabled = true;
+    $("retryCamera").disabled = true;
+    $("cameraStatus").textContent = "Allow camera access to open your private mirror.";
+    $("cameraStatus").hidden = false;
+
+    try {
+      if (stream) stream.getTracks().forEach(track => track.stop());
+      stream = null;
+
+      const nextStream = await navigator.mediaDevices.getUserMedia({
+        audio: false,
+        video: {
+          facingMode: { ideal: "user" },
+          width: { ideal: 1080 },
+          height: { ideal: 1440 }
+        }
+      });
+
+      if (requestGeneration !== cameraGeneration) {
+        nextStream.getTracks().forEach(track => track.stop());
+        return false;
+      }
+
+      stream = nextStream;
+      video.srcObject = stream;
+      await video.play();
+
+      if (requestGeneration !== cameraGeneration) return false;
+
+      stream.getVideoTracks().forEach(track => {
+        track.addEventListener("ended", () => {
+          if (!stream || !stream.getTracks().includes(track)) return;
+          pause("Camera disconnected. Reconnect before continuing.");
+          $("cameraStatus").textContent = "Camera disconnected.";
+          $("cameraStatus").hidden = false;
+          $("retryCamera").hidden = false;
+          updateCaptureButtons();
+        });
+      });
+
+      $("cameraStatus").hidden = true;
+      $("retryCamera").hidden = true;
+      $("startCamera").hidden = true;
+      $("captureBefore").hidden = step !== 1;
+      updateCaptureButtons();
+      return true;
+    } catch (error) {
+      if (requestGeneration !== cameraGeneration) return false;
+      stopCamera();
+      const messages = {
+        NotAllowedError: "Camera permission was denied. Allow camera access in your browser’s site settings, then reconnect.",
+        NotFoundError: "No camera was found on this device.",
+        NotReadableError: "The camera is unavailable. Close other apps using it, then reconnect.",
+        SecurityError: "This browser blocked camera access. Open the HTTPS page directly in Safari or Chrome."
+      };
+      showError(messages[error.name] || "Could not open the camera. Check permissions and try again.");
+      $("cameraStatus").textContent = "Your camera is not connected.";
+      $("retryCamera").hidden = false;
+      return false;
+    } finally {
+      cameraPending = false;
+      $("startCamera").disabled = !$("consent").checked;
+      $("retryCamera").disabled = false;
+      updateCaptureButtons();
+    }
+  }
+
+  // Match the visible object-fit: cover crop and mirror it exactly once.
+  async function takePhoto() {
+    if (!cameraReady()) throw new Error("Wait for the live camera, then try again.");
+
+    const canvas = document.createElement("canvas");
+    canvas.width = 900;
+    canvas.height = 1200;
+
+    const ctx = canvas.getContext("2d");
+    if (!ctx) throw new Error("This browser cannot capture a photo.");
+
+    const vw = video.videoWidth;
+    const vh = video.videoHeight;
+    const targetRatio = canvas.width / canvas.height;
+
+    let sw = vw;
+    let sh = vh;
+    if (vw / vh > targetRatio) sw = vh * targetRatio;
+    else sh = vw / targetRatio;
+
+    ctx.translate(canvas.width, 0);
+    ctx.scale(-1, 1);
+    ctx.drawImage(
+      video,
+      (vw - sw) / 2, (vh - sh) / 2, sw, sh,
+      0, 0, canvas.width, canvas.height
+    );
+
+    const blob = await new Promise(resolve => canvas.toBlob(resolve, "image/jpeg", .94));
+    canvas.width = canvas.height = 1;
+    if (!blob) throw new Error("Photo capture failed. Please try again.");
+    return URL.createObjectURL(blob);
+  }
+
+  function replacePhoto(which, url) {
+    if (which === "before") {
+      if (beforeURL) URL.revokeObjectURL(beforeURL);
+      beforeURL = url;
+    } else {
+      if (afterURL) URL.revokeObjectURL(afterURL);
+      afterURL = url;
+    }
+  }
+
+  function formatTime(seconds) {
+    return Math.floor(seconds / 60) + ":" + String(seconds % 60).padStart(2, "0");
+  }
+
+  function renderTimer() {
+    let seconds = Math.min(elapsedMs / 1000, TOTAL_SECONDS);
+    let index = 0;
+    while (index < phases.length - 1 && seconds >= phases[index].seconds) {
+      seconds -= phases[index].seconds;
+      index++;
+    }
+
+    const phase = phases[index];
+    if (phaseIndex !== index) {
+      phaseIndex = index;
+      $("phaseLabel").textContent = phase.label;
+      $("phaseTitle").textContent = phase.title;
+      $("phaseInstruction").textContent = phase.instruction;
+      $("guidePaths").hidden = !phase.path;
+      $("sideLabel").hidden = !phase.path;
+      if (phase.path) {
+        $("track").setAttribute("d", phase.path);
+        $("trackBase").setAttribute("d", phase.path);
+      }
+      if (started) $("ritualStatus").textContent = phase.title;
+    }
+
+    $("phaseTimer").textContent = formatTime(Math.max(0, Math.ceil(phase.seconds - seconds)));
+    $("totalTimer").textContent = formatTime(Math.max(0, Math.ceil(TOTAL_SECONDS - elapsedMs / 1000)));
+    $("progress").value = elapsedMs / 1000;
+
+    if (phase.path) {
+      const path = $("track");
+      const fraction = reducedMotion.matches ? .65 : (seconds % 4) / 4;
+      const point = path.getPointAtLength(path.getTotalLength() * fraction);
+      $("trailDot").setAttribute("cx", point.x);
+      $("trailDot").setAttribute("cy", point.y);
+    }
+  }
+
+  function tick(now) {
+    if (!running) return;
+    elapsedMs = Math.min(TOTAL_SECONDS * 1000, elapsedMs + now - previousTick);
+    previousTick = now;
+    renderTimer();
+
+    if (elapsedMs >= TOTAL_SECONDS * 1000) {
+      finishRitual();
+      return;
+    }
+    animationId = requestAnimationFrame(tick);
+  }
+
+  function pause(message = "Paused. Resume when you are ready.") {
+    if (running) {
+      elapsedMs = Math.min(TOTAL_SECONDS * 1000, elapsedMs + performance.now() - previousTick);
+      running = false;
+      cancelAnimationFrame(animationId);
+      renderTimer();
+    }
+    $("timerCard").classList.add("paused");
+    $("pauseRitual").textContent = "Resume";
+    if (step === 2 && started) $("ritualStatus").textContent = message;
+  }
+
+  async function resume() {
+    if (running) return;
+    if (!cameraReady()) {
+      $("ritualStatus").textContent = "Reconnect the camera before resuming.";
+      $("retryCamera").hidden = false;
+      return;
+    }
+    if (document.hidden) return;
+    running = true;
+    started = true;
+    previousTick = performance.now();
+    $("timerCard").classList.remove("paused");
+    $("pauseRitual").textContent = "Pause";
+    $("startRitual").hidden = true;
+    $("ritualControls").hidden = false;
+    $("ritualStatus").textContent = "Use light, comfortable contact. Stop if anything feels uncomfortable.";
+    animationId = requestAnimationFrame(tick);
+  }
+
+  function finishRitual() {
+    running = false;
+    cancelAnimationFrame(animationId);
+    $("guidePaths").hidden = true;
+    $("sideLabel").hidden = true;
+    $("cameraLabel").textContent = "AFTER · MATCH YOUR BEFORE";
+    $("ghost").src = beforeURL;
+    $("ghost").hidden = false;
+    $("showGhost").checked = true;
+    setStep(3);
+    updateCaptureButtons();
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  function setComparison(value) {
+    $("comparison").style.setProperty("--split", value + "%");
+    $("compareSlider").setAttribute("aria-valuetext", value + " percent Before, " + (100 - value) + " percent After");
+  }
+
+  async function capture(which) {
+    if (capturePending) return;
+    capturePending = true;
+    const token = generation;
+    updateCaptureButtons();
+    showError("");
+
+    try {
+      const url = await takePhoto();
+      if (token !== generation) {
+        URL.revokeObjectURL(url);
+        return;
+      }
+
+      replacePhoto(which, url);
+
+      if (which === "before") {
+        setStep(2);
+        $("cameraLabel").textContent = "LIVE · RIGHT-SIDE RITUAL";
+        phaseIndex = -1;
+        renderTimer();
+        $("timerCard").classList.add("paused");
+      } else {
+        $("beforeImage").src = beforeURL;
+        $("afterImage").src = afterURL;
+        $("ghost").hidden = true;
+        $("cameraSection").hidden = true;
+        $("afterCapture").hidden = true;
+        $("results").hidden = false;
+        $("compareSlider").value = 50;
+        setComparison(50);
+        document.querySelectorAll('input[name="observation"]').forEach(input => input.checked = false);
+        $("viewReport").disabled = true;
+        stopCamera();
+      }
+      window.scrollTo({ top: 0, behavior: "auto" });
+    } catch (error) {
+      showError(error.message);
+    } finally {
+      capturePending = false;
+      updateCaptureButtons();
+    }
+  }
+
+  function openReport() {
+    const selected = document.querySelector('input[name="observation"]:checked');
+    if (!selected) return;
+
+    const copy = {
+      visible: "You reported a subtle visible difference after your right-side ritual. Your photos are unfiltered; this is your observation, not an automated assessment.",
+      comfort: "You reported that your face feels more relaxed. Comfort can be a useful personal observation, even when a visible difference is unclear.",
+      none: "You did not notice a clear difference. That is a valid result. One short ritual does not establish whether a paid tool or program will help you."
+    };
+
+    $("reportText").textContent = copy[selected.value];
+    setStep(4);
+    $("cameraSection").hidden = true;
+    if (!$("report").open) $("report").showModal();
+  }
+
+  function returnToComparison() {
+    if ($("report").open) $("report").close();
+    setStep(3);
+    $("cameraSection").hidden = true;
+    $("afterCapture").hidden = true;
+    $("results").hidden = false;
+  }
+
+  function resetAll() {
+    generation++;
+    running = false;
+    started = false;
+    cancelAnimationFrame(animationId);
+    stopCamera();
+
+    if ($("report").open) $("report").close();
+
+    ["ghost", "beforeImage", "afterImage"].forEach(id => $(id).removeAttribute("src"));
+    if (beforeURL) URL.revokeObjectURL(beforeURL);
+    if (afterURL) URL.revokeObjectURL(afterURL);
+    beforeURL = afterURL = null;
+
+    elapsedMs = 0;
+    phaseIndex = -1;
+    $("consent").checked = false;
+    $("startCamera").hidden = false;
+    $("startCamera").disabled = true;
+    $("captureBefore").hidden = true;
+    $("cameraSection").hidden = false;
+    $("cameraStatus").hidden = false;
+    $("cameraStatus").textContent = "Your private mirror is ready when you are.";
+    $("cameraLabel").textContent = "BEFORE · MIRRORED VIEW";
+    $("retryCamera").hidden = true;
+    $("guidePaths").hidden = true;
+    $("sideLabel").hidden = true;
+    $("ghost").hidden = true;
+    $("startRitual").hidden = false;
+    $("ritualControls").hidden = true;
+    $("ritualStatus").textContent = "";
+    $("afterCapture").hidden = false;
+    $("results").hidden = true;
+    $("viewReport").disabled = true;
+    document.querySelectorAll('input[name="observation"]').forEach(input => input.checked = false);
+    showError("");
+    setStep(1);
+    renderTimer();
+    window.scrollTo({ top: 0, behavior: "auto" });
+  }
+
+  $("consent").addEventListener("change", () => {
+    $("startCamera").disabled = !$("consent").checked || cameraPending;
+  });
+  $("startCamera").addEventListener("click", openCamera);
+  $("retryCamera").addEventListener("click", openCamera);
+  $("captureBefore").addEventListener("click", () => capture("before"));
+  $("captureAfter").addEventListener("click", () => capture("after"));
+  $("startRitual").addEventListener("click", resume);
+  $("pauseRitual").addEventListener("click", () => running ? pause() : resume());
+  $("stopRitual").addEventListener("click", resetAll);
+  $("reset").addEventListener("click", resetAll);
+
+  $("showGhost").addEventListener("change", () => {
+    $("ghost").hidden = !$("showGhost").checked;
+  });
+
+  $("compareSlider").addEventListener("input", event => {
+    setComparison(Number(event.target.value));
+  });
+
+  document.querySelectorAll('input[name="observation"]').forEach(input => {
+    input.addEventListener("change", () => $("viewReport").disabled = false);
+  });
+
+  $("viewReport").addEventListener("click", openReport);
+  $("reopenReport").addEventListener("click", openReport);
+  $("closeReport").addEventListener("click", returnToComparison);
+  $("backComparison").addEventListener("click", returnToComparison);
+  $("report").addEventListener("cancel", event => {
+    event.preventDefault();
+    returnToComparison();
+  });
+
+  $("retakeAfter").addEventListener("click", async () => {
+    $("results").hidden = true;
+    $("afterCapture").hidden = false;
+    $("cameraSection").hidden = false;
+    $("ghost").src = beforeURL;
+    $("ghost").hidden = false;
+    $("showGhost").checked = true;
+    await openCamera();
+    window.scrollTo({ top: 0, behavior: "auto" });
+  });
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden && running) {
+      pause("Paused while this page was hidden. Tap Resume when you are ready.");
+    }
+  });
+
+  // Clear photos and release camera when leaving, including bfcache navigation.
+  window.addEventListener("pagehide", resetAll);
+
+  renderTimer();
+})();
+</script>
+</body>
+</html>
