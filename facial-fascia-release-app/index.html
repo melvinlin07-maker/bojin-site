@@ -281,6 +281,11 @@
     .choices label { border: 1px solid var(--border); padding: 12px; border-radius: 12px; font-size: 13px; }
     .choices input { accent-color: var(--gold); margin-right: 8px; }
 
+    .browser-help {
+      border-color: rgba(255, 212, 204, .32);
+      background: rgba(255, 212, 204, .07);
+    }
+
     dialog {
       width: min(420px, calc(100% - 32px));
       max-height: 90svh;
@@ -384,6 +389,12 @@
     </label>
     <button id="startCamera" class="button" disabled>Open my private mirror</button>
     <button id="captureBefore" class="button" hidden disabled>Take my Before photo</button>
+    <div id="browserHelp" class="card browser-help" hidden>
+      <strong>Camera blocked in this browser?</strong>
+      <p class="small">Some in-app browsers block camera access even on HTTPS. Copy this link, then open it directly in Safari or Chrome.</p>
+      <button id="copyLink" class="button secondary" type="button">Copy test link</button>
+      <p id="copyStatus" class="small" role="status" aria-live="polite"></p>
+    </div>
   </section>
 
   <section id="step2" hidden>
@@ -559,9 +570,19 @@
   let capturePending = false;
   let generation = 0;
 
+  function isLikelyInAppBrowser() {
+    const ua = navigator.userAgent || "";
+    return /FBAN|FBAV|Instagram|Line\/|MicroMessenger|TikTok|Bytedance|Snapchat|Pinterest|LinkedInApp/i.test(ua);
+  }
+
   function showError(message) {
     $("error").textContent = message;
     $("error").hidden = !message;
+  }
+
+  function showBrowserHelp(message = "") {
+    $("browserHelp").hidden = false;
+    $("copyStatus").textContent = message;
   }
 
   function setStep(next) {
@@ -603,7 +624,8 @@
     showError("");
 
     if (!window.isSecureContext || !navigator.mediaDevices?.getUserMedia) {
-      showError("Camera access requires HTTPS or localhost and a supported browser. Open this page in Safari or Chrome on a secure website.");
+      showError("Camera access requires HTTPS and a supported browser. Open this exact link directly in Safari or Chrome.");
+      showBrowserHelp("This page is not in a camera-safe browser context.");
       return false;
     }
 
@@ -659,7 +681,9 @@
       if (requestGeneration !== cameraGeneration) return false;
       stopCamera();
       const messages = {
-        NotAllowedError: "Camera permission was denied. Allow camera access in your browser’s site settings, then reconnect.",
+        NotAllowedError: isLikelyInAppBrowser()
+          ? "This in-app browser denied camera access. Copy the link below and open it directly in Safari or Chrome."
+          : "Camera permission was denied. Allow camera access in your browser’s site settings, then reconnect.",
         NotFoundError: "No camera was found on this device.",
         NotReadableError: "The camera is unavailable. Close other apps using it, then reconnect.",
         SecurityError: "This browser blocked camera access. Open the HTTPS page directly in Safari or Chrome."
@@ -667,6 +691,9 @@
       showError(messages[error.name] || "Could not open the camera. Check permissions and try again.");
       $("cameraStatus").textContent = "Your camera is not connected.";
       $("retryCamera").hidden = false;
+      if (error.name === "NotAllowedError" || error.name === "SecurityError" || isLikelyInAppBrowser()) {
+        showBrowserHelp("Open this link in Safari or Chrome, then tap Allow when asked for camera access.");
+      }
       return false;
     } finally {
       cameraPending = false;
@@ -916,6 +943,8 @@
     $("cameraStatus").textContent = "Your private mirror is ready when you are.";
     $("cameraLabel").textContent = "BEFORE · MIRRORED VIEW";
     $("retryCamera").hidden = true;
+    $("browserHelp").hidden = true;
+    $("copyStatus").textContent = "";
     $("guidePaths").hidden = true;
     $("sideLabel").hidden = true;
     $("ghost").hidden = true;
@@ -937,6 +966,14 @@
   });
   $("startCamera").addEventListener("click", openCamera);
   $("retryCamera").addEventListener("click", openCamera);
+  $("copyLink").addEventListener("click", async () => {
+    try {
+      await navigator.clipboard.writeText(location.href);
+      $("copyStatus").textContent = "Link copied. Paste it into Safari or Chrome.";
+    } catch (error) {
+      $("copyStatus").textContent = location.href;
+    }
+  });
   $("captureBefore").addEventListener("click", () => capture("before"));
   $("captureAfter").addEventListener("click", () => capture("after"));
   $("startRitual").addEventListener("click", resume);
