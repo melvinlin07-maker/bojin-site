@@ -49,11 +49,12 @@
     <hr class="rule">
     <h1 class="display">Why your face looks tired after 40,<br>and the gentle changes that help.</h1>
     <p class="lead">A free, beautifully simple guide from bojin instructor Yu-Ting Lan. Understand where your face quietly holds tension, and the small, kind first steps that make it feel lighter and more rested.</p>
-    <!-- Brand-styled form; posts the email to systeme (list) via the hidden iframe at the end of main, then we send the visitor to the guide -->
+    <!-- Brand-styled form; Systeme.io confirms success before guide-ready.html opens. -->
     <form method="post" action="https://systeme.io/embedded/42586344/subscription" target="systeme-capture" class="signup" id="optinTop" style="max-width:520px;margin-top:1.4rem">
       <input class="field" type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
       <button class="btn btn--lg" type="submit">Send me the free guide</button>
     </form>
+    <p class="form-status" aria-live="polite" hidden></p>
     <p class="form-note" style="color:#EADCCF">No spam, ever · unsubscribe in one click · gentle self-care, not medical advice.</p>
   </div>
 </section>
@@ -158,11 +159,12 @@
     <hr class="rule">
     <h2 class="display">Give your face a little understanding.</h2>
     <p class="lead" style="margin-inline:auto">Leave your email and your free guide is ready in seconds.</p>
-    <!-- Same systeme list as the hero form; both post through the shared hidden iframe below -->
+    <!-- Same Systeme.io list as the hero form; success is confirmed before redirecting. -->
     <form method="post" action="https://systeme.io/embedded/42586344/subscription" target="systeme-capture" class="signup" id="optinBottom" style="max-width:520px;margin:1.4rem auto 0;justify-content:center">
       <input class="field" type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
       <button class="btn btn--lg" type="submit">Send me the free guide</button>
     </form>
+    <p class="form-status" aria-live="polite" hidden></p>
     <p class="form-note" style="text-align:center">No spam, ever · unsubscribe anytime.</p>
   </div>
 </section>
@@ -189,12 +191,6 @@
   document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
     b.addEventListener('click',function(){ var n=cur()==='dark'?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem('bojin-theme',n);}catch(e){} });
   });
-  function wire(form, src){ if(!form) return; form.addEventListener('submit',function(){
-    if(window.bojinLead) bojinLead(src);
-    // the email posts to systeme in the hidden iframe; send the visitor to their guide
-    setTimeout(function(){ window.location.href='guide-ready.html'; }, 700);
-  }); }
-  wire(document.getElementById('optinTop'), 'landing-guide-top'); wire(document.getElementById('optinBottom'), 'landing-guide-bottom');
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
     document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
@@ -202,5 +198,9 @@
 })();
 </script>
 <script src="nav.js"></script>
+<script>
+  bojinWireOptin(document.getElementById('optinTop'), 'landing-guide-top');
+  bojinWireOptin(document.getElementById('optinBottom'), 'landing-guide-bottom');
+</script>
 </body>
 </html>

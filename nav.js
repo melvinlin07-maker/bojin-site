@@ -37,8 +37,9 @@
   gtag('config', 'G-2VFEVY9Q1F');
 })();
 
-/* Fire a Lead conversion once, to Meta Pixel + GA4, from an opt-in form
-   submit. Call bojinLead('<source>') in each form's submit handler.
+/* Fire a Lead conversion once, to Meta Pixel + GA4, after an opt-in form has
+   been confirmed by the Systeme.io success redirect. Call bojinLead('<source>')
+   only from that confirmed path.
    - Deduped per source per page load (double-clicks won't double-count).
    - content_name / source carries which page produced the lead, so the
      three forms that share one systeme list ID can still be told apart in
@@ -55,6 +56,66 @@ window.bojinLead = function(source){
     if(window.fbq) fbq('track','Lead',{content_name:source},{eventID:eid});
     if(window.gtag) gtag('event','generate_lead',{source:source});
   }catch(e){}
+};
+
+/* Keep the native Systeme.io POST, but do not guess that it succeeded from a
+   submit event or an iframe load. Lead and the guide redirect are allowed only
+   after the hidden iframe reaches our same-origin success page. Cross-origin
+   error responses are intentionally ignored because they cannot prove opt-in. */
+window.bojinWireOptin = function(form, source){
+  if(!form) return;
+  var targetName = form.getAttribute('target');
+  var frame = targetName ? document.querySelector('iframe[name="' + targetName + '"]') : null;
+  if(!frame) return;
+
+  var successPath = '/guide-ready.html';
+  var status = form.parentElement && form.parentElement.querySelector('.form-status');
+  var button = form.querySelector('button[type="submit"]');
+  var pending = false;
+  var timer = null;
+
+  function showStatus(message){
+    if(!status) return;
+    status.textContent = message || '';
+    status.hidden = !message;
+  }
+
+  function finish(success){
+    pending = false;
+    if(timer){ window.clearTimeout(timer); timer = null; }
+    if(button) button.disabled = false;
+    if(success){
+      if(window.bojinLead) window.bojinLead(source);
+      window.location.href = successPath;
+    }else{
+      showStatus('We could not confirm your signup. Please try again.');
+    }
+  }
+
+  frame.addEventListener('load', function(){
+    if(!pending) return;
+    var href;
+    try{
+      href = frame.contentWindow.location.href;
+    }catch(e){
+      /* Still on a cross-origin Systeme.io response: no success proof yet. */
+      return;
+    }
+    try{
+      var url = new URL(href, window.location.href);
+      if(url.origin === window.location.origin && url.pathname === successPath){
+        finish(true);
+      }
+    }catch(e){}
+  });
+
+  form.addEventListener('submit', function(){
+    pending = true;
+    showStatus('Sending…');
+    if(button) button.disabled = true;
+    if(timer) window.clearTimeout(timer);
+    timer = window.setTimeout(function(){ finish(false); }, 30000);
+  });
 };
 
 /* Shared mobile navigation — hamburger toggle for the top nav.

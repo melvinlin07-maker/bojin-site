@@ -195,6 +195,8 @@ main > section:last-child{ padding-bottom:clamp(8px,1.5vw,22px); }
 .signup .field{ flex:1 1 250px; }
 .center .signup{ justify-content:center; }
 .form-note{ font-size:.82rem; color:var(--ink-soft); margin-top:.75rem; letter-spacing:.02em; }
+.form-status{ font-size:.82rem; color:var(--ink-soft); margin-top:.65rem; min-height:1.2em; }
+.form-status:not([hidden]){ color:var(--ink); }
 
 /* ---------- pills / badges ---------- */
 .pill{

@@ -1054,12 +1054,13 @@
     <hr class="rule">
     <h2 class="display">Give your face ten quiet minutes.</h2>
     <p class="lead">Leave your email and the free guide — the condensed first lesson of the method — is ready to open in seconds. New journal entries follow, only when there's something worth sharing.</p>
-    <!-- Brand-styled form; posts the email to systeme (list) via a hidden iframe, then we send the visitor to the guide -->
+    <!-- Brand-styled form; Systeme.io confirms success before guide-ready.html opens. -->
     <form method="post" action="https://systeme.io/embedded/42586344/subscription" target="systeme-capture" class="signup" id="captureForm">
       <input class="field" type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
       <button class="btn btn--lg" type="submit">Send me the guide</button>
     </form>
     <iframe name="systeme-capture" title="subscription" style="display:none;width:0;height:0;border:0" aria-hidden="true"></iframe>
+    <p class="form-status" aria-live="polite" hidden></p>
     <p class="form-note">No spam, ever. Unsubscribe in one click. This is self-care, not medical treatment.</p>
   </div>
 </section>
@@ -1115,14 +1116,6 @@
     apply();
   }); }
 
-  /* email capture */
-  var form=document.getElementById('captureForm');
-  if(form){ form.addEventListener('submit',function(){
-    if(window.bojinLead) bojinLead('blog');
-    // the email posts to systeme in the hidden iframe; send the visitor to their guide
-    setTimeout(function(){ window.location.href='guide-ready.html'; }, 700);
-  }); }
-
   if('IntersectionObserver' in window){
     var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
     document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
@@ -1130,5 +1123,6 @@
 })();
 </script>
 <script src="nav.js"></script>
+<script>bojinWireOptin(document.getElementById('captureForm'), 'blog');</script>
 </body>
 </html>
