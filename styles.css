@@ -395,6 +395,7 @@ body.unlocked .gate{ display:none; }
 .post-meta b{ color:var(--ink); font-weight:600; }
 .article p{ font-size:1.05rem; line-height:1.85; }
 .article .lead{ font-size:clamp(1.18rem,2vw,1.4rem); line-height:1.65; margin-bottom:1.5rem; }
+.article h2{ color:var(--jade); }
 .callout{ background:var(--paper); border:1px solid var(--line); border-left:3px solid var(--jade);
   border-radius:0 8px 8px 0; padding:1.2rem 1.4rem; margin:1.9rem 0; }
 .callout p{ margin:0; }
@@ -413,7 +414,7 @@ body.unlocked .gate{ display:none; }
 .note-safety{ font-size:.96rem; color:var(--ink-soft); background:var(--paper-3);
   border:1px dashed var(--line-gold); border-radius:8px; padding:1rem 1.25rem; margin:1.9rem 0; }
 .faq{ border-top:1px solid var(--line); margin-top:2.4rem; padding-top:1.2rem; }
-.faq h3{ font-family:var(--font-sans); font-size:1.06rem; font-weight:600; color:var(--ink); margin:1.4rem 0 .3rem; }
+.faq h3{ font-family:var(--font-sans); font-size:1.06rem; font-weight:600; color:var(--jade); margin:1.4rem 0 .3rem; }
 .faq p{ font-size:1rem; color:var(--ink-soft); margin:0 0 .7rem; }
 .article-cta{ background:var(--paper-2); border:1px solid var(--line-gold); border-radius:12px;
   padding:2rem 1.7rem; margin:2.6rem 0 1rem; text-align:center; }
