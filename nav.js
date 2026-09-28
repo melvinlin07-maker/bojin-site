@@ -15,26 +15,47 @@
     return;
   }
 
-  /* Meta Pixel base code */
-  !function(f,b,e,v,n,t,s)
-  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-  if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-  n.queue=[];t=b.createElement(e);t.async=!0;
-  t.src=v;s=b.getElementsByTagName(e)[0];
-  s.parentNode.insertBefore(t,s)}(window, document,'script',
-  'https://connect.facebook.net/en_US/fbevents.js');
-  fbq('init', '751313064707787');
-  fbq('track', 'PageView');
+  function loadTrackers(){
+    /* Meta Pixel base code */
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '751313064707787');
+    fbq('track', 'PageView');
 
-  /* Google Analytics 4 */
-  var s = document.createElement('script');
-  s.async = true;
-  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VFEVY9Q1F';
-  document.head.appendChild(s);
-  window.gtag = function(){ dataLayer.push(arguments); };
-  gtag('js', new Date());
-  gtag('config', 'G-2VFEVY9Q1F');
+    /* Google Analytics 4 */
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2VFEVY9Q1F';
+    document.head.appendChild(s);
+    window.gtag = function(){ dataLayer.push(arguments); };
+    gtag('js', new Date());
+    gtag('config', 'G-2VFEVY9Q1F');
+  }
+
+  /* The journal is image and content heavy. Keep its first paint clear while
+     still recording visitors who interact; all other pages track immediately. */
+  if(location.pathname === '/blog.html'){
+    var started = false;
+    function start(){
+      if(started) return;
+      started = true;
+      loadTrackers();
+    }
+    document.addEventListener('pointerdown', start, {once:true, passive:true});
+    document.addEventListener('keydown', start, {once:true});
+    window.addEventListener('scroll', start, {once:true, passive:true});
+    function queueStart(){ window.setTimeout(start, 4000); }
+    if(document.readyState === 'complete') queueStart();
+    else window.addEventListener('load', queueStart, {once:true});
+  } else {
+    loadTrackers();
+  }
 })();
 
 /* Fire a Lead conversion once, to Meta Pixel + GA4, after an opt-in form has
