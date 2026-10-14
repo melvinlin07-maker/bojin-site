@@ -21,10 +21,10 @@
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-normal-latin-v21.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/hanken-grotesk-normal-latin-v12.woff2" crossorigin>
   <style>
-    /* Same brand fonts, served locally to avoid the external CSS/font chain. */
-    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 600;font-display:swap;src:url('assets/fonts/cormorant-garamond-normal-latin-v21.woff2') format('woff2')}
+    /* Use local brand fonts when ready; retain a readable fallback on slow first visits without a late title swap. */
+    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 600;font-display:optional;src:url('assets/fonts/cormorant-garamond-normal-latin-v21.woff2') format('woff2')}
     @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400 500;font-display:swap;src:url('assets/fonts/cormorant-garamond-italic-latin-v21.woff2') format('woff2')}
-    @font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:400 600;font-display:swap;src:url('assets/fonts/hanken-grotesk-normal-latin-v12.woff2') format('woff2')}
+    @font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:400 600;font-display:optional;src:url('assets/fonts/hanken-grotesk-normal-latin-v12.woff2') format('woff2')}
     /* Keep below-fold sections in the DOM while avoiding initial layout work. */
     main > section:not(.hero-split){content-visibility:auto;contain-intrinsic-size:auto 600px}
   </style>
