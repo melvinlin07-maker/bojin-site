@@ -18,16 +18,13 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://bojinfacetension.com/assets/og/home.jpg">
-  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-home-hero-v21.woff2" crossorigin>
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-normal-latin-v21.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="assets/fonts/hanken-grotesk-normal-latin-v12.woff2" crossorigin>
   <style>
     /* Same brand fonts, served locally to avoid the external CSS/font chain. */
     @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 600;font-display:swap;src:url('assets/fonts/cormorant-garamond-normal-latin-v21.woff2') format('woff2')}
     @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400 500;font-display:swap;src:url('assets/fonts/cormorant-garamond-italic-latin-v21.woff2') format('woff2')}
     @font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:400 600;font-display:swap;src:url('assets/fonts/hanken-grotesk-normal-latin-v12.woff2') format('woff2')}
-    /* Hero-only subset: same typeface and weight; regenerate if the headline changes. */
-    @font-face{font-family:'Bojin Home Hero';font-style:normal;font-weight:500;font-display:swap;src:url('assets/fonts/cormorant-garamond-home-hero-v21.woff2') format('woff2');unicode-range:U+20,U+2c,U+2e,U+42,U+61-6c,U+6e-6f,U+72-75,U+77,U+79}
-    .hero-split h1.display{font-family:'Bojin Home Hero',var(--font-serif)}
     /* Keep below-fold sections in the DOM while avoiding initial layout work. */
     main > section:not(.hero-split){content-visibility:auto;contain-intrinsic-size:auto 600px}
   </style>
