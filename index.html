@@ -18,17 +18,17 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="https://bojinfacetension.com/assets/og/home.jpg">
-  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/cormorant-garamond-normal-latin-v21.woff2" crossorigin>
-  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/hanken-grotesk-normal-latin-v12.woff2" crossorigin>
   <style>
-    /* Same brand fonts, served locally to avoid the external CSS/font chain. */
-    @font-face{font-family:'Cormorant Garamond';font-style:normal;font-weight:400 600;font-display:swap;src:url('assets/fonts/cormorant-garamond-normal-latin-v21.woff2') format('woff2')}
-    @font-face{font-family:'Cormorant Garamond';font-style:italic;font-weight:400 500;font-display:swap;src:url('assets/fonts/cormorant-garamond-italic-latin-v21.woff2') format('woff2')}
-    @font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:400 600;font-display:swap;src:url('assets/fonts/hanken-grotesk-normal-latin-v12.woff2') format('woff2')}
     /* Keep below-fold sections in the DOM while avoiding initial layout work. */
     main > section:not(.hero-split){content-visibility:auto;contain-intrinsic-size:auto 600px}
   </style>
   <link rel="stylesheet" href="styles.css?v=9">
+  <style>
+    /* Homepage uses resident fonts: no font download or late font swap. */
+    :root{--font-serif:Georgia,'Times New Roman',serif;--font-sans:system-ui,-apple-system,'Segoe UI',sans-serif}
+    .hero-split h1.display{font-size:clamp(2.6rem,4.8vw,3.9rem);line-height:1.12}
+    @media(max-width:600px){.hero-split h1.display{font-size:clamp(2rem,8.6vw,2.3rem);line-height:1.12}}
+  </style>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
