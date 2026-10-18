@@ -1,0 +1,1449 @@
+<!doctype html>
+<html lang="en" translate="no" class="notranslate" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>Brows & Inner Brow: A Visual Guide | The Bojin Method</title>
+  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="journal-guide.css">
+  <style>
+    :root {
+      --paper: #FBF6EF;
+      --paper-2: #FFFDFC;
+      --paper-3: #F2E8DD;
+      --ink: #2D2428;
+      --ink-soft: #66585E;
+      --jade: #351D2C;
+      --jade-deep: #4A293B;
+      --gold: #C7A466;
+      --gold-ink: #8C6B32;
+      --line: #E5D5C6;
+      --brand-bg: #351D2C;
+      --brand-on: #FBF6EF;
+      --brand-muted: #D9BDC9;
+      --cta: #EFE3CF;
+      --on-cta: #351D2C;
+      --cta-border: #B89558;
+      --ok-bg: #EDF5F0;
+      --ok-border: #6B9E78;
+      --ok-ink: #235332;
+      --err-bg: #FDF0F0;
+      --err-border: #C87A7A;
+      --err-ink: #7A2828;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+    }
+    .site-header { background: var(--brand-bg); }
+    .site-header .brand { color: var(--brand-on); }
+    .site-header .nav-links a { color: var(--brand-muted); }
+    .site-header .nav-links a.active { color: var(--gold); }
+
+    /* Sticky In-Page Navigator (Part 01 to Part 06) */
+    .v6-sticky-bar {
+      position: sticky;
+      top: var(--v7-header-height, 94px);
+      z-index: 40;
+      background: rgba(251, 246, 239, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--line);
+      padding: 10px 0;
+      margin: 0 0 24px 0;
+      box-shadow: 0 4px 12px rgba(45, 36, 40, 0.04);
+    }
+    .v6-nav-inner {
+      max-width: 1120px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
+    }
+    .v6-nav-inner::-webkit-scrollbar { display: none; }
+    .v6-nav-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--ink-soft);
+      padding: 6px 14px;
+      border-radius: 20px;
+      text-decoration: none;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      transition: all 0.2s;
+    }
+    .v6-nav-item:hover {
+      border-color: var(--gold);
+      color: var(--jade);
+    }
+    .v6-nav-item.is-active {
+      background: var(--jade);
+      color: var(--brand-on);
+      border-color: var(--jade);
+    }
+
+    /* Continuous Sections */
+    .v6-section {
+      padding: 44px 0;
+      border-bottom: 1px solid var(--line);
+      scroll-margin-top: var(--v7-anchor-offset, 165px);
+    }
+    .v6-section:first-of-type {
+      padding-top: 14px;
+    }
+    .v6-part-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      color: var(--gold-ink);
+      background: var(--paper-3);
+      padding: 5px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    /* Unfolded Observation Box */
+    .v5-callout {
+      background: var(--paper-2);
+      border-left: 4px solid var(--gold);
+      border-top: 1px solid var(--line);
+      border-right: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      border-radius: 0 10px 10px 0;
+      padding: 16px 20px;
+      margin: 18px 0;
+    }
+    .v5-callout-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: var(--jade);
+      margin: 0 0 6px 0;
+      text-transform: uppercase;
+    }
+    .v5-callout p {
+      margin: 0;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--ink);
+    }
+
+    /* Transition Bridge between parts */
+    .v5-bridge {
+      margin-top: 26px;
+      padding: 16px 22px;
+      background: var(--paper-3);
+      border-radius: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .v5-bridge-text {
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      margin: 0;
+    }
+    .v5-bridge-link {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--jade);
+      padding: 8px 16px;
+      border-radius: 24px;
+      background: var(--paper-2);
+      border: 1px solid var(--cta-border);
+      transition: all 0.2s;
+    }
+    .v5-bridge-link:hover {
+      background: var(--jade);
+      color: var(--brand-on);
+    }
+
+    /* Video Player */
+    .v3-hero.is-wide-video {
+      grid-template-columns: 0.82fr 1.18fr;
+      gap: 32px;
+    }
+    .v3-player {
+      position: relative;
+      text-align: center;
+      background: #1D1219;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: 0 10px 28px rgba(45, 36, 40, 0.12);
+    }
+    .v3-player video {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 540px;
+      margin: auto;
+    }
+    .v3-player.is-portrait {
+      max-width: 340px;
+      margin: 0 auto;
+    }
+
+    /* Compare Tabs & Diagrams */
+    .v5-compare-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 18px 0;
+    }
+    .v5-tab-btn {
+      border: 1.5px solid var(--line);
+      background: var(--paper-2);
+      color: var(--ink);
+      padding: 10px 16px;
+      border-radius: 28px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .v5-tab-btn:hover {
+      border-color: var(--gold);
+    }
+    .v5-tab-btn[aria-pressed="true"] {
+      background: var(--jade);
+      color: var(--brand-on);
+      border-color: var(--jade);
+    }
+
+    .v5-diagram-card {
+      padding: 18px 20px;
+      border-radius: 10px;
+      border: 1.5px solid var(--line);
+      margin-bottom: 16px;
+      background: var(--paper-2);
+    }
+    .v5-diagram-card.is-ok {
+      background: var(--ok-bg);
+      border-color: var(--ok-border);
+    }
+    .v5-diagram-card.is-err {
+      background: var(--err-bg);
+      border-color: var(--err-border);
+    }
+    .v5-diagram-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .v5-status-pill {
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 4px 10px;
+      border-radius: 16px;
+    }
+    .v5-status-pill.ok {
+      background: #D7EAD9;
+      color: var(--ok-ink);
+    }
+    .v5-status-pill.err {
+      background: #FCE1E1;
+      color: var(--err-ink);
+    }
+    .v5-steps-row {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+    .v5-step-item strong {
+      display: block;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+
+    /* Dual Compare Player */
+    .v5-dual-player {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 14px;
+    }
+    .v5-dual-col {
+      border: 1.5px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: #1D1219;
+    }
+    .v5-dual-col.is-err { border-color: var(--err-border); }
+    .v5-dual-col.is-ok { border-color: var(--ok-border); }
+    .v5-dual-label {
+      padding: 8px 12px;
+      font-size: 12.5px;
+      font-weight: 700;
+      text-align: center;
+    }
+    .v5-dual-col.is-err .v5-dual-label { background: var(--err-bg); color: var(--err-ink); }
+    .v5-dual-col.is-ok .v5-dual-label { background: var(--ok-bg); color: var(--ok-ink); }
+    .v5-dual-col video { width: 100%; display: block; }
+
+    /* Teacher Card */
+    .v5-teacher-card {
+      margin-top: 36px;
+      padding: 24px 28px;
+      background: var(--paper-2);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 22px;
+      align-items: center;
+    }
+    .v5-teacher-card img {
+      width: 96px;
+      height: 96px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+    }
+    .v5-teacher-card h3 {
+      font-size: 20px;
+      margin: 4px 0 6px;
+    }
+    .v5-teacher-card p {
+      font-size: 15px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      margin: 0 0 10px;
+    }
+    .v5-teacher-meta {
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+      font-size: 13.5px;
+    }
+    .v5-teacher-meta a {
+      color: var(--jade);
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .v5-teacher-meta a:hover {
+      color: var(--gold-ink);
+    }
+
+    /* Part 04 Clean Opt-in (Direct High-Clarity Button) */
+    .v6-optin-box {
+      margin-top: 32px;
+      padding: 30px 34px;
+      background: var(--paper-3);
+      border: 1.5px solid var(--gold);
+      border-radius: 14px;
+      display: grid;
+      grid-template-columns: 1.35fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .v6-optin-box h3 {
+      font-size: 24px;
+      margin: 6px 0 10px;
+    }
+    .v6-optin-box p {
+      color: var(--ink-soft);
+      font-size: 15.5px;
+      line-height: 1.62;
+      margin: 0 0 18px;
+    }
+    .v6-optin-btn {
+      display: inline-block;
+      background: var(--jade);
+      color: var(--brand-on);
+      padding: 13px 26px;
+      border-radius: 28px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .v6-optin-btn:hover {
+      background: var(--jade-deep);
+    }
+    .v6-optin-thumb {
+      width: 100%;
+      max-height: 220px;
+      object-fit: cover;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      display: block;
+      box-shadow: 0 6px 20px rgba(45, 36, 40, 0.08);
+    }
+
+    /* Part 05 Detail Cards */
+    .v5-detail-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin: 24px 0 32px;
+    }
+    .v5-detail-card {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--paper-2);
+      overflow: hidden;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .v5-detail-card:hover {
+      border-color: var(--gold);
+    }
+    .v5-detail-card.is-open {
+      border-color: var(--gold);
+      box-shadow: 0 8px 24px rgba(45, 36, 40, 0.06);
+    }
+    .v5-detail-summary {
+      display: grid;
+      grid-template-columns: 120px 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 18px 22px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .v5-detail-summary img {
+      width: 120px;
+      height: 82px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .v5-detail-summary h3 {
+      font-size: 19px;
+      margin: 3px 0 5px;
+      line-height: 1.35;
+    }
+    .v5-detail-summary p {
+      margin: 0;
+      font-size: 14.5px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+    .v5-detail-toggle {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--jade);
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: var(--paper-3);
+      white-space: nowrap;
+    }
+    .v5-detail-body {
+      display: none;
+      padding: 0 22px 24px;
+      border-top: 1px dashed var(--line);
+    }
+    .v5-detail-card.is-open .v5-detail-body {
+      display: block;
+    }
+
+    /* Part 06 Clean High-Trust CTA Box (Light Warm Ivory, Zero Crowding) */
+    .v5-cta-box {
+      margin-top: 38px;
+      padding: 44px 46px;
+      background: var(--paper-2);
+      color: var(--ink);
+      border-radius: 16px;
+      border: 1.5px solid var(--gold);
+      box-shadow: 0 14px 34px rgba(45, 36, 40, 0.08);
+    }
+    .v5-cta-kicker {
+      font-size: 12px;
+      letter-spacing: 1.6px;
+      color: var(--gold-ink);
+      font-weight: 700;
+      margin: 0 0 8px;
+      text-transform: uppercase;
+    }
+    .v5-cta-box h2 {
+      color: var(--jade);
+      font-size: clamp(26px, 3.2vw, 34px);
+      margin: 0 0 10px;
+      line-height: 1.3;
+    }
+    .v5-cta-desc {
+      color: var(--ink-soft);
+      font-size: 16.5px;
+      line-height: 1.65;
+      max-width: 780px;
+      margin: 0 0 30px;
+    }
+
+    /* 3 Distinct Elegant White Feature Cards */
+    .v5-cta-features {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin: 0 0 32px;
+    }
+    .v6-cta-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 22px 22px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .v6-cta-card:hover {
+      border-color: var(--gold);
+      transform: translateY(-2px);
+    }
+    .v6-cta-card-tag {
+      display: inline-block;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.9px;
+      color: var(--gold-ink);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .v6-cta-card h4 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      color: var(--jade);
+      line-height: 1.35;
+    }
+    .v6-cta-card p {
+      margin: 0;
+      font-size: 14.5px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+    }
+
+    .v5-cta-actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--line);
+    }
+    .v5-btn-primary-course {
+      background: var(--jade);
+      color: var(--brand-on);
+      padding: 14px 28px;
+      border-radius: 30px;
+      font-size: 15.5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .v5-btn-primary-course:hover {
+      background: var(--jade-deep);
+    }
+    .v5-btn-secondary-video {
+      background: var(--paper-3);
+      color: var(--ink);
+      border: 1px solid var(--cta-border);
+      padding: 13px 24px;
+      border-radius: 30px;
+      font-size: 14.5px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .v5-btn-secondary-video:hover {
+      background: var(--cta);
+    }
+
+    /* Essay 2-Column Grid (Collapses cleanly on mobile) */
+    .v6-essay-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+      margin: 24px 0;
+    }
+    .v3-top {
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    @media(max-width:820px) {
+      .v6-sticky-bar { top: 0; padding: 8px 0; }
+      .v6-section { padding: 32px 0; scroll-margin-top: 70px; }
+      .v3-hero.is-wide-video { grid-template-columns: 1fr; gap: 20px; }
+      .v5-steps-row { grid-template-columns: 1fr; gap: 10px; }
+      .v5-dual-player { grid-template-columns: 1fr; }
+      .v5-teacher-card { grid-template-columns: 1fr; text-align: center; padding: 20px 18px; }
+      .v5-teacher-card img { margin: 0 auto; }
+      .v5-teacher-meta { justify-content: center; }
+      .v6-optin-box { grid-template-columns: 1fr; padding: 22px 20px; gap: 18px; }
+      .v6-optin-btn { display: block; text-align: center; }
+      .v5-detail-summary { grid-template-columns: 84px 1fr; gap: 14px; padding: 14px 16px; }
+      .v5-detail-summary img { width: 84px; height: 64px; }
+      .v5-detail-toggle { grid-column: span 2; justify-self: flex-start; }
+      .v5-detail-body { padding: 0 16px 18px; }
+      .v5-cta-box { padding: 26px 20px; }
+      .v6-step-flow { grid-template-columns: 1fr 1fr; }
+      .v5-cta-features { grid-template-columns: 1fr; gap: 12px; }
+      .v5-cta-actions a { width: 100%; text-align: center; box-sizing: border-box; }
+      .v6-essay-grid { grid-template-columns: 1fr; }
+    }
+
+    :root { --v7-header-height:94px; --v7-anchor-offset:165px; }
+    .v6-sticky-bar { top:var(--v7-header-height); }
+    .v6-section { scroll-margin-top:var(--v7-anchor-offset); }
+    #course-cta, #free-preview-optin, [id^="detail-"], #safety-check { scroll-margin-top:var(--v7-anchor-offset); }
+    .v7-course-note { color:var(--ink-soft); font-size:15px; line-height:1.8; }
+    .v7-safety { padding:20px 24px; margin:22px 0; background:var(--paper-2); border:1px solid var(--line); border-radius:14px; }
+    .v7-safety summary { cursor:pointer; font-weight:650; }
+    .v7-safety li { margin:10px 0; line-height:1.8; }
+    .v7-map-wrap { position:relative; }
+    .v7-map-wrap img { display:block; width:100%; }
+    .v7-map-overlay { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+    .v7-map-focus { fill:none; stroke:#fff9e8; stroke-width:3; filter:drop-shadow(0 0 3px #351d2c); }
+    .v7-map-caption { font-size:13px; line-height:1.7; margin-top:10px; color:var(--ink-soft); }
+    .v7-compare-controls { display:flex; flex-wrap:wrap; gap:10px; margin:12px 0; }
+    .v5-detail-summary:focus-visible, button:focus-visible, a:focus-visible { outline:3px solid #a77b26; outline-offset:4px; }
+    @media(max-width:760px) {
+      .v6-nav-inner { padding:0 12px; }
+      .v6-nav-item { font-size:12px; padding:6px 10px; }
+      .v7-safety { padding:16px; }
+    }
+
+
+.v3-lang { min-height:44px; min-width:96px; font-size:16px; }
+</style>
+<link rel="canonical" href="https://bojinfacetension.com/brow-guide.html">
+<meta name="description" content="Explore eye-area movement guides, muscle location illustrations and teacher demonstrations from The Bojin Method.">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="https://bojinfacetension.com/index.html">The Bojin Method</a>
+      <div class="nav-links">
+        <a href="https://bojinfacetension.com/index.html">Home</a>
+        <a href="https://bojinfacetension.com/start.html">Begin here</a>
+        <a href="https://bojinfacetension.com/about.html">About</a>
+        <a href="https://bojinfacetension.com/what-is-bojin.html">What is Bojin?</a>
+        <a href="https://bojinfacetension.com/landing.html">Eye Reset</a>
+        <a class="active" href="journal.html">Journal</a>
+        <a href="https://bojinfacetension.com/quiz.html">Quiz</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="nav-cta">
+        <button class="theme-toggle" aria-label="Toggle light or dark theme">◑</button>
+        <a class="btn" href="https://go.bojinfacetension.com/facial-tension-check">Free video</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Sticky Quick-Jump Bar (Part 01 to Part 06) -->
+  <nav class="v6-sticky-bar" aria-label="Page sections">
+    <div class="v6-nav-inner" id="v6-nav-links">
+      <a class="v6-nav-item is-active" href="#notice">Part 01 認表情</a>
+      <a class="v6-nav-item" href="#map">Part 02 看肌肉</a>
+      <a class="v6-nav-item" href="#compare">Part 03 比動作</a>
+      <a class="v6-nav-item" href="#prepare">Part 04 做準備</a>
+      <a class="v6-nav-item" href="#explore">Part 05 解惑問答</a>
+      <a class="v6-nav-item" href="#whole">Part 06 完整練習</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="wrap" id="brow-guide"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot-inner">
+      <a class="brand" href="https://bojinfacetension.com/index.html" style="color:var(--ink)">The Bojin Method</a>
+      <p class="foot-note">A gentle, method-led face and neck release you can learn at home.</p>
+      <p class="foot-copy">© 2026 The Bojin Method · Yu-Ting Lan · Gentle self-care, not medical treatment.</p>
+      <nav class="foot-legal">
+        <a href="https://bojinfacetension.com/privacy.html">Privacy Policy</a>
+        <a href="https://bojinfacetension.com/terms.html">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="bojin-language.js"></script>
+  <script>
+  (() => {
+    const saved = BojinLanguage.get();
+    const requestedLang = new URLSearchParams(location.search).get('lang');
+    let zh = requestedLang ? requestedLang === 'zh' : saved === 'zh';
+    BojinLanguage.remember(zh ? 'zh' : 'en');
+    const t = (a, b) => zh ? a : b;
+    const root = document.querySelector('#brow-guide');
+
+    const data = {
+      notice: {
+        label: ['認出表情', 'Notice Expression'],
+        title: ['沒有生氣，怎麼還皺著眉？', 'Not upset. Still frowning?'],
+        intro: ['讀訊息、趕工作，突然發現眉頭還鎖著。先從這個熟悉的小表情，看看眉區與老師的局部動作。', 'Reading a message. Finishing one last task. Then you notice your brow. Start with this familiar expression.'],
+        src: 'assets/journal/7d0eda9fcf.mp4',
+        body: ['先看就好，不急著跟做。前 3 秒特寫先帶你認出眉頭向內鎖緊的位置，接著是老師在眉上定點畫小圓的真實片段。', 'Just watch first. The opening seconds highlight the inner brow area, followed by the teacher demonstrating small circles along the brow.'],
+        bridge: ['看過日常表情後，我們先花 10 秒看懂：眉頭底下到底是哪一塊肌肉在出力？', 'Now that you have seen the expression, let’s take 10 seconds to see which muscle is working underneath.']
+      },
+      map: {
+        label: ['看懂肌肉', 'Anatomy Map'],
+        title: ['同一片眉區，不只一塊肌肉。', 'One brow area. More than one muscle.'],
+        intro: ['先用五肌圖建立位置感，再把注意力放回眉頭。這是理解日常表情的地圖，幫助辨認肌肉走向。', 'Use this five-muscle illustration to get oriented, then focus on the inner brow. It is a map for understanding muscle flow.'],
+        image: 'assets/journal/d23c7fcdc9.jpg',
+        body: ['圖上列出額肌 (Frontalis)、皺眉肌 (Corrugator)、眼輪匝肌 (Orbicularis oculi)、鼻根肌 (Procerus) 與降眉肌 (Depressor supercilii)。這次先關注金色的「② Corrugator supercilii（皺眉肌）」：它從眉頭往外斜向延伸，參與眉頭向內聚攏的表情。', 'The illustration names the frontalis, corrugator, orbicularis oculi, procerus and depressor supercilii. Here we focus on the gold corrugator (#2) and its role in drawing the brows inward.'],
+        bridge: ['知道皺眉肌的走向後，最關鍵的問題來了：為什麼老師在眉上要「畫完整小圓」，而不是「左右來回晃」？', 'Once you see how the corrugator runs, the key question is: why does the teacher draw a complete small circle instead of swaying side to side?']
+      },
+      compare: {
+        label: ['動作對比', 'Compare Movements'],
+        title: ['關鍵分辨：完整小圓，和左右晃，差在哪？', 'Key Difference: A complete small circle vs. a side-to-side sway?'],
+        intro: ['同一位老師、同一個示範角度。可隨時切換「正確定點小圓」、「常見左右晃」、或「上下同框比對」。', 'Same teacher, same demonstration angle. Switch between the complete circle, side-to-side sway, or simultaneous dual view.'],
+        src: 'assets/journal/166212b1b1.mp4',
+        body: ['這裡比較的是「眉上小圓」這個步驟：注意老師如何用另一隻手支撐皮膚，畫完一個完整小圓後，再向外移動。其他步驟可能使用不同手法，不應把所有左右滑動都視為錯誤。', 'This comparison is specific to the above-brow circle pass. Watch the supporting hand, the completed small circle, and the outward move. Other steps use different motions; side-to-side movement is not a universal mistake.'],
+        bridge: ['看懂「定點小圓」跟「左右晃」的差別後，千萬別直接拿工具往乾澀的眉毛上推！往下看動手前必做的滑度檢查。', 'Now that you can spot the difference, do not put a tool directly on dry skin! Scroll down to see the essential glide check before touching the brow.']
+      },
+      prepare: {
+        label: ['安全準備', 'Safety Preparation'],
+        title: ['動手以前：33 秒示範如何做「10 秒滑度檢查」', 'Before practice: 33s demo of the 10-second cheek glide check'],
+        intro: ['準備也是手法不可分割的一部分。外側臉頰的滑度示範只檢查滑動與控制感；練習前也要先確認原課的適用條件。', 'Preparation is an integral part of the method. The outer-cheek demonstration checks slip and control only. Review the original course preparation requirements before practising.'],
+        src: 'assets/journal/52c3553278.mp4',
+        body: ['這段示範用來確認手部控制感與滑度。滑度檢查不能取代操作前的適用條件與完整安全檢查表。', 'This excerpt demonstrates how to confirm slip and hand control. A glide check does not replace the preparation requirements or the full course safety checklist.'],
+        bridge: ['除了滑度之外，起點在哪裡？到眉尾怎麼收？另一隻手怎麼撐？下面 5 個關鍵問答，點開就能直接看分解片段。', 'Beyond slip and preparation: Where is the exact starting point? What does the other hand do? Click any of the 5 detail questions below to watch inline.']
+      },
+      explore: {
+        label: ['解惑問答', 'Detail Q&A'],
+        title: ['眉區常見的 5 個細節問題（點擊直接展開片段）', '5 Common Brow Detail Questions (Click to watch inline)'],
+        intro: ['不需要跳離頁面！點選下方任一問題，即可在原地展開老師的示範片段或肌肉透視圖。', 'No need to leave this page—click any question below to open the teacher’s demonstration clip or illustration right here.']
+      },
+      whole: {
+        label: ['完整練習', 'Full Sequence'],
+        title: ['把零散的局部觀察，接成安心的完整練習。', 'Connect isolated details into a calm, complete practice.'],
+        intro: ['你已經看懂了眉頭位置、定點小圓與左右晃的差別，以及動手前的滑度準備。完整課程負責把這些關鍵細節，按安全順序接成一套可跟練的眼部重置系統。', 'You have seen the muscle location, the difference between a circle and a sway, and the glide check. The full course connects these pieces into a complete, safe eye reset system.'],
+        src: 'assets/journal/e076001a77.mp4',
+        body: ['先聽老師用 29 秒介紹課程範圍。原課的五步依序為（Step 1 眉毛上方、Step 2 眉毛下緣、Step 3 上眼眶骨、Step 4 鼻側、Step 5 下眼眶骨；五步後另有收尾安撫）。這段導覽幫助你了解單一動作如何放進完整流程。', 'Watch the 29-second course orientation. The five steps in the original lessons are (Step 1 Above the Brow, Step 2 Lower Brow Edge, Step 3 Upper Orbital Rim, Step 4 Side of the Nose, Step 5 Lower Orbital Rim; followed by a separate soothing finish). This orientation shows how a single pass fits into the whole sequence.']
+      },
+      closeup: {
+        label: ['皺眉肌透視', 'Corrugator close-up'],
+        title: ['金色這一小塊「皺眉肌」，大約在哪個位置？', 'Where is the gold-highlighted corrugator muscle?'],
+        intro: ['把五肌地圖放大到這次的主角：眉頭內側的皺眉肌。', 'Zooming in on our main subject: the corrugator supercilii at the inner brow.'],
+        image: 'assets/journal/1db5105778.png',
+        body: ['金色區域是皺眉肌的位置示意。這是非比例位置示意，不表示工具深度，也不能用來判斷深層肌肉是否已放鬆。', 'Gold indicates the corrugator in this illustration. It provides a visual landmark for location and orientation rather than isolated deep force.']
+      },
+      start: {
+        label: ['小圓起點位置', 'Where to begin'],
+        title: ['眉上小圓，第一下要從哪裡開始？', 'Where does the very first brow circle begin?'],
+        intro: ['看老師手指指出的眉頭起點骨緣位置，再看動作往哪個方向移動。', 'Watch the exact starting landmark the teacher points to, then notice the direction of travel.'],
+        src: 'assets/journal/b7450c9d8d.mp4',
+        body: ['這是「眉上小圓」的專屬起點說明。其他穿過眉毛的步驟有不同的起點，請依各步驟標記操作。', 'This shows the starting point specifically for the brow-circle pass. Other passes begin at distinct landmarks.']
+      },
+      reset: {
+        label: ['眉尾抬起重放', 'Lift and reset'],
+        title: ['走到眉尾之後，工具怎麼回來才不會拉扯？', 'What happens at the tail of the brow?'],
+        intro: ['留意走到外側眉尾以後，老師如何乾脆地抬起工具、重新回到眉頭起點。', 'Notice how the teacher cleanly lifts the tool at the outer brow and resets to the starting point.'],
+        src: 'assets/journal/4c8bae444f.mp4',
+        body: ['觀察重點是「單向向外、抬起回程」。把向外畫圓推進與抬起回位分開看，就不會出現來回拉扯。', 'Focus on the one-way outward progression and the lifted return. Separating the pass from the reset prevents skin dragging.']
+      },
+      hand: {
+        label: ['穩定手直 V 配合', 'The supporting hand'],
+        title: ['別只盯著拿工具的手：另一隻手在做什麼？', 'Don’t just watch the tool—what is the other hand doing?'],
+        intro: ['這次把注意力放在老師左手（穩定手）的食指、中指指腹與直 V 字位置。', 'This time, focus on the finger pads and vertical V posture of the supporting left hand.'],
+        src: 'assets/journal/ca6d02ebb3.mp4',
+        body: ['原課示範用食指與中指指腹輕扶穩定皮膚，形成直 V 配合。有了穩定手支撐，工具操作時表皮才不會跟著晃動。', 'The teacher stabilizes the skin using the index and middle finger pads in a vertical V. Without this support, the skin shifts easily.']
+      },
+      anchor: {
+        label: ['拇指量測與定點', 'The thumb anchor'],
+        title: ['另一段眉上操作中，拇指是在量位置還是固定？', 'In the next brow step, is the thumb measuring or anchoring?'],
+        intro: ['看老師在另一段眉上操作中，如何使用拇指協助定位。', 'See how the teacher uses the thumb anchor in another part of the brow sequence.'],
+        src: 'assets/journal/9ee6c52722.mp4',
+        body: ['這是後續步驟的骨緣量測配合方式，不是把剛才的小圓改成左右晃。把不同動作分開看懂，才能串成完整練習。', 'This supports a distinct step in the sequence—it does not replace the circles with a side-to-side sway.']
+      }
+    };
+
+    const val = x => Array.isArray(x) ? t(...x) : x;
+    const picture = id => ({
+      notice: 'assets/journal/7692c6dd09.png',
+      map: 'assets/journal/d23c7fcdc9.jpg',
+      closeup: 'assets/journal/1db5105778.png',
+      compare: 'assets/journal/c35e71b0c5.jpg',
+      prepare: 'assets/journal/8bb4877b14.jpg',
+      hand: 'assets/journal/52b355b8d0.jpg',
+      anchor: 'assets/journal/52b355b8d0.jpg',
+      reset: 'assets/journal/bb43f1a959.jpg',
+      start: 'assets/journal/420a15ad1d.png',
+      whole: 'assets/journal/420a15ad1d.png',
+      explore: 'assets/journal/52b355b8d0.jpg'
+    }[id]);
+
+    function renderDiagram(mode) {
+      if (mode === 'sway') {
+        return `
+          <div class="v5-diagram-card is-err">
+            <div class="v5-diagram-header">
+              <span class="v5-status-pill err">${t('❌ 常見錯誤軌跡：原地左右來回搓動', '❌ Common Mistake: Back-and-forth horizontal rubbing')}</span>
+            </div>
+            <svg class="v3-diagram" viewBox="0 0 240 60" style="width:220px;height:56px;color:#A63A3A" aria-label="Incorrect side-to-side path">
+              <path d="M25 30 H215 M40 18 L25 30 L40 42 M200 18 L215 30 L200 42"/>
+            </svg>
+            <div class="v5-steps-row">
+              <div class="v5-step-item"><strong>${t('錯誤特徵 1', 'Issue 1')}</strong>${t('沒有畫出完整圓形，變成橫向來回刮', 'No full circle; scrapes back and forth')}</div>
+              <div class="v5-step-item"><strong>${t('錯誤特徵 2', 'Issue 2')}</strong>${t('缺少非慣用手穩定皮膚，表皮拉扯移位', 'Skin drags without supporting hand stabilization')}</div>
+              <div class="v5-step-item"><strong>${t('常見誤解', 'Common Confusion')}</strong>${t('把其他滑動步驟與眉上定點小圓混淆', 'Confusing other linear passes with small circles')}</div>
+            </div>
+          </div>`;
+      }
+      return `
+        <div class="v5-diagram-card is-ok">
+          <div class="v5-diagram-header">
+            <span class="v5-status-pill ok">${t('⭕ 正確手法軌跡：定點畫完小圓 → 再向外移一格', '⭕ Correct Path: Complete circle at one spot → Step outward')}</span>
+          </div>
+          <svg class="v3-diagram" viewBox="0 0 260 65" style="width:240px;height:60px;color:#235332" aria-label="Correct circle then outward step path">
+            <circle cx="42" cy="32" r="20"/>
+            <path d="M68 32 H112 M104 25 L112 32 L104 39"/>
+            <circle cx="140" cy="32" r="20"/>
+            <path d="M166 32 H235 M225 24 L235 32 L225 40"/>
+          </svg>
+          <div class="v5-steps-row">
+            <div class="v5-step-item"><strong>${t('動作 A · 定點畫圓', 'Action A · Full Circle')}</strong>${t('在起點先穩穩畫完 1 個完整小圓', 'Complete 1 small circle at the starting spot')}</div>
+            <div class="v5-step-item"><strong>${t('動作 B · 向外移格', 'Action B · Step Outward')}</strong>${t('畫完小圓才向眉尾方向推進 1 小格', 'Move slightly outward toward the brow tail')}</div>
+            <div class="v5-step-item"><strong>${t('動作 C · 眉尾抬起', 'Action C · Lift & Reset')}</strong>${t('抵達眉尾乾脆抬起，不回程拖拉', 'Lift cleanly at the tail without dragged return')}</div>
+          </div>
+        </div>`;
+    }
+
+    function render() {
+      document.documentElement.lang = zh ? 'zh-Hant' : 'en';
+
+      // Update in-page sticky navigator text
+      document.querySelector('#v6-nav-links').innerHTML = `
+        <a class="v6-nav-item is-active" href="#notice">${t('Part 01 認表情', 'Part 01 Notice')}</a>
+        <a class="v6-nav-item" href="#map">${t('Part 02 看肌肉', 'Part 02 Muscle Map')}</a>
+        <a class="v6-nav-item" href="#compare">${t('Part 03 比動作', 'Part 03 Compare')}</a>
+        <a class="v6-nav-item" href="#prepare">${t('Part 04 做準備', 'Part 04 Preparation')}</a>
+        <a class="v6-nav-item" href="#explore">${t('Part 05 解惑問答', 'Part 05 Q&A')}</a>
+        <a class="v6-nav-item" href="#whole">${t('Part 06 完整練習', 'Part 06 Sequence')}</a>
+      `;
+
+      const detailIds = ['start', 'reset', 'hand', 'anchor', 'closeup'];
+
+      let html = `
+        <div class="v3-top">
+          <span>
+            <a href="journal.html">Journal</a> /
+            <a href="eye-area-guides.html">${t('眼周三大部位專區', 'Eye Area Regions')}</a> /
+            <strong>${t('部位 01：眉上與眉頭深度指南', 'Region 01: Brows & Inner Brow Guide')}</strong>
+          </span>
+          <button class="v3-lang" id="v3-lang">🌐 ${zh ? 'English' : '繁體中文'}</button>
+        </div>
+
+        <p class="v3-kicker">REGION 01 OF 03 · BROWS & FOREHEAD · IN-DEPTH GUIDE (PARTS 01–06)</p>
+        <h1>${t('眉頭這一小塊，值得慢慢看懂。', 'A small area at the inner brow. Worth a closer look.')}</h1>
+        <p style="font-size:20px;font-weight:600;color:var(--gold-ink);margin:0 0 10px">${t('看見動作，看懂細節。', 'See the movement. Understand the detail.')}</p>
+        <p class="v3-intro" style="border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:12px">${t('這是眼周三大部位的第一篇。本頁將 6 個核心章節連貫呈現：日常表情 → 五肌解剖地圖 → 定點小圓 vs 左右晃動作對比 → 動手前滑度準備 → 5 個細節問答 → 完整眼部五步驟總覽。利用頂端小目錄可隨時跳轉。', 'Region 01 of our eye series: Brows & Inner Brow. Scroll through 6 structured parts: Expression → 5-Muscle Map → Movement Comparison → Glide Preparation → 5 Detail Q&As → Full Sequence Orientation. Use the sticky navigator above to jump between parts at any time.')}</p>
+
+        <!-- PART 01: NOTICE -->
+        <section class="v6-section" id="notice">
+          <span class="v6-part-badge">PART 01 · ${val(data.notice.label)}</span>
+          <h2>${val(data.notice.title)}</h2>
+          <div class="v3-hero">
+            <div>
+              <p class="v3-intro">${val(data.notice.intro)}</p>
+              <div class="v5-callout">
+                <div class="v5-callout-title">💡 ${t('觀看重點（先觀察，不急著跟做）', 'WHAT TO NOTICE FIRST')}</div>
+                <p>${val(data.notice.body)}</p>
+              </div>
+              <div class="v3-tabs">
+                <button class="v3-chip" data-replay="video-notice">▶ ${t('播放／重播 12 秒短片', 'Play / Replay 12s clip')}</button>
+                <button class="v3-chip" data-speed="video-notice" aria-pressed="false">${t('慢速看 0.5×', 'Slow view 0.5×')}</button>
+              </div>
+            </div>
+            <div>
+              <div class="v3-player is-portrait">
+                <video id="video-notice" controls playsinline preload="metadata" poster="${picture('notice')}" src="${data.notice.src}"></video>
+              </div>
+            </div>
+          </div>
+          <div class="v5-bridge">
+            <p class="v5-bridge-text">👇 ${val(data.notice.bridge)}</p>
+            <a class="v5-bridge-link" href="#map">${t('往下看 Part 02：眉區五肌解剖圖', 'Next: Part 02 · 5-Muscle Map')} ↓</a>
+          </div>
+        </section>
+
+        <!-- PART 02: MAP -->
+        <section class="v6-section" id="map">
+          <span class="v6-part-badge">PART 02 · ${val(data.map.label)}</span>
+          <h2>${val(data.map.title)}</h2>
+          <div class="v3-hero is-wide-video">
+            <div>
+              <p class="v3-intro">${val(data.map.intro)}</p>
+              <div class="v5-callout">
+                <div class="v5-callout-title">💡 ${t('五肌重點提示', 'MUSCLE IDENTIFICATION')}</div>
+                <p>${val(data.map.body)}</p>
+              </div>
+              <div class="v3-tabs" role="tablist" aria-label="${t('選擇要了解的肌肉', 'Select muscle to highlight')}">
+                <button class="v3-chip" data-muscle="0">1. Frontalis</button>
+                <button class="v3-chip" data-muscle="1" aria-pressed="true">2. Corrugator ★</button>
+                <button class="v3-chip" data-muscle="2">3. Orbicularis</button>
+                <button class="v3-chip" data-muscle="3">4. Procerus</button>
+                <button class="v3-chip" data-muscle="4">5. Depressor</button>
+              </div>
+              <div class="v5-callout" id="muscle-info" style="margin-top:14px;background:var(--paper-3)">
+                <h3 style="margin:0 0 6px 0">${t('② 皺眉肌 (Corrugator) · 眉頭內側向外斜行（本頁主角）', '② Corrugator supercilii · Inner brow outward (Main focus)')}</h3>
+                <span>${t('參與眉頭向內聚攏的表情。此圖用來辨認位置；手法的路線依老師示範，不由圖中的肌肉走向推定。', 'Draws the eyebrows inward and downward when frowning or concentrating. Drawing small circles here aligns with its natural orientation.')}</span>
+              </div>
+            </div>
+            <div>
+              <div class="v7-map-wrap">
+                <img class="v3-main-image" id="map-img" src="${data.map.image}" alt="Upper face and brow region five muscles map">
+                <svg class="v7-map-overlay" viewBox="0 0 1000 667" preserveAspectRatio="none" aria-hidden="true"><defs><mask id="v7-focus-mask"><rect width="1000" height="667" fill="white"/><g id="v7-mask-holes" fill="black"></g></mask></defs><rect width="1000" height="667" fill="#241721" opacity=".32" mask="url(#v7-focus-mask)"/><g id="v7-focus-rings" class="v7-map-focus"></g></svg>
+              </div>
+              <p class="v7-map-caption">${t('點選肌肉名稱，亮區會提示圖上的大約位置。亮區不是精確肌肉邊界或工具操作範圍；原圖為 AI 輔助、非比例示意。', 'Choose a muscle to spotlight its approximate location. The spotlight is not an exact muscle boundary or treatment area. AI-assisted illustration; not to scale.')}</p>
+            </div>
+          </div>
+          <div class="v5-bridge">
+            <p class="v5-bridge-text">👇 ${val(data.map.bridge)}</p>
+            <a class="v5-bridge-link" href="#compare">${t('往下看 Part 03：定點小圓 vs 左右晃動作對比', 'Next: Part 03 · Movement Comparison')} ↓</a>
+          </div>
+        </section>
+
+        <!-- PART 03: COMPARE -->
+        <section class="v6-section" id="compare">
+          <span class="v6-part-badge">PART 03 · ${val(data.compare.label)}</span>
+          <h2>${val(data.compare.title)}</h2>
+          <p class="v3-intro">${val(data.compare.intro)}</p>
+
+          <div class="v5-compare-tabs" role="tablist" aria-label="${t('選擇動作對比模式', 'Select comparison mode')}">
+            <button class="v5-tab-btn" data-mode="circle" aria-pressed="true">
+              ${t('⭕ 正確手法：定點完整小圓', '⭕ Correct: Complete Small Circle')}
+            </button>
+            <button class="v5-tab-btn" data-mode="sway" aria-pressed="false">
+              ${t('❌ 常見錯誤：左右來回晃', '❌ Mistake: Side-to-Side Sway')}
+            </button>
+            <button class="v5-tab-btn" data-mode="sidebyside" aria-pressed="false">
+              ${t('⚖️ 上下同框對照（慢動作直觀比對）', '⚖️ Simultaneous Dual View')}
+            </button>
+          </div>
+
+          <div class="v3-hero is-wide-video" id="compare-hero-grid">
+            <div>
+              <div id="compare-diagram-box">
+                ${renderDiagram('circle')}
+              </div>
+              <div class="v5-callout">
+                <div class="v5-callout-title">💡 ${t('畫面觀察：為什麼不能左右搓動？', 'WHAT YOU OBSERVE IN THE COMPARISON')}</div>
+                <p>${val(data.compare.body)}</p>
+              </div>
+              <div class="v3-tabs">
+                <button class="v3-chip" id="compare-pause">${t('暫停對照', 'Pause comparison')}</button>
+                <button class="v3-chip" id="compare-replay" style="background:var(--jade);color:var(--brand-on);border-color:var(--jade);font-weight:600">▶ ${t('播放示範片段', 'Play Excerpt')}</button>
+                <button class="v3-chip" id="compare-speed" aria-pressed="false">🐢 ${t('慢速看 0.5×', 'Slow view 0.5×')}</button>
+                <button class="v3-chip" id="compare-wide" aria-pressed="false">🖥️ ${t('劇院超寬畫面', 'Theater Wide View')}</button>
+              </div>
+              <p class="v3-note">${t('局部觀察片段，並非完整跟練。動手前請先看下方 Part 04 的滑度檢查。', 'Observation excerpt, not a complete practice. Check Part 04 below for the glide check before trying.')}</p>
+            </div>
+
+            <div id="compare-Stage">
+              <div class="v3-player" id="compare-single-wrap">
+                <video id="compare-player" controls playsinline preload="metadata" poster="${picture('compare')}" src="assets/journal/166212b1b1.mp4"></video>
+              </div>
+              <div class="v5-dual-player" id="compare-dual-wrap" style="display:none">
+                <div class="v5-dual-col is-err">
+                  <div class="v5-dual-label">${t('❌ 常見錯誤：左右來回晃（表皮受牽扯）', '❌ Mistake: Side-to-Side Sway (Drags skin)')}</div>
+                  <video id="dual-sway" muted controls playsinline preload="metadata" poster="${picture('compare')}" src="assets/journal/c7e0230820.mp4"></video>
+                </div>
+                <div class="v5-dual-col is-ok">
+                  <div class="v5-dual-label">${t('⭕ 正確手法：左手穩定 ＋ 定點畫完小圓才移格', '⭕ Correct: Supporting Hand + Complete Small Circle')}</div>
+                  <video id="dual-circle" controls playsinline preload="metadata" poster="${picture('compare')}" src="assets/journal/166212b1b1.mp4"></video>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Instructor & Tool Card -->
+          <div class="v5-teacher-card">
+            <img src="https://bojinfacetension.com/assets/yu-ting-lan-bojin-instructor.webp" alt="Yu-Ting Lan">
+            <div>
+              <span class="v3-tag">ABOUT THE INSTRUCTOR & TOOL · ${t('示範老師與工具說明', 'MEET YOUR TEACHER')}</span>
+              <h3>${t('藍玉婷 Yu-Ting Lan · 和合雅築 (Héhé Studio) 創辦人', 'Yu-Ting Lan · Founder of Héhé Studio & International Bojin Instructor')}</h3>
+              <p>${t('自 2015 年起親授超過 1,000 位學員。示範中使用的是「圓潤鈍頭撥筋棒」（無尖銳角度，非深層醫療侵入），重點在於「非慣用手穩定皮膚 ＋ 定點小圓釋放緊繃」，請先確認原課的操作前條件，再考慮跟練。', 'Teaching gentle facial bojin since 2015 to over 1,000 students. She uses a smooth, rounded-tip bojin tool—emphasizing skin stabilization and rhythmic circles rather than aggressive scraping.')}</p>
+              <div class="v5-teacher-meta">
+                <a href="https://bojinfacetension.com/about.html" target="_blank" rel="noopener">${t('閱讀老師故事 (About Yu-Ting) →', 'Read Yu-Ting’s full story →')}</a>
+                <a href="https://bojinfacetension.com/what-is-bojin.html" target="_blank" rel="noopener">${t('什麼是臉部撥筋？(What is Bojin?) →', 'What is Facial Bojin? →')}</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="v5-bridge">
+            <p class="v5-bridge-text">👇 ${val(data.compare.bridge)}</p>
+            <a class="v5-bridge-link" href="#prepare">${t('往下看 Part 04：動手前滑度檢查', 'Next: Part 04 · Cheek Glide Check')} ↓</a>
+          </div>
+        </section>
+
+        <!-- PART 04: PREPARE -->
+        <section class="v6-section" id="prepare">
+          <span class="v6-part-badge">PART 04 · ${val(data.prepare.label)}</span>
+          <h2>${val(data.prepare.title)}</h2>
+          <div class="v3-hero is-wide-video">
+            <div>
+              <p class="v3-intro">${val(data.prepare.intro)}</p>
+              <div class="v5-callout">
+                <div class="v5-callout-title">💡 ${t('安全法則：先測外頰，再進眼周', 'SAFETY RULE: TEST ON CHEEK BEFORE EYES')}</div>
+                <p>${val(data.prepare.body)}</p>
+              </div>
+              <div class="v3-tabs">
+                <button class="v3-chip" data-replay="video-prepare">▶ ${t('播放 33 秒示範片段', 'Play 33s Demonstration')}</button>
+                <button class="v3-chip" data-speed="video-prepare" aria-pressed="false">${t('慢速看 0.5×', 'Slow view 0.5×')}</button>
+              </div>
+            </div>
+            <div>
+              <div class="v3-player">
+                <video id="video-prepare" controls playsinline preload="metadata" poster="${picture('prepare')}" src="${data.prepare.src}"></video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Free Preview Direct Funnel Card -->
+          <details class="v7-safety" id="safety-check">
+            <summary>${t('動手前先確認：原課 M1 的適用條件與提醒', 'Before practice: preparation requirements from M1')}</summary>
+            <p>${t('以下整理自原課 M1 00:28–00:59 的操作前提醒。滑度檢查只是一部分，開始前仍須讀完課程的完整安全檢查表。', 'These reminders summarize M1 at 00:28–00:59. The glide check is only one part of preparation; read the full course safety checklist before practising.')}</p>
+            <ul>
+              <li>${t('原課說明：青光眼、視網膜問題、高度近視，或近期眼部手術（包含雷射矯正），請不要使用這套方法。', 'The original lesson says not to use this method with glaucoma, retinal problems, high myopia, or recent eye surgery, including laser vision correction.')}</li>
+              <li>${t('眼周近期填充、肉毒，或皮膚正在發炎：原課要求先等狀況穩定，並詢問醫師。', 'For recent fillers or Botox around the eyes, or inflamed skin, the lesson says to wait until the condition is stable and consult your doctor first.')}</li>
+              <li>${t('本頁是局部觀察與課程介紹；請勿把片段或肌肉位置圖當作完整跟練指引。', 'This page offers observation excerpts and course context, not a complete guided routine or a tool-depth guide.')}</li>
+            </ul>
+          </details>
+          <div class="v6-optin-box" id="free-preview-optin">
+            <div>
+              <span class="v6-part-badge" style="background:#EFE3CF;color:#351D2C">🎁 FREE VIDEO · ${t('免費領取完整教學短片', 'FREE PREVIEW VIDEO')}</span>
+              <h3>${t('想邊看邊跟著試試看「眉上第一段」嗎？', 'Want to unlock the free 3-minute “Inner Brow Release” video?')}</h3>
+              <p>${t('前往領取頁面輸入 Email，即可免費解鎖藍玉婷老師的 3 分鐘《眉上舒緩示範短片》，體驗如何用輕柔動作釋放眉間緊繃。', 'Access our free 3-minute video guide with Yu-Ting Lan, demonstrating gentle home release for the brow and forehead area.')}</p>
+              <a class="v6-optin-btn" href="https://go.bojinfacetension.com/facial-tension-check" target="_blank" rel="noopener">
+                ${t('免費領取 3 分鐘教學短片 →', 'Unlock Free 3-Minute Video →')}
+              </a>
+              <small style="color:var(--ink-soft);display:block;margin-top:10px">🔒 <strong>100% Free & Secure.</strong> ${t('先觀看示範，再依操作前條件決定是否練習。', 'Watch the preview before deciding whether to practise.')}</small>
+            </div>
+            <div>
+              <a href="https://go.bojinfacetension.com/facial-tension-check" target="_blank" rel="noopener">
+                <img class="v6-optin-thumb" src="https://d1yei2z3i6k35z.cloudfront.net/1938213/6ab726e5a89530.99749953_optin_thumb_above_the_brow_v1.png" alt="Free Preview: Step 1 Above the Brow" loading="lazy">
+              </a>
+            </div>
+          </div>
+
+          <div class="v5-bridge">
+            <p class="v5-bridge-text">👇 ${val(data.prepare.bridge)}</p>
+            <a class="v5-bridge-link" href="#explore">${t('往下看 Part 05：5 個眉區細節問題', 'Next: Part 05 · 5 Brow Detail Questions')} ↓</a>
+          </div>
+        </section>
+
+        <!-- PART 05: EXPLORE -->
+        <section class="v6-section" id="explore">
+          <span class="v6-part-badge">PART 05 · ${val(data.explore.label)}</span>
+          <h2>${val(data.explore.title)}</h2>
+          <p class="v3-intro">${val(data.explore.intro)}</p>
+
+          <div class="v5-detail-grid">
+            ${detailIds.map((did, idx) => {
+              const item = data[did];
+              const isOpen = idx === 0;
+              return `
+                <div class="v5-detail-card ${isOpen ? 'is-open' : ''}" id="detail-${did}" data-detail-card="${did}">
+                  <div class="v5-detail-summary" role="button" tabindex="0" aria-expanded="${isOpen}">
+                    <img src="${picture(did)}" alt="${val(item.label)}" loading="lazy">
+                    <div>
+                      <span class="v3-tag">${item.image ? t('解剖透視圖解', 'VISUAL GUIDE') : t('示範片段分解', 'TECHNIQUE BREAKDOWN')} · Q${idx + 1}</span>
+                      <h3>${val(item.title)}</h3>
+                      <p>${val(item.intro)}</p>
+                    </div>
+                    <span class="v5-detail-toggle">${isOpen ? t('收合內容 ▲', 'Close ▲') : t('展開觀看 ▼', 'Watch here ▼')}</span>
+                  </div>
+                  <div class="v5-detail-body">
+                    <div class="v3-hero is-wide-video" style="margin:10px 0">
+                      <div>
+                        <div class="v5-callout" style="margin-top:0">
+                          <div class="v5-callout-title">💡 ${val(item.label)}</div>
+                          <p>${val(item.body)}</p>
+                        </div>
+                        ${item.src ? `
+                          <div class="v3-tabs">
+                            <button class="v3-chip" data-replay="video-${did}">▶ ${t('播放示範片段', 'Play Excerpt')}</button>
+                            <button class="v3-chip" data-speed="video-${did}" aria-pressed="false">${t('慢速看 0.5×', 'Slow view 0.5×')}</button>
+                          </div>
+                        ` : ''}
+                      </div>
+                      <div>
+                        ${item.image
+                          ? `<img class="v3-main-image" src="${item.image}" alt="${val(item.title)}">`
+                          : `<div class="v3-player"><video id="video-${did}" controls playsinline preload="metadata" poster="${picture(did)}" src="${item.src}"></video></div>`
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              `;
+            }).join('')}
+          </div>
+
+          <div class="v5-bridge">
+            <p class="v5-bridge-text">👇 ${t('看懂了個別分解動作，最後看看老師如何把眼周串成一套完整練習。', 'Now that you have seen the individual pieces, see how the teacher connects the sequence into a complete practice.')}</p>
+            <a class="v5-bridge-link" href="#whole">${t('往下看 Part 06：完整眼部五步驟總覽', 'Next: Part 06 · Full Sequence')} ↓</a>
+          </div>
+        </section>
+
+        <!-- PART 06: WHOLE -->
+        <section class="v6-section" id="whole" style="border-bottom:none">
+          <span class="v6-part-badge">PART 06 · ${val(data.whole.label)}</span>
+          <h2>${val(data.whole.title)}</h2>
+          <div class="v3-hero is-wide-video">
+            <div>
+              <p class="v3-intro">${val(data.whole.intro)}</p>
+              <div class="v5-callout">
+                <div class="v5-callout-title">💡 ${t('為什麼需要整套眼周流程？', 'WHY A COMPLETE SEQUENCE MATTERS')}</div>
+                <p>${val(data.whole.body)}</p>
+              </div>
+              <div class="v3-tabs">
+                <button class="v3-chip" data-replay="video-whole">▶ ${t('播放五步驟架構導覽', 'Play Sequence Overview')}</button>
+                <button class="v3-chip" data-speed="video-whole" aria-pressed="false">${t('慢速看 0.5×', 'Slow view 0.5×')}</button>
+              </div>
+            </div>
+            <div>
+              <div class="v3-player">
+                <video id="video-whole" controls playsinline preload="metadata" poster="${picture('whole')}" src="${data.whole.src}"></video>
+              </div>
+            </div>
+          </div>
+
+          <!-- Option B: Clean High-Trust Course Card (Warm Ivory, Zero Crowding) -->
+          <div class="v5-cta-box" id="course-cta">
+            <p class="v5-cta-kicker">THE BOJIN EYE METHOD · GUIDED SELF-PRACTICE</p>
+            <h2>${t('想把眼周 5 個步驟一次學齊？', 'Ready to learn the complete 5-step eye sequence?')}</h2>
+            <p class="v5-cta-desc">${t('從眉上這一小段，進一步學習雙眼五步、雙手配合與收尾。', 'Build on this brow detail with five passes for both eyes, supporting-hand guidance, and a soothing finish.')}</p>
+            <!-- 3 Distinct Categorized Cards -->
+            <div class="v5-cta-features">
+              <div class="v6-cta-card">
+                <span class="v6-cta-card-tag">01 · ${t('課程結構', 'STRUCTURE')}</span>
+                <h4>${t('完整 8 大模組 (M1–M8)', '8 Structured Modules')}</h4>
+                <p>${t('含安全準備、左右眼 5 步驟分步詳解，以及雙側跟練與收尾示範。', 'From safe preparation to detailed step-by-step guidance and daily follow-along.')}</p>
+              </div>
+              <div class="v6-cta-card">
+                <span class="v6-cta-card-tag">02 · ${t('安全核心', 'SAFETY & SUPPORT')}</span>
+                <h4>${t('雙手配合・看清支撐', 'Two-Hand Skin Support')}</h4>
+                <p>${t('清楚標示骨緣起點、力道控制與非慣用手穩定位置，保護眼周薄皮。', 'Exact bony landmarks, pressure control, and stabilizing hand placement.')}</p>
+              </div>
+              <div class="v6-cta-card">
+                <span class="v6-cta-card-tag">03 · ${t('工具與體驗區別', 'TOOLS VS. HANDS')}</span>
+                <h4>${t('撥筋工具 vs 雙手體驗', 'Tool vs. Hands-Only Preview')}</h4>
+                <p>${t('正式課程使用圓頭撥筋棒操作；免費 3 分鐘短片則先用雙手感受張力。', 'Full course teaches rounded-tool technique; the free 3-minute video uses hands only.')}</p>
+              </div>
+            </div>
+
+            <div class="v5-cta-actions">
+              <a class="v5-btn-primary-course" href="https://go.bojinfacetension.com/facial-tension-check" target="_blank" rel="noopener">
+                ${t('先看 3 分鐘免費示範 →', 'Watch the Free 3-Minute Preview →')}
+              </a>
+            </div>
+          </div>
+
+          <!-- Related Reading -->
+          <div style="margin-top:44px; padding-top:34px; border-top:1px solid var(--line)">
+            <span class="v6-part-badge">FURTHER READING · ${t('延伸文章閱讀', 'IN-DEPTH ESSAYS')}</span>
+            <h2 style="margin:8px 0 10px">${t('推薦這兩篇眉額相關文章：', 'Explore these two essays on brow & forehead tension:')}</h2>
+            <p class="v3-intro" style="margin-bottom:22px">${t('從日常看螢幕的用眼習慣到頭皮緊繃，進一步理解眉頭鎖緊背後的連鎖反應。', 'Understand how everyday screen habits and scalp tightness contribute to tension between your brows.')}</p>
+            <div class="v6-essay-grid">
+              <a class="v3-card" href="https://bojinfacetension.com/blog-screen-to-forehead-tension-chain.html" target="_blank" rel="noopener">
+                <img src="https://bojinfacetension.com/assets/bojin-forehead-portrait-hero.webp" alt="Screen to forehead tension chain" loading="lazy">
+                <div>
+                  <span class="v3-tag">${t('眉周與額頭 · 深度文章', 'BROWS & FOREHEAD · ESSAY')}</span>
+                  <h3>The screen-to-forehead chain: where those lines actually come from ↗</h3>
+                  <p style="font-size:14px;color:var(--ink-soft);margin:6px 0 0">${t('閱讀全文 →', 'Read full article →')}</p>
+                </div>
+              </a>
+              <a class="v3-card" href="https://bojinfacetension.com/blog-scalp-and-temple-tightness-and-your-face.html" target="_blank" rel="noopener">
+                <img src="https://bojinfacetension.com/assets/bojin-scalp-portrait-hero.webp" alt="Scalp and temple tightness" loading="lazy">
+                <div>
+                  <span class="v3-tag">${t('頭皮與太陽穴 · 深度文章', 'SCALP & TEMPLES · ESSAY')}</span>
+                  <h3>The tightness in your scalp is showing up on your face ↗</h3>
+                  <p style="font-size:14px;color:var(--ink-soft);margin:6px 0 0">${t('閱讀全文 →', 'Read full article →')}</p>
+                </div>
+              </a>
+            </div>
+
+            <!-- Quiz CTA -->
+            <div style="margin-top:26px; padding:26px 30px; background:var(--paper-3); border-radius:12px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px">
+              <div>
+                <h3 style="margin:0 0 6px 0; font-size:22px">${t('找出你臉上最緊繃的一環（2 分鐘自我檢測 Quiz）', 'Find Your Tightest Link (2-Min Quiz)')}</h3>
+                <p style="margin:0; color:var(--ink-soft); font-size:15px">${t('花 2 分鐘完成臉部緊繃檢測，我們會把專屬於你的舒緩建議寄到你的 Email。', 'Take the two-minute quiz to find where your face holds its tension.')}</p>
+              </div>
+              <a class="btn" style="background:var(--jade); color:var(--brand-on); padding:11px 20px; border-radius:26px; font-weight:700; text-decoration:none" href="https://bojinfacetension.com/quiz.html" target="_blank" rel="noopener">
+                ${t('開始 2 分鐘自我檢測 →', 'Take the Face Tension Quiz →')}
+              </a>
+            </div>
+
+            <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap">
+              <a class="btn btn--ghost" href="eye-area-guides.html">
+                ← ${t('返回眼周三大部位目錄', 'Back to 3 Eye-Area Regions')}
+              </a>
+              <a class="btn btn--ghost" href="journal.html#read">
+                ← ${t('返回 Journal 閱讀更多文章', 'Back to Journal Home')}
+              </a>
+            </div>
+          </div>
+        </section>
+      `;
+
+      root.innerHTML = html;
+      root.className = 'v3';
+
+      // Language Switch
+      BojinLanguage.sync(zh);
+      document.querySelector('#v3-lang').onclick = () => {
+        zh = !zh;
+        BojinLanguage.choose(zh ? 'zh' : 'en');
+        const u = new URL(location.href); u.searchParams.set('lang', zh ? 'zh' : 'en'); history.replaceState(null,'',u);
+        render();
+        const anchor = document.getElementById(location.hash.slice(1)); if(anchor) anchor.scrollIntoView();
+      };
+
+      // Part 02 Interactive Muscle Map
+      const muscleInfoList = [
+        ['① 額肌 (Frontalis) · 額頭到眉上', '① Frontalis · Forehead to brow', '參與抬眉與額頭橫向表情，位於皺眉肌上方表層。', 'Involved in raising the eyebrows; lies superficial and superior to the corrugator.'],
+        ['② 皺眉肌 (Corrugator) · 眉頭內側向外斜行（本頁主角）', '② Corrugator supercilii · Inner brow outward (Main focus)', '參與眉頭向內聚攏的表情。此圖協助辨認位置，不表示操作深度或手法效果。', 'Draws the eyebrows inward and downward when frowning or concentrating.'],
+        ['③ 眼輪匝肌 (Orbicularis oculi) · 環繞整個眼周', '③ Orbicularis oculi · Surrounds the eye orbit', '環繞上下眼眶的環狀肌群，操作時格外需要非慣用手穩定與足夠滑度。', 'Circular muscle surrounding the eye; requires gentle slip and skin stabilization.'],
+        ['④ 鼻根肌 (Procerus) · 鼻根中央到眉間', '④ Procerus · Nasal root to glabella', '位於兩眉正中央與鼻根交界處，常與皺眉肌一起緊繃。', 'Located between the brows at the bridge of the nose.'],
+        ['⑤ 降眉肌 (Depressor supercilii) · 內眼角上方到眉頭', '⑤ Depressor supercilii · Medial eye corner to inner brow', '位於眉頭下方靠近內眼角上側，操作時必須避開眼球。', 'Near the inner brow above the medial corner of the eye. This is a location illustration, not a tool-placement guide.']
+      ];
+      const focusZones = [
+        [[270,245,135,120],[505,245,130,120]],
+        [[298,370,92,48],[492,370,92,48]],
+        [[228,480,158,110],[558,480,158,110]],
+        [[393,421,46,112]],
+        [[335,432,35,48],[452,432,35,48]]
+      ];
+      const setMuscle = i => {
+        const shapes = focusZones[i].map(([cx,cy,rx,ry]) => `<ellipse cx="${cx}" cy="${cy}" rx="${rx}" ry="${ry}"/>`).join('');
+        document.querySelector('#v7-mask-holes').innerHTML = shapes;
+        document.querySelector('#v7-focus-rings').innerHTML = shapes;
+        const m = muscleInfoList[i];
+        document.querySelector('#muscle-info').innerHTML = `
+          <h3 style="margin:0 0 6px 0">${t(m[0], m[1])}</h3>
+          <span>${t(m[2], m[3])}</span>
+        `;
+        document.querySelectorAll('[data-muscle]').forEach(b => {
+          b.setAttribute('aria-pressed', String(+b.dataset.muscle === i));
+        });
+      };
+      document.querySelectorAll('[data-muscle]').forEach(btn => {
+        btn.onclick = () => setMuscle(+btn.dataset.muscle);
+      });
+
+      setMuscle(1);
+
+      // Part 03 Compare Tabs
+      const cmpPlayer = document.querySelector('#compare-player');
+      const singleWrap = document.querySelector('#compare-single-wrap');
+      const dualWrap = document.querySelector('#compare-dual-wrap');
+      const dualSway = document.querySelector('#dual-sway');
+      const dualCircle = document.querySelector('#dual-circle');
+      const diagBox = document.querySelector('#compare-diagram-box');
+
+      const setCompareMode = mode => {
+        document.querySelectorAll('.v5-tab-btn').forEach(b => {
+          b.setAttribute('aria-pressed', String(b.dataset.mode === mode));
+        });
+        if (mode === 'sidebyside') {
+          singleWrap.style.display = 'none';
+          dualWrap.style.display = 'grid';
+          cmpPlayer.pause();
+          diagBox.innerHTML = `
+            ${renderDiagram('circle')}
+            <div style="margin-top:10px">${renderDiagram('sway')}</div>
+          `;
+          dualCircle.currentTime = 0; dualSway.currentTime = 0;
+          dualCircle.play().catch(() => {});
+          dualSway.play().catch(() => {});
+        } else {
+          dualWrap.style.display = 'none';
+          singleWrap.style.display = 'block';
+          dualCircle.pause();
+          dualSway.pause();
+          if (mode === 'sway') {
+            cmpPlayer.src = 'assets/journal/c7e0230820.mp4';
+            diagBox.innerHTML = renderDiagram('sway');
+          } else {
+            cmpPlayer.src = 'assets/journal/166212b1b1.mp4';
+            diagBox.innerHTML = renderDiagram('circle');
+          }
+          cmpPlayer.load();
+          cmpPlayer.play().catch(() => {});
+        }
+      };
+
+      document.querySelectorAll('.v5-tab-btn').forEach(btn => {
+        btn.onclick = () => setCompareMode(btn.dataset.mode);
+      });
+
+      document.querySelector('#compare-replay').onclick = () => {
+        if (singleWrap.style.display !== 'none') {
+          cmpPlayer.currentTime = 0;
+          cmpPlayer.play();
+        } else {
+          dualCircle.currentTime = 0;
+          dualSway.currentTime = 0;
+          dualCircle.play();
+          dualSway.play();
+        }
+      };
+
+      document.querySelector('#compare-pause').onclick = () => [cmpPlayer,dualCircle,dualSway].forEach(v => v.pause());
+      const cmpSpeedBtn = document.querySelector('#compare-speed');
+      cmpSpeedBtn.onclick = () => {
+        const slow = cmpSpeedBtn.getAttribute('aria-pressed') !== 'true';
+        cmpSpeedBtn.setAttribute('aria-pressed', String(slow));
+        cmpPlayer.playbackRate = slow ? 0.5 : 1.0;
+        dualCircle.playbackRate = slow ? 0.5 : 1.0;
+        dualSway.playbackRate = slow ? 0.5 : 1.0;
+        cmpSpeedBtn.textContent = slow ? t('恢復原速 1×', 'Normal speed 1×') : t('慢速看 0.5×', 'Slow view 0.5×');
+      };
+
+      const cmpWideBtn = document.querySelector('#compare-wide');
+      cmpWideBtn.onclick = () => {
+        const wide = cmpWideBtn.getAttribute('aria-pressed') !== 'true';
+        cmpWideBtn.setAttribute('aria-pressed', String(wide));
+        const grid = document.querySelector('#compare-hero-grid');
+        grid.style.gridTemplateColumns = wide ? '1fr' : '';
+        cmpWideBtn.textContent = wide ? t('恢復原版面', 'Restore layout') : t('劇院超寬畫面', 'Theater wide view');
+      };
+
+      // Replay and Speed Chips for other sections
+      document.querySelectorAll('[data-replay]').forEach(btn => {
+        btn.onclick = () => {
+          const v = document.getElementById(btn.dataset.replay);
+          if (v) {
+            v.currentTime = 0;
+            v.play();
+          }
+        };
+      });
+      document.querySelectorAll('[data-speed]').forEach(btn => {
+        btn.onclick = () => {
+          const v = document.getElementById(btn.dataset.speed);
+          if (v) {
+            const isSlow = btn.getAttribute('aria-pressed') !== 'true';
+            btn.setAttribute('aria-pressed', String(isSlow));
+            v.playbackRate = isSlow ? 0.5 : 1.0;
+            btn.textContent = isSlow ? t('恢復原速 1×', 'Normal speed 1×') : t('慢速看 0.5×', 'Slow view 0.5×');
+          }
+        };
+      });
+
+      // Part 05 Expandable Cards
+      document.querySelectorAll('.v5-detail-summary').forEach(hdr => {
+        hdr.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); hdr.click(); } };
+        hdr.onclick = () => {
+          const card = hdr.closest('.v5-detail-card');
+          const willOpen = !card.classList.contains('is-open');
+          card.classList.toggle('is-open', willOpen);
+          hdr.setAttribute('aria-expanded', String(willOpen));
+          hdr.querySelector('.v5-detail-toggle').textContent = willOpen ? t('收合內容 ▲', 'Close ▲') : t('展開觀看 ▼', 'Watch here ▼');
+          if (willOpen) {
+            const v = card.querySelector('video');
+            if (v) v.pause();
+          } else {
+            const v = card.querySelector('video');
+            if (v) v.pause();
+          }
+        };
+      });
+
+      // Global Audio/Video Collision Prevention: Whenever ANY video plays, pause all others!
+      document.querySelectorAll('video').forEach(vid => {
+        vid.addEventListener('play', () => {
+          document.querySelectorAll('video').forEach(other => {
+            const samePair = [dualCircle, dualSway].includes(vid) && [dualCircle, dualSway].includes(other) && dualWrap.style.display !== 'none';
+            if (other !== vid && !samePair && !other.paused) {
+              other.pause();
+            }
+          });
+        });
+      });
+
+      // Replace per-render listeners, measure actual header/nav heights at every breakpoint.
+      const sections = ['notice', 'map', 'compare', 'prepare', 'explore', 'whole'];
+      window.v7LayoutCleanup?.();
+      const header = document.querySelector('.site-header');
+      const nav = document.querySelector('.v6-sticky-bar');
+      const updateActive = () => {
+        const offset = header.getBoundingClientRect().height + nav.getBoundingClientRect().height + 26;
+        let current = 'notice';
+        sections.forEach(id => { if (document.getElementById(id).getBoundingClientRect().top <= offset) current = id; });
+        document.querySelectorAll('.v6-nav-item').forEach(a => {
+          const active = a.getAttribute('href') === '#' + current;
+          a.classList.toggle('is-active', active);
+          if (active) a.setAttribute('aria-current','location'); else a.removeAttribute('aria-current');
+        });
+      };
+      const measure = () => {
+        const h = header.getBoundingClientRect().height;
+        document.documentElement.style.setProperty('--v7-header-height', h + 'px');
+        document.documentElement.style.setProperty('--v7-anchor-offset', (h + nav.getBoundingClientRect().height + 18) + 'px');
+        updateActive();
+      };
+      const observer = new ResizeObserver(measure);
+      observer.observe(header); observer.observe(nav);
+      window.addEventListener('scroll', updateActive, {passive:true});
+      window.v7LayoutCleanup = () => { observer.disconnect(); window.removeEventListener('scroll',updateActive); };
+      measure();
+      document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.onclick = e => {
+          const target = document.getElementById(a.getAttribute('href').slice(1));
+          if (!target) return;
+          e.preventDefault();
+          history.pushState(null,'',a.getAttribute('href'));
+          target.scrollIntoView({behavior:'instant',block:'start'});
+          updateActive();
+        };
+      });
+      // Keep reviewer language across the three V7 pages and while copying this URL.
+      document.querySelectorAll('a[href="journal.html"], a[href="eye-area-guides.html"], a[href^="journal.html#"]').forEach(a => {
+        const u = new URL(a.href); u.searchParams.set('lang', zh ? 'zh' : 'en'); a.href = u.href;
+      });
+
+    }
+
+    render();
+    if (location.hash) {
+      const target = document.querySelector(location.hash);
+      if (target) {
+        let untouched = true;
+        const stop = () => { untouched = false; };
+        document.addEventListener('pointerdown',stop,{once:true});
+        document.addEventListener('wheel',stop,{once:true,passive:true});
+        const align = () => { if(untouched) target.scrollIntoView({behavior:'instant',block:'start'}); };
+        window.addEventListener('load',align,{once:true});
+        document.querySelectorAll('video').forEach(v => v.addEventListener('loadedmetadata',align,{once:true}));
+        document.querySelectorAll('img').forEach(img => img.addEventListener('load',align,{once:true}));
+        document.fonts.ready.then(align);
+        requestAnimationFrame(align);
+      }
+    }
+  })();
+
+  document.querySelector('.nav-toggle').onclick = function() {
+    const open = document.querySelector('.site-header').classList.toggle('nav-open');
+    this.setAttribute('aria-expanded', String(open));
+  };
+  document.querySelector('.theme-toggle').onclick = () => {
+    document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  };
+  </script>
+<script src="nav.js?v=journal-v8"></script>
+</body>
+</html>
