@@ -225,4 +225,4 @@ window.bojinWireOptin = function(form, source){
 })();
 
 /* V8 Journal: preserve blog.html as the article archive, route Journal navigation to the dual entrance. */
-(function(){document.querySelectorAll('.site-header .nav-links a').forEach(function(a){if(a.textContent.trim().toLowerCase()==='journal')a.setAttribute('href','journal.html');});})();
+(function(){document.querySelectorAll('.site-header .nav-links a').forEach(function(a){if(a.textContent.trim().toLowerCase()==='journal')a.setAttribute('href','blog.html');});})();

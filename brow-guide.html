@@ -638,7 +638,7 @@
         <a href="https://bojinfacetension.com/about.html">About</a>
         <a href="https://bojinfacetension.com/what-is-bojin.html">What is Bojin?</a>
         <a href="https://bojinfacetension.com/landing.html">Eye Reset</a>
-        <a class="active" href="journal.html">Journal</a>
+        <a class="active" href="blog.html">Journal</a>
         <a href="https://bojinfacetension.com/quiz.html">Quiz</a>
       </div>
       <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
@@ -838,7 +838,7 @@
       let html = `
         <div class="v3-top">
           <span>
-            <a href="journal.html">Journal</a> /
+            <a href="blog.html">Journal</a> /
             <a href="eye-area-guides.html">${t('眼周三大部位專區', 'Eye Area Regions')}</a> /
             <strong>${t('部位 01：眉上與眉頭深度指南', 'Region 01: Brows & Inner Brow Guide')}</strong>
           </span>
@@ -1191,7 +1191,7 @@
               <a class="btn btn--ghost" href="eye-area-guides.html">
                 ← ${t('返回眼周三大部位目錄', 'Back to 3 Eye-Area Regions')}
               </a>
-              <a class="btn btn--ghost" href="journal.html#read">
+              <a class="btn btn--ghost" href="blog.html#read">
                 ← ${t('返回 Journal 閱讀更多文章', 'Back to Journal Home')}
               </a>
             </div>
@@ -1412,7 +1412,7 @@
         };
       });
       // Keep reviewer language across the three V7 pages and while copying this URL.
-      document.querySelectorAll('a[href="journal.html"], a[href="eye-area-guides.html"], a[href^="journal.html#"]').forEach(a => {
+      document.querySelectorAll('a[href="blog.html"], a[href="eye-area-guides.html"], a[href^="blog.html#"]').forEach(a => {
         const u = new URL(a.href); u.searchParams.set('lang', zh ? 'zh' : 'en'); a.href = u.href;
       });
 
@@ -1444,6 +1444,6 @@
     document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
   };
   </script>
-<script src="nav.js?v=journal-v8"></script>
+<script src="nav.js?v=journal-entry-v8-2"></script>
 </body>
 </html>

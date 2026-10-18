@@ -2,7 +2,7 @@
 (() => {
   const key = 'bojin-public-language-v1';
   const pages = [
-    'journal.html',
+    'blog.html',
     'eye-area-guides.html',
     'brow-guide.html'
   ];
