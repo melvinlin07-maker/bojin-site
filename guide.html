@@ -4,10 +4,10 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="https://bojinfacetension.com/guide.html">
-  <title>Is It Aging, or Just Tension? Free 2-minute face check | The Bojin Method</title>
-  <meta name="description" content="Get the free 5-Zone Face Tension Self-Check. Find where your face holds tension in 2 minutes, and feel it for yourself with the one-side test. Beginner-friendly self-care.">
-  <meta property="og:title" content="Is It Aging, or Just Tension?">
-  <meta property="og:description" content="Get the free 5-zone face check, find where your face holds tension, and feel it for yourself.">
+  <title>Is It Aging, or Just Tension? Free 5-Zone Face Check | The Bojin Method</title>
+  <meta name="description" content="Download the free 5-Zone Face Tension Self-Check. Learn where your face holds stress, test it in 60 seconds with the one-side check, and restore natural facial ease.">
+  <meta property="og:title" content="Is It Aging, or Just Tension? Free 5-Zone Face Check">
+  <meta property="og:description" content="Much of what looks like aging is chronic facial tension. Find where yours is hiding and feel the difference with the one-side test.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://bojinfacetension.com/assets/og/home.jpg">
   <meta property="og:image:width" content="1200">
@@ -21,18 +21,91 @@
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
   <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Is It Aging, or Just Tension? Free 5-Zone Face Check",
+    "description": "Download the free 5-Zone Face Tension Self-Check and learn the 60-second one-side test to identify and release facial tension safely.",
+    "url": "https://bojinfacetension.com/guide.html",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "The Bojin Method",
+      "url": "https://bojinfacetension.com/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "@id": "https://bojinfacetension.com/#organization"
+    }
+  }
+  </script>
   <style>
-    .guide-list{list-style:none;padding:0;margin:1.4rem 0 0;display:grid;gap:.7rem;text-align:left;max-width:30rem;margin-inline:auto}
-    .guide-list li{display:grid;grid-template-columns:auto 1fr;gap:.6rem;align-items:start;font-size:1rem;color:var(--ink)}
-    .guide-list .ck{color:var(--jade);font-weight:700;line-height:1.5}
-    .optin-box{margin:1.9rem auto 0;max-width:30rem;background:var(--paper-2,#FFFDFC);border:1px solid var(--edge,#E5D5C6);border-radius:18px;padding:1.6rem 1.5rem;box-shadow:var(--shadow-lift,0 10px 30px -14px rgba(53,29,44,.18))}
-    .optin-box .optin-h{font-family:var(--font-serif,'Cormorant Garamond',serif);font-size:1.5rem;line-height:1.15;margin:0 0 .2rem;color:var(--ink)}
-    .optin-box .optin-sub{font-size:.92rem;color:var(--muted,#8A7A6E);margin:0 0 1rem}
-    .optin-form{display:grid;gap:.7rem}
-    .optin-email{width:100%;padding:.85rem 1rem;font-size:1rem;font-family:inherit;color:var(--ink);background:var(--card,#fff);border:1.5px solid var(--edge,#E3D2C0);border-radius:12px;box-sizing:border-box}
-    .optin-email::placeholder{color:var(--muted,#8A7A6E)}
-    .optin-email:focus{outline:none;border-color:var(--jade);box-shadow:0 0 0 3px rgba(180,87,73,.16)}
-    .optin-form .btn{width:100%}
+    .guide-hero { max-width:760px; margin:0 auto; text-align:center; }
+    .optin-card {
+      margin:2rem auto 0; max-width:520px; background:var(--paper-2);
+      border:1px solid var(--line); border-top:3px solid var(--gold);
+      border-radius:20px; padding:clamp(1.6rem, 4vw, 2.4rem);
+      box-shadow:var(--shadow-lift); text-align:left;
+    }
+    .optin-card .optin-h {
+      font-family:var(--font-serif); font-size:1.65rem; line-height:1.2;
+      margin:0 0 .3rem; color:var(--ink); font-weight:600;
+    }
+    .optin-card .optin-sub {
+      font-size:.95rem; color:var(--muted); margin:0 0 1.2rem; line-height:1.5;
+    }
+    .optin-form { display:grid; gap:.75rem; }
+    .optin-email {
+      width:100%; padding:.9rem 1.1rem; font-size:1rem; font-family:inherit;
+      color:var(--ink); background:var(--card,#fff); border:1.5px solid var(--line);
+      border-radius:12px; box-sizing:border-box; transition:border-color .2s ease;
+    }
+    .optin-email::placeholder { color:var(--muted); }
+    .optin-email:focus { outline:none; border-color:var(--jade); box-shadow:0 0 0 3px rgba(180,87,73,.15); }
+    .optin-form .btn { width:100%; justify-content:center; font-size:1.05rem; }
+    .optin-perks {
+      display:flex; flex-wrap:wrap; gap:.8rem 1.2rem; margin-top:1.1rem; padding-top:1rem;
+      border-top:1px solid var(--line); font-size:.82rem; color:var(--muted);
+    }
+    .optin-perks span { display:inline-flex; align-items:center; gap:.35rem; }
+    .optin-perks .ck { color:var(--jade); font-weight:700; }
+
+    /* 5-zone grid */
+    .zones-grid {
+      display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+      gap:1.2rem; margin-top:2.5rem; text-align:left;
+    }
+    .zone-card {
+      background:var(--paper-2); border:1px solid var(--line); border-radius:14px;
+      padding:1.3rem 1.4rem; display:flex; flex-direction:column; gap:.4rem;
+      box-shadow:0 2px 8px rgba(53,29,44,.03); transition:transform .2s ease;
+    }
+    .zone-card:hover { transform:translateY(-2px); border-color:var(--gold); }
+    .zone-card .z-num {
+      font-size:.74rem; font-weight:700; letter-spacing:.15em; text-transform:uppercase;
+      color:var(--gold-ink);
+    }
+    .zone-card .z-title {
+      font-family:var(--font-serif); font-size:1.25rem; font-weight:600; color:var(--ink); margin:0;
+    }
+    .zone-card .z-desc {
+      font-size:.9rem; color:var(--muted); line-height:1.5; margin:0;
+    }
+
+    /* Proof callout */
+    .proof-banner {
+      background:color-mix(in srgb, var(--gold) 10%, var(--paper-2));
+      border:1px solid var(--gold); border-radius:16px; padding:1.8rem;
+      margin:3rem auto 0; max-width:760px; text-align:left;
+      display:grid; grid-template-columns:auto 1fr; gap:1.4rem; align-items:start;
+    }
+    .proof-banner .p-icon {
+      width:48px; height:48px; border-radius:12px; background:var(--gold);
+      color:#fff; display:grid; place-items:center; font-size:1.3rem; flex:none;
+    }
+    @media (max-width:600px) {
+      .proof-banner { grid-template-columns:1fr; }
+    }
   </style>
 </head>
 <body>
@@ -44,6 +117,7 @@
       <a href="start.html">Begin here</a>
       <a href="about.html">About</a>
       <a href="what-is-bojin.html">What is Bojin?</a>
+      <a href="results.html">Results</a>
       <a href="landing.html">Eye Reset</a>
       <a href="blog.html">Journal</a>
       <a href="quiz.html">Quiz</a>
@@ -58,30 +132,110 @@
 <main id="top">
 
 <section class="section reveal" style="padding-top:3rem">
-  <div class="wrap" style="max-width:660px;text-align:center">
-    <p class="eyebrow center">Free 2-minute guide</p>
-    <h1 class="display" style="margin-bottom:.5rem">Is It Aging,<br>or Just Tension?</h1>
-    <p class="lead" style="margin-inline:auto">Much of what we call &ldquo;aging&rdquo; in the face is <strong>tension</strong>, and tension is something you can release. This free check shows you where yours is hiding.</p>
+  <div class="wrap guide-hero">
+    <p class="eyebrow center">Free 2-minute self-check &middot; Instant PDF</p>
+    <h1 class="display" style="margin-bottom:.6rem">Is It Aging,<br>or Just Tension?</h1>
+    <p class="lead" style="margin-inline:auto">Much of what appears in the mirror as fatigue, heaviness, or deepening expression lines is <strong>chronic muscular tension and fascial binding</strong>. When you release that tension gently along anatomical pathways, tissue regains its resting ease.</p>
 
-    <ul class="guide-list">
-      <li><span class="ck">&#10003;</span><span>A 2-minute <strong>5-zone self-check</strong>, find where your face holds the most tension</span></li>
-      <li><span class="ck">&#10003;</span><span>The <strong>one-side test</strong>, feel your own tension for yourself, in 60 seconds</span></li>
-      <li><span class="ck">&#10003;</span><span>What each zone usually means, and what's often connected</span></li>
-    </ul>
-
-    <div class="optin-box">
+    <div class="optin-card">
       <p class="optin-h">Where does your face hold tension?</p>
-      <p class="optin-sub">Enter your email and your free guide is ready in seconds.</p>
-      <!-- Brand-styled form; Systeme.io confirms success before guide-ready.html opens. -->
+      <p class="optin-sub">Enter your email to receive <em>The 5-Zone Face Tension Self-Check</em> PDF guide and start the 60-second one-side test tonight.</p>
+      
+      <!-- Native Systeme.io form integration -->
       <form method="post" action="https://systeme.io/embedded/42586344/subscription" target="systeme-capture" id="optinForm" class="optin-form">
-        <input type="email" name="email" required placeholder="Enter your best email" class="optin-email" aria-label="Your email">
-        <button type="submit" class="btn btn--lg">Send me the free guide</button>
+        <input type="email" name="email" required placeholder="Enter your best email address" class="optin-email" aria-label="Your email">
+        <button type="submit" class="btn btn--lg">Send me the free guide (PDF) &rarr;</button>
       </form>
       <iframe name="systeme-capture" title="subscription" style="display:none;width:0;height:0;border:0" aria-hidden="true"></iframe>
       <p class="form-status" aria-live="polite" hidden></p>
+
+      <div class="optin-perks">
+        <span><b class="ck">&#10003;</b> Instant PDF download</span>
+        <span><b class="ck">&#10003;</b> Zero spam, 1-click unsubscribe</span>
+        <span><b class="ck">&#10003;</b> 100% gentle self-care</span>
+      </div>
     </div>
 
-    <p class="form-note" style="text-align:center;margin-top:1rem">Free &middot; No spam &middot; Unsubscribe anytime &middot; For self-care and educational purposes only. Not medical advice.</p>
+    <p class="form-note" style="text-align:center;margin-top:1.2rem">For self-care and educational demonstration only. Not medical diagnosis or treatment.</p>
+  </div>
+</section>
+
+<!-- 5-zone breakdown -->
+<section class="section band reveal">
+  <div class="wrap" style="max-width:880px">
+    <div class="center" style="max-width:680px;margin-inline:auto">
+      <p class="eyebrow">Anatomical Roadmap</p>
+      <hr class="rule">
+      <h2>The 5 tension zones mapped in your guide</h2>
+      <p class="lead">Rather than rubbing skin blindly, the Bojin Method traces the deeper fascial pathways where daily posture, screens, and clenching quietly settle.</p>
+    </div>
+
+    <div class="zones-grid">
+      <div class="zone-card">
+        <span class="z-num">Zone 01</span>
+        <h3 class="z-title">Brow &amp; Forehead</h3>
+        <p class="z-desc">Screen concentration, squinting, and furrowing glue the frontalis muscle to the cranial fascia, creating a sensation of heavy, tired brows.</p>
+      </div>
+      <div class="zone-card">
+        <span class="z-num">Zone 02</span>
+        <h3 class="z-title">Eye Contour &amp; Temples</h3>
+        <p class="z-desc">Orbicularis oculi tightness restricts local fluid movement, leading to morning puffiness, hollow fatigue, and temporal tightness by 4 PM.</p>
+      </div>
+      <div class="zone-card">
+        <span class="z-num">Zone 03</span>
+        <h3 class="z-title">Mid-Face &amp; Cheek</h3>
+        <p class="z-desc">Zygomatic muscles hold habitual expressions. When fascia stiffens here, cheek tissue pulls inward, deepening the nasolabial fold.</p>
+      </div>
+      <div class="zone-card">
+        <span class="z-num">Zone 04</span>
+        <h3 class="z-title">Jaw &amp; Masseter</h3>
+        <p class="z-desc">Nighttime clenching and daytime stress turn the masseter into a rock-hard knot, squaring the lower face and dragging the jawline downward.</p>
+      </div>
+      <div class="zone-card">
+        <span class="z-num">Zone 05</span>
+        <h3 class="z-title">Submandibular &amp; Neck</h3>
+        <p class="z-desc">Platysma tension and forward-head posture trap lymphatic fluid under the chin, muting the clean transition between jaw and neck.</p>
+      </div>
+    </div>
+
+    <!-- Proof callout -->
+    <div class="proof-banner">
+      <div class="p-icon">&#9672;</div>
+      <div>
+        <h3 style="margin:0 0 .4rem;font-family:var(--font-serif);font-size:1.4rem">The Golden Rule: The 60-Second One-Side Test</h3>
+        <p style="margin:0 0 .8rem;font-size:.95rem;line-height:1.55;color:var(--ink)">
+          Never work both sides simultaneously on your first try. When you release only the right side for 60 to 90 seconds, you create an unmistakable baseline. Look in the mirror: compare eye aperture, brow height, and jaw softness against your untouched left side. Your own face is your best teacher.
+        </p>
+        <p style="margin:0">
+          <a href="results.html" style="font-weight:600;color:var(--jade);text-decoration:underline">See real one-side comparison photos and biomechanics &rarr;</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Alternative entryways -->
+<section class="section reveal">
+  <div class="wrap wrap--narrow center">
+    <p class="eyebrow">Other ways to begin</p>
+    <hr class="rule">
+    <h2>Prefer to explore interactively?</h2>
+    <p class="lead">If you'd like an immediate score or want to see a full video demonstration tonight, choose an entryway below:</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));gap:1rem;margin-top:2rem;text-align:left">
+      <a class="card" href="quiz.html" style="text-decoration:none;display:flex;flex-direction:column;gap:.5rem">
+        <b style="color:var(--ink);font-size:1.15rem;font-family:var(--font-serif)">Take the 1-Minute Quiz &rarr;</b>
+        <span style="font-size:.9rem;color:var(--muted)">Answer 8 quick questions about your face to calculate your tension score and see your zone radar map.</span>
+      </a>
+      <a class="card" href="landing.html#get" style="text-decoration:none;display:flex;flex-direction:column;gap:.5rem">
+        <b style="color:var(--ink);font-size:1.15rem;font-family:var(--font-serif)">Watch the 3-Minute Video &rarr;</b>
+        <span style="font-size:.9rem;color:var(--muted)">Follow along with the free Eye Reset routine tonight. Watch tool angle, pacing, and comfortable pressure.</span>
+      </a>
+      <a class="card" href="start.html" style="text-decoration:none;display:flex;flex-direction:column;gap:.5rem">
+        <b style="color:var(--ink);font-size:1.15rem;font-family:var(--font-serif)">The 3-Step Beginner Path &rarr;</b>
+        <span style="font-size:.9rem;color:var(--muted)">Brand new to bojin? Read our foundational guide on safety, tool selection, and routine pacing.</span>
+      </a>
+    </div>
   </div>
 </section>
 
