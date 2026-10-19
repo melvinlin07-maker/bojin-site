@@ -1,1189 +1,283 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="light" translate="no" class="notranslate">
 <head>
   <meta charset="utf-8">
+  <meta name="google" content="notranslate">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="canonical" href="https://bojinfacetension.com/blog.html">
-  <meta property="og:image" content="https://bojinfacetension.com/assets/og/home.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://bojinfacetension.com/assets/og/home.jpg">
-  <title>The Bojin Journal — gentle face care, by the concern you actually have</title>
-  <meta name="description" content="Browse gentle, method-led face and neck guides from bojin instructor Yu-Ting Lan by concern — tired eyes, a softer jawline, smile lines, frown lines, glow. Each guide is a short read with a 5-minute ritual.">
-  <meta property="og:title" content="The Bojin Journal — gentle face care, by concern">
-  <meta property="og:description" content="Browse gentle, method-led face and neck guides by the concern you actually have — each a short read with a 5-minute ritual you can try tonight.">
-  <meta property="og:type" content="website">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..600;1,400..500&family=Hanken+Grotesk:wght@400..600&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..600;1,400..500&family=Hanken+Grotesk:wght@400..600&display=swap"></noscript>
-  <link rel="preload" as="image" href="assets/facial-bojin-hands-on-lesson.webp" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=10">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <meta name="robots" content="index,follow">
+  <title>Journal: Watch & Read | The Bojin Method</title>
+  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="journal-guide.css">
+  <style>
+    :root {
+      --paper:#FBF6EF;--paper-2:#FFFDFC;--paper-3:#F2E8DD;--ink:#2D2428;--ink-soft:#66585E;
+      --jade:#351D2C;--jade-deep:#4A293B;--gold:#C7A466;--gold-ink:#8C6B32;--line:#E5D5C6;
+      --brand-bg:#351D2C;--brand-on:#FBF6EF;--brand-muted:#D9BDC9;--cta:#EFE3CF;--on-cta:#351D2C;--cta-border:#B89558;
+    }
+    html { scroll-behavior: smooth; }
+    body { margin:0; background:var(--paper); color:var(--ink); }
+    .site-header { background:var(--brand-bg); }
+    .site-header .brand { color:var(--brand-on); }
+    .site-header .nav-links a { color:var(--brand-muted); }
+    .site-header .nav-links a.active { color:var(--gold); }
+
+    .j4 { max-width:1120px; margin:auto; padding:44px 28px 70px; }
+    .j4-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; gap:12px; flex-wrap:wrap; }
+    .j4 h1 { font-size:clamp(36px,4.8vw,56px); margin:10px 0 12px; }
+    .j4-tagline { font-size:20px; font-weight:600; color:var(--gold-ink); margin:0 0 12px; }
+    .j4-lead { max-width:680px; color:var(--ink-soft); font-size:18px; line-height:1.65; }
+    .j4-doors { display:grid; grid-template-columns:1fr 1fr; gap:24px; margin:32px 0; }
+    .j4-door {
+      display:grid; grid-template-columns:1fr 150px; align-items:center; gap:20px;
+      padding:28px; border:1px solid var(--line); border-radius:12px;
+      background:var(--paper-2); text-decoration:none; color:var(--ink);
+      transition: all 0.2s;
+    }
+    .j4-door:hover { border-color:var(--gold); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(53,29,44,0.08); }
+    .j4-door img { width:150px; height:150px; object-fit:cover; border-radius:10px; }
+    .j4-door h2 { font-size:26px; margin:8px 0; }
+    .j4-door p { font-size:15px; margin:0; color:var(--ink-soft); line-height:1.55; }
+    .j4-door-cta { display:inline-block; margin-top:12px; font-weight:700; color:var(--jade); font-size:15px; }
+
+    .j4-section { padding-top:38px; margin-top:38px; border-top:1px solid var(--line); scroll-margin-top:90px; }
+    .j4-heading { display:flex; justify-content:space-between; align-items:center; gap:20px; flex-wrap:wrap; }
+    .j4-heading h2 { font-size:30px; margin:6px 0; }
+    .j4-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; margin:24px 0; }
+    .j4-card {
+      border:1px solid var(--line); border-radius:10px; overflow:hidden;
+      text-decoration:none; background:var(--paper-2); color:var(--ink);
+      transition: all 0.2s; display:flex; flex-direction:column;
+    }
+    .j4-card:hover { border-color:var(--gold); transform:translateY(-2px); box-shadow: 0 8px 20px rgba(53,29,44,0.06); }
+    .j4-card img { width:100%; height:210px; object-fit:cover; object-position:center 35%; }
+    .j4-card div { padding:20px; display:flex; flex-direction:column; flex:1; }
+    .j4-card h3 { font-size:21px; line-height:1.35; margin:8px 0 12px; }
+    .j4-tag { font-size:12px; letter-spacing:1px; color:var(--gold-ink); font-weight:600; }
+    .j4-card-go { margin-top:auto; font-weight:700; color:var(--jade); font-size:14px; }
+
+    .j4-toolbar { display:flex; gap:12px; flex-wrap:wrap; margin:22px 0; }
+    .j4-toolbar input, .j4-toolbar select {
+      font:inherit; border:1px solid var(--line); background:var(--paper-2);
+      color:var(--ink); padding:10px 14px; border-radius:8px;
+    }
+    .j4-toolbar input { flex:1; min-width:200px; }
+    .j4-note { font-size:14px; color:var(--ink-soft); }
+
+    @media(max-width:760px) {
+      .j4 { padding:28px 18px 54px; }
+      .j4-doors, .j4-grid { grid-template-columns:1fr; gap:18px; }
+      .j4-door { grid-template-columns:1fr; padding:18px; gap:14px; }
+      .j4-door img { width:100%; height:175px; order:-1; }
+    }
+
+.v3-lang { min-height:44px; min-width:96px; font-size:16px; }
+</style>
+<link rel="canonical" href="https://bojinfacetension.com/blog.html">
+<meta name="description" content="Explore eye-area movement guides, muscle location illustrations and teacher demonstrations from The Bojin Method.">
 </head>
 <body>
-<header class="site-header">
-  <nav class="nav" aria-label="Primary">
-    <a class="brand" href="index.html"><svg class="mark" viewBox="0 0 120 70" style="width:26px;height:16px;color:var(--jade)" aria-hidden="true"><path d="M12 50 C 40 26, 82 20, 110 30 C 100 36, 58 38, 20 52 C 16 53, 12 52, 12 50 Z" fill="currentColor"></path></svg><span>The Bojin Method</span></a>
-    <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="start.html">Begin here</a>
-      <a href="about.html">About</a>
-      <a href="what-is-bojin.html">What is Bojin?</a>
-      <a href="landing.html">Eye Reset</a>
-      <a href="blog.html" class="active">Journal</a>
-      <a href="quiz.html">Quiz</a>
-    </div>
-    <button class="nav-toggle" data-nav-toggle aria-label="Open menu" aria-expanded="false"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><line x1="4" y1="7" x2="20" y2="7"></line><line x1="4" y1="12" x2="20" y2="12"></line><line x1="4" y1="17" x2="20" y2="17"></line></svg></button>
-    <div class="nav-cta">
-      <button class="theme-toggle" data-theme-toggle aria-label="Toggle light or dark theme">&#9681;</button>
-      <a class="btn" href="landing.html#get">Free video</a>
-    </div>
-  </nav>
-</header>
-<main id="top">
-
-<!-- Short full-bleed hero — browse-by-concern header -->
-<section class="hero-full hero-full--short">
-  <img class="hero-full__img" fetchpriority="high" width="1200" height="675" src="assets/facial-bojin-hands-on-lesson.webp" alt="A hands-on bojin lesson">
-  <span class="hero-full__scrim" aria-hidden="true"></span>
-  <div class="wrap reveal">
-    <p class="eyebrow">The Bojin Journal</p>
-    <hr class="rule">
-    <h1 class="display">Browse by concern.</h1>
-    <p class="lead">Not sure what to search? Just tap the part of your face that bothers you most. Every guide is a short read with a gentle 5-minute ritual you can try tonight.</p>
-  </div>
-</section>
-
-<!-- Stats + search + category chips + the guide library -->
-<section class="section reveal">
-  <div class="wrap">
-
-    <div class="stats-row">
-      <div class="stat-tile"><b>95</b><span>gentle guides</span></div>
-      <div class="stat-tile"><b>8</b><span>concerns &amp; topics</span></div>
-      <div class="stat-tile"><b>5 min</b><span>rituals to try tonight</span></div>
-    </div>
-
-    <div class="lib-search">
-      <svg class="search-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.5" y2="16.5"></line></svg>
-      <input class="field" type="search" id="libSearch" placeholder="Search — puffy eyes, jawline, gua sha…" aria-label="Search the guides">
-    </div>
-
-    <div class="filter-bar" role="tablist" aria-label="Filter guides by concern">
-      <button class="filter-btn is-active" data-filter="all">All<span class="cnt"></span></button>
-      <button class="filter-btn" data-filter="eyes">Eyes<span class="cnt"></span></button>
-      <button class="filter-btn" data-filter="jaw">Jaw &amp; Neck<span class="cnt"></span></button>
-      <button class="filter-btn" data-filter="cheeks">Cheeks &amp; Smile Lines<span class="cnt"></span></button>
-      <button class="filter-btn" data-filter="brows">Brows &amp; Forehead<span class="cnt"></span></button>
-      <button class="filter-btn" data-filter="glow">Glow &amp; Circulation<span class="cnt"></span></button>
-      <button class="filter-btn" data-filter="method">The method<span class="cnt"></span></button>
-      <button class="filter-btn" data-filter="rituals">Rituals &amp; routines<span class="cnt"></span></button>
-      <button class="filter-btn" data-filter="myths">Myths &amp; real talk<span class="cnt"></span></button>
-    </div>
-
-    <div class="lib-list" id="lib">
-
-      <a class="lib-row" data-cat="jaw" href="blog-jaw-clenching-grinding-and-bojin.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-jaw-portrait-hero-clenching.webp" alt="A woman pressing a metal facial tool to her jaw, checking where clenching wears her out by 3pm"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Jaw &amp; Neck</span>
-          <h2 class="lib-row__q">Clench or grind your teeth? An honest look at jaw tension and bojin</h2>
-          <p class="lib-row__why">What gentle bojin can ease day to day, and where a dentist and night guard belong instead.</p>
-          <span class="lib-row__meta">6 min read &middot; an honest look <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="jaw" href="blog-neck-tension-showing-in-your-face.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-neck-portrait-hero.webp" alt="A woman resting her fingers on the side of her neck, checking for tension that carries into a tired-looking jaw"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Jaw &amp; Neck</span>
-          <h2 class="lib-row__q">That tired look might start in your neck, not your face</h2>
-          <p class="lib-row__why">A tired lower face is often the neck's doing. A gentle neck-first sequence, with honest limits.</p>
-          <span class="lib-row__meta">6 min read &middot; neck first <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="brows" href="blog-screen-to-forehead-tension-chain.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-forehead-portrait-hero.webp" alt="A woman pressing her palms against her forehead, the tight band above her brows built up from a day at the screen"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Brows &amp; Forehead</span>
-          <h2 class="lib-row__q">The screen-to-forehead chain: where those lines actually come from</h2>
-          <p class="lib-row__why">Forehead tightness is usually the last link in a chain that starts at your screen, not a sign your skin is aging faster.</p>
-          <span class="lib-row__meta">6 min read &middot; the four-link chain <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="brows" href="blog-scalp-and-temple-tightness-and-your-face.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-scalp-portrait-hero.webp" alt="A woman pressing two fingers against her temple, feeling the small jump that links her jaw to her scalp"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Brows &amp; Forehead</span>
-          <h2 class="lib-row__q">The tightness in your scalp is showing up on your face</h2>
-          <p class="lib-row__why">A thin muscle sheet runs from your brows over your scalp. When one end braces, the other loses its slack.</p>
-          <span class="lib-row__meta">6 min read &middot; start at the jaw <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="jaw" href="blog-rounded-shoulders-and-a-heavier-looking-face.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-shoulders-portrait-hero.webp" alt="A woman with rounded shoulders touching her jaw, checking where the heaviness in her lower face actually starts"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Jaw &amp; Neck</span>
-          <h2 class="lib-row__q">Why rounded shoulders can make your whole face look heavier</h2>
-          <p class="lib-row__why">Your face hangs on a frame made of your shoulders, chest, and neck. Most of us care for the picture and ignore the wall it hangs on.</p>
-          <span class="lib-row__meta">7 min read &middot; frame first <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="jaw" href="blog-why-your-face-looks-more-tired-at-night.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-evening-portrait-hero.webp" alt="A woman looking at her tired evening reflection, touching her jaw, in warm evening bathroom light"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Jaw &amp; Neck</span>
-          <h2 class="lib-row__q">Why your face looks more tired at 9 PM than at 9 AM</h2>
-          <p class="lib-row__why">Not damage, accumulation. Three small holds you never notice build the evening face, and a ten-second check proves it.</p>
-          <span class="lib-row__meta">6 min read &middot; the 9 PM rewind <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="jaw" href="blog-jowls-sagging-along-jawline.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-jowls-jaw-technique.webp" alt="A mature woman working a bojin tool along the side of her jawline toward the ear"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Jaw &amp; Neck</span>
-          <h2 class="lib-row__q">Jowls forming along your jawline?</h2>
-          <p class="lib-row__why">Not a double chin, not just weight. Picture the jaw's soft tissue as a hammock losing its anchor points, and what a gentle release reaches.</p>
-          <span class="lib-row__meta">5 min read &middot; the jowl release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="jaw" href="blog-necklace-lines-horizontal-neck.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-neck-fold-fingertips.webp" alt="A mature woman with her chin lifted, fingertips resting gently on the front of her neck"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Jaw &amp; Neck</span>
-          <h2 class="lib-row__q">Those horizontal "necklace" lines on your neck?</h2>
-          <p class="lib-row__why">The rings around your neck are fold lines, not sun damage. Think of them like an accordion pleat set by years of looking down.</p>
-          <span class="lib-row__meta">5 min read &middot; the neck-fold release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="glow" href="blog-crepey-skin-neck-under-eyes.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-under-eye-neck-suppleness.webp" alt="A mature woman gently touching the delicate skin at her outer eye and neck"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Glow &amp; Circulation</span>
-          <h2 class="lib-row__q">Crepey skin on your neck and under your eyes?</h2>
-          <p class="lib-row__why">It's a texture, not a line. Think paper versus fabric, and what hydration and circulation can honestly soften.</p>
-          <span class="lib-row__meta">5 min read &middot; the suppleness routine <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="glow" href="blog-sallow-dull-grey-complexion.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-warming-cheeks-glow.webp" alt="A mature woman warming her cheeks with both palms in soft golden light"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Glow &amp; Circulation</span>
-          <h2 class="lib-row__q">Complexion looking sallow, grey, or washed out?</h2>
-          <p class="lib-row__why">Often not a product problem. Think of your circulation as a dimmer switch turned down, and a gentle way to turn it back up.</p>
-          <span class="lib-row__meta">5 min read &middot; the glow-up sweep <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="cheeks" href="blog-are-nasolabial-folds-permanent.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-nasolabial-cheek-lift.webp" alt="A fingertip gently working the cheek beside the fold that runs from nose to mouth"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Cheeks &amp; Smile Lines</span>
-          <h2 class="lib-row__q">Are nasolabial folds permanent?</h2>
-          <p class="lib-row__why">The fold is really two things: a hinge you can soften and a pillow you can't refill by hand. Knowing which is which changes what you try.</p>
-          <span class="lib-row__meta">6 min read &middot; an honest answer <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="cheeks" href="blog-vertical-lip-lines-lipstick-bleed.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-upper-lip-line-technique.webp" alt="A close-up of a fingertip gently smoothing the skin above the upper lip"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Cheeks &amp; Smile Lines</span>
-          <h2 class="lib-row__q">Vertical lip lines, and lipstick that feathers?</h2>
-          <p class="lib-row__why">Those little lines above your lip come from a purse-string muscle you tighten all day. Here's how to loosen the drawstring.</p>
-          <span class="lib-row__meta">5 min read &middot; the lip-line release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-which-oil-or-cream-for-bojin.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-oils-and-tool-selection.webp" alt="Several facial oils and creams arranged beside a stainless steel bojin stick"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Which oil or cream should you use?</h2>
-          <p class="lib-row__why">You don't need a special product, but the right slip matters. A simple way to choose by your skin type and the season.</p>
-          <span class="lib-row__meta">5 min read &middot; choosing your glide <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-bojin-vs-microcurrent-devices.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-stick-vs-microcurrent-device.webp" alt="A white handheld microcurrent device beside a slim stainless steel bojin stick"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Bojin vs. microcurrent devices: which is worth it?</h2>
-          <p class="lib-row__why">One sends a signal to the muscle, the other releases tension by hand. Different engines, not a contest. Here's which fits when.</p>
-          <span class="lib-row__meta">6 min read &middot; different engines <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="eyes" href="blog-tear-trough-hollow-under-eyes.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-under-eye-tear-trough.webp" alt="A close-up of a fingertip gently pressing at the outer under-eye area"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Eyes</span>
-          <h2 class="lib-row__q">Hollow, sunken under-eyes that sleep won't fix?</h2>
-          <p class="lib-row__why">A tear trough isn't a bag or a dark circle. The shadow is three layers, and two of the three answer to a gentle release.</p>
-          <span class="lib-row__meta">5 min read &middot; the under-eye reset <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="rituals" href="blog-four-week-countdown-before-event.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-mirror-routine-calendar.webp" alt="A mature woman doing a calm facial routine at a mirror, a small calendar in the background"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Rituals &amp; routines</span>
-          <h2 class="lib-row__q">A wedding or reunion coming up?</h2>
-          <p class="lib-row__why">Don't cram the night before. A gentle week-by-week countdown builds a rested, awake look you can actually count on.</p>
-          <span class="lib-row__meta">5 min read &middot; the 4-week plan <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-bojin-vs-face-yoga.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-face-yoga-comparison-touch.webp" alt="A woman gently pressing her fingertips along her jawline with a calm expression"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Bojin vs. face yoga: which one fits what your face needs?</h2>
-          <p class="lib-row__why">One builds muscle, the other releases tension. A single honest question sorts out which job your face is asking for tonight.</p>
-          <span class="lib-row__meta">6 min read &middot; tight or tired? <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-bojin-vs-jade-roller.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-stick-vs-jade-roller.webp" alt="A stainless steel bojin stick resting beside a jade roller on a linen surface"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Bojin vs. the jade roller in your drawer</h2>
-          <p class="lib-row__why">A roller glides past tension; bojin stays on it at a held angle until it eases. When each one earns its two minutes.</p>
-          <span class="lib-row__meta">5 min read &middot; roller vs. method <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-how-long-until-you-see-a-difference.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-group-progress-class.webp" alt="A small group of women practicing a gentle bojin technique together in a bright studio"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">How long until you actually see a difference?</h2>
-          <p class="lib-row__why">No overnight miracle, and no six-month wait either. The honest week-by-week timeline, checkpoint by checkpoint.</p>
-          <span class="lib-row__meta">6 min read &middot; the honest timeline <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="jaw" href="blog-turkey-neck-and-neck-lines.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-neck-sweep-arrow.webp" alt="A woman sweeping a bojin tool downward from her jaw toward her collarbone"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Jaw &amp; Neck</span>
-          <h2 class="lib-row__q">Loose skin and lines along your neck?</h2>
-          <p class="lib-row__why">The "turkey neck" look is three pulls stacked together: posture, held tension, pooled fluid. Two of the three respond to a gentle release.</p>
-          <span class="lib-row__meta">5 min read &middot; the neck release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="cheeks" href="blog-marionette-lines-drooping-mouth-corners.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-mouth-corner-lift-technique.webp" alt="A close-up of fingertips gently lifting the corner of the mouth upward"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Cheeks &amp; Smile Lines</span>
-          <h2 class="lib-row__q">Mouth corners turning down? What's really happening</h2>
-          <p class="lib-row__why">A resting frown that isn't a frown. Two pulls draw the corners down, and the muscle-habit one is yours to unlearn.</p>
-          <span class="lib-row__meta">5 min read &middot; corner release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="rituals" href="blog-evening-wind-down-face-ritual.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-inner-brow-night-release.webp" alt="A woman at night gently pressing her fingertips at the inner corner of her brows, eyes closed"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Rituals &amp; routines</span>
-          <h2 class="lib-row__q">What should your evening face ritual actually undo?</h2>
-          <p class="lib-row__why">The morning ritual preps your face for the day. The evening one should undo the day: screen squint, a held jaw, pressed temples.</p>
-          <span class="lib-row__meta">5 min read &middot; the wind-down <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="glow" href="blog-perimenopause-skin-changes.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-forehead-temple-release.webp" alt="A woman resting both palms gently across her forehead and temples with eyes closed"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Glow &amp; Circulation</span>
-          <h2 class="lib-row__q">Why your whole face feels different in perimenopause</h2>
-          <p class="lib-row__why">Thinner skin, slower circulation, drier texture, shifting puffiness: four changes arriving together. An honest map, and a gentler routine built for it.</p>
-          <span class="lib-row__meta">6 min read &middot; the honest map <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-bojin-before-or-after-retinol.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-oil-and-tool-flatlay.webp" alt="A dropper bottle of facial oil beside a polished stainless steel bojin stick"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Where does bojin fit with retinol and other actives?</h2>
-          <p class="lib-row__why">No fixed rule decides the order. Your skin barrier's state tonight decides, and the check takes fifteen seconds.</p>
-          <span class="lib-row__meta">5 min read &middot; the barrier check <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="cheeks" href="blog-facial-asymmetry-one-side-more-tense.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-face-symmetry-split.webp" alt="A woman's face split down the middle, one side worked with a bojin tool for comparison"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Cheeks &amp; Smile Lines</span>
-          <h2 class="lib-row__q">Why one side of your face looks different from the other</h2>
-          <p class="lib-row__why">Every face is a little uneven; that part is normal. The extra tension traces to four one-sided habits you can name.</p>
-          <span class="lib-row__meta">6 min read &middot; the balancing release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="rituals" href="blog-starting-a-bojin-ritual-with-someone-you-love.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-two-women-neck-technique.webp" alt="Two women sitting together at home, one gently working a bojin tool along the other's jaw"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Rituals &amp; routines</span>
-          <h2 class="lib-row__q">Sharing this with someone you love</h2>
-          <p class="lib-row__why">A mother and daughter, two sisters, a friend group: the habit keeps better with two. How to teach it, and the one rule that changes.</p>
-          <span class="lib-row__meta">5 min read &middot; better with two <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-what-bojin-can-and-cannot-do.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-jaw-tool-technique-lesson.webp" alt="A bojin instructor guiding a student's hand along the jawline with a bojin tool during a lesson"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">What can bojin actually do for your face?</h2>
-          <p class="lib-row__why">No miracle promises here. The honest list of what a gentle method can and cannot change, so you start with expectations that survive week three.</p>
-          <span class="lib-row__meta">7 min read &middot; honest expectations <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-who-should-not-do-bojin-contraindications.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-reading-the-face-consultation.webp" alt="An instructor gently reading a student's face before deciding on a careful technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Who should skip bojin for now?</h2>
-          <p class="lib-row__why">Blood thinners, a rosacea flare, recent injectables, broken skin. Every "wait" on the list, explained plainly and kindly.</p>
-          <span class="lib-row__meta">6 min read &middot; check first <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="rituals" href="blog-how-often-should-you-do-bojin.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-studio-prep-lesson.webp" alt="A calm studio lesson on preparing for a gentle bojin session"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Rituals &amp; routines</span>
-          <h2 class="lib-row__q">How often should you actually do bojin?</h2>
-          <p class="lib-row__why">Two to three gentle sessions a week, and the rest days are part of the plan. Why daily isn't better, and how to read your own skin.</p>
-          <span class="lib-row__meta">5 min read &middot; the weekly rhythm <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-why-stainless-steel-bojin-stick.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/facial-bojin-modern-studio.webp" alt="A modern bojin studio where tools are laid out for a hands-on lesson"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Steel stick, or the jade stone you own?</h2>
-          <p class="lib-row__why">Different jobs, not a contest. Why the method uses stainless steel, and why you can still start tonight with the stone in your drawer.</p>
-          <span class="lib-row__meta">5 min read &middot; tools explained <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-dry-or-with-oil-bojin-slip.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-glow-facial-close-up.webp" alt="A close-up of gentle facial work with a well-oiled glide"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Dry, or with oil? One rule protects mature skin</h2>
-          <p class="lib-row__why">The tool always needs something to glide on. The one-rule answer, how much to use, and the slip test that keeps every stroke kind.</p>
-          <span class="lib-row__meta">5 min read &middot; the slip rule <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-what-is-normal-after-bojin-vs-warning-sign.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-cheek-lift-hands-on.webp" alt="An instructor demonstrating a gentle cheek technique in a hands-on lesson"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Redness, soreness, or a warning sign?</h2>
-          <p class="lib-row__why">Light pink that fades fast is normal. A bruise is a stop sign. A calm decoder for the moment you wonder if that's supposed to happen.</p>
-          <span class="lib-row__meta">6 min read &middot; read your skin <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="rituals" href="blog-your-first-5-minutes-with-bojin.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-facial-technique-lesson.webp" alt="A beginner learning her first gentle bojin strokes in a small class"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Rituals &amp; routines</span>
-          <h2 class="lib-row__q">Nervous to start? Your first five minutes</h2>
-          <p class="lib-row__why">A tiny, safe first session: one cheek, the stone you already own, and a built-in stop rule so nothing can go wrong.</p>
-          <span class="lib-row__meta">5 min read &middot; begin small <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-is-bojin-just-gua-sha-with-a-new-name.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-instructor-facial-demonstration.webp" alt="A bojin instructor demonstrating the method during a teaching session"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Is bojin just gua sha with a new name?</h2>
-          <p class="lib-row__why">A fair suspicion, answered straight: gua sha is a tool, bojin is a method. What that difference means before you spend anything.</p>
-          <span class="lib-row__meta">6 min read &middot; straight talk <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-can-bojin-make-your-face-saggier.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-cheek-lift-hands-on.webp" alt="A mature woman resting two fingers of her free hand just ahead of the bojin stick as she lifts along her cheek"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Can bojin make your face saggier?</h2>
-          <p class="lib-row__why">The honest answer, and why careless dragging is the real risk. The safe pressure and five rules that keep skin supported, never stretched.</p>
-          <span class="lib-row__meta">6 min read &middot; an honest answer <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-does-bojin-actually-work-straight-talk.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-eye-reset-one-side-only.webp" alt="One side of a face worked with a bojin stick and the other left untouched, compared in the same light"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Does facial gua sha actually work?</h2>
-          <p class="lib-row__why">Straight talk for skeptics. Limits first, benefits second, and nothing in between dressed up as a miracle. Judge it by your own mirror.</p>
-          <span class="lib-row__meta">7 min read &middot; for skeptics <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-bojin-after-botox-or-filler-what-to-wait-for.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-facial-practice-class.webp" alt="Women practicing gentle bojin strokes on their own faces during a small class"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Had Botox or filler? What to wait for</h2>
-          <p class="lib-row__why">Injectables and at-home care can coexist, with timing and a gentle touch. Why your injector's timeline always leads.</p>
-          <span class="lib-row__meta">5 min read &middot; timing it right <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="eyes" href="blog-dark-circles-tired-eyes.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-eye-technique-hands-on-lesson.webp" alt="A bojin instructor guiding a student through a hands-on eye-area technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Eyes</span>
-          <h2 class="lib-row__q">Dark circles that won't fade even after a full night's sleep?</h2>
-          <p class="lib-row__why">Sleep was never the only cause &mdash; thin skin, a little shadow and pooled fluid all play a part. Here's what a careful few minutes can and can't do.</p>
-          <span class="lib-row__meta">4 min read &middot; brightening eye reset <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="eyes" href="blog-under-eye-bags-over-50.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-facial-practice-class.webp" alt="A woman practicing a gentle under-eye bojin technique in a small class"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Eyes</span>
-          <h2 class="lib-row__q">Under-eye bags after 50?</h2>
-          <p class="lib-row__why">Some of it is fluid that pooled overnight, some is how the area changes with age. A gentle daily reset can ease the puffy part.</p>
-          <span class="lib-row__meta">4 min read &middot; under-eye reset <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="eyes" href="blog-crows-feet-eye-corners.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-gentle-eye-area-technique.webp" alt="Hands-on bojin practice easing the outer corner of the eye"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Eyes</span>
-          <h2 class="lib-row__q">Crow's feet at the corners of your eyes?</h2>
-          <p class="lib-row__why">Years of smiling and squinting, plus thinner skin after 40. It won't erase the lines, but it can soften the tension that deepens them.</p>
-          <span class="lib-row__meta">4 min read &middot; outer-eye release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="eyes" href="blog-hooded-heavy-eyelids.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-eye-reset-guided-lesson.webp" alt="A guided bojin lesson working around the brow and eye"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Eyes</span>
-          <h2 class="lib-row__q">Heavy, hooded eyelids making you look tired?</h2>
-          <p class="lib-row__why">Brow tension and fluid can leave lids feeling heavy. A gentle brow-and-eye reset can help the area look a little more open and awake.</p>
-          <span class="lib-row__meta">5 min read &middot; brow-and-eye reset <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="eyes" href="blog-screen-tired-eyes-desk-reset.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-group-class-learning.webp" alt="A group class learning a simple eye-area bojin reset"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Eyes</span>
-          <h2 class="lib-row__q">Screen-tired eyes by mid-afternoon?</h2>
-          <p class="lib-row__why">Long hours on a screen leave the eyes tight and tired-looking. Here's a 2-minute reset you can do right at your desk, no mirror needed.</p>
-          <span class="lib-row__meta">4 min read &middot; 2-minute desk reset <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="eyes" href="blog-menopause-tired-eyes.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-reading-the-face-consultation.webp" alt="An instructor reading the face before a gentle eye technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Eyes</span>
-          <h2 class="lib-row__q">Menopause and tired-looking eyes?</h2>
-          <p class="lib-row__why">Thinner, drier skin and broken sleep show first around the eyes. A calm morning reset can help them look brighter and more rested.</p>
-          <span class="lib-row__meta">5 min read &middot; morning eye reset <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="eyes" href="blog-eye-cream-not-absorbing.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-facial-technique-workshop.webp" alt="A workshop demonstrating a gentle eye-care technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Eyes</span>
-          <h2 class="lib-row__q">Is your eye cream just sitting on top?</h2>
-          <p class="lib-row__why">Often it's the application, not the formula. A 30-second warm-and-press method helps your cream sink in instead of pooling.</p>
-          <span class="lib-row__meta">4 min read &middot; help cream absorb <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="brows" href="blog-forehead-lines-deepening.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-forehead-release-lesson.webp" alt="A lesson on a gentle forehead-release technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Brows &amp; Forehead</span>
-          <h2 class="lib-row__q">Forehead lines getting deeper?</h2>
-          <p class="lib-row__why">A lifetime of raising the brows, plus thinner skin. It won't erase lines, but relaxing the tension can help the area look smoother and rested.</p>
-          <span class="lib-row__meta">5 min read &middot; forehead release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="brows" href="blog-heavy-low-brows-lift.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-instructor-facial-demonstration.webp" alt="An instructor demonstrating a brow-and-forehead technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Brows &amp; Forehead</span>
-          <h2 class="lib-row__q">Heavy, low brows making your eyes look smaller?</h2>
-          <p class="lib-row__why">Brows sit lower with age and tension. Releasing the forehead and brow can help the area feel lighter and look a little more lifted.</p>
-          <span class="lib-row__meta">5 min read &middot; brow-and-forehead reset <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="brows" href="blog-tense-forehead-relief.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-brow-and-forehead-technique.webp" alt="Hands-on practice of a brow-and-forehead release"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Brows &amp; Forehead</span>
-          <h2 class="lib-row__q">A tense forehead you only notice at the end of the day?</h2>
-          <p class="lib-row__why">We hold stress and screen-focus in the forehead without noticing. A calming evening release helps it unwind.</p>
-          <span class="lib-row__meta">5 min read &middot; end-of-day release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="brows" href="blog-natural-botox-alternative-forehead.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-facial-technique-lesson.webp" alt="A bojin facial technique lesson on the forehead"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Brows &amp; Forehead</span>
-          <h2 class="lib-row__q">&ldquo;Natural alternatives to Botox&rdquo; for your forehead?</h2>
-          <p class="lib-row__why">An honest look: bojin isn't Botox and won't do what a needle does. Here's what a gentle daily habit genuinely can &mdash; and can't &mdash; do.</p>
-          <span class="lib-row__meta">5 min read &middot; an honest look <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="brows" href="blog-frown-lines-menopause.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-brow-hands-on-technique.webp" alt="A hands-on lesson easing the area between the brows"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Brows &amp; Forehead</span>
-          <h2 class="lib-row__q">Why frown lines can deepen faster around menopause</h2>
-          <p class="lib-row__why">Thinner skin plus more stress-holding can make the &lsquo;11&rsquo; lines look deeper. Gentle release helps the area soften and look rested &mdash; honestly, not a fix.</p>
-          <span class="lib-row__meta">5 min read &middot; between-the-brows release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="eyes" href="blog-tired-puffy-eyes.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/facial-bojin-modern-studio.webp" alt="Learning a gentle eye reset in a small bojin class"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Eyes</span>
-          <h2 class="lib-row__q">Tired, puffy eyes every morning?</h2>
-          <p class="lib-row__why">After 40, thinner skin and slower overnight drainage let fluid pool around the eyes — so you wake up looking puffy and tired even after a full night's sleep.</p>
-          <span class="lib-row__meta">4 min read &middot; gentle eye reset <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="jaw" href="blog-jawline-double-chin.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/facial-bojin-studio-class.webp" alt="A jaw and neck release taught hands-on"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Jaw &amp; Neck</span>
-          <h2 class="lib-row__q">A softer jawline and a little double chin?</h2>
-          <p class="lib-row__why">A softer jawline usually isn't just weight. Pooled fluid, a quietly clenched jaw and tech-neck posture all pull the lower face down.</p>
-          <span class="lib-row__meta">5 min read &middot; jaw &amp; neck release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="jaw" href="blog-jaw-before-video-call.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-jaw-tool-technique-lesson.webp" alt="A woman doing a quick jaw release at a desk before a video call"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Jaw &amp; Neck</span>
-          <h2 class="lib-row__q">A 2-minute jaw reset before your next video call?</h2>
-          <p class="lib-row__why">Camera angles are unkind to a soft jawline and a tense neck. A quick desk-side reset before you log on can help.</p>
-          <span class="lib-row__meta">4 min read &middot; before-camera reset <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="jaw" href="blog-jaw-end-of-day-release.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-evening-facial-release-lesson.webp" alt="A calming evening jaw and neck release before bed"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Jaw &amp; Neck</span>
-          <h2 class="lib-row__q">Why does your jaw feel tight by the end of the day?</h2>
-          <p class="lib-row__why">Calls, chewing, unconscious clenching and hours looking down at a screen set into the jaw by evening. A calming 3-minute wind-down can help.</p>
-          <span class="lib-row__meta">4 min read &middot; evening release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="cheeks" href="blog-smile-lines-cheeks.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/facial-bojin-face-massage-class.webp" alt="Hands-on bojin practice on the cheeks and mid-face"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Cheeks &amp; Smile Lines</span>
-          <h2 class="lib-row__q">Smile lines settling in, cheeks a little lower?</h2>
-          <p class="lib-row__why">As the support under your mid-face loosens, cheeks sit a little lower and smile lines deepen — the gentle downward pull that quietly reads as "older."</p>
-          <span class="lib-row__meta">5 min read &middot; mid-face lift <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="cheeks" href="blog-cheeks-before-makeup.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-studio-prep-lesson.webp" alt="A morning pre-makeup cheek reset routine"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Cheeks &amp; Smile Lines</span>
-          <h2 class="lib-row__q">A 3-minute cheek reset before you put on makeup?</h2>
-          <p class="lib-row__why">Puffy or tense cheeks can make foundation settle into your smile lines by midday. Here's a gentle pre-makeup routine to help it glide on smoother.</p>
-          <span class="lib-row__meta">4 min read &middot; pre-makeup reset <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="cheeks" href="blog-cheeks-after-flight-travel.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-cheek-lift-hands-on.webp" alt="A post-flight cheek and mid-face reset"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Cheeks &amp; Smile Lines</span>
-          <h2 class="lib-row__q">Puffy cheeks and deeper smile lines after a flight?</h2>
-          <p class="lib-row__why">Cabin pressure, salt and hours of stillness pool fluid in the mid-face. A gentle post-landing reset can help you look like yourself again.</p>
-          <span class="lib-row__meta">4 min read &middot; post-travel reset <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="brows" href="blog-forehead-frown-lines.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/facial-bojin-classroom-lesson.webp" alt="Yu-Ting Lan teaching a brow and forehead release"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Brows &amp; Forehead</span>
-          <h2 class="lib-row__q">Frown lines and a heavy, tense brow?</h2>
-          <p class="lib-row__why">Those vertical "11" lines come from brow muscles frowning all day — squinting at screens, and holding stress in your forehead without noticing.</p>
-          <span class="lib-row__meta">5 min read &middot; brow release <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="glow" href="blog-dull-puffy-glow.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/facial-bojin-class-taiwan.webp" alt="A full-face bojin sweep taught in a small class"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Glow &amp; Circulation</span>
-          <h2 class="lib-row__q">Dull, puffy, tired-looking skin?</h2>
-          <p class="lib-row__why">After 40, circulation and fluid movement slow down, so skin looks flat and puffy and your serums seem to just sit on top instead of sinking in.</p>
-          <span class="lib-row__meta">5 min read &middot; full-face sweep <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-gua-sha-vs-bojin.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/facial-bojin-workshop.webp" alt="A bojin workshop showing the tool and technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Does gua sha really work — or is it the technique?</h2>
-          <p class="lib-row__why">If your gua sha stone hasn't delivered the glow you hoped for, it's probably not the stone. The tool matters far less than the technique behind it.</p>
-          <span class="lib-row__meta">4 min read &middot; the method <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-is-bojin-safe.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-reading-the-face-consultation.webp" alt="An instructor gently reading a student's face before a careful technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Is bojin safe, and when should you skip it?</h2>
-          <p class="lib-row__why">Done gently, it suits most healthy adults. Here's the honest safety guide: when to wait, when to check with a professional, and how to keep every session kind.</p>
-          <span class="lib-row__meta">5 min read &middot; safety basics <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-how-much-pressure.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-jaw-tool-technique-lesson.webp" alt="An instructor guiding a student's hand to feel the right, comfortable pressure"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">How hard should you actually press?</h2>
-          <p class="lib-row__why">Too heavy bruises and does no good; too light never reaches the tension. Here's the honest answer, and a simple way to find your own comfortable pressure.</p>
-          <span class="lib-row__meta">5 min read &middot; the pressure question <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-two-ends-of-the-bojin-stick.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-oil-and-tool-flatlay.webp" alt="A stainless steel bojin stick laid beside a small bottle of facial oil, showing its broad edge and rounded tip"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">The two ends of your bojin stick?</h2>
-          <p class="lib-row__why">The broad edge and the rounded tip do two different jobs. Which end to use where, how to hold each, and why the tip needs less pressure, not more.</p>
-          <span class="lib-row__meta">8 min read &middot; the method in detail <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-the-angle-of-the-bojin-tool.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-facial-technique-lesson.webp" alt="A teacher holding a bojin stick at a low tilt against the cheek, showing the working angle"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">The angle of the tool: why a few degrees changes everything</h2>
-          <p class="lib-row__why">Pressure gets all the questions; angle decides which layer you actually reach. Flat, tilted, or upright, and what each one does.</p>
-          <span class="lib-row__meta">8 min read &middot; the method in detail <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-what-each-sensation-means.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-glow-facial-close-up.webp" alt="A close view of a calm face during a bojin pass, reading the sensation under the tool"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">What you feel under the tool, and what each sensation means</h2>
-          <p class="lib-row__why">A dull ache, a warm flush, a sharp sting: your face is telling you something. How to read it and adjust in the moment.</p>
-          <span class="lib-row__meta">8 min read &middot; the method in detail <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-fingers-stone-or-stick.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-stick-steel.jpg" alt="A slim, polished stainless steel bojin stick with a broad edge and a rounded tip"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Fingers, a gua sha stone, or a bojin stick?</h2>
-          <p class="lib-row__why">You don't need to buy a thing to start. Here's what your fingertips, a stone you already own, and a proper bojin stick each do best.</p>
-          <span class="lib-row__meta">5 min read &middot; what to use <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="rituals" href="blog-morning-face-ritual.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-home-lesson-group.webp" alt="Practising the morning face ritual"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Rituals &amp; routines</span>
-          <h2 class="lib-row__q">What should a simple morning face ritual look like?</h2>
-          <p class="lib-row__why">You don't need an hour or a shelf of products. A few gentle minutes each morning, done in the right order, do most of the work.</p>
-          <span class="lib-row__meta">4 min read &middot; morning routine <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-gua-sha-not-working.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/facial-bojin-hands-on-lesson.webp" alt="A hands-on lesson correcting gua sha technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Gua sha not giving you results?</h2>
-          <p class="lib-row__why">You bought the stone and watched the videos, and your skin looks about the same. You're not doing it wrong — what's usually missing is the method.</p>
-          <span class="lib-row__meta">4 min read &middot; the simple fix <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-skip-expensive-facials.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-horn-tool.jpg" alt="A bojin stick"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Do you really need expensive facials?</h2>
-          <p class="lib-row__why">Facials feel lovely, but they aren't the only way to keep skin bright and lifted. Here's what a few minutes of home care can really do.</p>
-          <span class="lib-row__meta">5 min read &middot; home care <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-breathing-during-a-stroke.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-instructor-demonstration.webp" alt="A calm, focused expression while applying a bojin tool near the mouth corner"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Are you holding your breath?</h2>
-          <p class="lib-row__why">Concentrating on technique makes many women quietly hold their breath. Why that tenses the very area you're trying to release, and how to breathe instead.</p>
-          <span class="lib-row__meta">7 min read &middot; breathing while you work <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="rituals" href="blog-building-a-bojin-habit.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/hands-on-facial-bojin-practice.webp" alt="A group of women practicing bojin technique together in a workshop setting"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Rituals &amp; routines</span>
-          <h2 class="lib-row__q">Building a bojin habit</h2>
-          <p class="lib-row__why">The trick that actually works isn't willpower. It's where you keep the stick and what you attach the habit to.</p>
-          <span class="lib-row__meta">7 min read &middot; the trick that works <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="rituals" href="blog-the-two-minute-bad-day-routine.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-nasolabial-cheek-lift.webp" alt="A woman gently touches one spot on her cheek"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Rituals &amp; routines</span>
-          <h2 class="lib-row__q">Only have two minutes tonight?</h2>
-          <p class="lib-row__why">On the days a full routine feels impossible, focus on one tight spot and keep the habit alive.</p>
-          <span class="lib-row__meta">6 min read &middot; the bad-day routine <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-do-both-sides-need-equal-time.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-inner-brow-release-technique.webp" alt="A bojin tool applied along the jaw on one side of the face"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Do both sides of your face need equal time?</h2>
-          <p class="lib-row__why">Most faces aren't perfectly symmetrical to begin with. What that means for how long you spend on each side.</p>
-          <span class="lib-row__meta">7 min read &middot; one side vs. the other <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-does-your-posture-matter.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-one-side-result-clean.jpg" alt="A woman sitting upright with her head level while working with a bojin stick in front of a mirror"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Does your posture matter while you work?</h2>
-          <p class="lib-row__why">Hunching over a mirror to see better can quietly undo the neck work you're doing. The sitting position that keeps a session from fighting itself.</p>
-          <span class="lib-row__meta">7 min read &middot; the sitting position <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-bojin-with-sore-hands-or-weak-grip.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-group-practice-technique-session.webp" alt="Students practicing technique together, hands guiding the tool with a relaxed hold"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Sore hands or a weak grip?</h2>
-          <p class="lib-row__why">Arthritis or less grip strength doesn't have to end your routine. How to hold the tool differently, and when to use your fingers instead.</p>
-          <span class="lib-row__meta">7 min read &middot; a different hold <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-sinus-congestion-and-a-heavy-face.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-forehead-brow-gentle-technique.webp" alt="Slow, gentle technique across the forehead and brow, calmer and slower than usual"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Stuffed up? Sinus congestion and that heavy-face feeling</h2>
-          <p class="lib-row__why">What gentle bojin can and cannot do when you're congested, the tension it does reach, and the days to skip entirely.</p>
-          <span class="lib-row__meta">6 min read &middot; the honest limit <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-how-fast-should-you-move.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-eye-technique-hands-on-lesson.jpg" alt="A slow, deliberate pass with the bojin stick on a tense spot near the brow"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">How fast should you move?</h2>
-          <p class="lib-row__why">Pressure and angle get the questions; speed almost never does. When a slow, deliberate pass works better than a quick one, and when it's the other way around.</p>
-          <span class="lib-row__meta">7 min read &middot; speed as a variable <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-how-many-times-per-spot.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-group-class-learning.jpg" alt="A student counting slow passes over one tight spot during a bojin lesson"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">How many times should you work one spot?</h2>
-          <p class="lib-row__why">More passes isn't automatically better. The three-to-five rule, why extra reps on a stubborn spot backfire, and what to do instead.</p>
-          <span class="lib-row__meta">7 min read &middot; the three-to-five rule <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-how-to-hold-the-handle.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-lesson-eye-technique.jpg" alt="A relaxed, pencil-like grip on the handle of a bojin stick during a lesson"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">How to hold the handle</h2>
-          <p class="lib-row__why">The grip behind a steady stroke. The relaxed hold that keeps a stroke steady instead of stiff, and why the other end of the tool matters too.</p>
-          <span class="lib-row__meta">7 min read &middot; the grip <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-why-the-order-matters.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-two-hands-face-technique-closeup.webp" alt="Two practitioners working closely through the steps of a facial bojin technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Why the order matters</h2>
-          <p class="lib-row__why">The sequence isn't decoration: warm, work, then finish down the neck. Why skipping the last step is the most common reason results don't hold.</p>
-          <span class="lib-row__meta">8 min read &middot; warm, work, drain <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-the-supporting-hand.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-facial-technique-workshop.jpg" alt="A teacher's free hand resting ahead of the bojin stick, supporting the skin during a stroke"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">The supporting hand</h2>
-          <p class="lib-row__why">Everyone watches the hand holding the tool. The three jobs your free hand does during a session, and why skipping them is the most common mistake.</p>
-          <span class="lib-row__meta">8 min read &middot; the free hand <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-facial-hair-dermaplaning-and-bojin.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-bright-studio-facial-technique.webp" alt="A calm, well-lit facial technique session in a bright studio"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Peach fuzz, facial hair, and dermaplaning</h2>
-          <p class="lib-row__why">Does bojin change anything? Why a tool doesn't make hair grow back coarser, and how long to wait after dermaplaning.</p>
-          <span class="lib-row__meta">6 min read &middot; does it change anything <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-your-ears-and-earlobes.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-ear-side-face-hands-on.webp" alt="Hands-on technique at the side of the face, close to the ear"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Your ears and earlobes: the zone almost everyone skips</h2>
-          <p class="lib-row__why">The tender spot in front of and behind your ears holds more than you'd think, plus an honest answer about stretched earlobes.</p>
-          <span class="lib-row__meta">6 min read &middot; the overlooked zone <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-scalp-and-hairline-tension.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-hairline-scalp-closeup-technique.webp" alt="Close, careful work at the hairline and scalp, continuing past where forehead technique usually stops"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Where forehead tightness actually starts</h2>
-          <p class="lib-row__why">Your scalp and hairline, and why forehead work alone fades within the hour. How to bring the method past the hairline.</p>
-          <span class="lib-row__meta">7 min read &middot; past the hairline <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-the-point-behind-your-ear.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-forehead-technique-classroom.webp" alt="A classroom bojin lesson with students practicing hands-on technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">The point behind your ear</h2>
-          <p class="lib-row__why">Nearly every routine sweeps behind the ear before heading down the neck. Why that one point matters, and what happens when you skip it.</p>
-          <span class="lib-row__meta">7 min read &middot; the last stop before the finish <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-should-you-chill-your-bojin-stick.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-clinic-multi-step-technique.webp" alt="A bojin tool in use during a hands-on studio session"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Should you chill your bojin stick?</h2>
-          <p class="lib-row__why">Cold rollers are everywhere in skincare marketing. What temperature actually does, and why warming your skin matters more than chilling the tool.</p>
-          <span class="lib-row__meta">6 min read &middot; temperature, honestly <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-mirror-or-by-feel.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-seated-scalp-technique-lesson.webp" alt="A hands-on bojin scalp technique lesson in a small studio room"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Mirror or by feel?</h2>
-          <p class="lib-row__why">Watching yourself in a mirror and working with your eyes closed teach different things. When to use each, and why relying on only one leaves a gap.</p>
-          <span class="lib-row__meta">7 min read &middot; two ways to work <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-which-hand-should-hold-the-tool.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-eyebrow-lift-audience.webp" alt="A bojin tool held in hand while demonstrating an eyebrow-area technique to a small group"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Which hand should hold the tool?</h2>
-          <p class="lib-row__why">Your dominant hand feels natural, but it isn't the whole answer. Why the side of your face you're working should decide which hand holds it.</p>
-          <span class="lib-row__meta">7 min read &middot; dominant vs. non-dominant <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-bojin-when-you-wear-glasses.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-forehead-brow-hands-on-closeup.webp" alt="A hand working the forehead and brow area, the exact spots glasses frames press on all day"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">Wear glasses? Here's how to work around your frames</h2>
-          <p class="lib-row__why">Easing the end-of-day tension where frames press on your brow, temples, and nose bridge.</p>
-          <span class="lib-row__meta">6 min read &middot; around your frames <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-how-to-clean-your-bojin-stick.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-classroom-demonstration-teaching.webp" alt="A hands-on bojin teaching session, the kind of setting where a well-cared-for tool matters"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">How to clean and care for your bojin stick</h2>
-          <p class="lib-row__why">How often, what to use, and how to store it so it glides like new for years.</p>
-          <span class="lib-row__meta">4 min read &middot; care and storage <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="method" href="blog-how-you-end-a-session.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-scalp-forehead-hands-on.webp" alt="A hands-on scalp release near the end of a bojin session"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">The method</span>
-          <h2 class="lib-row__q">How you end a session matters more than you think</h2>
-          <p class="lib-row__why">Snapping the tool away the second you're done undoes some of what you just built. The slow, deliberate close that tells your face the work is finished.</p>
-          <span class="lib-row__meta">7 min read &middot; the close <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="cheeks" href="blog-dimpled-pebbly-chin.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-lower-face-closeup-technique.webp" alt="Close, careful technique on the lower face and chin"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Cheeks &amp; Smile Lines</span>
-          <h2 class="lib-row__q">A dimpled, pebbly chin?</h2>
-          <p class="lib-row__why">The small muscle behind that orange-peel texture, and gentle, precise work for the resting state rather than the expression.</p>
-          <span class="lib-row__meta">6 min read &middot; the small muscle <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-bojin-after-dental-work.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-group-discussion-handout-review.webp" alt="A calm group discussion reviewing a technique handout, a moment of learning rather than working"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">After dental work, implants, or a root canal</h2>
-          <p class="lib-row__why">How long to wait before restarting your routine, why waiting is the whole answer, and the question to ask your dentist.</p>
-          <span class="lib-row__meta">6 min read &middot; how long to wait <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-hot-flashes-and-a-flushed-face.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-two-bed-bright-studio-session.webp" alt="A cool, bright studio with two sessions in progress, the kind of calm setting worth waiting for"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Hot flashes and a flushed face</h2>
-          <p class="lib-row__why">Should you work on it? What bojin genuinely cannot change, and the tension flashes leave behind that it actually can ease.</p>
-          <span class="lib-row__meta">6 min read &middot; should you work on it <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-facial-volume-loss-after-weight-loss.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-hands-on-facial-technique-class.webp" alt="Hands-on facial technique, supportive and gentle, in a small class setting"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Lost weight and your face looks hollow?</h2>
-          <p class="lib-row__why">An honest answer about what bojin genuinely cannot restore, and the narrower, real thing it can offer instead.</p>
-          <span class="lib-row__meta">7 min read &middot; an honest answer <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="rituals" href="blog-doing-bojin-on-someone-else.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-peer-practice-supervised.webp" alt="One student practicing technique on another, with careful supervision nearby"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Rituals &amp; routines</span>
-          <h2 class="lib-row__q">Doing bojin on someone else</h2>
-          <p class="lib-row__why">What changes when you can't feel the pressure yourself, and how to find it safely on someone you love.</p>
-          <span class="lib-row__meta">6 min read &middot; what changes <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="rituals" href="blog-does-your-routine-need-to-change-with-seasons.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-group-seated-head-technique.webp" alt="A group bojin lesson with hands-on head and scalp technique"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Rituals &amp; routines</span>
-          <h2 class="lib-row__q">Does your routine need to change with the seasons?</h2>
-          <p class="lib-row__why">Winter skin behaves differently than summer skin. The one real adjustment worth making each season, and the two things that don't need to change at all.</p>
-          <span class="lib-row__meta">6 min read &middot; winter vs. summer <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-sleep-creases-pillow-lines-and-bojin.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-reclined-class-scene.webp" alt="A calm, reclined bojin practice setting for a gentle morning routine"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Do sleep creases and pillow lines undo your bojin work?</h2>
-          <p class="lib-row__why">What a morning crease actually means, the gentle reset that helps, and why your sleep position matters more than the tool.</p>
-          <span class="lib-row__meta">5 min read &middot; the morning smooth <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="myths" href="blog-starting-in-your-40s-vs-60s.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-reading-the-face-consultation.webp" alt="A calm consultation before a gentle bojin technique session"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Myths &amp; real talk</span>
-          <h2 class="lib-row__q">Starting in your 40s vs. your 60s: does the method differ?</h2>
-          <p class="lib-row__why">The same order and angle can meet very different skin. What changes with age, what stays the same, and why it is never too late to start.</p>
-          <span class="lib-row__meta">6 min read &middot; same method, different starting point <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-      <a class="lib-row" data-cat="rituals" href="blog-traveling-with-your-bojin-stick.html">
-        <div class="lib-row__media"><img loading="lazy" decoding="async" src="assets/bojin-two-bed-studio-session.webp" alt="A calm studio setting that suggests a simple bojin routine while traveling"></div>
-        <div class="lib-row__body">
-          <span class="lib-row__cat">Rituals &amp; routines</span>
-          <h2 class="lib-row__q">Traveling with your bojin stick: what to pack, what to skip</h2>
-          <p class="lib-row__why">A smaller routine for hotel rooms, a practical packing list, and why missing a few days does not undo your habit.</p>
-          <span class="lib-row__meta">5 min read &middot; the travel version <span class="arw">&rarr;</span></span>
-        </div>
-      </a>
-
-    </div>
-    <p class="wall-empty" id="libEmpty" hidden>No guides match that yet — try another word or tap &ldquo;All&rdquo;.</p>
-  </div>
-</section>
-
-<!-- Why-it-works / social proof -->
-<section class="section band reveal">
-  <div class="wrap">
-    <p class="eyebrow center">Why women keep practicing</p>
-    <hr class="rule">
-    <p class="lead center">A few honest words from students who&rsquo;ve learned with Yu-Ting.</p>
-    <div class="proof">
-      <blockquote class="quote">She&rsquo;s so dedicated and holds nothing back &mdash; she shares everything with us. Next time I&rsquo;d love to come back for the body course too.
-        <cite>&mdash; Judy C., Taiwan</cite></blockquote>
-      <blockquote class="quote">I took the head-and-face course with no experience at all, and Yu-Ting&rsquo;s patient, detailed teaching made it easy to pick up. A wonderful class.
-        <cite>&mdash; Mercy W., Taiwan</cite></blockquote>
-    </div>
-    <p class="kicker muted center" style="margin-top:1.4rem">Individual experiences vary. This is gentle self-care, not medical treatment.</p>
-  </div>
-</section>
-
-<!-- Quiz invitation -->
-<section class="section--tight band-jade reveal">
-  <div class="wrap wrap--narrow center">
-    <p class="eyebrow">Not sure where to start?</p>
-    <hr class="rule">
-    <h2>Let your face point the way.</h2>
-    <p class="lead">Answer five quick questions and we'll match you to the right 5-minute ritual — plus a free personalized starter guide. Takes about a minute.</p>
-    <p><a class="btn btn--lg" href="quiz.html">Take the 1-minute quiz &rarr;</a></p>
-  </div>
-</section>
-
-<!-- Email capture -->
-<section class="section capture reveal" id="guide">
-  <div class="wrap wrap--narrow center">
-    <p class="eyebrow">Free starter guide</p>
-    <hr class="rule">
-    <h2 class="display">Give your face ten quiet minutes.</h2>
-    <p class="lead">Leave your email and the free guide — the condensed first lesson of the method — is ready to open in seconds. New journal entries follow, only when there's something worth sharing.</p>
-    <!-- Brand-styled form; Systeme.io confirms success before guide-ready.html opens. -->
-    <form method="post" action="https://systeme.io/embedded/42586344/subscription" target="systeme-capture" class="signup" id="captureForm">
-      <input class="field" type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>
-      <button class="btn btn--lg" type="submit">Send me the guide</button>
-    </form>
-    <iframe name="systeme-capture" title="subscription" style="display:none;width:0;height:0;border:0" aria-hidden="true"></iframe>
-    <p class="form-status" aria-live="polite" hidden></p>
-    <p class="form-note">No spam, ever. Unsubscribe in one click. This is self-care, not medical treatment.</p>
-  </div>
-</section>
-</main>
-<footer class="site-footer">
-  <div class="wrap foot-inner">
-    <a class="brand" href="index.html" style="color:var(--ink)"><svg class="mark" viewBox="0 0 120 70" style="width:26px;height:16px;color:var(--jade)" aria-hidden="true"><path d="M12 50 C 40 26, 82 20, 110 30 C 100 36, 58 38, 20 52 C 16 53, 12 52, 12 50 Z" fill="currentColor"></path></svg><span>The Bojin Method</span></a>
-    <p class="foot-note">A gentle, method-led face and neck release you can learn at home.</p>
-    <nav class="foot-social" aria-label="Follow The Bojin Method">
-      <a href="https://www.facebook.com/BojinFacialMethod" target="_blank" rel="noopener me" aria-label="The Bojin Method on Facebook"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.6h2.6l.4-3H13.5V8.4c0-.9.25-1.5 1.55-1.5h1.65V4.2C16.4 4.1 15.4 4 14.2 4c-2.5 0-4.2 1.5-4.2 4.3v2.1H7.4v3h2.6V21Z"></path></svg></a>
-      <a href="https://www.instagram.com/bojinfacialmethod" target="_blank" rel="noopener me" aria-label="The Bojin Method on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"></rect><circle cx="12" cy="12" r="3.6"></circle><circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none"></circle></svg></a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="https://bojinfacetension.com/index.html">The Bojin Method</a>
+      <div class="nav-links">
+        <a href="https://bojinfacetension.com/index.html">Home</a>
+        <a href="https://bojinfacetension.com/start.html">Begin here</a>
+        <a href="https://bojinfacetension.com/about.html">About</a>
+        <a href="https://bojinfacetension.com/what-is-bojin.html">What is Bojin?</a>
+        <a href="https://bojinfacetension.com/landing.html">Eye Reset</a>
+        <a class="active" href="blog.html">Journal</a>
+        <a href="https://bojinfacetension.com/quiz.html">Quiz</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="nav-cta">
+        <button class="theme-toggle" aria-label="Toggle light or dark theme">◑</button>
+        <a class="btn" href="https://go.bojinfacetension.com/facial-tension-check">Free video</a>
+      </div>
     </nav>
-    <p class="foot-copy">&copy; 2026 The Bojin Method &middot; Yu-Ting Lan &middot; Gentle self-care, not medical treatment.</p>
-    <nav class="foot-legal" aria-label="Legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></nav>
-  </div>
-</footer>
-<script>
-(function(){
-  var root=document.documentElement;
-  try{var s=localStorage.getItem('bojin-theme'); if(s) root.setAttribute('data-theme',s);}catch(e){}
-  function cur(){ return root.getAttribute('data-theme') || 'light'; }
-  document.querySelectorAll('[data-theme-toggle]').forEach(function(b){
-    b.addEventListener('click',function(){ var n=cur()==='dark'?'light':'dark'; root.setAttribute('data-theme',n); try{localStorage.setItem('bojin-theme',n);}catch(e){} });
-  });
+  </header>
 
-  /* search + category filter for the guide library */
-  var rows=[].slice.call(document.querySelectorAll('.lib-row'));
-  var chips=[].slice.call(document.querySelectorAll('.filter-btn'));
-  var search=document.getElementById('libSearch');
-  var empty=document.getElementById('libEmpty');
-  var state={cat:'all',q:''};
-  rows.forEach(function(r){ r.__t=(r.textContent||'').toLowerCase(); });
-  var counts={all:rows.length};
-  rows.forEach(function(r){ var c=r.getAttribute('data-cat'); counts[c]=(counts[c]||0)+1; });
-  chips.forEach(function(ch){ var s=ch.querySelector('.cnt'); var f=ch.getAttribute('data-filter'); if(s) s.textContent=' '+(counts[f]||0); });
-  function apply(){
-    var shown=0;
-    rows.forEach(function(r){
-      var mc = state.cat==='all' || r.getAttribute('data-cat')===state.cat;
-      var mq = !state.q || r.__t.indexOf(state.q)>=0;
-      var vis=mc&&mq; r.classList.toggle('is-hidden',!vis); if(vis) shown++;
-    });
-    if(empty) empty.hidden = shown>0;
-  }
-  chips.forEach(function(ch){ ch.addEventListener('click',function(){
-    state.cat=ch.getAttribute('data-filter'); state.q=''; if(search) search.value='';
-    chips.forEach(function(x){ x.classList.toggle('is-active',x===ch); });
-    apply();
-  }); });
-  if(search){ search.addEventListener('input',function(){
-    state.q=search.value.trim().toLowerCase(); state.cat='all';
-    chips.forEach(function(x){ x.classList.toggle('is-active',x.getAttribute('data-filter')==='all'); });
-    apply();
-  }); }
+  <main>
+    <div class="j4" id="journal-app"></div>
+  </main>
 
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.1});
-    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
-  } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
-})();
-</script>
-<script src="nav.js?v=blog-perf-1"></script>
-<script>bojinWireOptin(document.getElementById('captureForm'), 'blog');</script>
+  <footer class="site-footer">
+    <div class="wrap foot-inner">
+      <a class="brand" href="https://bojinfacetension.com/index.html" style="color:var(--ink)">The Bojin Method</a>
+      <p class="foot-note">A gentle, method-led face and neck release you can learn at home.</p>
+      <p class="foot-copy">© 2026 The Bojin Method · Yu-Ting Lan · Gentle self-care, not medical treatment.</p>
+      <nav class="foot-legal">
+        <a href="https://bojinfacetension.com/privacy.html">Privacy Policy</a>
+        <a href="https://bojinfacetension.com/terms.html">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="bojin-language.js"></script>
+  <script>
+  (() => {
+    const saved = BojinLanguage.get();
+    const requestedLang = new URLSearchParams(location.search).get('lang');
+    let zh = requestedLang ? requestedLang === 'zh' : saved === 'zh';
+    BojinLanguage.remember(zh ? 'zh' : 'en');
+    const t = (a, b) => zh ? a : b;
+    const app = document.querySelector('#journal-app');
+
+    const articles = [
+      ['brow','眉周與額頭','Brows & Forehead','The screen-to-forehead chain: where those lines actually come from','blog-screen-to-forehead-tension-chain.html','bojin-forehead-portrait-hero.webp'],
+      ['brow','眉周與頭皮','Brows & Scalp','The tightness in your scalp is showing up on your face','blog-scalp-and-temple-tightness-and-your-face.html','bojin-scalp-portrait-hero.webp'],
+      ['jaw','下顎與頸部','Jaw & Neck','Clench or grind your teeth? An honest look at jaw tension and bojin','blog-jaw-clenching-grinding-and-bojin.html','bojin-jaw-portrait-hero-clenching.webp'],
+      ['jaw','下顎與頸部','Jaw & Neck','That tired look might start in your neck, not your face','blog-neck-tension-showing-in-your-face.html','bojin-neck-portrait-hero.webp'],
+      ['daily','日常習慣','Daily Habits','Why rounded shoulders can make your whole face look heavier','blog-rounded-shoulders-and-a-heavier-looking-face.html','bojin-shoulders-portrait-hero.webp'],
+      ['daily','日常習慣','Daily Habits','Why your face looks more tired at 9 PM than at 9 AM','blog-why-your-face-looks-more-tired-at-night.html','bojin-evening-portrait-hero.webp']
+    ];
+
+    function render() {
+      document.documentElement.lang = zh ? 'zh-Hant' : 'en';
+      app.innerHTML = `
+        <div class="j4-top">
+          <p class="eyebrow" style="margin:0">THE BOJIN JOURNAL</p>
+          <button class="v3-lang" id="lang-btn">🌐 ${zh ? 'English' : '繁體中文'}</button>
+        </div>
+
+        <h1>${t('看見動作，看懂細節。', 'See the movement. Understand the detail.')}</h1>
+        <p class="j4-tagline">${t('短片分解與深度文章，從你自在的方式開始。', 'Visual technique guides or thoughtful essays. Begin at your own pace.')}</p>
+        <p class="j4-lead">${t('透過分解短片與肌肉地圖看清動作軌跡，或用文章理解日常表情緊繃背後的連鎖反應。', 'Explore visual breakdowns and muscle maps for clear technique, or read thoughtful essays on everyday tension habits.')}</p>
+
+        <div class="j4-doors">
+          <a class="j4-door" href="eye-area-guides.html">
+            <div>
+              <span class="j4-tag">WATCH & EXPLORE</span>
+              <h2>${t('影片與部位圖解', 'Visual Technique Guides')}</h2>
+              <p>${t('透過短片分解、五肌位置圖與慢動作對比，一次看懂一個眼周局部細節。', 'Short clips, anatomical maps, and movement comparisons for the eye area.')}</p>
+              <span class="j4-door-cta">${t('探索眼周三大部位 →', 'Explore 3 eye-area regions →')}</span>
+            </div>
+            <img src="assets/journal/c35e71b0c5.jpg" alt="Visual technique guide">
+          </a>
+
+          <a class="j4-door" href="articles.html">
+            <div>
+              <span class="j4-tag">READ & REFLECT</span>
+              <h2>${t('深度文章閱讀', 'In-Depth Articles')}</h2>
+              <p>${t('從螢幕用眼、咬牙習慣到肩頸緊繃，理解臉部疲態背後的連鎖反應。', 'Essays on screen fatigue, jaw clenching, neck tension, and daily habits.')}</p>
+              <span class="j4-door-cta">${t('瀏覽完整文章庫 →', 'Browse all articles →')}</span>
+            </div>
+            <img src="https://bojinfacetension.com/assets/bojin-forehead-portrait-hero.webp" alt="In-depth articles">
+          </a>
+        </div>
+
+        <section class="j4-section" id="watch">
+          <div class="j4-heading">
+            <div>
+              <p class="eyebrow">FEATURED · BROWS & FOREHEAD (REGION 01)</p>
+              <h2>${t('從你今天注意到的小狀態開始', 'Start with a small detail you noticed today')}</h2>
+            </div>
+            <a class="btn btn--ghost" href="eye-area-guides.html">${t('瀏覽眼周三大部位 →', 'View all 3 eye-area regions →')}</a>
+          </div>
+
+          <div class="j4-grid">
+            <a class="j4-card" href="brow-guide.html#notice">
+              <img src="assets/journal/7692c6dd09.png" alt="Inner brow expression" style="object-position:center 62%">
+              <div>
+                <span class="j4-tag">${t('Part 01 · 認出表情', 'PART 01 · NOTICE EXPRESSION')}</span>
+                <h3>${t('沒有生氣，怎麼還皺著眉？', 'Not upset. Still frowning?')}</h3>
+                <span class="j4-card-go">${t('閱讀分解指南 →', 'Explore Part 01 →')}</span>
+              </div>
+            </a>
+
+            <a class="j4-card" href="brow-guide.html#compare">
+              <img src="assets/journal/c35e71b0c5.jpg" alt="Circle vs sway comparison">
+              <div>
+                <span class="j4-tag">${t('Part 03 · 動作對比', 'PART 03 · COMPARE PATHS')}</span>
+                <h3>${t('定點小圓，和左右晃，差在哪？', 'A complete circle, or a side-to-side sway?')}</h3>
+                <span class="j4-card-go">${t('看動作軌跡對比 →', 'Compare the movements →')}</span>
+              </div>
+            </a>
+
+            <a class="j4-card" href="brow-guide.html#prepare">
+              <img src="assets/journal/8bb4877b14.jpg" alt="10-second cheek glide check">
+              <div>
+                <span class="j4-tag">${t('Part 04 · 安全準備', 'PART 04 · GLIDE CHECK')}</span>
+                <h3>${t('動手以前，先看老師怎麼做滑度檢查。', 'Before practice, watch the 10-second glide check.')}</h3>
+                <span class="j4-card-go">${t('看準備步驟 →', 'Watch preparation →')}</span>
+              </div>
+            </a>
+          </div>
+        </section>
+
+        <section class="j4-section" id="read">
+          <div class="j4-heading">
+            <div>
+              <p class="eyebrow">READ & LEARN · ESSAYS</p>
+              <h2>${t('深度閱讀：臉部緊繃與日常習慣', 'Essays on Facial Tension & Daily Habits')}</h2>
+            </div>
+            <a class="btn btn--ghost" href="https://bojinfacetension.com/articles.html" target="_blank" rel="noopener">${t('查看全部文章 ↗', 'View all articles ↗')}</a>
+          </div>
+          <div class="j4-toolbar">
+            <input id="j4-search" type="search" aria-label="${t('搜尋文章', 'Search articles')}" placeholder="${t('輸入關鍵字搜尋文章...', 'Search articles by keyword...')}">
+            <select id="j4-category" aria-label="${t('文章部位分類', 'Filter by area')}">
+              <option value="all">${t('所有主題', 'All Topics')}</option>
+              <option value="brow">${t('眉周與額頭', 'Brows & Forehead')}</option>
+              <option value="jaw">${t('下顎與頸部', 'Jaw & Neck')}</option>
+              <option value="daily">${t('日常狀態', 'Daily Habits')}</option>
+            </select>
+          </div>
+          <p id="j4-count" class="j4-note" aria-live="polite"></p>
+          <div id="j4-articles" class="j4-grid"></div>
+          <p id="j4-empty" hidden>${t('沒有符合條件的文章，請嘗試其他關鍵字。', 'No matching articles found. Try another keyword.')}</p>
+        </section>
+
+        <section style="margin-top:42px; padding:32px 34px; background:var(--paper-3); border:1px solid var(--gold); border-radius:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px">
+          <div>
+            <p class="eyebrow" style="margin:0 0 6px 0">NEXT · EYE AREA REGIONS</p>
+            <h2 style="margin:0 0 8px 0; font-size:26px">${t('想直接看眼周三大部位的動作分解嗎？', 'Want to explore the eye-area movement guides?')}</h2>
+            <p style="margin:0; color:var(--ink-soft); font-size:16px">${t('進入眼周三大部位，從眉上與眉頭、上眼眶骨到下眼眶骨，一步步看清細節。', 'Continue to our three eye-area regions—from brows to the upper and lower orbital rims.')}</p>
+          </div>
+          <a class="btn" style="background:var(--jade); color:var(--brand-on); padding:13px 24px; border-radius:30px; font-weight:700; text-decoration:none" href="eye-area-guides.html">
+            ${t('前往探索眼周三大部位 →', 'Explore 3 Eye-Area Regions →')}
+          </a>
+        </section>
+      `;
+
+      BojinLanguage.sync(zh);
+      document.querySelector('#lang-btn').onclick = () => {
+        zh = !zh;
+        BojinLanguage.choose(zh ? 'zh' : 'en');
+        render();
+      };
+
+      function showArticles() {
+        const q = document.querySelector('#j4-search').value.trim().toLowerCase();
+        const cat = document.querySelector('#j4-category').value;
+        const shown = articles.filter(a => (cat === 'all' || a[0] === cat) && (a[1] + ' ' + a[2] + ' ' + a[3]).toLowerCase().includes(q));
+        document.querySelector('#j4-count').textContent = zh ? `共 ${shown.length} 篇文章` : `Showing ${shown.length} articles`;
+        document.querySelector('#j4-empty').hidden = shown.length > 0;
+        document.querySelector('#j4-articles').innerHTML = shown.map(a => `
+          <a class="j4-card" href="https://bojinfacetension.com/${a[4]}" target="_blank" rel="noopener">
+            <img src="https://bojinfacetension.com/assets/${a[5]}" alt="${a[3]}" loading="lazy">
+            <div>
+              <span class="j4-tag">${t(a[1], a[2])}</span>
+              <h3>${a[3]}</h3>
+              <span class="j4-card-go">${t('閱讀全文 →', 'Read article →')}</span>
+            </div>
+          </a>
+        `).join('');
+      }
+      document.querySelector('#j4-search').addEventListener('input', showArticles);
+      document.querySelector('#j4-category').addEventListener('change', showArticles);
+      showArticles();
+    }
+
+    render();
+  })();
+
+  document.querySelector('.nav-toggle').onclick = function() {
+    const open = document.querySelector('.site-header').classList.toggle('nav-open');
+    this.setAttribute('aria-expanded', String(open));
+  };
+  document.querySelector('.theme-toggle').onclick = () => {
+    document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  };
+  </script>
+<script src="nav.js?v=journal-entry-v8-2"></script>
 </body>
 </html>

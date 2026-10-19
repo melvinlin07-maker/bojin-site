@@ -1,0 +1,323 @@
+<!doctype html>
+<html lang="en" data-theme="light" translate="no" class="notranslate">
+<head>
+  <meta charset="utf-8">
+  <meta name="google" content="notranslate">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>Eye-Area Movement Guides | The Bojin Method</title>
+  <link rel="stylesheet" href="styles.css?v=9">
+  <link rel="stylesheet" href="journal-guide.css">
+  <style>
+    :root {
+      --paper:#FBF6EF;--paper-2:#FFFDFC;--paper-3:#F2E8DD;--ink:#2D2428;--ink-soft:#66585E;
+      --jade:#351D2C;--jade-deep:#4A293B;--gold:#C7A466;--gold-ink:#8C6B32;--line:#E5D5C6;
+      --brand-bg:#351D2C;--brand-on:#FBF6EF;--brand-muted:#D9BDC9;--cta:#EFE3CF;--on-cta:#351D2C;--cta-border:#B89558;
+    }
+    body { margin:0; background:var(--paper); color:var(--ink); }
+    .site-header { background:var(--brand-bg); }
+    .site-header .brand { color:var(--brand-on); }
+    .site-header .nav-links a { color:var(--brand-muted); }
+    .site-header .nav-links a.active { color:var(--gold); }
+
+    .e6 { max-width:1120px; margin:auto; padding:42px 28px 75px; }
+    .e6-top { display:flex; justify-content:space-between; align-items:center; margin-bottom:24px; font-size:14px; gap:12px; flex-wrap:wrap; }
+    .e6-top a { text-decoration:none; color:var(--ink-soft); }
+    .e6-top a:hover { color:var(--jade); }
+    .e6 h1 { font-size:clamp(34px,4.5vw,52px); max-width:840px; margin:8px 0 12px; }
+    .e6-tagline { font-size:20px; font-weight:600; color:var(--gold-ink); margin:0 0 14px; }
+    .e6-lead { font-size:17.5px; color:var(--ink-soft); max-width:760px; line-height:1.68; margin-bottom:34px; }
+
+    /* 3 Clean Equal Cards */
+    .e6-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin: 24px 0 44px;
+      align-items: stretch;
+    }
+    .e6-region-card {
+      border: 1.5px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--paper-2);
+      color: var(--ink);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.22s, box-shadow 0.22s, border-color 0.22s;
+    }
+    .e6-region-card.is-live {
+      border-color: var(--gold);
+      box-shadow: 0 12px 30px rgba(45, 36, 40, 0.08);
+    }
+    .e6-region-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 36px rgba(45, 36, 40, 0.13);
+      border-color: var(--gold);
+    }
+    .e6-card-hero-img {
+      width: 100%;
+      height: 225px;
+      object-fit: cover;
+      display: block;
+      background: #231620;
+    }
+    .e6-copy {
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .e6-badge {
+      display: inline-block;
+      align-self: flex-start;
+      padding: 4px 11px;
+      border-radius: 16px;
+      font-size: 11.5px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      margin-bottom: 10px;
+    }
+    .e6-badge.live {
+      background: #E8F3EB;
+      color: #235332;
+      border: 1px solid #88B896;
+    }
+    .e6-badge.soon {
+      background: var(--paper-3);
+      color: var(--gold-ink);
+      border: 1px solid var(--line);
+    }
+    .e6-region-card h2 {
+      font-size: 23px;
+      line-height: 1.32;
+      margin: 4px 0 10px;
+    }
+    .e6-region-card p {
+      margin: 0 0 18px;
+      color: var(--ink-soft);
+      font-size: 15px;
+      line-height: 1.62;
+    }
+
+    /* Expandable In-Card Region Summary */
+    .e6-preview-box {
+      background: var(--paper-3);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 14px 16px;
+      margin-bottom: 20px;
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+    .e6-preview-box summary {
+      cursor: pointer;
+      font-weight: 700;
+      color: var(--jade);
+      outline: none;
+    }
+    .e6-preview-box summary:hover {
+      color: var(--gold-ink);
+    }
+    .e6-preview-content {
+      margin-top: 10px;
+      color: var(--ink-soft);
+      border-top: 1px solid var(--line);
+      padding-top: 8px;
+    }
+
+    .e6-btn-primary {
+      margin-top: auto;
+      display: inline-block;
+      text-align: center;
+      background: var(--jade);
+      color: var(--brand-on);
+      padding: 12px 18px;
+      border-radius: 26px;
+      font-size: 14.5px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .e6-btn-primary:hover {
+      background: var(--jade-deep);
+    }
+    .e6-btn-secondary {
+      margin-top: auto;
+      display: inline-block;
+      text-align: center;
+      background: var(--paper-3);
+      color: var(--ink);
+      border: 1px solid var(--cta-border);
+      padding: 11px 18px;
+      border-radius: 26px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .e6-btn-secondary:hover {
+      background: var(--cta);
+    }
+
+    @media(max-width:860px){
+      .e6 { padding: 28px 18px 56px; }
+      .e6-grid-3 { grid-template-columns: 1fr; gap: 18px; }
+      .e6-copy { padding: 20px 18px; }
+      .e6-btn-primary, .e6-btn-secondary { width: 100%; box-sizing: border-box; }
+    }
+
+.v3-lang { min-height:44px; min-width:96px; font-size:16px; }
+</style>
+<link rel="canonical" href="https://bojinfacetension.com/eye-area-guides.html">
+<meta name="description" content="Explore eye-area movement guides, muscle location illustrations and teacher demonstrations from The Bojin Method.">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="https://bojinfacetension.com/index.html">The Bojin Method</a>
+      <div class="nav-links">
+        <a href="https://bojinfacetension.com/index.html">Home</a>
+        <a href="https://bojinfacetension.com/start.html">Begin here</a>
+        <a href="https://bojinfacetension.com/about.html">About</a>
+        <a href="https://bojinfacetension.com/what-is-bojin.html">What is Bojin?</a>
+        <a href="https://bojinfacetension.com/landing.html">Eye Reset</a>
+        <a class="active" href="blog.html">Journal</a>
+        <a href="https://bojinfacetension.com/quiz.html">Quiz</a>
+      </div>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      <div class="nav-cta">
+        <button class="theme-toggle" aria-label="Toggle light or dark theme">◑</button>
+        <a class="btn" href="https://go.bojinfacetension.com/facial-tension-check">Free video</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="e6" id="eye-hub"></div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap foot-inner">
+      <a class="brand" href="https://bojinfacetension.com/index.html" style="color:var(--ink)">The Bojin Method</a>
+      <p class="foot-note">A gentle, method-led face and neck release you can learn at home.</p>
+      <p class="foot-copy">© 2026 The Bojin Method · Yu-Ting Lan · Gentle self-care, not medical treatment.</p>
+      <nav class="foot-legal">
+        <a href="https://bojinfacetension.com/privacy.html">Privacy Policy</a>
+        <a href="https://bojinfacetension.com/terms.html">Terms of Service</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="bojin-language.js"></script>
+  <script>
+  (() => {
+    const saved = BojinLanguage.get();
+    const requestedLang = new URLSearchParams(location.search).get('lang');
+    let zh = requestedLang ? requestedLang === 'zh' : saved === 'zh';
+    BojinLanguage.remember(zh ? 'zh' : 'en');
+    const t = (a, b) => zh ? a : b;
+    const root = document.querySelector('#eye-hub');
+
+    function render() {
+      document.documentElement.lang = zh ? 'zh-Hant' : 'en';
+      root.innerHTML = `
+        <div class="e6-top">
+          <span><a href="blog.html">Journal</a> / <strong>${t('眼周三大部位', 'Eye Area Regions')}</strong></span>
+          <button class="v3-lang" id="lang-btn">🌐 ${zh ? 'English' : '繁體中文'}</button>
+        </div>
+
+        <p class="eyebrow">WATCH & EXPLORE · 3 EYE AREA REGIONS</p>
+        <h1>${t('眼周緊繃，從你在意的部位開始。', 'Around the eyes: start with the area you notice most.')}</h1>
+        <p class="e6-tagline">${t('看見動作，看懂細節。', 'See the movement. Understand the detail.')}</p>
+        <p class="e6-lead">${t('我們將眼周分為 3 個清晰的局部部位。今天您可以先深入觀看已上線的「眉上與眉頭」完整指南（Part 01–06），或展開預覽上眼眶與下眼眶的骨緣重點與課程收錄內容。', 'We divide the eye area into three distinct anatomical regions. Explore our complete guide for the inner brow today (Parts 01–06), or preview how the upper and lower orbital regions fit into the full method.')}</p>
+
+        <!-- 3 Equal Cards in One Row (01, 02, 03) -->
+        <div class="e6-grid-3">
+          <!-- CARD 01 (LIVE GUIDE) -->
+          <div class="e6-region-card is-live">
+            <a href="brow-guide.html" style="text-decoration:none;display:block">
+              <img class="e6-card-hero-img" src="assets/journal/7692c6dd09.png" alt="Region 01 Brows and Forehead" style="object-position:center 62%">
+            </a>
+            <div class="e6-copy">
+              <span class="e6-badge live">✅ ${t('REGION 01 · 完整指南已上線 (PARTS 01–06)', 'REGION 01 · COMPLETE GUIDE (PARTS 01–06)')}</span>
+              <h2>${t('01. 眉上與眉頭：沒有生氣，怎麼還皺著眉？', '01. Brows & Inner Brow: Not upset, still frowning?')}</h2>
+              <p>${t('認識眉頭皺眉肌走向、定點完整小圓與左右晃的軌跡差異、動手前 10 秒滑度檢查與左手穩定配合。', 'Explore inner brow muscle dynamics, see the difference between a complete circle and a side-to-side sway, and check your skin slip.')}</p>
+              <a class="e6-btn-primary" href="brow-guide.html">
+                ${t('閱讀 Part 01–06 完整指南 →', 'Explore Complete Guide (Parts 01–06) →')}
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 02 (PREVIEW & PRODUCTION) -->
+          <div class="e6-region-card">
+            <img class="e6-card-hero-img" src="assets/journal/8b21170e26.jpg" alt="Region 02 Upper Orbit and Outer Corner" style="object-position:center 48%">
+            <div class="e6-copy">
+              <span class="e6-badge soon">⏳ ${t('REGION 02 · 完整長頁製作中', 'REGION 02 · FULL GUIDE IN PRODUCTION')}</span>
+              <h2>${t('02. 上眼眶骨與眼尾：走到眉尾後，下一段怎麼接？', '02. Upper Orbit & Outer Corner: How does the next pass connect?')}</h2>
+              <p>${t('辨認眉骨下方「上眼眶骨」的安全骨緣邊界、穩定手在眼尾的換位，以及向太陽穴輕柔延伸的路線。', 'Identify the safe upper orbital rim landmark beneath the brow, how the supporting hand repositions, and the gentle transition toward the temple.')}</p>
+
+              <details class="e6-preview-box">
+                <summary>${t('📍 點此展開本部位核心細節預覽', '📍 Click to view region focus & landmarks')}</summary>
+                <div class="e6-preview-content">
+                  ${t('• <strong>核心骨緣</strong>：沿著眉骨下緣（上眼眶骨外側弧度），避開眼球，只在骨緣上方操作。<br>• <strong>穩定手換位</strong>：工具從眉中推進到眼尾時，左手需平移至太陽穴支撐，防止眼尾細紋受拉扯。<br>• <strong>教學狀態</strong>：本區專屬 Part 01–06 影片分解製作中；完整手法已收錄於《The Bojin Eye Method》正式課程。',
+                     '• <strong>Key Landmark</strong>: Along the bony upper orbital rim beneath the eyebrow arch; stays strictly on bone, never pressing into the eye orbit.<br>• <strong>Supporting Hand</strong>: The non-dominant hand glides toward the temple as the tool moves outward to prevent skin drag.<br>• <strong>Status</strong>: Dedicated Parts 01–06 guide in production; complete technique fully covered in The Bojin Eye Method course.')}
+                </div>
+              </details>
+
+              <a class="e6-btn-secondary" href="https://bojinfacetension.com/landing.html">
+                ${t('了解免費體驗 →', 'Explore Free Preview →')}
+              </a>
+            </div>
+          </div>
+
+          <!-- CARD 03 (PREVIEW & PRODUCTION) -->
+          <div class="e6-region-card">
+            <img class="e6-card-hero-img" src="assets/journal/12b299f7d4.jpg" alt="Region 03 Under-Eye and Nasal Side" style="object-position:center 52%">
+            <div class="e6-copy">
+              <span class="e6-badge soon">⏳ ${t('REGION 03 · 完整長頁製作中', 'REGION 03 · FULL GUIDE IN PRODUCTION')}</span>
+              <h2>${t('03. 下眼眶骨與鼻側：眼下最薄，路線怎麼分？', '03. Under-Eye & Nasal Side: How are the paths separated?')}</h2>
+              <p>${t('下眼周皮膚最薄，認識鼻側起點、下眼眶骨支撐位置，以及為何這區格外講究滑度與手部支撐。', 'Because under-eye skin is delicate, learn how the nasal side and lower orbital rim are approached with light slip and supporting-hand control.')}</p>
+
+              <details class="e6-preview-box">
+                <summary>${t('📍 點此展開本部位核心細節預覽', '📍 Click to view region focus & landmarks')}</summary>
+                <div class="e6-preview-content">
+                  ${t('• <strong>起點定位</strong>：由鼻側迎香延伸段出發，順著下眼眶骨弧線向外推撫，不可太貼近睫毛根部。<br>• <strong>極輕手法</strong>：下眼周皮下脂肪極薄，工具僅需貼合表層骨緣滑行，嚴禁左右用力重搓。<br>• <strong>教學狀態</strong>：本區專屬 Part 01–06 影片分解製作中；完整手法已收錄於《The Bojin Eye Method》正式課程。',
+                     '• <strong>Starting Landmark</strong>: From the nasal boundary outward along the lower orbital rim, keeping safe distance from the eyelash line.<br>• <strong>Featherweight Slip</strong>: Because under-eye tissue is fragile, pressure remains light and rhythmic with zero deep gouging.<br>• <strong>Status</strong>: Dedicated Parts 01–06 guide in production; complete technique fully covered in The Bojin Eye Method course.')}
+                </div>
+              </details>
+
+              <a class="e6-btn-secondary" href="https://bojinfacetension.com/landing.html">
+                ${t('了解免費體驗 →', 'Explore Free Preview →')}
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:28px">
+          <a class="btn btn--ghost" href="blog.html">${t('← 返回 Journal 總入口（影片與閱讀文章）', '← Back to Journal Home')}</a>
+        </div>
+      `;
+
+      BojinLanguage.sync(zh);
+      document.querySelector('#lang-btn').onclick = () => {
+        zh = !zh;
+        BojinLanguage.choose(zh ? 'zh' : 'en');
+        render();
+      };
+    }
+
+    render();
+  })();
+
+  document.querySelector('.nav-toggle').onclick = function() {
+    const open = document.querySelector('.site-header').classList.toggle('nav-open');
+    this.setAttribute('aria-expanded', String(open));
+  };
+  document.querySelector('.theme-toggle').onclick = () => {
+    document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+  };
+  </script>
+<script src="nav.js?v=journal-entry-v8-2"></script>
+</body>
+</html>
