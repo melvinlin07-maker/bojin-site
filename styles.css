@@ -739,3 +739,257 @@ body.unlocked .gate{ display:none; }
   .hero-split__cap{ font-size:.82rem; }
   .btn--lg{ width:100%; justify-content:center; text-align:center; padding:.95rem 1.2rem; }
 }
+
+/* =====================================================================
+   THE BOJIN METHOD · Flagship Article Modernization (V4 Standard)
+   ===================================================================== */
+
+/* 1. Article Container & Section Hierarchy */
+.article h2 {
+  color: var(--jade);
+  font-family: var(--font-serif);
+  font-size: clamp(1.48rem, 3.2vw, 1.88rem);
+  font-weight: 600;
+  line-height: 1.35;
+  margin: 2.2em 0 0.8em;
+  padding: 0.15em 0 0.4em 14px;
+  border-left: 4.5px solid var(--brass);
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: 90px;
+}
+.article h3 {
+  color: var(--jade);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 1.6em 0 0.6em;
+  padding-left: 10px;
+  border-left: 3px solid var(--brass);
+  scroll-margin-top: 90px;
+}
+
+/* 2. Three-Phase Modular Table of Contents (Option B TOC) */
+.bojin-toc-modular {
+  background: var(--paper-2);
+  border: 1.5px solid var(--line-gold);
+  border-radius: 14px;
+  padding: 24px 26px;
+  margin: 2.2em 0 2.8em;
+  box-shadow: var(--shadow);
+  color: var(--ink);
+}
+.bojin-toc-modular .bojin-toc-header {
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 12px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.bojin-toc-modular .bojin-toc-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bojin-toc-modular .bojin-toc-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+  background: rgba(199, 164, 102, 0.18);
+  border-radius: 4px;
+  padding: 2px 8px;
+}
+.bojin-toc-modular .bojin-toc-title {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--jade);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+.bojin-toc-modular .bojin-toc-subtitle {
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.bojin-toc-modular .bojin-toc-modules {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 14px;
+  width: 100%;
+  align-items: stretch;
+}
+.bojin-toc-modular .bojin-toc-card {
+  flex: 1 1 0;
+  min-width: 0;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 16px 14px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba(53, 29, 44, 0.03);
+  transition: all 0.2s ease;
+}
+.bojin-toc-modular .bojin-toc-card:hover {
+  border-color: var(--brass);
+  box-shadow: 0 4px 14px rgba(199, 164, 102, 0.2);
+  transform: translateY(-2px);
+}
+.bojin-toc-modular .bojin-toc-card-head {
+  border-bottom: 1.5px solid var(--line);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+.bojin-toc-modular .bojin-toc-phase {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-ink);
+  display: block;
+}
+.bojin-toc-modular .bojin-toc-phase-name {
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--jade);
+  margin: 3px 0 0;
+  padding: 0;
+  border: none;
+}
+.bojin-toc-modular ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.bojin-toc-modular li a {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 0.92rem;
+  color: var(--ink);
+  text-decoration: none;
+  line-height: 1.5;
+  transition: color 0.15s ease;
+}
+.bojin-toc-modular li a:hover {
+  color: var(--brass);
+  text-decoration: underline;
+}
+.bojin-toc-modular .bojin-toc-dot {
+  color: var(--brass);
+  font-size: 0.68rem;
+  flex-shrink: 0;
+}
+
+/* 3. Independent 01/02/03 Step Cards */
+.bojin-steps-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 1.8rem 0 2.2rem;
+}
+.bojin-step-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  background: var(--paper-2);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px 20px;
+  box-shadow: 0 2px 8px rgba(53, 29, 44, 0.03);
+  transition: all 0.2s ease;
+}
+.bojin-step-item:hover {
+  border-color: var(--brass);
+  box-shadow: 0 4px 14px rgba(199, 164, 102, 0.16);
+}
+.bojin-step-badge {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--brass);
+  line-height: 1;
+  background: rgba(199, 164, 102, 0.12);
+  border-radius: 8px;
+  padding: 8px 12px;
+  flex-shrink: 0;
+  letter-spacing: 0.04em;
+}
+.bojin-step-content {
+  flex: 1;
+}
+.bojin-step-title {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: var(--jade);
+  margin: 0 0 0.45rem;
+  padding: 0;
+  border: none;
+}
+.bojin-step-content p {
+  font-size: 1rem;
+  color: var(--ink);
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* 4. Demonstration Figures */
+.bojin-figure {
+  margin: 2.4rem 0;
+  text-align: center;
+  padding: 0;
+}
+.bojin-figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1.5px solid var(--line-gold);
+  box-shadow: var(--shadow);
+  display: block;
+  margin: 0 auto;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.bojin-figure img:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
+}
+.bojin-figure figcaption {
+  margin-top: 10px;
+  font-size: 0.88rem;
+  color: var(--ink-soft);
+  font-family: var(--font-sans);
+  line-height: 1.5;
+  text-align: center;
+  font-style: italic;
+  letter-spacing: 0.02em;
+}
+
+/* 5. Mobile Responsive for Flagship Modules */
+@media (max-width: 820px) {
+  .bojin-toc-modular .bojin-toc-modules {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .bojin-toc-modular .bojin-toc-card {
+    width: 100%;
+  }
+  .bojin-step-item {
+    gap: 12px;
+    padding: 14px 16px;
+  }
+  .bojin-step-badge {
+    font-size: 1.3rem;
+    padding: 6px 10px;
+  }
+}
+

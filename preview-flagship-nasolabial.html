@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>US Flagship Benchmark Preview · Nasolabial Folds</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #191217;
+      color: #EFE8D9;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Top Preview Toolbar */
+    .preview-bar {
+      background: #2D1A26;
+      border-bottom: 1.5px solid rgba(199, 164, 102, 0.4);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      z-index: 100;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+      flex-shrink: 0;
+    }
+    .preview-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .traffic-lights {
+      display: flex;
+      gap: 6px;
+    }
+    .traffic-lights span {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+    }
+    .light-red { background: #ff5f56; }
+    .light-yellow { background: #ffbd2e; }
+    .light-green { background: #27c93f; }
+
+    .preview-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #C7A466;
+      letter-spacing: 0.03em;
+    }
+    .preview-badge {
+      font-size: 11px;
+      background: rgba(199, 164, 102, 0.18);
+      border: 1px solid rgba(199, 164, 102, 0.4);
+      color: #EFE8D9;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+    }
+
+    .preview-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-tool {
+      background: #351D2C;
+      color: #FBF6EF;
+      border: 1.5px solid #C7A466;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .btn-tool:hover {
+      background: #C7A466;
+      color: #2D2428;
+    }
+    .btn-tool.active {
+      background: #C7A466;
+      color: #2D2428;
+    }
+
+    /* Viewport Area */
+    .viewport-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      padding: 16px;
+      overflow: hidden;
+      background: #140d12;
+      transition: all 0.3s ease;
+    }
+
+    .iframe-wrapper {
+      width: 100%;
+      height: 100%;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #FFFDFC;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.45);
+      border-radius: 8px;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Mobile Phone Shell Mode */
+    body.is-mobile .iframe-wrapper {
+      width: 420px;
+      height: 860px;
+      max-height: 94%;
+    }
+    body.is-mobile iframe {
+      width: 390px;
+      height: 844px;
+      border-radius: 44px;
+      border: 12px solid #2D1A26;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.7), 0 0 0 2px rgba(199, 164, 102, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Toolbar -->
+  <header class="preview-bar">
+    <div class="preview-brand">
+      <div class="traffic-lights">
+        <span class="light-red"></span>
+        <span class="light-yellow"></span>
+        <span class="light-green"></span>
+      </div>
+      <div class="preview-title">🇺🇸 US Bojin Flagship Benchmark · Are Nasolabial Folds Permanent?</div>
+      <span class="preview-badge">Option B TOC + 2 Figures + 01-05 Step Cards</span>
+    </div>
+
+    <div class="preview-actions">
+      <button class="btn-tool active" id="btn-desktop" onclick="setMode('desktop')">💻 Desktop View</button>
+      <button class="btn-tool" id="btn-mobile" onclick="setMode('mobile')">📱 Mobile View (390px)</button>
+      <a class="btn-tool" href="blog-are-nasolabial-folds-permanent.html" target="_blank">🌐 Open Full Page</a>
+    </div>
+  </header>
+
+  <!-- Viewport Iframe Container -->
+  <main class="viewport-container">
+    <div class="iframe-wrapper">
+      <iframe id="article-frame" src="blog-are-nasolabial-folds-permanent.html"></iframe>
+    </div>
+  </main>
+
+  <script>
+    function setMode(mode) {
+      const body = document.body;
+      const btnDesktop = document.getElementById('btn-desktop');
+      const btnMobile = document.getElementById('btn-mobile');
+
+      if (mode === 'mobile') {
+        body.classList.add('is-mobile');
+        btnMobile.classList.add('active');
+        btnDesktop.classList.remove('active');
+      } else {
+        body.classList.remove('is-mobile');
+        btnDesktop.classList.add('active');
+        btnMobile.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>

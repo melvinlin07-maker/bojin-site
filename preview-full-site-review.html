@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>US Bojin · Full Site Review Hub (99 Articles)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #181216;
+      color: #EFE8D9;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .top-bar {
+      background: #2B1824;
+      border-bottom: 1.5px solid rgba(199, 164, 102, 0.4);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+    }
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #C7A466;
+    }
+    .traffic-dots { display: flex; gap: 6px; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .dot-r { background: #ff5f56; }
+    .dot-y { background: #ffbd2e; }
+    .dot-g { background: #27c93f; }
+
+    .selector-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      max-width: 680px;
+    }
+    .article-select {
+      background: #140d12;
+      border: 1px solid rgba(199, 164, 102, 0.4);
+      border-radius: 6px;
+      padding: 6px 12px;
+      color: #FBF6EF;
+      font-size: 13px;
+      width: 100%;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .view-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-action {
+      background: #351D2C;
+      color: #FBF6EF;
+      border: 1.5px solid #C7A466;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn-action:hover, .btn-action.active {
+      background: #C7A466;
+      color: #2D2428;
+    }
+
+    .viewport {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      background: #140d12;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .frame-box {
+      width: 100%;
+      height: 100%;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #FFFDFC;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      border-radius: 8px;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    body.is-mobile .frame-box {
+      width: 420px;
+      height: 860px;
+      max-height: 94%;
+    }
+    body.is-mobile iframe {
+      width: 390px;
+      height: 844px;
+      border-radius: 44px;
+      border: 12px solid #2D1A26;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.75), 0 0 0 2px rgba(199, 164, 102, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="brand-title">
+      <div class="traffic-dots">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+      </div>
+      <span>🇺🇸 美國站「全站 99 篇旗艦升級」即時審閱中心</span>
+    </div>
+
+    <div class="selector-area">
+      <select class="article-select" id="page-select" onchange="loadArticle(this.value)">
+        <optgroup label="The Bojin Journal · Brows & Forehead (6 篇)">
+          <option value="blog-forehead-frown-lines.html">Frown lines and a heavy, tense brow? A gentle bojin release for women over 40 (blog-forehead-frown-lines.html)</option>
+          <option value="blog-forehead-lines-deepening.html">Forehead lines getting deeper? (blog-forehead-lines-deepening.html)</option>
+          <option value="blog-frown-lines-menopause.html">Why frown lines can deepen faster around menopause (blog-frown-lines-menopause.html)</option>
+          <option value="blog-heavy-low-brows-lift.html">Heavy, low brows making your eyes look smaller? (blog-heavy-low-brows-lift.html)</option>
+          <option value="blog-natural-botox-alternative-forehead.html">"Natural alternatives to Botox" for your forehead: an honest look (blog-natural-botox-alternative-forehead.html)</option>
+          <option value="blog-tense-forehead-relief.html">A tense forehead you only notice at the end of the day? (blog-tense-forehead-relief.html)</option>
+        </optgroup>
+        <optgroup label="The Bojin Journal · Cheeks & Smile Lines (8 篇)">
+          <option value="blog-are-nasolabial-folds-permanent.html">Are Nasolabial Folds Permanent? An Honest Answer (blog-are-nasolabial-folds-permanent.html)</option>
+          <option value="blog-cheeks-after-flight-travel.html">Puffy Cheeks and Deeper Smile Lines After a Flight? A Post-Travel Reset (blog-cheeks-after-flight-travel.html)</option>
+          <option value="blog-cheeks-before-makeup.html">A 3-Minute Cheek Reset Before You Put On Makeup (blog-cheeks-before-makeup.html)</option>
+          <option value="blog-dimpled-pebbly-chin.html">A Dimpled, Pebbly Chin? The Small Muscle Behind It (blog-dimpled-pebbly-chin.html)</option>
+          <option value="blog-facial-asymmetry-one-side-more-tense.html">Why One Side of Your Face Looks Different From the Other (blog-facial-asymmetry-one-side-more-tense.html)</option>
+          <option value="blog-marionette-lines-drooping-mouth-corners.html">Mouth Corners Turning Down? What's Really Happening (blog-marionette-lines-drooping-mouth-corners.html)</option>
+          <option value="blog-smile-lines-cheeks.html">Smile lines settling in and cheeks a little lower? A gentle 5-minute mid-face lift (blog-smile-lines-cheeks.html)</option>
+          <option value="blog-vertical-lip-lines-lipstick-bleed.html">Vertical Lip Lines and Lipstick That Feathers (blog-vertical-lip-lines-lipstick-bleed.html)</option>
+        </optgroup>
+        <optgroup label="The Bojin Journal · Eyes (9 篇)">
+          <option value="blog-crows-feet-eye-corners.html">Crow's feet at the corners of your eyes? (blog-crows-feet-eye-corners.html)</option>
+          <option value="blog-dark-circles-tired-eyes.html">Dark circles that won't fade even after a full night's sleep? (blog-dark-circles-tired-eyes.html)</option>
+          <option value="blog-eye-cream-not-absorbing.html">Is your eye cream just sitting on top? (blog-eye-cream-not-absorbing.html)</option>
+          <option value="blog-hooded-heavy-eyelids.html">Heavy, hooded eyelids making you look tired? (blog-hooded-heavy-eyelids.html)</option>
+          <option value="blog-menopause-tired-eyes.html">Menopause and tired-looking eyes? A gentle 5-minute morning reset (blog-menopause-tired-eyes.html)</option>
+          <option value="blog-screen-tired-eyes-desk-reset.html">Screen-tired eyes by mid-afternoon? A 2-minute desk reset (blog-screen-tired-eyes-desk-reset.html)</option>
+          <option value="blog-tear-trough-hollow-under-eyes.html">Hollow, Sunken Under-Eyes? It's Not Just Tiredness (blog-tear-trough-hollow-under-eyes.html)</option>
+          <option value="blog-tired-puffy-eyes.html">Tired, puffy eyes every morning? A gentle 5-minute reset for women over 40 (blog-tired-puffy-eyes.html)</option>
+          <option value="blog-under-eye-bags-over-50.html">Under-eye bags after 50? A gentle 5-minute reset (blog-under-eye-bags-over-50.html)</option>
+        </optgroup>
+        <optgroup label="The Bojin Journal · Glow & Circulation (4 篇)">
+          <option value="blog-crepey-skin-neck-under-eyes.html">Crepey Skin on Your Neck and Under Your Eyes (blog-crepey-skin-neck-under-eyes.html)</option>
+          <option value="blog-dull-puffy-glow.html">Dull, puffy, tired-looking skin? A gentle 5-minute full-face reset (blog-dull-puffy-glow.html)</option>
+          <option value="blog-perimenopause-skin-changes.html">Why Your Whole Face Feels Different in Perimenopause (blog-perimenopause-skin-changes.html)</option>
+          <option value="blog-sallow-dull-grey-complexion.html">Why Your Complexion Looks Sallow, Grey, or Washed Out (blog-sallow-dull-grey-complexion.html)</option>
+        </optgroup>
+        <optgroup label="The Bojin Journal · Jaw & Neck (6 篇)">
+          <option value="blog-jaw-before-video-call.html">A 2-Minute Jaw Reset Before Your Next Video Call (blog-jaw-before-video-call.html)</option>
+          <option value="blog-jaw-end-of-day-release.html">Why Your Jaw Feels Tight by the End of the Day, and a 3-Minute Evening Release (blog-jaw-end-of-day-release.html)</option>
+          <option value="blog-jawline-double-chin.html">A softer jawline and a little double chin? A gentle jaw and neck release (blog-jawline-double-chin.html)</option>
+          <option value="blog-jowls-sagging-along-jawline.html">Jowls Forming Along Your Jawline? What's Underneath (blog-jowls-sagging-along-jawline.html)</option>
+          <option value="blog-necklace-lines-horizontal-neck.html">Those Horizontal "Necklace" Lines on Your Neck (blog-necklace-lines-horizontal-neck.html)</option>
+          <option value="blog-turkey-neck-and-neck-lines.html">Loose Skin and Lines Along Your Neck? (blog-turkey-neck-and-neck-lines.html)</option>
+        </optgroup>
+        <optgroup label="The Bojin Journal · Myths & real talk (18 篇)">
+          <option value="blog-bojin-after-botox-or-filler-what-to-wait-for.html">Had Botox or Filler? What to Wait for Before You Start Bojin (blog-bojin-after-botox-or-filler-what-to-wait-for.html)</option>
+          <option value="blog-bojin-after-dental-work.html">After Dental Work, Implants, or a Root Canal: How Long to Wait (blog-bojin-after-dental-work.html)</option>
+          <option value="blog-bojin-vs-face-yoga.html">Bojin vs. Face Yoga: Which One Fits What Your Face Needs? (blog-bojin-vs-face-yoga.html)</option>
+          <option value="blog-bojin-vs-microcurrent-devices.html">Bojin vs. Microcurrent Devices: Which Is Worth It? (blog-bojin-vs-microcurrent-devices.html)</option>
+          <option value="blog-can-bojin-make-your-face-saggier.html">Can Bojin Make Your Face Saggier? An Honest Answer (blog-can-bojin-make-your-face-saggier.html)</option>
+          <option value="blog-does-bojin-actually-work-straight-talk.html">Does Facial Gua Sha Actually Work? Straight Talk for Skeptics (blog-does-bojin-actually-work-straight-talk.html)</option>
+          <option value="blog-facial-hair-dermaplaning-and-bojin.html">Peach Fuzz, Facial Hair, and Dermaplaning: Does Bojin Change Anything? (blog-facial-hair-dermaplaning-and-bojin.html)</option>
+          <option value="blog-facial-volume-loss-after-weight-loss.html">Lost Weight and Your Face Looks Hollow? An Honest Answer (blog-facial-volume-loss-after-weight-loss.html)</option>
+          <option value="blog-gua-sha-not-working.html">Gua sha not giving you results? The simple fix most people miss (blog-gua-sha-not-working.html)</option>
+          <option value="blog-hot-flashes-and-a-flushed-face.html">Hot Flashes and a Flushed Face: Should You Work on It? (blog-hot-flashes-and-a-flushed-face.html)</option>
+          <option value="blog-how-long-until-you-see-a-difference.html">How Long Until You Actually See a Difference? (blog-how-long-until-you-see-a-difference.html)</option>
+          <option value="blog-is-bojin-just-gua-sha-with-a-new-name.html">Is Bojin Just Gua Sha With a Fancier Name? (blog-is-bojin-just-gua-sha-with-a-new-name.html)</option>
+          <option value="blog-jaw-clenching-grinding-and-bojin.html">Clench or Grind Your Teeth? An Honest Look at Jaw Tension and Bojin (blog-jaw-clenching-grinding-and-bojin.html)</option>
+          <option value="blog-skip-expensive-facials.html">Do you really need expensive facials? What a few home minutes can really do (blog-skip-expensive-facials.html)</option>
+          <option value="blog-sleep-creases-pillow-lines-and-bojin.html">Do Sleep Creases and Pillow Lines Undo Your Bojin Work? (blog-sleep-creases-pillow-lines-and-bojin.html)</option>
+          <option value="blog-starting-in-your-40s-vs-60s.html">Starting in Your 40s vs. Your 60s: Does the Method Differ? (blog-starting-in-your-40s-vs-60s.html)</option>
+          <option value="blog-what-bojin-can-and-cannot-do.html">What Bojin Can and Cannot Do for Your Face (An Honest List) (blog-what-bojin-can-and-cannot-do.html)</option>
+          <option value="blog-who-should-not-do-bojin-contraindications.html">Who Should Skip Bojin for Now (or Ask a Doctor First) (blog-who-should-not-do-bojin-contraindications.html)</option>
+        </optgroup>
+        <optgroup label="The Bojin Journal · Rituals & routines (12 篇)">
+          <option value="blog-building-a-bojin-habit.html">Building a Bojin Habit: The Trick That Actually Works (blog-building-a-bojin-habit.html)</option>
+          <option value="blog-does-your-routine-need-to-change-with-seasons.html">Does Your Routine Need to Change With the Seasons? (blog-does-your-routine-need-to-change-with-seasons.html)</option>
+          <option value="blog-doing-bojin-on-someone-else.html">Doing Bojin on Someone Else: What Changes (blog-doing-bojin-on-someone-else.html)</option>
+          <option value="blog-evening-wind-down-face-ritual.html">What Should Your Evening Face Ritual Actually Undo? (blog-evening-wind-down-face-ritual.html)</option>
+          <option value="blog-four-week-countdown-before-event.html">A 4-Week Face Countdown Before a Wedding or Reunion (blog-four-week-countdown-before-event.html)</option>
+          <option value="blog-how-often-should-you-do-bojin.html">How Often Should You Actually Do This? (Less Than You'd Think) (blog-how-often-should-you-do-bojin.html)</option>
+          <option value="blog-how-to-clean-your-bojin-stick.html">How to Clean and Care for Your Bojin Stick (blog-how-to-clean-your-bojin-stick.html)</option>
+          <option value="blog-morning-face-ritual.html">What should a simple morning face ritual look like? (blog-morning-face-ritual.html)</option>
+          <option value="blog-starting-a-bojin-ritual-with-someone-you-love.html">Sharing This With Someone You Love (blog-starting-a-bojin-ritual-with-someone-you-love.html)</option>
+          <option value="blog-the-two-minute-bad-day-routine.html">The Two-Minute Bad-Day Routine (blog-the-two-minute-bad-day-routine.html)</option>
+          <option value="blog-traveling-with-your-bojin-stick.html">Traveling With Your Bojin Stick: What to Pack, What to Skip (blog-traveling-with-your-bojin-stick.html)</option>
+          <option value="blog-your-first-5-minutes-with-bojin.html">Your First 5 Minutes: A Tiny, Safe Way to Begin (blog-your-first-5-minutes-with-bojin.html)</option>
+        </optgroup>
+        <optgroup label="The Bojin Journal · Root cause & tension chains (5 篇)">
+          <option value="blog-neck-tension-showing-in-your-face.html">That Tired Look Might Start in Your Neck, Not Your Face (blog-neck-tension-showing-in-your-face.html)</option>
+          <option value="blog-rounded-shoulders-and-a-heavier-looking-face.html">Why Rounded Shoulders Can Make Your Whole Face Look Heavier (blog-rounded-shoulders-and-a-heavier-looking-face.html)</option>
+          <option value="blog-scalp-and-temple-tightness-and-your-face.html">The Tightness in Your Scalp Is Showing Up on Your Face (blog-scalp-and-temple-tightness-and-your-face.html)</option>
+          <option value="blog-screen-to-forehead-tension-chain.html">The Screen-to-Forehead Chain: Where Those Lines Actually Come From (blog-screen-to-forehead-tension-chain.html)</option>
+          <option value="blog-why-your-face-looks-more-tired-at-night.html">Why Your Face Looks More Tired at 9 PM Than at 9 AM (blog-why-your-face-looks-more-tired-at-night.html)</option>
+        </optgroup>
+        <optgroup label="The Bojin Journal · The method (31 篇)">
+          <option value="blog-bojin-before-or-after-retinol.html">Where Does Bojin Fit With Retinol and Other Actives? (blog-bojin-before-or-after-retinol.html)</option>
+          <option value="blog-bojin-vs-jade-roller.html">Bojin vs. the Jade Roller in Your Drawer (blog-bojin-vs-jade-roller.html)</option>
+          <option value="blog-bojin-when-you-wear-glasses.html">Wear Glasses? How to Work the Forehead, Temples, and Eye Area Around Your Frames (blog-bojin-when-you-wear-glasses.html)</option>
+          <option value="blog-bojin-with-sore-hands-or-weak-grip.html">Sore Hands or a Weak Grip? How to Hold the Tool Differently (blog-bojin-with-sore-hands-or-weak-grip.html)</option>
+          <option value="blog-breathing-during-a-stroke.html">Are You Holding Your Breath? Breathing While You Work (blog-breathing-during-a-stroke.html)</option>
+          <option value="blog-do-both-sides-need-equal-time.html">Do Both Sides of Your Face Need Equal Time? (blog-do-both-sides-need-equal-time.html)</option>
+          <option value="blog-does-your-posture-matter.html">Does Your Posture Matter While You Work? (blog-does-your-posture-matter.html)</option>
+          <option value="blog-dry-or-with-oil-bojin-slip.html">Dry or With Oil? The Slip Rule for Less Tugging on Mature Skin (blog-dry-or-with-oil-bojin-slip.html)</option>
+          <option value="blog-fingers-stone-or-stick.html">Fingers, a Gua Sha Stone, or a Bojin Stick: What to Use (blog-fingers-stone-or-stick.html)</option>
+          <option value="blog-gua-sha-vs-bojin.html">Gua sha and bojin: the tool and the technique, and how they fit together (blog-gua-sha-vs-bojin.html)</option>
+          <option value="blog-how-fast-should-you-move.html">How Fast Should You Move? Speed Is Its Own Variable (blog-how-fast-should-you-move.html)</option>
+          <option value="blog-how-many-times-per-spot.html">How Many Times Should You Work One Spot? (blog-how-many-times-per-spot.html)</option>
+          <option value="blog-how-much-pressure.html">How Hard Should You Press? The Bojin Pressure Question, Answered (blog-how-much-pressure.html)</option>
+          <option value="blog-how-to-hold-the-handle.html">How to Hold the Handle: The Grip Behind a Steady Stroke (blog-how-to-hold-the-handle.html)</option>
+          <option value="blog-how-you-end-a-session.html">How You End a Session Matters More Than You Think (blog-how-you-end-a-session.html)</option>
+          <option value="blog-is-bojin-safe.html">Is Bojin Safe? Who Should Be Careful, and When to Skip It (blog-is-bojin-safe.html)</option>
+          <option value="blog-mirror-or-by-feel.html">Mirror or By Feel? Two Ways to Work, and When to Use Each (blog-mirror-or-by-feel.html)</option>
+          <option value="blog-scalp-and-hairline-tension.html">Where Forehead Tightness Actually Starts: Your Scalp and Hairline (blog-scalp-and-hairline-tension.html)</option>
+          <option value="blog-should-you-chill-your-bojin-stick.html">Should You Chill Your Bojin Stick? What Temperature Actually Does (blog-should-you-chill-your-bojin-stick.html)</option>
+          <option value="blog-sinus-congestion-and-a-heavy-face.html">Stuffed Up? Sinus Congestion and That Heavy-Face Feeling (blog-sinus-congestion-and-a-heavy-face.html)</option>
+          <option value="blog-the-angle-of-the-bojin-tool.html">The Angle of the Tool: Why a Few Degrees Changes Everything (blog-the-angle-of-the-bojin-tool.html)</option>
+          <option value="blog-the-point-behind-your-ear.html">The Point Behind Your Ear: Why Almost Every Routine Ends There (blog-the-point-behind-your-ear.html)</option>
+          <option value="blog-the-supporting-hand.html">The Supporting Hand: What Your Other Hand Should Be Doing (blog-the-supporting-hand.html)</option>
+          <option value="blog-two-ends-of-the-bojin-stick.html">The Two Ends of Your Bojin Stick: When to Use Each (blog-two-ends-of-the-bojin-stick.html)</option>
+          <option value="blog-what-each-sensation-means.html">What You Feel Under the Tool, and What Each Sensation Means (blog-what-each-sensation-means.html)</option>
+          <option value="blog-what-is-normal-after-bojin-vs-warning-sign.html">Redness, Soreness, or a Warning Sign? How to Tell What's Normal After Bojin (blog-what-is-normal-after-bojin-vs-warning-sign.html)</option>
+          <option value="blog-which-hand-should-hold-the-tool.html">Which Hand Should Hold the Tool? Dominant vs. Non-Dominant (blog-which-hand-should-hold-the-tool.html)</option>
+          <option value="blog-which-oil-or-cream-for-bojin.html">Which Oil or Cream Should You Use for Bojin? (blog-which-oil-or-cream-for-bojin.html)</option>
+          <option value="blog-why-stainless-steel-bojin-stick.html">Why a Stainless Steel Bojin Stick, Not the Pretty Jade Stone You Own (blog-why-stainless-steel-bojin-stick.html)</option>
+          <option value="blog-why-the-order-matters.html">Why the Order Matters: Warm, Work, Then Finish Down the Neck (blog-why-the-order-matters.html)</option>
+          <option value="blog-your-ears-and-earlobes.html">Your Ears and Earlobes: The Zone Almost Everyone Skips (blog-your-ears-and-earlobes.html)</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="view-actions">
+      <button class="btn-action active" id="btn-desktop" onclick="setMode('desktop')">💻 Desktop View</button>
+      <button class="btn-action" id="btn-mobile" onclick="setMode('mobile')">📱 Mobile View (390px)</button>
+      <a class="btn-action" id="btn-external" href="blog-are-nasolabial-folds-permanent.html" target="_blank">🌐 開啟單頁</a>
+    </div>
+  </header>
+
+  <main class="viewport">
+    <div class="frame-box">
+      <iframe id="viewer" src="blog-are-nasolabial-folds-permanent.html"></iframe>
+    </div>
+  </main>
+
+  <script>
+    function loadArticle(url) {
+      document.getElementById('viewer').src = url;
+      document.getElementById('btn-external').href = url;
+    }
+
+    function setMode(mode) {
+      const body = document.body;
+      const btnD = document.getElementById('btn-desktop');
+      const btnM = document.getElementById('btn-mobile');
+
+      if (mode === 'mobile') {
+        body.classList.add('is-mobile');
+        btnM.classList.add('active');
+        btnD.classList.remove('active');
+      } else {
+        body.classList.remove('is-mobile');
+        btnD.classList.add('active');
+        btnM.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>

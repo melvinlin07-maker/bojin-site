@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>US Bojin · Group 1 Review Hub (29 Articles)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #181216;
+      color: #EFE8D9;
+      display: flex;
+      flex-direction: column;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Top Review Bar */
+    .top-bar {
+      background: #2B1824;
+      border-bottom: 1.5px solid rgba(199, 164, 102, 0.4);
+      padding: 10px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-shrink: 0;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.4);
+    }
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #C7A466;
+    }
+    .traffic-dots { display: flex; gap: 6px; }
+    .dot { width: 11px; height: 11px; border-radius: 50%; }
+    .dot-r { background: #ff5f56; }
+    .dot-y { background: #ffbd2e; }
+    .dot-g { background: #27c93f; }
+
+    .selector-area {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      max-width: 580px;
+    }
+    .article-select {
+      background: #140d12;
+      border: 1px solid rgba(199, 164, 102, 0.4);
+      border-radius: 6px;
+      padding: 6px 12px;
+      color: #FBF6EF;
+      font-size: 13px;
+      width: 100%;
+      outline: none;
+      cursor: pointer;
+    }
+
+    .view-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-action {
+      background: #351D2C;
+      color: #FBF6EF;
+      border: 1.5px solid #C7A466;
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 12px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+    .btn-action:hover, .btn-action.active {
+      background: #C7A466;
+      color: #2D2428;
+    }
+
+    /* Main Viewport Container */
+    .viewport {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+      background: #140d12;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+    .frame-box {
+      width: 100%;
+      height: 100%;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      background: #FFFDFC;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+      border-radius: 8px;
+      transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Mobile 390px View */
+    body.is-mobile .frame-box {
+      width: 420px;
+      height: 860px;
+      max-height: 94%;
+    }
+    body.is-mobile iframe {
+      width: 390px;
+      height: 844px;
+      border-radius: 44px;
+      border: 12px solid #2D1A26;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.75), 0 0 0 2px rgba(199, 164, 102, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <header class="top-bar">
+    <div class="brand-title">
+      <div class="traffic-dots">
+        <span class="dot dot-r"></span>
+        <span class="dot dot-y"></span>
+        <span class="dot dot-g"></span>
+      </div>
+      <span>🇺🇸 第一批「臉部重點區 29 篇」即時審閱中心</span>
+    </div>
+
+    <div class="selector-area">
+      <select class="article-select" id="page-select" onchange="loadArticle(this.value)">
+        <optgroup label="✨ 旗艦標竿篇 (Benchmark)">
+          <option value="blog-are-nasolabial-folds-permanent.html">【旗艦標竿】法令紋成因與放鬆 (Nasolabial Folds)</option>
+        </optgroup>
+        <optgroup label="👁️ 眼周細緻保養 (Eyes · 9篇)">
+          <option value="blog-crows-feet-eye-corners.html">魚尾紋與眼角放鬆 (Crow's Feet)</option>
+          <option value="blog-dark-circles-tired-eyes.html">黑眼圈與疲憊眼周 (Dark Circles)</option>
+          <option value="blog-eye-cream-not-absorbing.html">眼霜吸收不良困擾 (Eye Cream Not Absorbing)</option>
+          <option value="blog-hooded-heavy-eyelids.html">眼皮沉重浮腫 (Hooded Eyelids)</option>
+          <option value="blog-menopause-tired-eyes.html">更年期眼周疲累 (Menopause Tired Eyes)</option>
+          <option value="blog-screen-tired-eyes-desk-reset.html">看螢幕疲勞書桌急救 (Screen Tired Eyes)</option>
+          <option value="blog-tear-trough-hollow-under-eyes.html">眼下淚溝與凹陷感 (Tear Troughs)</option>
+          <option value="blog-tired-puffy-eyes.html">晨間眼泡浮腫 (Tired Puffy Eyes)</option>
+          <option value="blog-under-eye-bags-over-50.html">熟齡眼袋溫和保養 (Under Eye Bags Over 50)</option>
+        </optgroup>
+        <optgroup label="😊 法令紋與雙頰 (Cheeks · 8篇)">
+          <option value="blog-cheeks-after-flight-travel.html">搭飛機後雙頰浮腫乾癟 (Cheeks After Flight)</option>
+          <option value="blog-cheeks-before-makeup.html">上妝前雙頰貼妝手法 (Cheeks Before Makeup)</option>
+          <option value="blog-dimpled-pebbly-chin.html">下巴橘皮緊繃感 (Dimpled Pebbly Chin)</option>
+          <option value="blog-facial-asymmetry-one-side-more-tense.html">單側臉頰張力不對稱 (Facial Asymmetry)</option>
+          <option value="blog-marionette-lines-drooping-mouth-corners.html">木偶紋與嘴角下垂 (Marionette Lines)</option>
+          <option value="blog-smile-lines-cheeks.html">笑紋與蘋果肌下沉 (Smile Lines & Cheeks)</option>
+          <option value="blog-vertical-lip-lines-lipstick-bleed.html">唇周垂直紋與口紅滲色 (Vertical Lip Lines)</option>
+        </optgroup>
+        <optgroup label="✨ 額頭與眉間 (Brows & Forehead · 6篇)">
+          <option value="blog-forehead-frown-lines.html">川字紋與眉頭沉重 (11 Frown Lines)</option>
+          <option value="blog-forehead-lines-deepening.html">抬頭紋漸漸加深 (Forehead Lines Deepening)</option>
+          <option value="blog-frown-lines-menopause.html">更年期眉間緊繃 (Frown Lines Menopause)</option>
+          <option value="blog-heavy-low-brows-lift.html">眉眼壓迫眉毛低垂 (Heavy Low Brows Lift)</option>
+          <option value="blog-natural-botox-alternative-forehead.html">額頭自然放鬆替代方案 (Natural Forehead Alternative)</option>
+          <option value="blog-tense-forehead-relief.html">緊繃額頭筋膜釋放 (Tense Forehead Relief)</option>
+        </optgroup>
+        <optgroup label="💎 下顎線與頸部 (Jaw & Neck · 6篇)">
+          <option value="blog-jaw-before-video-call.html">視訊會議前下顎線急救 (Jaw Before Video Call)</option>
+          <option value="blog-jaw-end-of-day-release.html">下班咬肌酸痛釋放 (End of Day Jaw Release)</option>
+          <option value="blog-jawline-double-chin.html">雙下巴與輪廓線清晰 (Jawline Double Chin)</option>
+          <option value="blog-jowls-sagging-along-jawline.html">嘴邊肉下墜鬆弛 (Jowls Along Jawline)</option>
+          <option value="blog-necklace-lines-horizontal-neck.html">頸部橫紋放鬆 (Horizontal Neck Lines)</option>
+          <option value="blog-turkey-neck-and-neck-lines.html">火雞脖與頸部筋膜 (Turkey Neck & Lines)</option>
+        </optgroup>
+      </select>
+    </div>
+
+    <div class="view-actions">
+      <button class="btn-action active" id="btn-desktop" onclick="setMode('desktop')">💻 Desktop View</button>
+      <button class="btn-action" id="btn-mobile" onclick="setMode('mobile')">📱 Mobile View (390px)</button>
+      <a class="btn-action" id="btn-external" href="blog-are-nasolabial-folds-permanent.html" target="_blank">🌐 開啟單頁</a>
+    </div>
+  </header>
+
+  <main class="viewport">
+    <div class="frame-box">
+      <iframe id="viewer" src="blog-are-nasolabial-folds-permanent.html"></iframe>
+    </div>
+  </main>
+
+  <script>
+    function loadArticle(url) {
+      document.getElementById('viewer').src = url;
+      document.getElementById('btn-external').href = url;
+    }
+
+    function setMode(mode) {
+      const body = document.body;
+      const btnD = document.getElementById('btn-desktop');
+      const btnM = document.getElementById('btn-mobile');
+
+      if (mode === 'mobile') {
+        body.classList.add('is-mobile');
+        btnM.classList.add('active');
+        btnD.classList.remove('active');
+      } else {
+        body.classList.remove('is-mobile');
+        btnD.classList.add('active');
+        btnM.classList.remove('active');
+      }
+    }
+  </script>
+</body>
+</html>
