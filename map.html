@@ -440,12 +440,24 @@
             '<a class="btn" href="landing.html#get">Watch the Free 3-Min Video &rarr;</a>' +
             '<a class="btn btn--ghost" href="quiz.html">Take the 1-Min Quiz</a>' +
             '<a class="btn btn--ghost" href="guide.html">Get the 5-Zone PDF</a>' +
+            '<button class="btn btn--ghost" id="fmShareReset" style="display:inline-flex;align-items:center;gap:.4rem;"><span>📤</span> Share this 60s Reset</button>' +
           '</div>' +
         '</div>' +
         '<button class="fm-restart" id="fmRestart">&larr; Check a different facial area</button>' +
       '</div>';
     reveal(rSec);
     scrollTo(rSec);
+
+    var shareBtn = document.getElementById('fmShareReset');
+    if(shareBtn && window.bojinShare){
+      shareBtn.addEventListener('click', function(){
+        window.bojinShare({
+          title: '60-Second Facial Tension Reset (' + d.label + ') | The Bojin Method',
+          text: 'I just found this gentle 60-second face tension reset for the ' + d.label.toLowerCase() + '. Try it here:',
+          url: window.location.href
+        }, shareBtn);
+      });
+    }
 
     document.getElementById('fmRestart').addEventListener('click', function(){
       hide(rSec); hide(qSec); setHatch(null);

@@ -226,3 +226,148 @@ window.bojinWireOptin = function(form, source){
 
 /* V8 Journal: preserve blog.html as the article archive, route Journal navigation to the dual entrance. */
 (function(){document.querySelectorAll('.site-header .nav-links a').forEach(function(a){if(a.textContent.trim().toLowerCase()==='journal')a.setAttribute('href','blog.html');});})();
+
+
+/* ── UX Tool 1 & Toast: Web Share API helper ────────────────────────────── */
+window.bojinToast = function(msg){
+  var t = document.getElementById('bojinToast');
+  if(!t){
+    t = document.createElement('div');
+    t.id = 'bojinToast';
+    t.className = 'bojin-toast';
+    document.body.appendChild(t);
+  }
+  t.textContent = msg || 'Link copied to clipboard!';
+  t.classList.add('is-shown');
+  clearTimeout(t._timer);
+  t._timer = setTimeout(function(){ t.classList.remove('is-shown'); }, 2600);
+};
+
+window.bojinShare = function(opts, btnEl){
+  opts = opts || {};
+  var shareData = {
+    title: opts.title || document.title,
+    text: opts.text || (document.querySelector('meta[name="description"]') ? document.querySelector('meta[name="description"]').getAttribute('content') : ''),
+    url: opts.url || window.location.href
+  };
+  if(navigator.share){
+    navigator.share(shareData).catch(function(){});
+  } else if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(shareData.url).then(function(){
+      window.bojinToast('✓ Link copied to clipboard!');
+      if(btnEl){
+        var old = btnEl.textContent;
+        btnEl.textContent = '✓ Copied!';
+        setTimeout(function(){ btnEl.textContent = old; }, 2000);
+      }
+    }).catch(function(){
+      window.prompt('Copy link:', shareData.url);
+    });
+  } else {
+    window.prompt('Copy link:', shareData.url);
+  }
+};
+
+/* ── UX Tool 2: Golden Reading Progress Bar ─────────────────────────────── */
+(function(){
+  var bar = document.getElementById('readingProgress');
+  if(!bar){
+    bar = document.createElement('div');
+    bar.id = 'readingProgress';
+    bar.className = 'reading-progress';
+    bar.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(bar);
+  }
+  var ticking = false;
+  function updateProgress(){
+    var scrollH = document.documentElement.scrollHeight - window.innerHeight;
+    if(scrollH > 100){
+      var pct = Math.min(100, Math.max(0, (window.scrollY / scrollH) * 100));
+      bar.style.width = pct + '%';
+    } else {
+      bar.style.width = '0%';
+    }
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      window.requestAnimationFrame(updateProgress);
+      ticking = true;
+    }
+  }, {passive:true});
+})();
+
+/* ── UX Tool 3: Gentle Exit-Intent Modal ────────────────────────────────── */
+(function(){
+  if(location.pathname.indexOf('quiz') !== -1) return;
+
+  function initExitIntent(){
+    var shown = false;
+    try { shown = !!sessionStorage.getItem('bojin-exit-shown'); } catch(e){}
+    if(shown) return;
+
+    var modal = document.createElement('div');
+    modal.id = 'exitModal';
+    modal.className = 'exit-modal';
+    modal.setAttribute('aria-hidden', 'true');
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.innerHTML =
+      '<div class="exit-modal__backdrop" id="exitModalBackdrop"></div>' +
+      '<div class="exit-modal__card">' +
+        '<button class="exit-modal__close" id="exitModalClose" aria-label="Close dialog">&times;</button>' +
+        '<p class="exit-modal__eyebrow">Before you go</p>' +
+        '<h3 class="exit-modal__title">Save the 5-Zone Face Tension Guide</h3>' +
+        '<p class="exit-modal__desc">A concise, illustrated PDF reference covering brows, eyes, cheeks, jawline, and neck &mdash; plus comfortable pressure boundaries to practice safely at home.</p>' +
+        '<div class="exit-modal__actions">' +
+          '<a class="btn btn--lg" href="guide.html">Get the Free 5-Zone Guide &rarr;</a>' +
+          '<button class="exit-modal__dismiss" id="exitModalDismiss">Maybe later</button>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(modal);
+
+    function show(){
+      if(shown) return;
+      shown = true;
+      try { sessionStorage.setItem('bojin-exit-shown', '1'); } catch(e){}
+      modal.classList.add('is-visible');
+      modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function hide(){
+      modal.classList.remove('is-visible');
+      modal.setAttribute('aria-hidden', 'true');
+    }
+
+    document.getElementById('exitModalClose').addEventListener('click', hide);
+    document.getElementById('exitModalBackdrop').addEventListener('click', hide);
+    document.getElementById('exitModalDismiss').addEventListener('click', hide);
+    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') hide(); });
+
+    // Desktop exit-intent: mouse leaves through top
+    document.documentElement.addEventListener('mouseleave', function(e){
+      if(e.clientY <= 0 && window.scrollY > 200){
+        show();
+      }
+    });
+
+    // Mobile intent: user stays > 25s, scrolled down > 300px, then rapidly scrolls up
+    var lastY = window.scrollY;
+    var stayTime = 0;
+    var timer = setInterval(function(){ stayTime += 1; }, 1000);
+    window.addEventListener('scroll', function(){
+      var curY = window.scrollY;
+      var diff = lastY - curY;
+      if(stayTime >= 25 && curY > 300 && diff > 150){
+        show();
+      }
+      lastY = curY;
+    }, {passive:true});
+  }
+
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', initExitIntent);
+  } else {
+    initExitIntent();
+  }
+})();
