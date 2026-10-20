@@ -26,6 +26,7 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Face Tension Profile: a 1-minute self-check","description":"A gentle 1-minute self-check: answer 8 quick questions about how your face feels and get a simple tension map, plus a personalized 3-minute reset for the area that needs it most. Self-assessment, not a medical diagnosis.","url":"https://bojinfacetension.com/quiz.html","isPartOf":{"@type":"WebSite","name":"The Bojin Method","url":"https://bojinfacetension.com/"},"publisher":{"@type":"Organization","@id":"https://bojinfacetension.com/#organization"}}</script>
   <style>
     .quiz-wrap { max-width:680px; margin:0 auto; }
+    #quizForm[hidden] { display:none !important; }
     .quiz-card {
       background:var(--paper-2);
       border:1px solid var(--line);
@@ -349,17 +350,18 @@
       '</div>'+
       '<div class="band-jade" style="margin-top:1.6rem;border-radius:16px;padding:2rem 1.5rem;text-align:center">'+
         '<p class="eyebrow">Keep it going</p><hr class="rule" style="margin-inline:auto">'+
-        '<h2 style="font-family:var(--font-serif);font-weight:600;font-size:clamp(1.5rem,3.2vw,1.9rem)">Get your personalized starter guide.</h2>'+
-        '<p class="lead" style="margin-inline:auto">Leave your email and we’ll send a gentle starter guide built around your '+ZONE_SHORT[top].toLowerCase()+' result, simple steps you can keep for years.</p>'+
+        '<h2 style="font-family:var(--font-serif);font-weight:600;font-size:clamp(1.5rem,3.2vw,1.9rem)">Get the 5-Zone starter guide.</h2>'+
+        '<p class="lead" style="margin-inline:auto">Leave your email for the shared 5-Zone starter guide. Your personal quiz result remains above; the PDF covers all five zones.</p>'+
         '<form class="signup" id="quizForm" style="justify-content:center" novalidate>'+
           '<input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">'+
           '<input class="field" type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>'+
           '<button class="btn btn--lg" type="submit">Send my guide</button>'+
         '</form>'+
+        '<p id="quizStatus" role="status" aria-live="polite" hidden></p>'+
         '<p class="form-note" style="text-align:center">No spam, ever. A self-assessment of how your face feels, not a medical diagnosis.</p>'+
         '<div class="success-note" id="quizOk" hidden style="max-width:520px;margin:1.4rem auto 0;padding:1.4rem;background:var(--paper-2);border:1.5px solid var(--gold);border-radius:14px;box-shadow:var(--shadow);text-align:center">'+
-          '<p style="font-family:var(--font-serif);font-size:1.35rem;font-weight:600;color:var(--jade);margin:0 0 .35rem">Your personalized starter guide is ready! 🌿</p>'+
-          '<p style="font-size:.92rem;color:var(--ink-soft);margin:0 0 1.15rem;line-height:1.45">We sent a copy to your inbox. You can also view the full PDF guide or watch the video demonstration right now:</p>'+
+          '<p style="font-family:var(--font-serif);font-size:1.35rem;font-weight:600;color:var(--jade);margin:0 0 .35rem">Your guide request has been received.</p>'+
+          '<p style="font-size:.92rem;color:var(--ink-soft);margin:0 0 1.15rem;line-height:1.45">Check your inbox and spam folder for the guide email. If it does not arrive, you can still open the PDF below. This download is the shared 5-Zone guide.</p>'+
           '<div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">'+
             '<a class="btn btn--lg" href="https://bojinfacetension.com/downloads/is-it-aging-or-tension-en.pdf" target="_blank" rel="noopener">Open PDF Guide &rarr;</a>'+
             '<a class="btn btn--ghost btn--lg" href="https://go.bojinfacetension.com/facial-tension-check">Watch 3-Min Video &rarr;</a>'+
@@ -372,20 +374,46 @@
     window.scrollTo({top:0,behavior:'smooth'});
 
     var qf=document.getElementById('quizForm');
-    if(qf){ qf.addEventListener('submit',function(e){ e.preventDefault();
-      var hp=qf.querySelector('input[name="company"]'); if(hp && hp.value){ return; }
+    var pending=false;
+    if(qf){ qf.addEventListener('submit', async function(e){
+      e.preventDefault();
+      if(pending) return;
+      var hp=qf.querySelector('input[name="company"]'); if(hp && hp.value) return;
       var em=qf.querySelector('input[type=email]');
-      if(!em.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())){ em.focus(); return; }
-      if(window.bojinLead) bojinLead('quiz');
-      var btn=qf.querySelector('button[type=submit]'); if(btn){ btn.disabled=true; }
-      qf.hidden=true; var ok=document.getElementById('quizOk'); if(ok) ok.hidden=false;
+      var status=document.getElementById('quizStatus');
+      function message(text){ if(status){ status.textContent=text; status.hidden=!text; } }
+      if(!em.value || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em.value.trim())){
+        message('Please enter a valid email address.'); em.focus(); return;
+      }
+      pending=true;
+      var btn=qf.querySelector('button[type=submit]');
+      var restart=document.getElementById('quizRestart');
+      if(btn){ btn.disabled=true; btn.textContent='Sending…'; }
+      if(restart) restart.disabled=true;
+      qf.setAttribute('aria-busy','true');
+      message('Sending your request…');
+      var controller=new AbortController();
+      var timeout=window.setTimeout(function(){ controller.abort(); },20000);
       try{
-        fetch('https://melvinlin07-n8n.zeabur.app/webhook/quiz-optin',{
+        var response=await fetch('https://melvinlin07-n8n.zeabur.app/webhook/quiz-optin',{
           method:'POST',
           headers:{'Content-Type':'application/x-www-form-urlencoded'},
-          body:new URLSearchParams({email:em.value.trim(),source:'quiz'})
-        }).catch(function(){});
-      }catch(_){}
+          body:new URLSearchParams({email:em.value.trim(),source:'quiz'}),
+          signal:controller.signal
+        });
+        if(!response.ok || (await response.text()).trim() !== 'OK') throw new Error('Unconfirmed signup');
+        if(window.bojinLead) bojinLead('quiz');
+        qf.hidden=true;
+        var ok=document.getElementById('quizOk'); if(ok) ok.hidden=false;
+        message('');
+      }catch(error){
+        message('We could not confirm your request. Your email is still here; please try again.');
+      }finally{
+        window.clearTimeout(timeout); pending=false;
+        qf.removeAttribute('aria-busy');
+        if(btn){ btn.disabled=false; btn.textContent='Send my guide'; }
+        if(restart) restart.disabled=false;
+      }
     }); }
     var rs=document.getElementById('quizRestart');
     if(rs){ rs.addEventListener('click', function(){ answers=new Array(QUESTIONS.length).fill(null); cur=0;
@@ -397,6 +425,6 @@
   });
 })();
 </script>
-<script src="nav.js?v=11"></script>
+<script src="nav.js?v=20261020-functional-3"></script>
 </body>
 </html>

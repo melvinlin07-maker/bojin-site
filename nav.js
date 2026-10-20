@@ -79,63 +79,48 @@ window.bojinLead = function(source){
   }catch(e){}
 };
 
-/* Keep the native Systeme.io POST, but do not guess that it succeeded from a
-   submit event or an iframe load. Lead and the guide redirect are allowed only
-   after the hidden iframe reaches our same-origin success page. Cross-origin
-   error responses are intentionally ignored because they cannot prove opt-in. */
+/* Guide forms use the existing, verified guide-delivery webhook. Confirm the
+   service acknowledgement before showing the download page; never infer success
+   from a hidden iframe load. The response acknowledges a request, not inbox delivery. */
 window.bojinWireOptin = function(form, source){
-  if(!form) return;
-  var targetName = form.getAttribute('target');
-  var frame = targetName ? document.querySelector('iframe[name="' + targetName + '"]') : null;
-  if(!frame) return;
-
-  var successPath = '/guide-ready.html';
+  if(!form || form.getAttribute('data-optin-wired')) return;
+  form.setAttribute('data-optin-wired','1');
   var status = form.parentElement && form.parentElement.querySelector('.form-status');
   var button = form.querySelector('button[type="submit"]');
   var pending = false;
-  var timer = null;
-
   function showStatus(message){
     if(!status) return;
     status.textContent = message || '';
     status.hidden = !message;
   }
-
-  function finish(success){
-    pending = false;
-    if(timer){ window.clearTimeout(timer); timer = null; }
-    if(button) button.disabled = false;
-    if(success){
+  form.addEventListener('submit', async function(event){
+    event.preventDefault();
+    if(pending) return;
+    var email=form.querySelector('input[type="email"]');
+    if(!email || !form.reportValidity()) return;
+    pending=true;
+    if(button) button.disabled=true;
+    form.setAttribute('aria-busy','true');
+    showStatus('Sending your request…');
+    var controller=new AbortController();
+    var timeout=window.setTimeout(function(){ controller.abort(); },20000);
+    try{
+      var response=await fetch('https://melvinlin07-n8n.zeabur.app/webhook/quiz-optin',{
+        method:'POST',
+        headers:{'Content-Type':'application/x-www-form-urlencoded'},
+        body:new URLSearchParams({email:email.value.trim(),source:source || 'guide'}),
+        signal:controller.signal
+      });
+      if(!response.ok || (await response.text()).trim() !== 'OK') throw new Error('Unconfirmed signup');
       if(window.bojinLead) window.bojinLead(source);
-      window.location.href = successPath;
-    }else{
-      showStatus('We could not confirm your signup. Please try again.');
+      window.location.assign('guide-ready.html');
+    }catch(error){
+      showStatus('We could not confirm your request. Your email is still here; please try again.');
+    }finally{
+      window.clearTimeout(timeout); pending=false;
+      form.removeAttribute('aria-busy');
+      if(button) button.disabled=false;
     }
-  }
-
-  frame.addEventListener('load', function(){
-    if(!pending) return;
-    var href;
-    try{
-      href = frame.contentWindow.location.href;
-    }catch(e){
-      /* Still on a cross-origin Systeme.io response: no success proof yet. */
-      return;
-    }
-    try{
-      var url = new URL(href, window.location.href);
-      if(url.origin === window.location.origin && url.pathname === successPath){
-        finish(true);
-      }
-    }catch(e){}
-  });
-
-  form.addEventListener('submit', function(){
-    pending = true;
-    showStatus('Sending…');
-    if(button) button.disabled = true;
-    if(timer) window.clearTimeout(timer);
-    timer = window.setTimeout(function(){ finish(false); }, 30000);
   });
 };
 
@@ -161,6 +146,22 @@ window.bojinWireOptin = function(form, source){
   /* close when tapping outside, or on Escape */
   document.addEventListener('click', function(e){ if(header.classList.contains('nav-open') && !header.contains(e.target)) close(); });
   document.addEventListener('keydown', function(e){ if(e.key === 'Escape') close(); });
+})();
+
+/* Journal pages use class-based theme buttons; preserve the same preference
+   as core pages without adding a second listener to their existing controls. */
+(function(){
+  var buttons=document.querySelectorAll('.theme-toggle:not([data-theme-toggle])');
+  if(!buttons.length) return;
+  var root=document.documentElement;
+  try{var saved=localStorage.getItem('bojin-theme');if(saved==='light'||saved==='dark')root.setAttribute('data-theme',saved);}catch(e){}
+  buttons.forEach(function(button){
+    button.setAttribute('data-theme-toggle','');
+    button.addEventListener('click',function(){
+      var next=root.getAttribute('data-theme')==='dark'?'light':'dark';root.setAttribute('data-theme',next);
+      try{localStorage.setItem('bojin-theme',next);}catch(e){}
+    });
+  });
 })();
 
 /* Legal links (Privacy · Terms) now live in the static footer markup
@@ -250,22 +251,33 @@ window.bojinShare = function(opts, btnEl){
     text: opts.text || (document.querySelector('meta[name="description"]') ? document.querySelector('meta[name="description"]').getAttribute('content') : ''),
     url: opts.url || window.location.href
   };
-  if(navigator.share){
-    navigator.share(shareData).catch(function(){});
-  } else if(navigator.clipboard && navigator.clipboard.writeText){
-    navigator.clipboard.writeText(shareData.url).then(function(){
-      window.bojinToast('✓ Link copied to clipboard!');
-      if(btnEl){
-        var old = btnEl.textContent;
-        btnEl.textContent = '✓ Copied!';
-        setTimeout(function(){ btnEl.textContent = old; }, 2000);
-      }
-    }).catch(function(){
-      window.prompt('Copy link:', shareData.url);
-    });
-  } else {
-    window.prompt('Copy link:', shareData.url);
+  function promptCopy(){ window.prompt('Copy link:', shareData.url); }
+  function copyLink(){
+    if(navigator.clipboard && navigator.clipboard.writeText){
+      return navigator.clipboard.writeText(shareData.url).then(function(){
+        window.bojinToast('✓ Link copied to clipboard!');
+        if(btnEl){
+          var old = btnEl.textContent;
+          btnEl.textContent = '✓ Copied!';
+          setTimeout(function(){ btnEl.textContent = old; }, 2000);
+        }
+      }).catch(promptCopy);
+    }
+    promptCopy();
+    return Promise.resolve();
   }
+  if(navigator.share){
+    try{
+      return Promise.resolve(navigator.share(shareData)).catch(function(error){
+        if(error && error.name === 'AbortError') return;
+        return copyLink();
+      });
+    }catch(error){
+      if(error && error.name === 'AbortError') return Promise.resolve();
+      return copyLink();
+    }
+  }
+  return copyLink();
 };
 
 /* ── UX Tool 2: Golden Reading Progress Bar ─────────────────────────────── */
@@ -309,9 +321,11 @@ window.bojinShare = function(opts, btnEl){
     var modal = document.createElement('div');
     modal.id = 'exitModal';
     modal.className = 'exit-modal';
+    modal.style.display = 'none';
     modal.setAttribute('aria-hidden', 'true');
     modal.setAttribute('role', 'dialog');
     modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-label', 'Free guide reminder');
     modal.innerHTML =
       '<div class="exit-modal__backdrop" id="exitModalBackdrop"></div>' +
       '<div class="exit-modal__card">' +
@@ -326,23 +340,38 @@ window.bojinShare = function(opts, btnEl){
       '</div>';
     document.body.appendChild(modal);
 
+    var previousFocus=null;
     function show(){
       if(shown) return;
+      previousFocus=document.activeElement;
       shown = true;
       try { sessionStorage.setItem('bojin-exit-shown', '1'); } catch(e){}
+      modal.style.display='flex';
       modal.classList.add('is-visible');
       modal.setAttribute('aria-hidden', 'false');
+      document.getElementById('exitModalClose').focus({preventScroll:true});
     }
 
     function hide(){
       modal.classList.remove('is-visible');
       modal.setAttribute('aria-hidden', 'true');
+      modal.style.display='none';
+      if(previousFocus && previousFocus.isConnected) previousFocus.focus({preventScroll:true});
     }
 
     document.getElementById('exitModalClose').addEventListener('click', hide);
     document.getElementById('exitModalBackdrop').addEventListener('click', hide);
     document.getElementById('exitModalDismiss').addEventListener('click', hide);
-    document.addEventListener('keydown', function(e){ if(e.key === 'Escape') hide(); });
+    document.addEventListener('keydown', function(e){
+      if(!modal.classList.contains('is-visible')) return;
+      if(e.key === 'Escape'){ e.preventDefault(); hide(); return; }
+      if(e.key === 'Tab'){
+        var items=modal.querySelectorAll('button, a[href]');
+        var first=items[0], last=items[items.length-1];
+        if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
+        else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
+      }
+    });
 
     // Desktop exit-intent: mouse leaves through top
     document.documentElement.addEventListener('mouseleave', function(e){
@@ -352,13 +381,23 @@ window.bojinShare = function(opts, btnEl){
     });
 
     // Mobile intent: user stays > 25s, scrolled down > 300px, then rapidly scrolls up
+    var lastInteraction=0;
+    function noteInteraction(){ lastInteraction=Date.now(); }
+    document.addEventListener('pointerdown',noteInteraction,{passive:true});
+    document.addEventListener('keydown',noteInteraction);
+    document.addEventListener('input',noteInteraction);
+    function busy(){
+      return Date.now()-lastInteraction<8000 ||
+        /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement && document.activeElement.tagName) ||
+        Array.prototype.some.call(document.querySelectorAll('video'),function(v){return !v.paused && !v.ended;});
+    }
     var lastY = window.scrollY;
     var stayTime = 0;
     var timer = setInterval(function(){ stayTime += 1; }, 1000);
     window.addEventListener('scroll', function(){
       var curY = window.scrollY;
       var diff = lastY - curY;
-      if(stayTime >= 25 && curY > 300 && diff > 150){
+      if(stayTime >= 25 && curY > 300 && diff > 150 && !busy()){
         show();
       }
       lastY = curY;

@@ -429,7 +429,7 @@
     rSec.innerHTML =
       '<div class="fm-card">' +
         '<p class="fm-kicker">Custom 60-Second Reset &middot; ' + d.label + '</p>' +
-        '<h2 class="fm-result-title">Your <span>' + d.label.toLowerCase() + '</span> is asking for gentle release.</h2>' +
+        '<h2 class="fm-result-title">Your <span>' + d.label.toLowerCase() + '</span> ' + (zone==='eyes'?'are':'is') + ' asking for gentle release.</h2>' +
         '<p class="fm-explain">' + d.explain + '</p>' +
         '<div class="fm-routine-head"><h3>Your 60-second routine</h3><span class="fm-time">60 sec</span></div>' +
         '<ol class="fm-steps">' + steps + '</ol>' +
@@ -449,12 +449,15 @@
     scrollTo(rSec);
 
     var shareBtn = document.getElementById('fmShareReset');
-    if(shareBtn && window.bojinShare){
+    if(shareBtn){
       shareBtn.addEventListener('click', function(){
+        if(!window.bojinShare) return;
+        var shareUrl=new URL('map.html',window.location.href);
+        shareUrl.searchParams.set('zone',zone);
         window.bojinShare({
           title: '60-Second Facial Tension Reset (' + d.label + ') | The Bojin Method',
           text: 'I just found this gentle 60-second face tension reset for the ' + d.label.toLowerCase() + '. Try it here:',
-          url: window.location.href
+          url: shareUrl.href
         }, shareBtn);
       });
     }
@@ -468,8 +471,27 @@
   }
 
   zones.forEach(function(z){ z.addEventListener('click', function(){ selectZone(z.dataset.zone); }); });
+  var sharedZone=new URLSearchParams(window.location.search).get('zone');
+  if(sharedZone && Object.prototype.hasOwnProperty.call(DATA,sharedZone)){
+    selectZone(sharedZone);
+    hide(qSec);
+    showResult(sharedZone);
+  }
 })();
 </script>
-<script src="nav.js?v=11"></script>
+<script>
+(function(){
+  var root=document.documentElement;
+  try{var theme=localStorage.getItem('bojin-theme');if(theme==='light'||theme==='dark')root.setAttribute('data-theme',theme);}catch(e){}
+  document.querySelectorAll('[data-theme-toggle]').forEach(function(button){
+    button.addEventListener('click',function(){
+      var next=root.getAttribute('data-theme')==='dark'?'light':'dark';
+      root.setAttribute('data-theme',next);
+      try{localStorage.setItem('bojin-theme',next);}catch(e){}
+    });
+  });
+})();
+</script>
+<script src="nav.js?v=20261020-functional-3"></script>
 </body>
 </html>

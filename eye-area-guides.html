@@ -197,7 +197,7 @@
         <a class="active" href="blog.html">Journal</a>
         <a href="quiz.html">Quiz</a>
       </div>
-      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">☰</button>
+      <button class="nav-toggle" data-nav-toggle type="button" aria-label="Open menu" aria-expanded="false">☰</button>
       <div class="nav-cta">
         <button class="theme-toggle" aria-label="Toggle light or dark theme">◑</button>
         <a class="btn" href="landing.html#get">Free video</a>
@@ -336,14 +336,7 @@
     render();
   })();
 
-  document.querySelector('.nav-toggle').onclick = function() {
-    const open = document.querySelector('.site-header').classList.toggle('nav-open');
-    this.setAttribute('aria-expanded', String(open));
-  };
-  document.querySelector('.theme-toggle').onclick = () => {
-    document.documentElement.dataset.theme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-  };
   </script>
-<script src="nav.js?v=journal-entry-v8-2"></script>
+<script src="nav.js?v=20261020-functional-3"></script>
 </body>
 </html>
