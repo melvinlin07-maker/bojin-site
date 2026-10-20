@@ -172,6 +172,9 @@
       .e6 { padding: 28px 18px 56px; }
       .e6-grid-3 { grid-template-columns: 1fr; gap: 18px; }
       .e6-copy { padding: 20px 18px; }
+      .e6 .e6-quiz-callout { grid-template-columns: minmax(0, 1fr) !important; }
+      .e6-quiz-callout > div { min-width: 0; }
+      .e6-quiz-callout .btn { max-width: 100%; white-space: normal !important; text-align: center; }
       .e6-btn-primary, .e6-btn-secondary { width: 100%; box-sizing: border-box; }
     }
 
@@ -304,7 +307,7 @@
         </div>
 
         <!-- Cross-conversion cards -->
-        <div style="margin-top:38px; padding:28px 24px; background:var(--paper-2); border:1.5px solid var(--gold); border-radius:16px; display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; box-shadow:0 8px 24px rgba(45,36,40,.06)">
+        <div class="e6-quiz-callout" style="margin-top:38px; padding:28px 24px; background:var(--paper-2); border:1.5px solid var(--gold); border-radius:16px; display:grid; grid-template-columns:1fr auto; gap:20px; align-items:center; box-shadow:0 8px 24px rgba(45,36,40,.06)">
           <div>
             <span class="e6-badge live">${t('推薦下一步 · 自我檢測', 'RECOMMENDED NEXT STEP')}</span>
             <h3 style="margin:6px 0 6px; font-size:20px; color:var(--ink)">${t('不確定自己是哪種眼周張力？做個 1 分鐘自測', 'Not sure where your tension is concentrated?')}</h3>
