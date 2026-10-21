@@ -68,6 +68,7 @@
    - eventID is sent for future server-side dedup if systeme ever mirrors it.
    - Off-production this is a harmless no-op: fbq/gtag are stubbed above. */
 window.bojinLead = function(source){
+  try { localStorage.setItem('bojin-guide-requested', '1'); } catch(e) {}
   try{
     source = source || 'form';
     window.__bojinLeadFired = window.__bojinLeadFired || {};
@@ -309,104 +310,93 @@ window.bojinShare = function(opts, btnEl){
   }, {passive:true});
 })();
 
-/* ── UX Tool 3: Gentle Exit-Intent Modal ────────────────────────────────── */
-(function(){
-  if(location.pathname.indexOf('quiz') !== -1) return;
-
-  function initExitIntent(){
-    var shown = false;
-    try { shown = !!sessionStorage.getItem('bojin-exit-shown'); } catch(e){}
-    if(shown) return;
-
-    var modal = document.createElement('div');
-    modal.id = 'exitModal';
-    modal.className = 'exit-modal';
-    modal.style.display = 'none';
-    modal.setAttribute('aria-hidden', 'true');
-    modal.setAttribute('role', 'dialog');
-    modal.setAttribute('aria-modal', 'true');
-    modal.setAttribute('aria-label', 'Free guide reminder');
-    modal.innerHTML =
-      '<div class="exit-modal__backdrop" id="exitModalBackdrop"></div>' +
-      '<div class="exit-modal__card">' +
-        '<button class="exit-modal__close" id="exitModalClose" aria-label="Close dialog">&times;</button>' +
-        '<p class="exit-modal__eyebrow">Before you go</p>' +
-        '<h3 class="exit-modal__title">Save the 5-Zone Face Tension Guide</h3>' +
-        '<p class="exit-modal__desc">A concise, illustrated PDF reference covering brows, eyes, cheeks, jawline, and neck &mdash; plus comfortable pressure boundaries to practice safely at home.</p>' +
-        '<div class="exit-modal__actions">' +
-          '<a class="btn btn--lg" href="guide.html">Get the Free 5-Zone Guide &rarr;</a>' +
-          '<button class="exit-modal__dismiss" id="exitModalDismiss">Maybe later</button>' +
-        '</div>' +
-      '</div>';
-    document.body.appendChild(modal);
-
-    var previousFocus=null;
-    function show(){
-      if(shown) return;
-      previousFocus=document.activeElement;
+/* Gentle reminder: native dialog; no history interception or extra trackers. */
+(function () {
+  var path = location.pathname.split('/').pop() || 'index.html';
+  if (!/^(index|blog|blog-.+|about|method|safety|faq|eye-area-guides|brow-guide)\.html$/.test(path)) return;
+  var script = document.currentScript;
+  var cssURL = new URL('exit-reminder.css', script ? script.src : location.href).href;
+  function init() {
+    var shown = false, ready = false, engaged = false, lastInput = 0;
+    var dialog, previousFocus, previousOverflow, css;
+    var untilKey = 'bojin-reminder-until';
+    function suppressed() {
+      try {
+        return !!localStorage.getItem('bojin-guide-requested') ||
+          Number(localStorage.getItem(untilKey)) > Date.now() ||
+          !!sessionStorage.getItem('bojin-exit-shown');
+      } catch (e) { return false; }
+    }
+    if (suppressed() || typeof HTMLDialogElement === 'undefined') return;
+    function busy() {
+      var active = document.activeElement;
+      return document.hidden || Date.now() - lastInput < 8000 ||
+        (active && (active.isContentEditable || /^(INPUT|TEXTAREA|SELECT)$/.test(active.tagName))) ||
+        !!document.querySelector('dialog[open], [aria-modal="true"][aria-hidden="false"]') ||
+        Array.prototype.some.call(document.querySelectorAll('video,audio'), function (v) { return !v.paused && !v.ended; });
+    }
+    function cooldown() {
+      try { localStorage.setItem(untilKey, String(Date.now() + 7 * 86400000)); } catch (e) {}
+    }
+    function dismiss() { cooldown(); if (dialog.open) dialog.close(); }
+    function build() {
+      dialog = document.createElement('dialog');
+      dialog.id = 'bojinExitReminder';
+      dialog.setAttribute('aria-labelledby', 'bojinReminderTitle');
+      dialog.setAttribute('aria-describedby', 'bojinReminderDescription');
+      dialog.innerHTML = '<button type="button" class="ber-close" aria-label="Close reminder" autofocus>&times;</button>' +
+        '<p class="ber-eyebrow">A little something before you go</p>' +
+        '<div class="ber-book" aria-hidden="true"><span>THE BOJIN METHOD</span><strong>5 zones.<br>A gentler start.</strong><i>FREE BEGINNER\u2019S GUIDE</i></div>' +
+        '<h2 id="bojinReminderTitle">Does your face feel tense\u2014even when you\u2019re trying to relax?</h2>' +
+        '<p id="bojinReminderDescription">Start with our free <em>5-Zone Face Tension Self-Check</em> guide to facial tension and gentle Bojin self-care. Learn what to notice, where to begin, and when to pause.</p>' +
+        '<a class="ber-primary" href="/guide.html">Send Me the Free Guide <span aria-hidden="true">&rarr;</span></a>' +
+        '<p class="ber-note">Enter your email on the next page to receive the PDF.</p>' +
+        '<a class="ber-secondary" href="/blog.html">I\u2019ll Explore the Articles First</a>' +
+        '<button type="button" class="ber-dismiss">No thanks, I\u2019m just browsing.</button>';
+      document.body.appendChild(dialog);
+      dialog.querySelector('.ber-close').addEventListener('click', dismiss);
+      dialog.querySelector('.ber-dismiss').addEventListener('click', dismiss);
+      dialog.addEventListener('cancel', function () { cooldown(); });
+      dialog.addEventListener('click', function (event) { if (event.target === dialog) {
+        var rect = dialog.getBoundingClientRect();
+        if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dismiss();
+      }});
+      dialog.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', cooldown); });
+      dialog.addEventListener('close', function () {
+        document.body.style.overflow = previousOverflow;
+        if (previousFocus && previousFocus.isConnected) previousFocus.focus({preventScroll:true});
+      });
+    }
+    function show() {
+      if (shown || !ready || !engaged || suppressed() || busy()) return;
+      if (!css) {
+        css = document.createElement('link'); css.rel = 'stylesheet'; css.href = cssURL;
+        css.onload = show; document.head.appendChild(css); return;
+      }
+      if (!css.sheet) return;
+      if (!dialog) build();
       shown = true;
-      try { sessionStorage.setItem('bojin-exit-shown', '1'); } catch(e){}
-      modal.style.display='flex';
-      modal.classList.add('is-visible');
-      modal.setAttribute('aria-hidden', 'false');
-      document.getElementById('exitModalClose').focus({preventScroll:true});
+      try { sessionStorage.setItem('bojin-exit-shown', '1'); } catch (e) {}
+      previousFocus = document.activeElement; previousOverflow = document.body.style.overflow;
+      dialog.showModal(); document.body.style.overflow = 'hidden';
+      window.removeEventListener('scroll', onScroll);
+      document.documentElement.removeEventListener('mouseleave', onLeave);
     }
-
-    function hide(){
-      modal.classList.remove('is-visible');
-      modal.setAttribute('aria-hidden', 'true');
-      modal.style.display='none';
-      if(previousFocus && previousFocus.isConnected) previousFocus.focus({preventScroll:true});
+    function mobile() { return matchMedia('(hover: none), (pointer: coarse), (max-width: 767px)').matches; }
+    function onScroll() {
+      var max = document.documentElement.scrollHeight - innerHeight;
+      if (max > 200 && scrollY / max >= 0.45) engaged = true;
+      if (mobile()) show();
     }
-
-    document.getElementById('exitModalClose').addEventListener('click', hide);
-    document.getElementById('exitModalBackdrop').addEventListener('click', hide);
-    document.getElementById('exitModalDismiss').addEventListener('click', hide);
-    document.addEventListener('keydown', function(e){
-      if(!modal.classList.contains('is-visible')) return;
-      if(e.key === 'Escape'){ e.preventDefault(); hide(); return; }
-      if(e.key === 'Tab'){
-        var items=modal.querySelectorAll('button, a[href]');
-        var first=items[0], last=items[items.length-1];
-        if(e.shiftKey && document.activeElement===first){ e.preventDefault(); last.focus(); }
-        else if(!e.shiftKey && document.activeElement===last){ e.preventDefault(); first.focus(); }
-      }
-    });
-
-    // Desktop exit-intent: mouse leaves through top
-    document.documentElement.addEventListener('mouseleave', function(e){
-      if(e.clientY <= 0 && window.scrollY > 200){
-        show();
-      }
-    });
-
-    // Mobile intent: user stays > 25s, scrolled down > 300px, then rapidly scrolls up
-    var lastInteraction=0;
-    function noteInteraction(){ lastInteraction=Date.now(); }
-    document.addEventListener('pointerdown',noteInteraction,{passive:true});
-    document.addEventListener('keydown',noteInteraction);
-    document.addEventListener('input',noteInteraction);
-    function busy(){
-      return Date.now()-lastInteraction<8000 ||
-        /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement && document.activeElement.tagName) ||
-        Array.prototype.some.call(document.querySelectorAll('video'),function(v){return !v.paused && !v.ended;});
-    }
-    var lastY = window.scrollY;
-    var stayTime = 0;
-    var timer = setInterval(function(){ stayTime += 1; }, 1000);
-    window.addEventListener('scroll', function(){
-      var curY = window.scrollY;
-      var diff = lastY - curY;
-      if(stayTime >= 25 && curY > 300 && diff > 150 && !busy()){
-        show();
-      }
-      lastY = curY;
-    }, {passive:true});
+    function onLeave(event) { if (!mobile() && event.clientY <= 0) show(); }
+    document.addEventListener('input', function () { lastInput = Date.now(); }, {passive:true});
+    document.addEventListener('pointerdown', function () { lastInput = Date.now(); }, {passive:true});
+    document.addEventListener('keydown', function () { lastInput = Date.now(); });
+    document.documentElement.addEventListener('mouseleave', onLeave);
+    window.addEventListener('scroll', onScroll, {passive:true});
+    // Mobile uses reading engagement, not a claim to detect an actual exit.
+    setTimeout(function () { ready = true; onScroll(); }, 25000);
   }
-
-  if(document.readyState === 'loading'){
-    document.addEventListener('DOMContentLoaded', initExitIntent);
-  } else {
-    initExitIntent();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true});
+  else init();
 })();
