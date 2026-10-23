@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
 <url><loc>https://bojinfacetension.com/</loc><lastmod>2026-10-23</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
 <url><loc>https://bojinfacetension.com/start.html</loc><lastmod>2026-07-24</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
 <url><loc>https://bojinfacetension.com/about.html</loc><lastmod>2026-07-13</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
@@ -112,4 +112,5 @@
   <url><loc>https://bojinfacetension.com/articles.html</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bojinfacetension.com/eye-area-guides.html</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://bojinfacetension.com/brow-guide.html</loc><lastmod>2026-10-23</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+<url><loc>https://bojinfacetension.com/watch-inner-brow-bojin.html</loc><lastmod>2026-10-23</lastmod><video:video><video:thumbnail_loc>https://bojinfacetension.com/assets/journal/7692c6dd09.png</video:thumbnail_loc><video:title>Not upset. Still frowning? Inner-brow Bojin preview</video:title><video:description>A 12-second inner-brow expression and teacher demonstration excerpt. An observation preview, not a complete routine.</video:description><video:content_loc>https://bojinfacetension.com/assets/journal/7d0eda9fcf.mp4</video:content_loc><video:duration>12</video:duration><video:publication_date>2026-10-18</video:publication_date></video:video></url>
 </urlset>
