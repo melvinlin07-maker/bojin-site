@@ -315,7 +315,7 @@ window.bojinShare = function(opts, btnEl){
   var path = location.pathname.split('/').pop() || 'index.html';
   if (!/^(index|blog|blog-.+|about|method|safety|faq|eye-area-guides|brow-guide)\.html$/.test(path)) return;
   var script = document.currentScript;
-  var cssURL = new URL('exit-reminder.css', script ? script.src : location.href).href;
+  var cssURL = new URL('exit-reminder.css?v=20261023-cover-1', script ? script.src : location.href).href;
   function init() {
     var shown = false, ready = false, engaged = false, lastInput = 0;
     var dialog, previousFocus, previousOverflow, css;
@@ -346,7 +346,7 @@ window.bojinShare = function(opts, btnEl){
       dialog.setAttribute('aria-describedby', 'bojinReminderDescription');
       dialog.innerHTML = '<button type="button" class="ber-close" aria-label="Close reminder" autofocus>&times;</button>' +
         '<p class="ber-eyebrow">A little something before you go</p>' +
-        '<div class="ber-book" aria-hidden="true"><span>THE BOJIN METHOD</span><strong>5 zones.<br>A gentler start.</strong><i>FREE BEGINNER\u2019S GUIDE</i></div>' +
+        '<div class="ber-cover" aria-hidden="true"><img src="/assets/guide-5-zone-cover.svg?v=20261023-cover-1" width="640" height="280" alt="" decoding="async"></div>' +
         '<h2 id="bojinReminderTitle">Does your face feel tense\u2014even when you\u2019re trying to relax?</h2>' +
         '<p id="bojinReminderDescription">Start with our free <em>5-Zone Face Tension Self-Check</em> guide to facial tension and gentle Bojin self-care. Learn what to notice, where to begin, and when to pause.</p>' +
         '<a class="ber-primary" href="/guide.html">Send Me the Free Guide <span aria-hidden="true">&rarr;</span></a>' +
