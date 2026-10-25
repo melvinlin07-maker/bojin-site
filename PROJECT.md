@@ -1,5 +1,7 @@
 # PROJECT.md — The Bojin Method（美國站）
 
+> **最新進度索引（2026-10-25）**：請先讀同資料夾的 `網站更改總紀錄_截至2026-10-25.md`。以下2026-08-08內容為歷史基線，頁數、表單、索引與Git狀態不可直接當成現況；最新正式版本5931c08。
+
 > 專案事實與商業脈絡基線。任何新的 AI／新 Session 接手前，先讀本檔 + `CLAUDE.md` + `DECISIONS.md`。
 > **更新日期：2026-08-08**
 > 建立方式：Phase 1 Evidence Inventory（程式碼盤點）+ Phase 2 Context Interview（訪談使用者）+ Phase 3 Capability Discovery + Phase 4 Synthesis。
