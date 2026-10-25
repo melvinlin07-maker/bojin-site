@@ -1,6 +1,6 @@
-/* Shared language preference for the three public-language V8 previews. */
+/* Shared language preference for the public-language V8 previews. */
 (() => {
-  const key = 'bojin-public-language-v1';
+  const key = 'bojin-public-language-v2';
   const pages = [
     'blog.html',
     'eye-area-guides.html',
@@ -8,11 +8,16 @@
   ];
   let memory = 'en';
   function get() {
-    try { return localStorage.getItem(key) === 'zh' ? 'zh' : 'en'; }
+    try {
+      const v = localStorage.getItem(key);
+      if (v === 'es') return 'es';
+      if (v === 'en') return 'en';
+      return 'en';
+    }
     catch (_) { return memory; }
   }
   function remember(lang) {
-    memory = lang === 'zh' ? 'zh' : 'en';
+    memory = lang === 'es' ? 'es' : 'en';
     try { localStorage.setItem(key, memory); } catch (_) {}
   }
   function choose(lang) {
@@ -21,22 +26,24 @@
     url.searchParams.set('lang', memory);
     history.replaceState(null, '', url);
   }
-  function sync(zh) {
-    const lang = zh ? 'zh' : 'en';
-    document.documentElement.lang = zh ? 'zh-Hant' : 'en';
+  function sync(es) {
+    const lang = es ? 'es' : 'en';
+    document.documentElement.lang = es ? 'es' : 'en';
     const button = document.querySelector('#lang-btn, #v3-lang');
     if (button) {
-      button.textContent = zh ? 'English' : '繁體中文';
-      button.setAttribute('aria-label', zh ? '切換至英文' : 'Switch to Traditional Chinese');
-      button.setAttribute('title', zh ? 'English' : '繁體中文');
-      button.setAttribute('lang', zh ? 'en' : 'zh-Hant');
+      button.textContent = es ? '🌐 English' : '🌐 Español';
+      button.setAttribute('aria-label', es ? 'Switch to English' : 'Cambiar a Español');
+      button.setAttribute('title', es ? 'English' : 'Español');
+      button.setAttribute('lang', es ? 'en' : 'es');
     }
     document.querySelectorAll('a[href]').forEach(a => {
-      const url = new URL(a.getAttribute('href'), location.href);
-      if (url.origin === location.origin && pages.some(page => decodeURIComponent(url.pathname).endsWith('/' + page))) {
-        url.searchParams.set('lang', lang);
-        a.href = url.href;
-      }
+      try {
+        const url = new URL(a.getAttribute('href'), location.href);
+        if (url.origin === location.origin && pages.some(page => decodeURIComponent(url.pathname).endsWith('/' + page))) {
+          url.searchParams.set('lang', lang);
+          a.href = url.href;
+        }
+      } catch (_) {}
     });
   }
   window.BojinLanguage = {get, remember, choose, sync};

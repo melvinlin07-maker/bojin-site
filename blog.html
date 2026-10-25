@@ -282,39 +282,39 @@
   (() => {
     const saved = BojinLanguage.get();
     const requestedLang = new URLSearchParams(location.search).get('lang');
-    let zh = requestedLang ? requestedLang === 'zh' : saved === 'zh';
-    BojinLanguage.remember(zh ? 'zh' : 'en');
-    const t = (a, b) => zh ? a : b;
+    let es = requestedLang ? requestedLang === 'es' : saved === 'es';
+    BojinLanguage.remember(es ? 'es' : 'en');
+    const t = (spanish, english) => es ? spanish : english;
     const app = document.querySelector('#journal-app');
 
     const articles = [
-      ['brow','眉周與額頭','Brows & Forehead','Forehead tension after screen time? Start with what you can notice','blog-screen-to-forehead-tension-chain.html','journal/c35e71b0c5.jpg'],
-      ['brow','眉周與頭皮','Brows & Scalp','The tightness in your scalp is showing up on your face','blog-scalp-and-temple-tightness-and-your-face.html','bojin-scalp-portrait-hero.webp'],
-      ['jaw','下顎與頸部','Jaw & Neck','Clench or grind your teeth? An honest look at jaw tension and bojin','blog-jaw-clenching-grinding-and-bojin.html','bojin-jaw-portrait-hero-clenching.webp'],
-      ['jaw','下顎與頸部','Jaw & Neck','That tired look might start in your neck, not your face','blog-neck-tension-showing-in-your-face.html','bojin-neck-portrait-hero.webp'],
-      ['daily','日常習慣','Daily Habits','Why rounded shoulders can make your whole face look heavier','blog-rounded-shoulders-and-a-heavier-looking-face.html','bojin-shoulders-portrait-hero.webp'],
-      ['daily','日常習慣','Daily Habits','Why your face looks more tired at 9 PM than at 9 AM','blog-why-your-face-looks-more-tired-at-night.html','bojin-evening-portrait-hero.webp']
+      ['brow','Cejas y frente','Brows & Forehead','Forehead tension after screen time? Start with what you can notice','blog-screen-to-forehead-tension-chain.html','journal/c35e71b0c5.jpg'],
+      ['brow','Cejas y cuero cabelludo','Brows & Scalp','The tightness in your scalp is showing up on your face','blog-scalp-and-temple-tightness-and-your-face.html','bojin-scalp-portrait-hero.webp'],
+      ['jaw','Mandíbula y cuello','Jaw & Neck','Clench or grind your teeth? An honest look at jaw tension and bojin','blog-jaw-clenching-grinding-and-bojin.html','bojin-jaw-portrait-hero-clenching.webp'],
+      ['jaw','Mandíbula y cuello','Jaw & Neck','That tired look might start in your neck, not your face','blog-neck-tension-showing-in-your-face.html','bojin-neck-portrait-hero.webp'],
+      ['daily','Hábitos diarios','Daily Habits','Why rounded shoulders can make your whole face look heavier','blog-rounded-shoulders-and-a-heavier-looking-face.html','bojin-shoulders-portrait-hero.webp'],
+      ['daily','Hábitos diarios','Daily Habits','Why your face looks more tired at 9 PM than at 9 AM','blog-why-your-face-looks-more-tired-at-night.html','bojin-evening-portrait-hero.webp']
     ];
 
     function render() {
-      document.documentElement.lang = zh ? 'zh-Hant' : 'en';
+      document.documentElement.lang = es ? 'es' : 'en';
       app.innerHTML = `
         <div class="j4-top">
           <p class="eyebrow" style="margin:0">THE BOJIN JOURNAL</p>
-          <button class="v3-lang" id="lang-btn">🌐 ${zh ? 'English' : '繁體中文'}</button>
+          <button class="v3-lang" id="lang-btn">🌐 ${es ? 'English' : 'Español'}</button>
         </div>
 
-        <h1>${t('看見動作，看懂細節。', 'See the movement. Understand the detail.')}</h1>
-        <p class="j4-tagline">${t('短片分解與深度文章，從你自在的方式開始。', 'Visual technique guides or thoughtful essays. Begin at your own pace.')}</p>
-        <p class="j4-lead">${t('透過分解短片與肌肉地圖看清動作軌跡，或用文章理解日常表情緊繃背後的連鎖反應。', 'Explore visual breakdowns and muscle maps for clear technique, or read thoughtful essays on everyday tension habits.')}</p>
+        <h1>${t('Observa el movimiento. Comprende el detalle.', 'See the movement. Understand the detail.')}</h1>
+        <p class="j4-tagline">${t('Guías visuales de técnica o ensayos reflexivos. Comienza a tu propio ritmo.', 'Visual technique guides or thoughtful essays. Begin at your own pace.')}</p>
+        <p class="j4-lead">${t('Explora desgloses visuales y mapas musculares para una técnica precisa, o lee ensayos reflexivos sobre los hábitos de tensión diaria.', 'Explore visual breakdowns and muscle maps for clear technique, or read thoughtful essays on everyday tension habits.')}</p>
 
         <div class="j4-doors">
           <a class="j4-door" href="eye-area-guides.html">
             <div>
               <span class="j4-tag">WATCH & EXPLORE</span>
-              <h2>${t('影片與部位圖解', 'Visual Technique Guides')}</h2>
-              <p>${t('透過短片分解、五肌位置圖與慢動作對比，一次看懂一個眼周局部細節。', 'Short clips, anatomical maps, and movement comparisons for the eye area.')}</p>
-              <span class="j4-door-cta">${t('探索眼周三大部位 →', 'Explore 3 eye-area regions →')}</span>
+              <h2>${t('Guías Visuales de Técnica', 'Visual Technique Guides')}</h2>
+              <p>${t('Videos cortos, mapas anatómicos y comparaciones de movimiento para el área de los ojos.', 'Short clips, anatomical maps, and movement comparisons for the eye area.')}</p>
+              <span class="j4-door-cta">${t('Explorar 3 zonas oculares →', 'Explore 3 eye-area regions →')}</span>
             </div>
             <img src="assets/journal/c35e71b0c5.jpg" alt="Visual technique guide">
           </a>
@@ -322,9 +322,9 @@
           <a class="j4-door" href="articles.html">
             <div>
               <span class="j4-tag">READ & REFLECT</span>
-              <h2>${t('深度文章閱讀', 'In-Depth Articles')}</h2>
-              <p>${t('從螢幕用眼、咬牙習慣到肩頸緊繃，理解臉部疲態背後的連鎖反應。', 'Essays on screen fatigue, jaw clenching, neck tension, and daily habits.')}</p>
-              <span class="j4-door-cta">${t('瀏覽完整文章庫 →', 'Browse all articles →')}</span>
+              <h2>${t('Artículos en Profundidad', 'In-Depth Articles')}</h2>
+              <p>${t('Ensayos sobre fatiga visual, tensión al apretar la mandíbula, rigidez en el cuello y hábitos diarios.', 'Essays on screen fatigue, jaw clenching, neck tension, and daily habits.')}</p>
+              <span class="j4-door-cta">${t('Ver todos los artículos →', 'Browse all articles →')}</span>
             </div>
             <img src="assets/bojin-forehead-portrait-hero.webp" alt="In-depth articles">
           </a>
@@ -334,36 +334,36 @@
           <div class="j4-heading">
             <div>
               <p class="eyebrow">FEATURED · BROWS & FOREHEAD (REGION 01)</p>
-              <h2>${t('從你今天注意到的小狀態開始', 'Start with a small detail you noticed today')}</h2>
+              <h2>${t('Comienza con un detalle que hayas notado hoy', 'Start with a small detail you noticed today')}</h2>
             </div>
-            <a class="btn btn--ghost" href="eye-area-guides.html">${t('瀏覽眼周三大部位 →', 'View all 3 eye-area regions →')}</a>
+            <a class="btn btn--ghost" href="eye-area-guides.html">${t('Ver las 3 zonas oculares →', 'View all 3 eye-area regions →')}</a>
           </div>
 
           <div class="j4-grid">
             <a class="j4-card" href="brow-guide.html#notice">
               <img src="assets/journal/7692c6dd09.png" alt="Inner brow expression" style="object-position:center 62%">
               <div>
-                <span class="j4-tag">${t('Part 01 · 認出表情', 'PART 01 · NOTICE EXPRESSION')}</span>
-                <h3>${t('沒有生氣，怎麼還皺著眉？', 'Not upset. Still frowning?')}</h3>
-                <span class="j4-card-go">${t('閱讀分解指南 →', 'Explore Part 01 →')}</span>
+                <span class="j4-tag">${t('Parte 01 · Observar la expresión', 'PART 01 · NOTICE EXPRESSION')}</span>
+                <h3>${t('Sin estar molesta, ¿aún frunces el ceño?', 'Not upset. Still frowning?')}</h3>
+                <span class="j4-card-go">${t('Explorar Parte 01 →', 'Explore Part 01 →')}</span>
               </div>
             </a>
 
             <a class="j4-card" href="brow-guide.html#compare">
               <img src="assets/journal/c35e71b0c5.jpg" alt="Circle vs sway comparison">
               <div>
-                <span class="j4-tag">${t('Part 03 · 動作對比', 'PART 03 · COMPARE PATHS')}</span>
-                <h3>${t('定點小圓，和左右晃，差在哪？', 'A complete circle, or a side-to-side sway?')}</h3>
-                <span class="j4-card-go">${t('看動作軌跡對比 →', 'Compare the movements →')}</span>
+                <span class="j4-tag">${t('Parte 03 · Comparación de movimiento', 'PART 03 · COMPARE PATHS')}</span>
+                <h3>${t('Un círculo completo o un balanceo lateral: ¿cuál es la diferencia?', 'A complete circle, or a side-to-side sway?')}</h3>
+                <span class="j4-card-go">${t('Comparar movimientos →', 'Compare the movements →')}</span>
               </div>
             </a>
 
             <a class="j4-card" href="brow-guide.html#prepare">
               <img src="assets/journal/8bb4877b14.jpg" alt="10-second cheek glide check">
               <div>
-                <span class="j4-tag">${t('Part 04 · 安全準備', 'PART 04 · GLIDE CHECK')}</span>
-                <h3>${t('動手以前，先看老師怎麼做滑度檢查。', 'Before practice, watch the 10-second glide check.')}</h3>
-                <span class="j4-card-go">${t('看準備步驟 →', 'Watch preparation →')}</span>
+                <span class="j4-tag">${t('Parte 04 · Preparación segura', 'PART 04 · GLIDE CHECK')}</span>
+                <h3>${t('Antes de practicar, observa la prueba de deslizamiento de 10 segundos.', 'Before practice, watch the 10-second glide check.')}</h3>
+                <span class="j4-card-go">${t('Ver preparación →', 'Watch preparation →')}</span>
               </div>
             </a>
           </div>
@@ -373,40 +373,40 @@
           <div class="j4-heading">
             <div>
               <p class="eyebrow">READ & LEARN · ESSAYS</p>
-              <h2>${t('深度閱讀：臉部緊繃與日常習慣', 'Essays on Facial Tension & Daily Habits')}</h2>
+              <h2>${t('Ensayos sobre Tensión Facial y Hábitos Diarios', 'Essays on Facial Tension & Daily Habits')}</h2>
             </div>
-            <a class="btn btn--ghost" href="https://bojinfacetension.com/articles.html" target="_blank" rel="noopener">${t('查看全部文章 ↗', 'View all articles ↗')}</a>
+            <a class="btn btn--ghost" href="https://bojinfacetension.com/articles.html" target="_blank" rel="noopener">${t('Ver todos los artículos ↗', 'View all articles ↗')}</a>
           </div>
           <div class="j4-toolbar">
-            <input id="j4-search" type="search" aria-label="${t('搜尋文章', 'Search articles')}" placeholder="${t('輸入關鍵字搜尋文章...', 'Search articles by keyword...')}">
-            <select id="j4-category" aria-label="${t('文章部位分類', 'Filter by area')}">
-              <option value="all">${t('所有主題', 'All Topics')}</option>
-              <option value="brow">${t('眉周與額頭', 'Brows & Forehead')}</option>
-              <option value="jaw">${t('下顎與頸部', 'Jaw & Neck')}</option>
-              <option value="daily">${t('日常狀態', 'Daily Habits')}</option>
+            <input id="j4-search" type="search" aria-label="${t('Buscar artículos', 'Search articles')}" placeholder="${t('Buscar artículos por palabra clave...', 'Search articles by keyword...')}">
+            <select id="j4-category" aria-label="${t('Filtrar por área', 'Filter by area')}">
+              <option value="all">${t('Todos los temas', 'All Topics')}</option>
+              <option value="brow">${t('Cejas y frente', 'Brows & Forehead')}</option>
+              <option value="jaw">${t('Mandíbula y cuello', 'Jaw & Neck')}</option>
+              <option value="daily">${t('Hábitos diarios', 'Daily Habits')}</option>
             </select>
           </div>
           <p id="j4-count" class="j4-note" aria-live="polite"></p>
           <div id="j4-articles" class="j4-grid"></div>
-          <p id="j4-empty" hidden>${t('沒有符合條件的文章，請嘗試其他關鍵字。', 'No matching articles found. Try another keyword.')}</p>
+          <p id="j4-empty" hidden>${t('No se encontraron artículos coincidentes. Prueba con otra palabra clave.', 'No matching articles found. Try another keyword.')}</p>
         </section>
 
         <section style="margin-top:42px; padding:32px 34px; background:var(--paper-3); border:1px solid var(--gold); border-radius:14px; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px">
           <div>
             <p class="eyebrow" style="margin:0 0 6px 0">NEXT · EYE AREA REGIONS</p>
-            <h2 style="margin:0 0 8px 0; font-size:26px">${t('想直接看眼周三大部位的動作分解嗎？', 'Want to explore the eye-area movement guides?')}</h2>
-            <p style="margin:0; color:var(--ink-soft); font-size:16px">${t('進入眼周三大部位，從眉上與眉頭、上眼眶骨到下眼眶骨，一步步看清細節。', 'Continue to our three eye-area regions—from brows to the upper and lower orbital rims.')}</p>
+            <h2 style="margin:0 0 8px 0; font-size:26px">${t('¿Deseas explorar las guías de movimiento de la zona ocular?', 'Want to explore the eye-area movement guides?')}</h2>
+            <p style="margin:0; color:var(--ink-soft); font-size:16px">${t('Continúa hacia nuestras tres zonas oculares: desde las cejas hasta los rebordes orbitarios superior e inferior.', 'Continue to our three eye-area regions—from brows to the upper and lower orbital rims.')}</p>
           </div>
           <a class="btn" style="background:var(--jade); color:var(--brand-on); padding:13px 24px; border-radius:30px; font-weight:700; text-decoration:none" href="eye-area-guides.html">
-            ${t('前往探索眼周三大部位 →', 'Explore 3 Eye-Area Regions →')}
+            ${t('Explorar las 3 zonas oculares →', 'Explore 3 Eye-Area Regions →')}
           </a>
         </section>
       `;
 
-      BojinLanguage.sync(zh);
+      BojinLanguage.sync(es);
       document.querySelector('#lang-btn').onclick = () => {
-        zh = !zh;
-        BojinLanguage.choose(zh ? 'zh' : 'en');
+        es = !es;
+        BojinLanguage.choose(es ? 'es' : 'en');
         render();
       };
 
@@ -414,7 +414,7 @@
         const q = document.querySelector('#j4-search').value.trim().toLowerCase();
         const cat = document.querySelector('#j4-category').value;
         const shown = articles.filter(a => (cat === 'all' || a[0] === cat) && (a[1] + ' ' + a[2] + ' ' + a[3]).toLowerCase().includes(q));
-        document.querySelector('#j4-count').textContent = zh ? `共 ${shown.length} 篇文章` : `Showing ${shown.length} articles`;
+        document.querySelector('#j4-count').textContent = es ? `Mostrando ${shown.length} artículos` : `Showing ${shown.length} articles`;
         document.querySelector('#j4-empty').hidden = shown.length > 0;
         document.querySelector('#j4-articles').innerHTML = shown.map(a => `
           <a class="j4-card" href="${a[4]}" target="_blank" rel="noopener">
@@ -422,7 +422,7 @@
             <div>
               <span class="j4-tag">${t(a[1], a[2])}</span>
               <h3>${a[3]}</h3>
-              <span class="j4-card-go">${t('閱讀全文 →', 'Read article →')}</span>
+              <span class="j4-card-go">${t('Leer artículo →', 'Read article →')}</span>
             </div>
           </a>
         `).join('');
