@@ -71,3 +71,19 @@
 - 內容要分清楚：已確認事實／商業決策／假設／未驗證。
 - 不寫任何 secret／token／password／API key。
 - 不要讓文件變成「過期真相」；發現與現況不符時，先查證再更新，並更新日期。
+
+## 8. 常態主動加碼協議（Proactive Agent Protocol）
+- **打破被動死循環**：每次完成使用者的提問或修改指令後，必須在回覆結尾主動附上：
+  **💡【偵察報告：您沒想到的 1～2 個升級大招】**
+- 內容須聚焦於：高投資報酬率（ROI）、零成本前端可實現、能直接提升美國客群信任度或留名單轉換率的隱藏技巧，並用最白話的方式解釋「為什麼有效」。
+
+## 9. 醫療法規絕對紅線（Strict Non-Medical Compliance）
+- **絕對禁用詞**：全站（含中、英、西語及後台腳本）嚴禁出現「觸診」、「触诊」、「palpation」、「diagnose」、「medical treatment」、「cure」、「永久消除皺紋」。
+- **合法替代詞**：
+  - 中文：「10秒自我觀察」、「輕觸感受」、「自我保養儀式」
+  - 英文：`10-Second Touch Check`, `Self-Care Observation`, `Gentle Placement`
+  - 西語：`observación táctil de 10 segundos`, `autocuidado manual`, `la mano de apoyo`（輔助手）
+
+## 10. 語言主次與手機排版鐵律（Language & Mobile Layout Rules）
+- **英文絕對優先**：全站所有頁面預設載入 100% 純英文（`lang="en"`）。按鈕預設顯示 `🌐 Español`（點擊後才切換為西班牙語，同時按鈕變為 `🌐 English` 供切回）。嚴禁預設顯示西語或誤載入中文。
+- **手機端按鈕位置**：手機版（`<= 1250px`）頂部深紫色導覽列禁止放置語言切換鈕（避免擠壓品牌名稱）；語言切換鈕必須置於米色畫布區 `.hero-eyebrow-row` 右側（正對漢堡選單三條橫槓下方）。
