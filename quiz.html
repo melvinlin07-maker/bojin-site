@@ -340,6 +340,7 @@
         '<h1 class="display" style="font-size:clamp(2rem,5vw,3rem)">Your face holds the most tension around your <span style="color:var(--jade-deep)">'+ZONE_LABEL[top].toLowerCase()+'</span>.</h1>'+
         '<div class="radar-box">'+buildRadar(sc)+'</div>'+
         '<div class="zone-scores">'+chips+'</div>'+
+        '<p style="margin:.95rem 0 0"><button type="button" class="btn btn--ghost" id="copyQuizSummaryBtn" style="font-size:.86rem;padding:.5rem 1.05rem">📋 Copy My 5-Zone Tension Summary</button></p>'+
         '<p class="lead" style="margin-inline:auto">Higher means more tension, lower means more rested. Here’s a gentle reset for the area asking for the most attention right now.</p>'+
       '</div>'+
       '<div class="quiz-card" style="margin-top:1.6rem;text-align:left">'+
@@ -425,6 +426,8 @@
         if(restart) restart.disabled=false;
       }
     }); }
+    var cpBtn=document.getElementById('copyQuizSummaryBtn');
+    if(cpBtn){ cpBtn.addEventListener('click', function(){ var sTxt='My Face Tension Profile (The Bojin Method): Primary focus = '+ZONE_LABEL[top]+' ('+Math.round(sc[top])+'/100). Full scores: '+RADAR.map(function(z){return ZONE_SHORT[z]+': '+Math.round(sc[z]);}).join(', ')+'. Free check: https://bojinfacetension.com/quiz.html'; if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(sTxt).then(function(){if(window.bojinToast)window.bojinToast('✓ Your 5-Zone Tension Summary is copied!');cpBtn.textContent='✓ Summary Copied!';});} }); }
     var rs=document.getElementById('quizRestart');
     if(rs){ rs.addEventListener('click', function(){ answers=new Array(QUESTIONS.length).fill(null); cur=0;
       elResult.hidden=true; elResult.innerHTML=''; elIntro.hidden=false; window.scrollTo({top:0,behavior:'smooth'}); }); }

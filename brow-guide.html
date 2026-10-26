@@ -630,6 +630,7 @@
 
 
 .v3-lang { min-height:44px; min-width:96px; font-size:16px; }
+#audio-guide-bar { scroll-margin-top: 200px; margin: 18px 0 24px !important; }
 </style>
 
 <link rel="canonical" href="https://bojinfacetension.com/brow-guide.html">
@@ -649,8 +650,7 @@
         <a href="results.html">Results</a>
         <a href="landing.html">Eye Reset</a>
         <a class="active" href="blog.html">Journal</a>
-        <a href="quiz.html">Quiz</a>
-      </div>
+              </div>
       <button class="nav-toggle" data-nav-toggle type="button" aria-label="Open menu" aria-expanded="false">☰</button>
       <div class="nav-cta">
         <button class="theme-toggle" aria-label="Toggle light or dark theme">◑</button>
@@ -686,6 +686,16 @@
         <h1>A small area at the inner brow. Worth a closer look.</h1>
         <p style="font-size:20px;font-weight:600;color:var(--gold-ink);margin:0 0 10px">See the movement. Understand the detail.</p>
         <p class="v3-intro" style="border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:12px">Region 01 of our eye series: Brows &amp; Inner Brow. Scroll through 6 structured parts: Expression → 5-Muscle Map → Movement Comparison → Glide Preparation → 5 Detail Q&amp;As → Full Sequence Orientation. Use the sticky navigator above to jump between parts at any time.</p>
+<div class="bojin-audio-bar" id="audio-guide-bar" data-audio-src="" style="margin: 1.2rem 0 2rem;">
+  <div class="bab-left">
+    <button type="button" class="bab-play-btn" data-audio-guide-btn>🎧 Listen to 3-Min Audio Guide</button>
+    <div class="bab-meta">
+      <span class="bab-title">Brows feeling heavy from screens? Listen to the movement walk-through</span>
+      <span class="bab-sub">Spoken English guide · Small circles vs swaying comparison</span>
+    </div>
+  </div>
+</div>
+
 
         <!-- PART 01: NOTICE -->
         <section class="v6-section" id="notice">
@@ -768,6 +778,9 @@
             </button>
             <button class="v5-tab-btn" data-mode="sidebyside" aria-pressed="false">
               ⚖️ Simultaneous Dual View
+            </button>
+            <button class="v5-tab-btn" id="part03-audio-btn" type="button" style="background:var(--paper-3);border-color:var(--cta-border);color:var(--ink);font-weight:700">
+              🎧 Listen: Why Small Circles Matter (1-Min Audio)
             </button>
           </div>
 
@@ -1358,6 +1371,16 @@
         <p style="font-size:20px;font-weight:600;color:var(--gold-ink);margin:0 0 10px">${t('看見動作，看懂細節。', 'See the movement. Understand the detail.')}</p>
         <p class="v3-intro" style="border-bottom:1px solid var(--line);padding-bottom:24px;margin-bottom:12px">${t('這是眼周三大部位的第一篇。本頁將 6 個核心章節連貫呈現：日常表情 → 五肌解剖地圖 → 定點小圓 vs 左右晃動作對比 → 動手前滑度準備 → 5 個細節問答 → 完整眼部五步驟總覽。利用頂端小目錄可隨時跳轉。', 'Region 01 of our eye series: Brows & Inner Brow. Scroll through 6 structured parts: Expression → 5-Muscle Map → Movement Comparison → Glide Preparation → 5 Detail Q&As → Full Sequence Orientation. Use the sticky navigator above to jump between parts at any time.')}</p>
 
+        <div class="bojin-audio-bar" id="audio-guide-bar" data-audio-src="" style="margin: 1.2rem 0 2rem;">
+          <div class="bab-left">
+            <button type="button" class="bab-play-btn" data-audio-guide-btn>🎧 ${t('收聽 3 分鐘語音導讀', 'Listen to 3-Min Audio Guide')}</button>
+            <div class="bab-meta">
+              <span class="bab-title">${t('看螢幕眼睛酸？閉上眼收聽這篇眉眼教學重點', 'Brows feeling heavy from screens? Listen to the movement walk-through')}</span>
+              <span class="bab-sub">${t('美式英文真人語音導讀 · 6 大重點步驟導覽', 'Spoken English guide · Small circles vs swaying comparison')}</span>
+            </div>
+          </div>
+        </div>
+
         <!-- PART 01: NOTICE -->
         <section class="v6-section" id="notice">
           <span class="v6-part-badge">PART 01 · ${val(data.notice.label)}</span>
@@ -1439,6 +1462,9 @@
             </button>
             <button class="v5-tab-btn" data-mode="sidebyside" aria-pressed="false">
               ${t('⚖️ 上下同框對照（慢動作直觀比對）', '⚖️ Simultaneous Dual View')}
+            </button>
+            <button class="v5-tab-btn" id="part03-audio-btn" type="button" style="background:var(--paper-3);border-color:var(--cta-border);color:var(--ink);font-weight:700">
+              🎧 ${t('聽聽看：為什麼一定要畫小圓圈 (1分鐘語音)', 'Listen: Why Small Circles Matter (1-Min Audio)')}
             </button>
           </div>
 

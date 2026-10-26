@@ -400,3 +400,217 @@ window.bojinShare = function(opts, btnEl){
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once:true});
   else init();
 })();
+
+/* ── 2026 Pack 02, 03, 04: Dual-Track Mobile Sticky Bar + Inline Micro-Quiz + Video Swapper + Micro-Signals ── */
+(function(){
+  var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  var isBlog = /^blog-.+\.html$/.test(path) && path !== 'blog-glow-after-bad-sleep.html' && path !== 'blog-glow-before-event.html';
+  var isCoreSticky = /^(what-is-bojin|start|about|results|brow-guide|eye-area-guides)\.html$/.test(path);
+
+  /* 1. Micro-Signal Event Conditioning for Meta Pixel & GA4 */
+  window.bojinSignal = function(eventName, params){
+    try {
+      params = params || {};
+      params.page = path;
+      if(window.fbq) fbq('trackCustom', eventName, params);
+      if(window.gtag) gtag('event', eventName, params);
+    } catch(e){}
+  };
+
+  if(isBlog || isCoreSticky){
+    var scrolledHalf = false, timerDone = false, signalFired = false;
+    function checkEngaged(){
+      if(!signalFired && scrolledHalf && timerDone){
+        signalFired = true;
+        window.bojinSignal('BojinEngagedReader', {track: isBlog ? 'blog' : 'core'});
+      }
+    }
+    setTimeout(function(){ timerDone = true; checkEngaged(); }, 30000);
+    window.addEventListener('scroll', function(){
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      if(max > 200 && (window.scrollY / max) >= 0.5){ scrolledHalf = true; checkEngaged(); }
+    }, {passive: true});
+  }
+
+  /* 2. Inline 10-Second Micro-Commitment Self-Check Handler (Pack 02) */
+  document.querySelectorAll('.bojin-inline-quiz').forEach(function(card){
+    if(card.getAttribute('data-biq-wired')) return;
+    card.setAttribute('data-biq-wired', '1');
+    var zone = card.getAttribute('data-biq-zone') || 'general';
+    var opts = card.querySelectorAll('.biq-opt');
+    var fb = card.querySelector('.biq-feedback');
+    var fbTxt = card.querySelector('.biq-feedback-text');
+    opts.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        opts.forEach(function(b){ b.classList.remove('is-picked'); b.setAttribute('aria-pressed','false'); });
+        btn.classList.add('is-picked');
+        btn.setAttribute('aria-pressed','true');
+        if(fb && fbTxt){
+          fbTxt.textContent = btn.getAttribute('data-biq-msg') || '';
+          fb.hidden = false;
+        }
+        window.bojinSignal('BojinMicroQuizClick', {zone: zone, choice: btn.getAttribute('data-biq-choice')});
+      });
+    });
+  });
+
+  /* 3. Video Play Signal & Future US YouTube Auto-Swapper (Pack 03) */
+  document.querySelectorAll('[data-video-module]').forEach(function(mod){
+    if(mod.getAttribute('data-bvm-wired')) return;
+    mod.setAttribute('data-bvm-wired', '1');
+    var ytId = (mod.getAttribute('data-youtube-id') || '').trim();
+    var wrap = mod.querySelector('.bvm-player-wrap');
+    if(ytId && wrap){
+      wrap.innerHTML = '<iframe src="https://www.youtube-nocookie.com/embed/' + encodeURIComponent(ytId) + '?rel=0" title="The Bojin Method Demonstration" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>';
+    }
+    var vid = mod.querySelector('video');
+    if(vid){
+      vid.addEventListener('play', function(){
+        window.bojinSignal('BojinVideoPlay', {src: vid.getAttribute('src')});
+      }, {once: true});
+    }
+  });
+
+  /* 4. Inject Body-Level Mobile Sticky Dual-Button Bar (Pack 04) */
+  if((isBlog || isCoreSticky) && !document.querySelector('.bojin-sticky-bar')){
+    var eyebrowEl = document.querySelector('.eyebrow');
+    var ebText = eyebrowEl ? eyebrowEl.textContent.toLowerCase() : '';
+    var isEyeBrow = /eyes|brows|forehead|glasses|scalp/.test(ebText) || /eye|brow|forehead|crows-feet|tear-trough|glasses|scalp/.test(path);
+    var isMethodTrack = /method|rituals|routines|myths/.test(ebText) && !/jaw-clenching|botox|dental|saggier|volume-loss|sleep-creases|hot-flashes|contraindications/.test(path);
+
+    document.body.classList.add('has-bojin-sticky');
+    var bar = document.createElement('nav');
+    bar.className = 'bojin-sticky-bar';
+    bar.setAttribute('aria-label', 'Quick actions');
+
+    var leftHref = 'quiz.html?from=' + encodeURIComponent(path.replace('.html',''));
+    var leftLabel = '60s Tension Quiz';
+    var rightHref = 'landing.html#get';
+    var rightLabel = 'Free 3-Min Video →';
+
+    if(isEyeBrow){
+      leftHref = 'eye-start-quiz.html';
+      leftLabel = '20s Eye & Brow Check';
+    } else if(isMethodTrack){
+      leftHref = 'guide.html';
+      leftLabel = 'Free 5-Zone Guide';
+      rightLabel = 'Watch 3-Min Demo →';
+    } else {
+      leftHref = 'map.html';
+      leftLabel = '60s Face Tension Map';
+    }
+
+    bar.innerHTML =
+      '<a class="bsb-secondary" href="' + leftHref + '" data-sticky-pos="left">' + leftLabel + '</a>' +
+      '<a class="bsb-primary" href="' + rightHref + '" data-sticky-pos="right">' + rightLabel + '</a>';
+
+    bar.querySelectorAll('a').forEach(function(a){
+      a.addEventListener('click', function(){
+        window.bojinSignal('BojinStickyClick', {pos: a.getAttribute('data-sticky-pos'), target: a.getAttribute('href')});
+      });
+    });
+    document.body.appendChild(bar);
+  }
+})();
+
+
+/* === Black Tech 4 & 5: Audio Guide Spoken Overview + Pinterest Save Button === */
+(function(){
+  // 1. Audio Guide Bar Handler (Supports MP3 file if present, or instant natural US English Speech Synthesis)
+  document.addEventListener('click', function(e){
+    var btn = e.target.closest('[data-audio-guide-btn]');
+    if (!btn) return;
+    var bar = btn.closest('.bojin-audio-bar');
+    var audioSrc = bar ? bar.getAttribute('data-audio-src') : '';
+    if (audioSrc) {
+      var aud = bar.querySelector('audio');
+      if (!aud) {
+        aud = document.createElement('audio');
+        aud.src = audioSrc;
+        bar.appendChild(aud);
+      }
+      if (aud.paused) {
+        aud.play();
+        btn.textContent = '⏸ Pause Audio Guide';
+        if (window.bojinSignal) window.bojinSignal('BojinAudioGuidePlay', { page: location.pathname });
+      } else {
+        aud.pause();
+        btn.textContent = '🎧 Listen to 3-Min Audio Guide';
+      }
+      return;
+    }
+    if ('speechSynthesis' in window) {
+      if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+        window.speechSynthesis.cancel();
+        btn.textContent = '🎧 Listen to 3-Min Audio Guide';
+        return;
+      }
+      var art = document.querySelector('article.section') || document.querySelector('main');
+      if (!art) return;
+      var h1 = art.querySelector('h1') ? art.querySelector('h1').innerText : '';
+      var qs = document.getElementById('quick-summary') ? document.getElementById('quick-summary').innerText : '';
+      var paras = Array.from(art.querySelectorAll('p, h2, li')).slice(0, 18).map(function(el){ return el.innerText; }).join('. ');
+      var utter = new SpeechSynthesisUtterance(h1 + '. ' + qs + '. ' + paras);
+      utter.lang = 'en-US';
+      utter.rate = 0.96;
+      utter.onend = function(){ btn.textContent = '🎧 Listen to 3-Min Audio Guide'; };
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utter);
+      btn.textContent = '⏹ Stop Audio Guide (Playing...)';
+      if (window.bojinSignal) window.bojinSignal('BojinAudioGuidePlay', { page: location.pathname });
+    }
+  });
+
+  
+  // 3. Dedicated Part 03 Technique Explanation Audio
+  document.addEventListener('click', function(e){
+    var p3btn = e.target.closest('#part03-audio-btn');
+    if (!p3btn) return;
+    if ('speechSynthesis' in window) {
+      if (window.speechSynthesis.speaking && !window.speechSynthesis.paused) {
+        window.speechSynthesis.cancel();
+        p3btn.innerHTML = '🎧 Listen: Why Small Circles Matter (1-Min Audio)';
+        return;
+      }
+      var msg = "Here is why the teacher draws a complete small circle instead of swaying side-to-side. When you sway back and forth across the brow, the tool drags and stretches the delicate skin over the brow bone. But when you anchor with your supporting finger and draw small, rhythmic circles in one spot before stepping outward, you gently release the corrugator tension beneath the skin without pulling the eye area. Notice how the supporting hand keeps the skin steady behind every stroke.";
+      var utter = new SpeechSynthesisUtterance(msg);
+      utter.lang = 'en-US';
+      utter.rate = 0.95;
+      utter.onend = function(){ p3btn.innerHTML = '🎧 Listen: Why Small Circles Matter (1-Min Audio)'; };
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(utter);
+      p3btn.innerHTML = '⏹ Stop Audio (Playing...)';
+      if (window.bojinSignal) window.bojinSignal('BojinAudioPart03Play', { page: location.pathname });
+    }
+  });
+
+  // 2. Pinterest Save Button Auto-Injector on Anatomy Figures (.bojin-figure, .portrait-card)
+  function initPinButtons(){
+    var figs = document.querySelectorAll('.bojin-figure, .portrait-card');
+    var pageUrl = encodeURIComponent('https://bojinfacetension.com/' + (location.pathname.split('/').pop() || 'index.html'));
+    figs.forEach(function(fig){
+      if (fig.querySelector('.bojin-pin-btn')) return;
+      var img = fig.querySelector('img');
+      if (!img) return;
+      var rawSrc = img.getAttribute('src') || '';
+      var mediaUrl = encodeURIComponent('https://bojinfacetension.com/' + rawSrc.replace(/^\//, ''));
+      var desc = encodeURIComponent((img.getAttribute('alt') || document.title) + ' — The Bojin Method by Yu-Ting Lan');
+      var a = document.createElement('a');
+      a.className = 'bojin-pin-btn';
+      a.href = 'https://www.pinterest.com/pin/create/button/?url=' + pageUrl + '&media=' + mediaUrl + '&description=' + desc;
+      a.target = '_blank';
+      a.rel = 'noopener noreferrer';
+      a.setAttribute('aria-label', 'Save anatomy diagram to Pinterest');
+      a.innerHTML = '📌 Save';
+      a.addEventListener('click', function(){
+        if (window.bojinSignal) window.bojinSignal('BojinPinterestSave', { media: rawSrc });
+      });
+      fig.appendChild(a);
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPinButtons);
+  } else {
+    initPinButtons();
+  }
+})();

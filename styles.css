@@ -1127,3 +1127,348 @@ body.unlocked .gate{ display:none; }
   opacity: 1;
   transform: translateX(-50%) translateY(0);
 }
+
+/* ==========================================================================
+   2026 US DIMENSIONAL STRIKE UPGRADE PACK (PACK 01 - 04)
+   ========================================================================== */
+
+/* 1. 30-Second Quick Answer Box (Featured Snippet & AI Overview Target) */
+.short-answer-box {
+  margin: 1.5rem 0 2rem;
+  padding: 1.25rem 1.4rem;
+  background: var(--paper-2, #FDF8F2);
+  border: 1px solid var(--line-gold, rgba(184, 146, 90, 0.35));
+  border-left: 4px solid var(--jade, #2E5A44);
+  border-radius: 14px;
+  box-shadow: 0 4px 16px rgba(53, 29, 44, 0.04);
+}
+.short-answer-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--jade, #2E5A44);
+  margin: 0 0 0.45rem;
+}
+.short-answer-box p {
+  margin: 0;
+  font-size: 0.98rem;
+  line-height: 1.62;
+  color: var(--ink);
+}
+
+/* 2. 2026 Adversarial GEO Comparison Matrix Table */
+.geo-matrix-wrap {
+  margin: 1.8rem 0 2.2rem;
+  overflow-x: auto;
+  border-radius: 14px;
+  border: 1px solid var(--line, rgba(120, 90, 60, 0.18));
+  background: var(--paper-2, #FDF8F2);
+}
+.geo-matrix-wrap {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.geo-matrix {
+  width: 100%;
+  table-layout: fixed;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  border-collapse: collapse;
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  line-height: 1.5;
+  text-align: left;
+}
+.geo-matrix th {
+  background: color-mix(in srgb, var(--jade, #2E5A44) 10%, var(--paper-2, #FDF8F2));
+  color: var(--ink);
+  font-weight: 700;
+  padding: 0.85rem 1rem;
+  border-bottom: 1.5px solid var(--line, rgba(120, 90, 60, 0.22));
+}
+.geo-matrix td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid var(--line, rgba(120, 90, 60, 0.14));
+  color: var(--ink);
+  vertical-align: top;
+}
+.geo-matrix tr:last-child td {
+  border-bottom: none;
+}
+
+/* 3. Inline 10-Second Micro-Commitment Self-Check Card (Pack 02) */
+.bojin-inline-quiz {
+  margin: 2rem 0 2.2rem;
+  padding: 1.45rem 1.5rem;
+  background: var(--paper-2, #FDF8F2);
+  border: 1.5px solid var(--line-gold, rgba(184, 146, 90, 0.4));
+  border-top: 3px solid var(--gold, #B8925A);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(53, 29, 44, 0.06);
+}
+.biq-badge {
+  display: inline-block;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold-ink, #8A6632);
+  margin-bottom: 0.4rem;
+}
+.biq-question {
+  font-family: var(--font-serif);
+  font-size: clamp(1.25rem, 2.6vw, 1.5rem);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  margin: 0 0 0.95rem;
+}
+.biq-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 0.65rem;
+}
+.biq-opt {
+  appearance: none;
+  background: var(--paper, #FAF4EC);
+  border: 1px solid var(--line, rgba(120, 90, 60, 0.22));
+  border-radius: 11px;
+  padding: 0.75rem 0.95rem;
+  text-align: left;
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+.biq-opt:hover {
+  border-color: var(--gold, #B8925A);
+  transform: translateY(-1px);
+}
+.biq-opt.is-picked {
+  border-color: var(--jade, #2E5A44);
+  background: color-mix(in srgb, var(--jade, #2E5A44) 10%, var(--paper-2, #FDF8F2));
+  box-shadow: 0 0 0 1.5px var(--jade, #2E5A44);
+}
+.biq-feedback {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line, rgba(120, 90, 60, 0.18));
+  font-size: 0.93rem;
+  line-height: 1.55;
+  color: var(--ink);
+}
+.biq-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.85rem;
+}
+
+/* 4. Dual-Mode Video Demonstration Module (Pack 03) */
+.bojin-video-module {
+  margin: 2rem 0 2.2rem;
+  padding: 1.35rem;
+  background: var(--paper-2, #FDF8F2);
+  border: 1px solid var(--line-gold, rgba(184, 146, 90, 0.35));
+  border-radius: 16px;
+  display: grid;
+  grid-template-columns: minmax(180px, 240px) 1fr;
+  gap: 1.35rem;
+  align-items: center;
+}
+.bvm-player-wrap {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #1C1419;
+  aspect-ratio: 9 / 16;
+  max-height: 320px;
+  margin: 0 auto;
+  width: 100%;
+}
+.bvm-player-wrap.is-landscape {
+  aspect-ratio: 16 / 9;
+}
+.bvm-player-wrap video,
+.bvm-player-wrap iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.bvm-copy h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  margin: 0.25rem 0 0.55rem;
+  color: var(--ink);
+}
+.bvm-copy p {
+  font-size: 0.93rem;
+  line-height: 1.58;
+  color: var(--ink-soft);
+  margin: 0 0 0.9rem;
+}
+@media (max-width: 640px) {
+  .bojin-video-module {
+    grid-template-columns: 1fr;
+  }
+  .bvm-player-wrap {
+    max-width: 240px;
+  }
+}
+
+/* 5. Body-Level Mobile Sticky Dual-Button Bar (Pack 04)
+   Desktop (>= 768px): strictly hidden.
+   Mobile (< 768px): 100% flush bottom with safe-area padding. */
+.bojin-sticky-bar {
+  display: none !important;
+}
+@media (max-width: 767px) {
+  body.has-bojin-sticky {
+    padding-bottom: calc(68px + env(safe-area-inset-bottom, 0px));
+  }
+  .bojin-sticky-bar {
+    display: grid !important;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 0.55rem;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 990;
+    padding: 0.6rem 0.85rem calc(0.6rem + env(safe-area-inset-bottom, 0px));
+    background: color-mix(in srgb, var(--paper-2, #FDF8F2) 96%, transparent);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid var(--line-gold, rgba(184, 146, 90, 0.38));
+    box-shadow: 0 -4px 18px rgba(32, 20, 28, 0.12);
+    box-sizing: border-box;
+  }
+  .bojin-sticky-bar a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0.45rem 0.65rem;
+    border-radius: 999px;
+    font-family: var(--font-sans);
+    font-size: 0.83rem;
+    font-weight: 700;
+    line-height: 1.15;
+    text-decoration: none;
+    text-align: center;
+    white-space: nowrap;
+    box-sizing: border-box;
+  }
+  .bojin-sticky-bar .bsb-secondary {
+    background: var(--paper, #FAF4EC);
+    color: var(--ink);
+    border: 1.5px solid var(--line-gold, rgba(184, 146, 90, 0.55));
+  }
+  .bojin-sticky-bar .bsb-primary {
+    background: var(--brand-bg, #351D2C);
+    color: var(--brand-on, #FAF4EC);
+    border: 1.5px solid var(--brand-bg, #351D2C);
+  }
+}
+
+#quick-summary, #geo-table, #inline-quiz-card, #video-demo-card, #old-30s-summary, #jaw-gold-photo { scroll-margin-top: 96px; }
+
+
+/* 6. Black Tech 4: Audio Guide Bar (Listen to Article / NotebookLM Dual-Host Slot) */
+.bojin-audio-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin: 1.2rem 0 1.4rem;
+  padding: 0.85rem 1.2rem;
+  background: color-mix(in srgb, var(--jade, #351D2C) 6%, var(--paper-2, #FFFDFC));
+  border: 1px solid var(--line-gold, #DCC69B);
+  border-radius: 999px;
+  box-shadow: 0 3px 12px rgba(53, 29, 44, 0.05);
+}
+.bab-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.bab-play-btn {
+  appearance: none;
+  border: 1.5px solid var(--cta-border, #B89558);
+  background: var(--brand-bg, #351D2C);
+  color: var(--brand-on, #FBF6EF);
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.48rem 1.05rem;
+  border-radius: 999px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+.bab-play-btn:hover {
+  transform: translateY(-1px);
+  opacity: 0.92;
+}
+.bab-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+.bab-title {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+.bab-sub {
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+}
+
+/* 7. Black Tech 5: Pinterest Visual Search Save Button on Original Anatomy Photos */
+.bojin-figure, .portrait-card {
+  position: relative;
+}
+.bojin-pin-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 5;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(189, 8, 28, 0.92);
+  color: #fff !important;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  padding: 6px 12px;
+  border-radius: 999px;
+  text-decoration: none !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+.bojin-pin-btn:hover {
+  background: #e60023;
+  transform: scale(1.04);
+}
+#audio-guide-bar { scroll-margin-top: 96px; }
