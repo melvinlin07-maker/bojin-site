@@ -1472,3 +1472,54 @@ body.unlocked .gate{ display:none; }
   transform: scale(1.04);
 }
 #audio-guide-bar { scroll-margin-top: 96px; }
+
+
+/* ---------- Mobile Language Placement Optimization ---------- */
+.hero-eyebrow-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.2rem;
+}
+.hero-eyebrow-row .eyebrow {
+  margin: 0 !important;
+}
+.v3-lang-link {
+  font-family: var(--font-sans);
+  font-size: .84rem;
+  font-weight: 600;
+  padding: .35rem .8rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-gold);
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: var(--paper-2);
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+.v3-lang-link:hover {
+  border-color: var(--gold);
+  background: #fff;
+  color: var(--jade);
+}
+
+@media (min-width: 1251px) {
+  .hero-eyebrow-row .v3-lang-link {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1250px) {
+  /* Hide language button from crowded dark mobile navbar */
+  .site-header .nav-cta .v3-lang-link {
+    display: none !important;
+  }
+  /* Show language button cleanly right beneath the hamburger icon on beige hero */
+  .hero-eyebrow-row .v3-lang-link {
+    display: inline-flex !important;
+  }
+}

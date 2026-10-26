@@ -588,7 +588,58 @@ padding: 6px 10px;
       background:var(--paper-2); transition:all .2s ease;
     }
     .v3-lang-link:hover { border-color:var(--gold); background:#fff; color:var(--jade); }
-  </style>
+  
+/* ---------- Mobile Language Placement Optimization ---------- */
+.hero-eyebrow-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.2rem;
+}
+.hero-eyebrow-row .eyebrow {
+  margin: 0 !important;
+}
+.v3-lang-link {
+  font-family: var(--font-sans);
+  font-size: .84rem;
+  font-weight: 600;
+  padding: .35rem .8rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-gold);
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: var(--paper-2);
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+.v3-lang-link:hover {
+  border-color: var(--gold);
+  background: #fff;
+  color: var(--jade);
+}
+
+@media (min-width: 1251px) {
+  .hero-eyebrow-row .v3-lang-link {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1250px) {
+  /* Hide language button from crowded dark mobile navbar */
+  .site-header .nav-cta .v3-lang-link {
+    display: none !important;
+  }
+  /* Show language button cleanly right beneath the hamburger icon on beige hero */
+  .hero-eyebrow-row .v3-lang-link {
+    display: inline-flex !important;
+  }
+}
+
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -615,7 +666,10 @@ padding: 6px 10px;
 <section class="hero-split">
   <div class="hero-split__inner wrap">
     <div class="hero-split__text reveal">
-      <p class="eyebrow">The Bojin Method</p>
+      <div class="hero-eyebrow-row">
+        <p class="eyebrow">The Bojin Method</p>
+        <a class="v3-lang-link" href="index-es.html" hreflang="es" title="Cambiar a Español">🌐 Español</a>
+      </div>
       <hr class="rule" />
       <h1 class="display">Learn facial bojin.<br>Start gently.</h1>
       <p class="lead">Learn face and neck self-care with Taiwan-based instructor Yu-Ting Lan. Start with placement, direction, and comfortable contact. No tool purchase needed to explore.</p>

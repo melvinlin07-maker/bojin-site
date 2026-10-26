@@ -134,6 +134,13 @@ font-weight:400; }
 .muted{ color:var(--ink-soft); }
 .display{ font-size:clamp(2.9rem,6.4vw,4.6rem); line-height:1.06; font-weight:500; }
 .kicker{ font-family:var(--font-sans); font-size:.95rem; color:var(--ink-soft); }
+
+.btn{ max-width: 100%; box-sizing: border-box; justify-content: center; text-align: center; }
+@media (max-width: 600px){
+  .btn{ padding: .85rem 1.2rem; font-size: .95rem; }
+  .btn--lg{ padding: .9rem 1.4rem; font-size: 1rem; }
+}
+
 .btn{
 display:inline-flex; align-items:center; gap:.5rem;
 font-family:var(--font-sans); font-size:1.02rem; font-weight:600; letter-spacing:.025em;
@@ -149,8 +156,22 @@ transition:background .18s ease, border-color .18s ease, transform .05s ease;
 .btn--secondary{ background:var(--jade); border-color:var(--jade); color:var(--on-jade); }
 .btn--secondary:hover{ background:var(--jade-deep); border-color:var(--jade-deep); color:var(--on-jade); }
 .btn--lg{ padding:1.05rem 2.3rem; font-size:1.05rem; }
-.site-header .btn{ background:var(--cta); border-color:var(--cta-border); box-shadow:0 8px 18px -12px rgba(28,12,22,.66); }
-.hero-full .btn{ box-shadow:0 10px 24px -12px rgba(28,12,22,.72),inset 0 1px 0 rgba(255,255,255,.88); }
+.site-header 
+.btn{ max-width: 100%; box-sizing: border-box; justify-content: center; text-align: center; }
+@media (max-width: 600px){
+  .btn{ padding: .85rem 1.2rem; font-size: .95rem; }
+  .btn--lg{ padding: .9rem 1.4rem; font-size: 1rem; }
+}
+
+.btn{ background:var(--cta); border-color:var(--cta-border); box-shadow:0 8px 18px -12px rgba(28,12,22,.66); }
+.hero-full 
+.btn{ max-width: 100%; box-sizing: border-box; justify-content: center; text-align: center; }
+@media (max-width: 600px){
+  .btn{ padding: .85rem 1.2rem; font-size: .95rem; }
+  .btn--lg{ padding: .9rem 1.4rem; font-size: 1rem; }
+}
+
+.btn{ box-shadow:0 10px 24px -12px rgba(28,12,22,.72),inset 0 1px 0 rgba(255,255,255,.88); }
 .hero-full .btn--ghost{ background:transparent; }
 .site-header{ position:sticky; top:0; z-index:40;
 background:var(--brand-bg);
@@ -181,7 +202,14 @@ width:40px; height:36px; cursor:pointer; color:var(--brand-on); align-items:cent
 .nav .brand .mark{ width:20px!important; height:16px!important; }
 .nav-toggle{ display:inline-flex; order:2; flex:none; width:44px; height:44px; }
 .nav-cta{ display:flex; order:1; gap:0; }
-.nav-cta .btn{ display:none; }
+.nav-cta 
+.btn{ max-width: 100%; box-sizing: border-box; justify-content: center; text-align: center; }
+@media (max-width: 600px){
+  .btn{ padding: .85rem 1.2rem; font-size: .95rem; }
+  .btn--lg{ padding: .9rem 1.4rem; font-size: 1rem; }
+}
+
+.btn{ display:none; }
 .nav-cta .theme-toggle{ width:44px; height:44px; flex:none; }
 .nav-links{
 position:absolute; left:0; right:0; top:100%;
@@ -224,6 +252,13 @@ background:#fff; box-shadow:var(--shadow-lift); border:4px solid var(--paper-2);
 background:linear-gradient(90deg, var(--gold), color-mix(in srgb, var(--gold) 6%, transparent)); }
 .center .rule{ background:linear-gradient(90deg,
 color-mix(in srgb,var(--gold) 6%, transparent), var(--gold), color-mix(in srgb,var(--gold) 6%, transparent)); }
+
+.btn{ max-width: 100%; box-sizing: border-box; justify-content: center; text-align: center; }
+@media (max-width: 600px){
+  .btn{ padding: .85rem 1.2rem; font-size: .95rem; }
+  .btn--lg{ padding: .9rem 1.4rem; font-size: 1rem; }
+}
+
 .btn{ background:linear-gradient(180deg,var(--cta-top),var(--cta-bottom));
 border-color:var(--cta-border); color:var(--on-cta);
 box-shadow:0 10px 24px -12px rgba(53,29,44,.46),inset 0 1px 0 rgba(255,255,255,.88); }
@@ -588,7 +623,58 @@ padding: 6px 10px;
       background:var(--paper-2); transition:all .2s ease;
     }
     .v3-lang-link:hover { border-color:var(--gold); background:#fff; color:var(--jade); }
-  </style>
+  
+/* ---------- Mobile Language Placement Optimization ---------- */
+.hero-eyebrow-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1.2rem;
+}
+.hero-eyebrow-row .eyebrow {
+  margin: 0 !important;
+}
+.v3-lang-link {
+  font-family: var(--font-sans);
+  font-size: .84rem;
+  font-weight: 600;
+  padding: .35rem .8rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-gold);
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  background: var(--paper-2);
+  transition: all .2s ease;
+  white-space: nowrap;
+}
+.v3-lang-link:hover {
+  border-color: var(--gold);
+  background: #fff;
+  color: var(--jade);
+}
+
+@media (min-width: 1251px) {
+  .hero-eyebrow-row .v3-lang-link {
+    display: none !important;
+  }
+}
+
+@media (max-width: 1250px) {
+  /* Hide language button from crowded dark mobile navbar */
+  .site-header .nav-cta .v3-lang-link {
+    display: none !important;
+  }
+  /* Show language button cleanly right beneath the hamburger icon on beige hero */
+  .hero-eyebrow-row .v3-lang-link {
+    display: inline-flex !important;
+  }
+}
+
+</style>
 </head>
 <body>
 <header class="site-header">
@@ -616,7 +702,10 @@ padding: 6px 10px;
 <section class="hero-split">
   <div class="hero-split__inner wrap">
     <div class="hero-split__text reveal">
-      <p class="eyebrow">The Bojin Method</p>
+      <div class="hero-eyebrow-row">
+        <p class="eyebrow">The Bojin Method</p>
+        <a class="v3-lang-link" href="index.html" hreflang="en" title="Switch to English">🌐 English</a>
+      </div>
       <hr class="rule" />
       <h1 class="display">Aprende bojin facial.<br>Comienza con calma.</h1>
       <p class="lead">Aprende autocuidado facial y cervical con la instructora taiwanesa Yu-Ting Lan. Comienza por la ubicación, la dirección y un contacto confortable. No necesitas comprar ninguna herramienta para comenzar a explorar.</p>
