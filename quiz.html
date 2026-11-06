@@ -73,9 +73,12 @@
     .quiz-count { font-size:.88rem; color:var(--ink-soft); font-weight:500; }
     .zone-chip { display:inline-flex; align-items:center; gap:.35rem; padding:.45rem .95rem; border-radius:999px; font-size:.84rem; font-weight:600; background:var(--paper-2); border:1px solid var(--line); color:var(--ink); transition:all .2s; }
     .zone-chip.top { background:var(--brand-bg); color:var(--brand-on); border-color:var(--gold); box-shadow:0 3px 10px rgba(53,29,44,.18); transform:scale(1.04); }
-    .quiz-video-box { margin-top:1.5rem; background:var(--paper-2); border:1.5px solid var(--line-gold); border-radius:16px; padding:1.5rem 1.6rem; display:flex; gap:1.4rem; align-items:center; text-align:left; box-shadow:var(--shadow); transition:all .2s ease; }
+    .quiz-video-box { margin-top:1.5rem; background:var(--paper-2); border:1.5px solid var(--line-gold); border-radius:16px; padding:1.5rem 1.6rem; display:grid; grid-template-columns:minmax(0,1fr); gap:1.2rem; text-align:left; box-shadow:var(--shadow); transition:all .2s ease; }
+    .quiz-video-copy { min-width:0; }
+    .quiz-video-actions { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.75rem; }
+    .quiz-video-actions .btn { min-width:0; max-width:100%; white-space:normal; text-align:center; box-sizing:border-box; }
     .quiz-video-box:hover { border-color:var(--gold); box-shadow:var(--shadow-lift); }
-    @media (max-width:640px){ .quiz-video-box { flex-direction:column; text-align:center; } }
+    @media (max-width:640px){ .quiz-video-box { text-align:center; } .quiz-video-actions { grid-template-columns:minmax(0,1fr); } }
     .v3-lang-link {
       font-family:var(--font-sans); font-size:.84rem; font-weight:600;
       padding:.35rem .8rem; border-radius:999px; border:1px solid var(--line-gold);
@@ -150,6 +153,7 @@
     <p class="foot-copy">&copy; 2026 The Bojin Method &middot; Yu-Ting Lan &middot; Gentle self-care, not medical treatment.</p>
     <nav class="foot-legal" aria-label="Legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></nav>
   </div>
+<p class="center"><a href="https://go.bojinfacetension.com/bojin-eye-method">Full Course ($79)</a></p>
 </footer>
 <script>
 (function(){
@@ -351,13 +355,14 @@
         '<p style="margin:1.2rem 0 0"><a class="btn btn--ghost" style="border-color:var(--line-gold);color:var(--ink)" href="'+ARTICLE[top]+'">Read the full '+ZONE_SHORT[top]+' tension guide &rarr;</a></p>'+
       '</div>'+
       '<div class="quiz-video-box">'+
-        '<div style="flex:1">'+
+        '<div class="quiz-video-copy">'+
           '<p class="eyebrow" style="margin:0 0 .3rem;color:var(--gold-ink)">Rather watch the actual movement?</p>'+
-          '<h3 style="font-family:var(--font-serif);font-size:1.35rem;font-weight:600;margin:0 0 .4rem;color:var(--ink)">See the 3-Minute Hands-On Demonstration</h3>'+
+          '<h3 style="font-family:var(--font-serif);font-size:1.35rem;font-weight:600;margin:0 0 .4rem;color:var(--ink)">See the Free 1:18 Above-the-Brow Demonstration</h3>'+
           '<p style="font-size:.92rem;color:var(--ink-soft);margin:0;line-height:1.45">Watch the exact inner brow release video so you can feel the pressure, order, and technique with zero guesswork.</p>'+
         '</div>'+
-        '<div style="flex:none">'+
-          '<a class="btn btn--lg" href="https://go.bojinfacetension.com/facial-tension-check" style="white-space:nowrap">Watch Free Video &rarr;</a>'+
+        '<div class="quiz-video-actions">'+
+          '<a class="btn btn--lg" href="https://go.bojinfacetension.com/facial-tension-check">Watch Free 1:18 Video &rarr;</a>'+
+          '<a class="btn btn--ghost" href="https://go.bojinfacetension.com/bojin-eye-method">Full Course ($79) &rarr;</a>'+
         '</div>'+
       '</div>'+
       '<div class="band-jade" style="margin-top:1.6rem;border-radius:16px;padding:2rem 1.5rem;text-align:center">'+
@@ -376,7 +381,7 @@
           '<p style="font-size:.92rem;color:var(--ink-soft);margin:0 0 1.15rem;line-height:1.45">Check your inbox and spam folder for the guide email. If it does not arrive, you can still open the PDF below. This download is the shared 5-Zone guide.</p>'+
           '<div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">'+
             '<a class="btn btn--lg" href="https://bojinfacetension.com/downloads/is-it-aging-or-tension-en.pdf" target="_blank" rel="noopener">Open PDF Guide &rarr;</a>'+
-            '<a class="btn btn--ghost btn--lg" href="https://go.bojinfacetension.com/facial-tension-check">Watch 3-Min Video &rarr;</a>'+
+            '<a class="btn btn--ghost btn--lg" href="https://go.bojinfacetension.com/facial-tension-check">Watch Free 1:18 Video &rarr;</a>'+
           '</div>'+
         '</div>'+
       '</div>'+
@@ -439,6 +444,6 @@
   });
 })();
 </script>
-<script src="nav.js?v=20261023-cover-1"></script>
+<script src="nav.js?v=20261106-funnel"></script>
 </body>
 </html>
