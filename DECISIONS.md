@@ -159,3 +159,10 @@
   2. **修復 A1 與觀看頁 PDF 死鏈（404 -> 200）**：將錯誤的 `-checklist.pdf` 連結全數修正為網站實存之英文正式 PDF 網址 `https://bojinfacetension.com/downloads/is-it-aging-or-tension-en.pdf`（HTTP 200, 423,945 bytes）。
   3. **改善 A1 進主要收件匣機率**：拿掉 A1 中容易觸發 Gmail 促銷濾鏡的全大寫與手指 emoji 按鈕文字，改為自然口吻超連結，並在觀看頁直接引導學員將信件從「促銷內容」拖進「主要」。
 - **日期**：2026-11-10 部署並完成手機實機與後台截圖驗證。
+
+## D20. 銷售頁（bojin-eye-method v5）手機版超框修復與 PayPal 結帳說明誠實對齊
+- **決策**：依據手機真實瀏覽測試發現之排版與金流文字細節，將銷售頁（`page/45013727`）升級部署至 `perfect_full_rawhtml_v5.html`：
+  1. **長 Email 與手機寬度鎖定**：加入全域 `overflow-wrap: anywhere` 與 `overflow-x: hidden`，確保 14 天保證卡片內的 `hello@bojinfacetension.com` 乖乖折行於白色卡片內（`297.60 <= 352.80`），390px 手機達成 `390/390` 零水平捲動。
+  2. **黃金懸浮 CTA 適配手機**：修正 `#sticky-course-cta` 與 `#sticky-btn-link` 在 `<=520px` 手機螢幕下的寬度與圓角邊距，兩端不再貼邊被裁切。
+  3. **誠實對齊 PayPal 實際結帳行為**：將第 2 步說明由 `(No PayPal required)` 改為 `Pay via PayPal or eligible Debit/Credit Card`，同時確認 PayPal 商業設定後台之「非 PayPal 用戶結帳（PayPal Account Optional）」已為開啟狀態。
+- **日期**：2026-11-10 部署並完成 390×844 實機渲染截圖驗證。
