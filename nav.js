@@ -1,3 +1,19 @@
+/* Consistent course access across existing site templates, without changing journal data. */
+(function(){
+  function addCourseAccess(){
+    document.querySelectorAll('.nav-links,.site-footer .foot-inner').forEach(function(nav){
+      var scope=nav.closest('.site-footer')||nav;
+      if(scope.querySelector('a[href="https://go.bojinfacetension.com/bojin-eye-method"]'))return;
+      var a=document.createElement('a');a.href='https://go.bojinfacetension.com/bojin-eye-method';
+      a.textContent='Course ($79)';a.style.color='var(--gold)';a.style.fontWeight='600';nav.appendChild(a);
+    });
+    // The journal's rendered free-video labels share this destination. Keep audio guides unchanged.
+    document.querySelectorAll('a[href="landing.html#get"]').forEach(function(a){
+      a.childNodes.forEach(function(n){if(n.nodeType===3)n.textContent=n.textContent.replace(/Free 3-Min Video Guide|Watch the free 3-min video/gi,'Free 1:18 Above-the-Brow Demo');});
+    });
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',addCourseAccess);else addCourseAccess();
+})();
 /* ── Analytics + Meta Pixel, gated to the real domain ──────────────────────
    Meta Pixel (Bojin Funnel Pixel-US 751313064707787) + GA4 (G-2VFEVY9Q1F),
    loaded site-wide here so they survive page rewrites / new articles.
@@ -167,6 +183,31 @@ window.bojinWireOptin = function(form, source){
 
 /* Legal links (Privacy · Terms) now live in the static footer markup
    (.foot-legal), so no JS injection is needed. */
+
+/* Footer Student Login link — lets existing course buyers return to their
+   unlocked portal from any page on bojinfacetension.com. */
+(function(){
+  var LOGIN_URL = 'https://melvinlin07.systeme.io/school/course/the-bojin-eye-method';
+  function addStudentLogin(){
+    var isEs = (document.documentElement.lang || '').toLowerCase().indexOf('es') === 0 || /-es\.html$/i.test(location.pathname);
+    document.querySelectorAll('.site-footer').forEach(function(footer){
+      if(footer.querySelector('a[href="' + LOGIN_URL + '"]')) return;
+      var target = footer.querySelector('.foot-legal') || footer.querySelector('.foot-inner') || footer;
+      if(target.classList && target.classList.contains('foot-legal')){
+        target.style.flexWrap = 'wrap';
+        target.style.justifyContent = 'center';
+      }
+      var a = document.createElement('a');
+      a.href = LOGIN_URL;
+      a.textContent = isEs ? 'Acceso alumnos' : 'Student Login';
+      a.target = '_blank';
+      a.rel = 'noopener';
+      target.appendChild(a);
+    });
+  }
+  if(document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addStudentLogin);
+  else addStudentLogin();
+})();
 
 /* On article pages, upgrade the plain author line (.post-bio) into an
    author card with avatar + a link to About — builds trust and E-E-A-T.
@@ -486,7 +527,7 @@ window.bojinShare = function(opts, btnEl){
     var leftHref = 'quiz.html?from=' + encodeURIComponent(path.replace('.html',''));
     var leftLabel = '60s Tension Quiz';
     var rightHref = 'landing.html#get';
-    var rightLabel = 'Free 3-Min Video →';
+    var rightLabel = 'Free 1:18 Demo →';
 
     if(isEyeBrow){
       leftHref = 'eye-start-quiz.html';
@@ -494,7 +535,7 @@ window.bojinShare = function(opts, btnEl){
     } else if(isMethodTrack){
       leftHref = 'guide.html';
       leftLabel = 'Free 5-Zone Guide';
-      rightLabel = 'Watch 3-Min Demo →';
+      rightLabel = 'Watch Free 1:18 Demo →';
     } else {
       leftHref = 'map.html';
       leftLabel = '60s Face Tension Map';
