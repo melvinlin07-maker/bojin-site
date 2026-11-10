@@ -199,3 +199,9 @@
      - 學員教室入口：`https://melvinlin07.systeme.io/school/course/the-bojin-eye-method`
      - 測試學員信箱：`lanyingmin0209+test3@gmail.com`（具備 `The Bojin Eye Method` Full access 永久看課權限，所有通知信寄達 `lanyingmin0209@gmail.com`；依 `CLAUDE.md` 資安規則，密碼由使用者私人備忘錄保管、不寫入 Git 公開 MD 檔，忘記隨時可用登入頁 Forgot password 重設）。
 - **日期**：2026-11-10 部署並完成後台截圖驗證。
+
+## D25. B1 信件補入「學員後台書籤 P.P.S.」＋主官網 `nav.js` 頁尾 `Student Login` 就位
+- **決策**：
+  1. **Systeme.io Email B1（`6272927`）加上書籤備忘 P.P.S.**：於原 `P.S.`（回信提問）下方新增一行 `P.P.S. Coming back for Lesson 2 in a few days? Bookmark your Student Portal for easy 1-click access anytime: Open Student Portal`，超連結直達 `https://melvinlin07.systeme.io/school/course/the-bojin-eye-method`；已存檔並重整實測確認維持 `Active` 與 `30 minutes` 延遲。
+  2. **主官網 `nav.js` 頁尾自動補入學員登入連結**：於 `nav.js`（第 187–209 行）新增腳本，於所有載入 `nav.js` 的靜態頁頁尾 `.foot-legal` 自動附加 `Student Login`（8 個西語 `-es.html` 頁面自動切換為 `Acceso alumnos`）連往 `https://melvinlin07.systeme.io/school/course/the-bojin-eye-method`；已透過無頭 Chrome 實測英文頁與全數 8 個西語頁成功渲染（目前留存本機待使用者確認 `git push` 上線）。
+- **日期**：2026-11-10 完成雲端 B1 存檔實測與本機 `nav.js` 渲染驗證。
