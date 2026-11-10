@@ -113,3 +113,12 @@
   2. **學員後台  個人影片點評補票通道（Portal Review Pass）**：在學員課程第一課 Module 1（page/44901658）影片正上方放置香檳金虛線邊框的升級卡片 🎥 Didn't add Master Lan's Personal Video Review at checkout? Unlock Video Review () →，直接承接結帳未加購但實操產生不確定感的學員，創造持續的高毛利二次變現。
 - **理由**：利用學員照鏡子有感與實操遇到問題的黃金時刻，以零廣告成本實現自然客帶客與二次加購升級。
 - **日期**：2026-11-10 部署並完成即時線上截圖驗證。
+
+## D15. 推薦優惠券 GIFT20 正式生效與結帳頁即時折抵  驗證
+- **決策**：
+  1. 在 Systeme.io 優惠券後台（dashboard/coupons）正式建立固定折抵  USD 的官方優惠代碼 GIFT20（名稱：GIFT20 -  Off Student Referral Gift，無限次使用、無過期日）。
+  2. 將 GIFT20 正式關聯至結帳漏斗步驟（EYE-SALES -> Order Form）。
+  3. 線上實地測試：於 https://go.bojinfacetension.com/order 之 #coupon-67362d0c 輸入 GIFT20 點擊 Apply，系統即時扣減 ，實付金額由 .00 降為 .00 USD，並顯示綠色成功提示。
+  4. 同步更新 Email B7 文案，明示優惠代碼：Use private code: GIFT20 at checkout for  off (brings lifetime access to ).
+- **理由**：確保學員推薦好友時，好友能真正於結帳頁輸入代碼享受  實質折抵，落實轉介承諾，杜絕代碼失效或客訴風險。
+- **日期**：2026-11-10 部署並完成線上結帳實測截圖。
