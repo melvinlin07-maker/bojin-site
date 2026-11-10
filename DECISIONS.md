@@ -144,3 +144,11 @@
   2. **Email B8 升級「雙向互惠轉介」（Give $20, Get $20）**：在購後第 18 天發送的 Email B8 中，將原先單向「送朋友 $20 折扣」升級為雙向互惠：「當朋友使用 `GIFT20` 成功購課後，回信告知朋友名字，老學員帳戶立即存入 $20 美金忠誠折抵金，可直接用於未來購買《全臉與頭部旗艦大課》」。
 - **理由**：以零現金補貼方式實現高轉化口碑裂變，並把推薦人牢牢鎖定在未來大課升級軌道。
 - **日期**：2026-11-10 部署並完成線上實機截圖驗證。
+
+## D18. Gmail 客服回信三大彩色標籤與自動分流過濾器（大招二上線）
+- **決策**：在接收 `hello@bojinfacetension.com` 回信的主信箱（`melvinlin07@gmail.com`）建立 3 組專屬彩色標籤與對應自動篩選規則，且全面強制勾選「永不移至垃圾郵件」：
+  1. **Video Review 審片（橘色）**：過濾寄至 `hello@bojinfacetension.com` 且包含 `"Video Review" OR "Add Video Review" OR "review my clip"` 之來信（並標示為重要）。
+  2. **GIFT20 推薦登記（綠色）**：過濾寄至 `hello@bojinfacetension.com` 且包含 `GIFT20 OR "A private gift for a sister or friend" OR "loyalty credit"` 之來信。
+  3. **Refund / 售後（紅色）**：過濾寄至 `hello@bojinfacetension.com` 且包含 `refund OR cancel OR dispute OR "money-back" OR "not the right fit" OR "Take your second photo" OR "course login"` 之來信。
+- **理由**：A1～A7、B6、B8 與 Module 9 皆大量引導學員回信互動，建立自動化分流後可一秒識別審片、推薦折抵與退款售後優先序，確保零漏信。
+- **日期**：2026-11-10 部署並完成 Gmail 後台截圖驗證。
