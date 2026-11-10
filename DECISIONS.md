@@ -180,3 +180,14 @@
   2. **結帳頁 First name 必填核驗**：查證 `page/44335672` 結帳表單之 `First name` 欄位在 Systeme.io 編輯器與即時 SSR 結構中已設為 `"optional": false`（即必填），確保 B1～B8 學員稱呼 `{first_name}` 正常顯示名字，並同時將 `Last name` 改為 `"optional": true`（選填），減少手機打字摩擦力。
   3. **建立一次性 $0 全流程測試券 `TESTFREE1`**：移除 `TESTUSD1`，改建 `Percentage: 100%`（實付 `USD $0.00`）、限用 `1` 次之 `TESTFREE1` 並掛載於結帳步驟，讓台灣端測試可直接繞過台灣 PayPal 境內限制，完整驗收開課與退訂流程（驗收後刪除）。
 - **日期**：2026-11-10 部署並完成實機截圖驗證。
+
+## D23. 端到端完整閉環實戰驗收通過（`lanyingmin0209+test3@gmail.com`）與正式封關
+- **決策**：完成免費領取 ➔ 觀看頁 ➔ 銷售頁 ➔ 結帳購買（`TESTFREE1`）➔ 自動開課 ➔ 標籤/序列切換之全鏈路真人實測驗收，並清除一次性測試碼：
+  1. **Email A1 雙連結恢復**：確認移除 PDF 連結並不影響 Gmail 促銷分類，故將確定可用之 `https://bojinfacetension.com/downloads/is-it-aging-or-tension-en.pdf` 補回 Email A1（搭配 `Here is your 1:18 Above-the-Brow clip` 與 `Hi there,`）。
+  2. **完整自動交付實測通過（Contact ID `452937676`）**：
+     - 免費報名即貼標 `Eye Reset` 並寄出 A1；
+     - 結帳購買後即自動跳轉感謝頁 `go.bojinfacetension.com/85f43e55`；
+     - 自動補貼 `Customer - Eye Course`、開通 `The Bojin Eye Method`（Active / Full access）、**自動退訂 `A1-A7`**、**自動訂閱並寄出 `B1`**（正確顯示 `Hi lan,`）；
+     - 系統開課密碼信（`Important: Your access to training`）100% 穩穩抵達 Gmail **主要（Primary）收件匣**。
+  3. **正式封關清理**：確認 `TESTFREE1` 使用次數達 `1/1` 後即刻自後台刪除，線上僅保留 `GIFT20`（$20 推薦折抵）與歷史已用盡之 `BOJIN-QA-ZERO-7F42C9`。
+- **日期**：2026-11-10 全閉環實測通過並完成封關。
