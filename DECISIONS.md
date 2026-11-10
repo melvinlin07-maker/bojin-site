@@ -152,3 +152,10 @@
   3. **Refund / 售後（紅色）**：過濾寄至 `hello@bojinfacetension.com` 且包含 `refund OR cancel OR dispute OR "money-back" OR "not the right fit" OR "Take your second photo" OR "course login"` 之來信。
 - **理由**：A1～A7、B6、B8 與 Module 9 皆大量引導學員回信互動，建立自動化分流後可一秒識別審片、推薦折抵與退款售後優先序，確保零漏信。
 - **日期**：2026-11-10 部署並完成 Gmail 後台截圖驗證。
+
+## D19. 真實手機實測抓錯修復：1:18 觀看頁手機排版鎖定與 A1 真實 PDF 網址修正
+- **決策**：依據使用者以 `lanyingmin0209@gmail.com` 真實手機測試發現之三項問題，立即完成全域修復：
+  1. **1:18 觀看頁（`page/41476930` / `thank-you-6a5874551795c`）**：刪除舊版過時且撐寬手機畫面的亮藍按鈕（`YES — I'd Like Early Access`、`I Have Questions First`）與不合規舊免責文字；換上與品牌一致的深酒紅＋香檳金雙軌按鈕、頂部呼吸留白、去促銷匣提詞卡，並在手機 390×844 實測驗證 `scrollWidth === innerWidth`（零左右溢出晃動）。
+  2. **修復 A1 與觀看頁 PDF 死鏈（404 -> 200）**：將錯誤的 `-checklist.pdf` 連結全數修正為網站實存之英文正式 PDF 網址 `https://bojinfacetension.com/downloads/is-it-aging-or-tension-en.pdf`（HTTP 200, 423,945 bytes）。
+  3. **改善 A1 進主要收件匣機率**：拿掉 A1 中容易觸發 Gmail 促銷濾鏡的全大寫與手指 emoji 按鈕文字，改為自然口吻超連結，並在觀看頁直接引導學員將信件從「促銷內容」拖進「主要」。
+- **日期**：2026-11-10 部署並完成手機實機與後台截圖驗證。
