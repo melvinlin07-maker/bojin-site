@@ -106,3 +106,10 @@
   4. **網域 DKIM/SPF 官方簽章核驗**：系統檢查確認 ojinfacetension.com 官方 DKIM/DMARC 金鑰已於 Systeme.io 完成全面驗證（狀態：Verified，包含 inbound.systeme.io、key1.systeme.io、key2.systeme.io），確保發信到達率最高維持在 98% 頂級水準。
 - **理由**：實現 100% 完整無縫的客戶生命週期閉環（獲客名單 -> 7天信任培育 -> 購物車放棄挽回 -> 結帳後14天高黏著度學員陪跑與防退款關懷），最大化轉換率與學員滿意度。
 - **日期**：2026-11-10 完成全流程部署與線上核驗。
+
+## D14. 售後轉介推薦碼（B7 Email）與課程內部補票升級通道（Lesson 1）
+- **決策**：
+  1. **購後第 7 天推薦轉介閉環（B7 Referral Loop）**：在學員序列第 7 封拍照對比信 Email B7（Take your second photo this week）結尾加入私密 VIP 推薦碼引導 👉 [Gift a Friend: Private  Off Access](https://go.bojinfacetension.com/bojin-eye-method)，讓對比有感的學員轉發給姊妹或親友，零廣告費實現口碑裂變。
+  2. **學員後台  個人影片點評補票通道（Portal Review Pass）**：在學員課程第一課 Module 1（page/44901658）影片正上方放置香檳金虛線邊框的升級卡片 🎥 Didn't add Master Lan's Personal Video Review at checkout? Unlock Video Review () →，直接承接結帳未加購但實操產生不確定感的學員，創造持續的高毛利二次變現。
+- **理由**：利用學員照鏡子有感與實操遇到問題的黃金時刻，以零廣告成本實現自然客帶客與二次加購升級。
+- **日期**：2026-11-10 部署並完成即時線上截圖驗證。
