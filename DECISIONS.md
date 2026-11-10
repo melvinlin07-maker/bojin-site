@@ -173,3 +173,10 @@
   2. **B1～B8（Campaign 1230295）**：修正 B7 與 B8 誤植的 `{{contact.first_name}}` 為 Systeme.io 正確單括號語法 **`Hi {first_name},`**（結帳頁有收集 `First name`），並順手修正 B1 之文法筆誤 `an rounded stick` -> `a rounded stick`（保留 Amazon 官方短網址 `link.amazon/B04ssby3t`）。
   3. **PayPal 台灣境內實測結論**：經實機驗證「非 PayPal 用戶結帳（PayPal Account Optional）」已於 PayPal 商業設定（`於 / On`）正常生效並可彈出直接刷卡欄；台灣買家受限於 PayPal 台灣雙邊交易限制無法付予台灣商家，但美國與跨國買家完全暢通。
 - **日期**：2026-11-10 全數修復並經 API 全量重檢通過。
+
+## D22. Email A1 瘦身降促銷分數、結帳姓名必填查核與一次性 $0 測試碼（TESTFREE1）就位
+- **決策**：
+  1. **Email A1 瘦身去敏優化**：將主旨更新為更像私人來信之 **`Here is your 1:18 Above-the-Brow clip`**，移除信內容易觸發 Gmail 促銷匣之 `free`、`PDF`、`Promotions`、`Spam` 字眼，只保留 1 條乾淨的觀看頁超連結（PDF 指南與拖進主要分頁提醒已置於觀看頁 `thank-you-6a5874551795c`），並同步更新觀看頁引用之信件主旨。
+  2. **結帳頁 First name 必填核驗**：查證 `page/44335672` 結帳表單之 `First name` 欄位在 Systeme.io 編輯器與即時 SSR 結構中已設為 `"optional": false`（即必填），確保 B1～B8 學員稱呼 `{first_name}` 正常顯示名字。
+  3. **建立一次性 $0 全流程測試券 `TESTFREE1`**：移除 `TESTUSD1`，改建 `Percentage: 100%`（實付 `USD $0.00`）、限用 `1` 次之 `TESTFREE1` 並掛載於結帳步驟，讓台灣端測試可直接繞過台灣 PayPal 境內限制，完整驗收開課與退訂流程（驗收後刪除）。
+- **日期**：2026-11-10 部署並完成實機截圖驗證。
