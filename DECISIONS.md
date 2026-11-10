@@ -166,3 +166,10 @@
   2. **黃金懸浮 CTA 適配手機**：修正 `#sticky-course-cta` 與 `#sticky-btn-link` 在 `<=520px` 手機螢幕下的寬度與圓角邊距，兩端不再貼邊被裁切。
   3. **誠實對齊 PayPal 實際結帳行為**：將第 2 步說明由 `(No PayPal required)` 改為 `Pay via PayPal or eligible Debit/Credit Card`，同時確認 PayPal 商業設定後台之「非 PayPal 用戶結帳（PayPal Account Optional）」已為開啟狀態。
 - **日期**：2026-11-10 部署並完成 390×844 實機渲染截圖驗證。
+
+## D21. 全站 17 封自動化信件（A1-A7、B1-B8、WF1-WF2）個人化變數總體檢與統一修復
+- **決策**：經完整稽核全站 17 封發信內容後，徹底消除 `{{contact.first_name}}` 無效變數與免填姓名表單造成之空白問候（`Hi ,`）：
+  1. **A1～A7（Campaign 1230273）與購物車挽回信 WF1～WF2（Workflow 572343）**：因免費領取頁（`facial-tension-check`）與棄車訪客未必已填寫姓名，9 封信開頭全面改為自然親切的 **`Hi there,`**，並確保所有連結與 `is-it-aging-or-tension-en.pdf` 保持有效。
+  2. **B1～B8（Campaign 1230295）**：修正 B7 與 B8 誤植的 `{{contact.first_name}}` 為 Systeme.io 正確單括號語法 **`Hi {first_name},`**（結帳頁有收集 `First name`），並順手修正 B1 之文法筆誤 `an rounded stick` -> `a rounded stick`（保留 Amazon 官方短網址 `link.amazon/B04ssby3t`）。
+  3. **PayPal 台灣境內實測結論**：經實機驗證「非 PayPal 用戶結帳（PayPal Account Optional）」已於 PayPal 商業設定（`於 / On`）正常生效並可彈出直接刷卡欄；台灣買家受限於 PayPal 台灣雙邊交易限制無法付予台灣商家，但美國與跨國買家完全暢通。
+- **日期**：2026-11-10 全數修復並經 API 全量重檢通過。
