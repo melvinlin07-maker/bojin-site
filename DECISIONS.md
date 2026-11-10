@@ -85,3 +85,24 @@
   2. 協作協議：AI 助理在每次回答或執行任務完畢後，必須主動附上 **💡【偵察報告：您沒想到的 1～2 個升級大招】**，主動挖掘高 ROI 盲點與黑科技，打破「不問就不說」的死循環。
 - **原因**：遵守台灣衛福部與美國 FTC 非醫療自我保養法規；發揮高階模型最大戰略價值。
 - **背景**：2026-10-26 使用者明確拍板定案。
+
+## D12. Systeme.io 名單標籤精細分流架構（廣告名單 vs 自然指南 vs 付費買家）
+- **決策**：全站名單採取精細分流（Option A），清楚切割廣告受眾與自然內容讀者，並建立買家與挽回閉環：
+  1. **廣告測試名單（Paid Ads Lead）**：標籤 `Eye Reset`。專門承接 Meta/FB 付費廣告落地頁（`facial-tension-check`），累積廣告驗證數據。
+  2. **自然內容指南名單（Organic Content Lead）**：標籤 `Guide - Eye Area`。專門承接官網長文、眼周三區教學（`eye-area-guides.html`）、指南頁（`guide.html`）等自然流量留名單表單（`embedded/42586344` 與 `46448045`）。
+  3. **付費尊榮學員（Customers）**：標籤 `Customer - Eye Course`。凡在結帳頁（`https://go.bojinfacetension.com/order`）完成 US$79 購買（含 US$29 錄影反饋加購）者，系統自動貼標。
+  4. **未結帳挽回流程（Abandoned Cart Workflow）**：進入結帳頁填寫 Email 但 1 小時內未購者自動觸發追蹤挽回信（精準排除已擁有 `Customer - Eye Course` 者）。
+- **原因**：徹底解決過去免費版因標籤上限導致自然指南名單漏接問題；清楚區分廣告受眾與自然內容讀者之轉換率差異。
+- **背景**：2026-11-09 使用者拍板採精細分流（方案 A）。
+- **不採用什麼**：不採用單一標籤混雜廣告與自然讀者；不對付費學員誤寄未付款挽回信。
+- **重新檢討**：未來推出第 2 門全新部位課程（如臉部/肩頸）需要新增產品線買家標籤時。
+
+
+## D13. Systeme.io 完整閉環行銷與售後體驗（A5多幣別、24小時最後通牒挽回、購後14天關懷B1-B7、網域DKIM簽章）
+- **決策**：
+  1. **A5 培育信多幣別提示**：在 Email A5 (What's inside the  course) 加入海外非美金自動換算小貼士 (Orders outside the US: Your bank or PayPal will automatically convert from CAD, GBP, EUR, or AUD at live daily rates with zero added markup.)，消除加拿大、英國、歐洲與澳洲潛在客群的幣別心理門檻。
+  2. **第 2 封 24 小時挽回信**：在購物車挽回工作流程（Workflow 572343）第 1 封信後加入 23 小時延遲與購買判斷節點（條件：標籤 Customer - Eye Course），對未結帳者自動寄出第 2 封 2 小時急迫感最後通牒信（Final notice: Your  founder access expires in 2 hours），若已結帳則自動終止。
+  3. **購後 14 天學員陪跑序列（B1-B7）**：建立專屬序列 Eye Method - Post-Purchase Journey (B1-B7)（Campaign ID 1230295），包含 B1～B7 共 7 封精心撰寫之學員啟動、手法避坑、頻率建議與拍照對比關懷信，並在結帳漏斗步驟（Order Form）綁定 New sale 自動訂閱此序列（同時自動退訂 A1-A7 培育序列）。
+  4. **網域 DKIM/SPF 官方簽章核驗**：系統檢查確認 ojinfacetension.com 官方 DKIM/DMARC 金鑰已於 Systeme.io 完成全面驗證（狀態：Verified，包含 inbound.systeme.io、key1.systeme.io、key2.systeme.io），確保發信到達率最高維持在 98% 頂級水準。
+- **理由**：實現 100% 完整無縫的客戶生命週期閉環（獲客名單 -> 7天信任培育 -> 購物車放棄挽回 -> 結帳後14天高黏著度學員陪跑與防退款關懷），最大化轉換率與學員滿意度。
+- **日期**：2026-11-10 完成全流程部署與線上核驗。
