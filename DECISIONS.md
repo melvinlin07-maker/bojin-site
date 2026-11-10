@@ -205,3 +205,10 @@
   1. **Systeme.io Email B1（`6272927`）加上書籤備忘 P.P.S.**：於原 `P.S.`（回信提問）下方新增一行 `P.P.S. Coming back for Lesson 2 in a few days? Bookmark your Student Portal for easy 1-click access anytime: Open Student Portal`，超連結直達 `https://melvinlin07.systeme.io/school/course/the-bojin-eye-method`；已存檔並重整實測確認維持 `Active` 與 `30 minutes` 延遲。
   2. **主官網 `nav.js` 頁尾自動補入學員登入連結**：於 `nav.js`（第 187–209 行）新增腳本，於所有載入 `nav.js` 的靜態頁頁尾 `.foot-legal` 自動附加 `Student Login`（8 個西語 `-es.html` 頁面自動切換為 `Acceso alumnos`）連往 `https://melvinlin07.systeme.io/school/course/the-bojin-eye-method`；已透過無頭 Chrome 實測英文頁與全數 8 個西語頁成功渲染（目前留存本機待使用者確認 `git push` 上線）。
 - **日期**：2026-11-10 完成雲端 B1 存檔實測與本機 `nav.js` 渲染驗證。
+
+## D26. 全站手機／桌面雙版視覺實機總巡檢與 2 項細節修復
+- **決策**：對主官網 `bojinfacetension.com`（首頁、西語首頁、入門頁、落地頁＋靜態掃描 133 個網頁檔）及 Systeme.io 全 5 頁漏斗進行手機 `390×844` 與桌面 `1440×900` 實機檢測：
+  1. **全 9 大即時頁面達成零左右滑動溢位（手機 `390/390`、桌面 `1425/1440`）、零破圖、零錯誤變數與零禁用醫療主張**。
+  2. **修復主官網桌面版頂部導覽列換行（`nav.js` `#bojin-desktop-nav-fix`）**：修正 `1251px+` 桌面版選單原本會折成兩行（`110.55px`）的問題，鎖定 `white-space: nowrap` 與精準間距後於 `1260px` 與 `1440px` 皆保持俐落單行並推送上線（commit `f86bb88`）。
+  3. **修復銷售頁 `bojin-eye-method`（`page/45013727`）主按鈕箭頭位置**：將 `Start Tonight for  →$79` 修正為 `Start Tonight for $79 →` 並於電腦與手機雙版實測驗證通過。
+- **日期**：2026-11-10 完成全站雙版實測修復並推送定版。
