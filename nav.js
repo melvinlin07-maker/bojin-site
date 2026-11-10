@@ -187,6 +187,21 @@ window.bojinWireOptin = function(form, source){
 /* Footer Student Login link — lets existing course buyers return to their
    unlocked portal from any page on bojinfacetension.com. */
 (function(){
+  /* Keep desktop navigation strictly on one crisp line from 1251px+ */
+  if(!document.getElementById('bojin-desktop-nav-fix')){
+    var st = document.createElement('style');
+    st.id = 'bojin-desktop-nav-fix';
+    st.textContent = '@media (min-width:1251px){' +
+      '.site-header .nav{max-width:1400px !important;gap:.8rem !important;padding:.85rem 24px !important;}' +
+      '.site-header .brand{white-space:nowrap !important;flex:none !important;font-size:1.25rem !important;}' +
+      '.site-header .nav-links{gap:1rem !important;flex-wrap:nowrap !important;}' +
+      '.site-header .nav-links a{white-space:nowrap !important;font-size:.8rem !important;letter-spacing:.055em !important;}' +
+      '.site-header .nav-cta{gap:.55rem !important;flex:none !important;}' +
+      '.site-header .v3-lang-link{padding:.3rem .65rem !important;font-size:.78rem !important;white-space:nowrap !important;}' +
+      '.site-header .nav-cta .btn{padding:.62rem 1rem !important;font-size:.86rem !important;white-space:nowrap !important;}' +
+      '}';
+    document.head.appendChild(st);
+  }
   var LOGIN_URL = 'https://melvinlin07.systeme.io/school/course/the-bojin-eye-method';
   function addStudentLogin(){
     var isEs = (document.documentElement.lang || '').toLowerCase().indexOf('es') === 0 || /-es\.html$/i.test(location.pathname);
