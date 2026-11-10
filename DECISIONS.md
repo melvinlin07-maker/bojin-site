@@ -191,3 +191,11 @@
      - 系統開課密碼信（`Important: Your access to training`）100% 穩穩抵達 Gmail **主要（Primary）收件匣**。
   3. **正式封關清理**：確認 `TESTFREE1` 使用次數達 `1/1` 後即刻自後台刪除，線上僅保留 `GIFT20`（$20 推薦折抵）與歷史已用盡之 `BOJIN-QA-ZERO-7F42C9`。
 - **日期**：2026-11-10 全閉環實測通過並完成封關。
+
+## D24. 購後 B1 延遲 30 分鐘寄出（錯開密碼信）與常駐學員測試帳號紀錄
+- **決策**：
+  1. **Email B1（`You're in. Two things to do first`）延遲 30 分鐘寄出**：依據真人實測經驗，將 Campaign `1230295` 步驟 1（`6272927`）由 `0 minutes` 調整為 **`30 minutes`**（全時段、全星期不限制寄送），讓新學員在買完課的前 30 分鐘只收到唯一一封「設定密碼開課信」（`Important: Your access to training`），徹底消除與 `B1` 同時到達造成誤點鎖頭畫面的混淆；B2～B8 維持原定間隔不變且全數 Active。
+  2. **常駐學員端體驗與客服排查專用帳號紀錄**：
+     - 學員教室入口：`https://melvinlin07.systeme.io/school/course/the-bojin-eye-method`
+     - 測試學員信箱：`lanyingmin0209+test3@gmail.com`（具備 `The Bojin Eye Method` Full access 永久看課權限，所有通知信寄達 `lanyingmin0209@gmail.com`；依 `CLAUDE.md` 資安規則，密碼由使用者私人備忘錄保管、不寫入 Git 公開 MD 檔，忘記隨時可用登入頁 Forgot password 重設）。
+- **日期**：2026-11-10 部署並完成後台截圖驗證。
