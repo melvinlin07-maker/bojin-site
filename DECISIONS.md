@@ -212,3 +212,10 @@
   2. **修復主官網桌面版頂部導覽列換行（`nav.js` `#bojin-desktop-nav-fix`）**：修正 `1251px+` 桌面版選單原本會折成兩行（`110.55px`）的問題，鎖定 `white-space: nowrap` 與精準間距後於 `1260px` 與 `1440px` 皆保持俐落單行並推送上線（commit `f86bb88`）。
   3. **修復銷售頁 `bojin-eye-method`（`page/45013727`）主按鈕箭頭位置**：將 `Start Tonight for  →$79` 修正為 `Start Tonight for $79 →` 並於電腦與手機雙版實測驗證通過。
 - **日期**：2026-11-10 完成全站雙版實測修復並推送定版。
+
+## D27. 舊名單安全封存隔離（`Archive - Legacy (Pre-2026-11)`）與漏斗標籤歸零重啟
+- **決策**：為避免 6～10 月累積之冷名單與測試帳號混淆新廣告成效，採用**零資料遺失之非破壞性標籤封存**：
+  1. **事前備份**：於 Systeme.io Contacts 匯出全部 50 筆聯絡人完整備份檔（`Your exported contacts` 已寄達主信箱）。
+  2. **建立封存標籤並隔離 49 筆舊聯絡人**：建立 `Archive - Legacy (Pre-2026-11)`（ID `2284610`），套用至除永久測試學員帳號 `lanyingmin0209+test3@gmail.com`（ID `452937676`）以外之全部 49 筆聯絡人；同時移除其 `Eye Reset` / `Guide - Eye Area` 標籤、自 `A1–A7` 退訂並設為不收行銷信（`unsubscribed: true`，確保日後不誤發給冷名單與主測試信箱）。
+  3. **標籤歸零＆保留 `+test3` 完整權限**：自 `452937676` 僅移除 `Eye Reset`，保留 `Customer - Eye Course`、`The Bojin Eye Method` 完整看課權限及 `B1–B8` 訂閱。最終實查 `Eye Reset = 0`、`Guide - Eye Area = 0`、`Customer - Eye Course = 1`、`Archive - Legacy (Pre-2026-11) = 49`，`A1–A7` 目前在線訂閱 `0` 人，準備好以 100% 乾淨數據迎接正式廣告流量。
+- **日期**：2026-11-11 執行完畢並完成 Tags／Contacts／Campaign 後台驗證。
