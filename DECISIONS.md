@@ -240,3 +240,13 @@
 3. **官網英文部落格雙軌導流（`nav.js`）**：於 `nav.js` 新增 `initBlogCourseTrack()`，在所有英文長文底部的免費領取框（`#watch-free-video`）下方自動加上直通 `$79` 課程銷售頁的溫和次連結。
 4. **結帳頁 `/order` `$29` Order Bump 實查確認**：已於 Funnel `7593650` Step `25415582` 及編輯器 `page/44335672` 實查確認 `Personal Video Review - $29`（One-time payment `$29.00`）Order Bump 已正確掛載並顯示於付款按鈕正上方，無須重複建立。
 5. **誠實邊界（待真實開賣後執行，絕不造假）**：學員真實回饋照片（須等 `B6`/`B7` 首批美國學員回信）與全臉 `$297` 進階課（須等眼周課穩定賣出 10～20 套並完成拍攝上架後）依原定計畫於下一階段啟用。
+
+---
+
+## D30：GSC 權限綁定、Sitemap 清理、3 篇眼周長文強制要求索引 & GEO 滿分補齊（2026-11-13）
+1. **打通美國站 GSC API 權限**：於 Google Search Console 將 `gsc-mcp@bojin-seo.iam.gserviceaccount.com` 加入 `https://bojinfacetension.com/`（Full 權限），可即時查詢美國站搜尋曝光與收錄狀態。
+2. **清理 GSC 誤交 Sitemap**：移除 2026-10-19 誤交的 5 筆 `.html` 條目（`blog-jawline-double-chin.html`、`blog-tired-puffy-eyes.html`、`blog-are-nasolabial-folds-permanent.html`、`landing.html`、`start.html`），僅保留 `sitemap.xml`（0 錯誤、0 警告）。
+3. **3 篇核心眼周文章提交「要求建立索引」**：針對原本處於 `Crawled - currently not indexed` 的 `blog-under-eye-bags-over-50.html`、`blog-tired-puffy-eyes.html`、`blog-crows-feet-eye-corners.html` 完成 GSC 優先檢索佇列送件。
+4. **美國站 GEO（AI 搜尋友善度）最後 2 個缺口補齊**：
+   - 更新 `llms.txt`：將示範頁更正為 `1:18 Above-the-Brow Demo`（`https://go.bojinfacetension.com/facial-tension-check`），並於 `Start here` 加入 `$79` 完整眼周課程（`https://go.bojinfacetension.com/bojin-eye-method`）。
+   - 補齊 `blog-after-you-cry-puffy-eyes-pause.html` 與 `blog-when-your-shoulders-wont-drop.html` 的 `Article`、`FAQPage`、`BreadcrumbList` JSON-LD 標記（其餘 2 筆無標記檔確認為 `noindex,follow` 跳轉舊頁）。
