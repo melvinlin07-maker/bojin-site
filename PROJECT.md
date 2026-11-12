@@ -95,12 +95,16 @@
 ---
 
 ## 10. 上線後階段性 6 大升級備忘（未來有流量與學員後才用，目前不需動手）
-> 更新日期：2026-11-11（新增第 6 項備忘）
-> 以下 6 項皆屬於「正式開賣、累積真實流量與第一批美國學員後再慢慢選用」的增長工具，現階段整套系統無須任何額外改動即可上線。
+> 更新日期：2026-11-12（第 1 項 Meta Pixel 全漏斗 4 階事件已提前於 2026-11-12 全部上線，詳見 `DECISIONS.md` D28）
+> 以下 2～6 項皆屬於「正式開賣、累積真實流量與第一批美國學員後再慢慢選用」的增長工具，現階段整套系統無須任何額外改動即可上線。
 
-1. **Meta Pixel `Purchase` 購買轉換事件（搭配感謝頁 `85f43e55`）**：
-   - *何時啟用*：準備正式加碼投放 Meta/FB「購買（Sales）」廣告目標時。
-   - *做法*：於結帳完成感謝頁 `go.bojinfacetension.com/85f43e55` 補上 Meta Pixel `Purchase`（USD `$79`）事件，讓演算法專找願意刷卡購買的 45–65 歲女性。
+1. **✅【已提前完成上線 2026-11-12】Meta Pixel (`751313064707787`) 全漏斗 4 階轉換事件 + GA4 + 正式英文 `<title>` + 2 道防流失機關**：
+   - *已完成實作（詳見 `DECISIONS.md` D28）*：
+     - `facial-tension-check`：英文 `<title>` + GA4 + Meta Pixel `PageView`
+     - `thank-you-6a5874551795c`：英文 `<title>` + GA4 + Meta Pixel `Lead` + `#bojin-curiosity-bridge`（「解鎖另外 4 個眼周關鍵區域＋今晚用手指開始」橋接句）
+     - `bojin-eye-method`：已於 Raw HTML (`rawhtml-dc27f949`) 補齊 GA4 + Meta Pixel `ViewContent ($79 USD)`
+     - `/order`：英文 `<title>` (`Secure Enrollment — The Bojin Eye Method ($79)`) + GA4 + Meta Pixel `InitiateCheckout ($79 USD)` + `#bojin-order-reassurance`（Module 6 免工具定心丸＋低於單次 `$180` SPA 價格錨點＋14 天退費保證）
+     - `/85f43e55`：GA4 + Meta Pixel `Purchase ($79 USD)`（含 `localStorage` 防重整重複計算鎖 `bojin_eye_purchase_79_tracked`）
 2. **表單 UTM / 來路網址追蹤欄位（搭配官網共用表單 `42586344`）**：
    - *何時啟用*：同時投多組廣告圖或文章流量增大、需要知道哪一頁最賺錢時。
    - *做法*：於表單補上隱藏來源欄位回傳 Systeme.io，即可分辨學員是來自哪篇文章或廣告組別。

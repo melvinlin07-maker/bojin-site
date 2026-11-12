@@ -219,3 +219,24 @@
   2. **建立封存標籤並隔離 49 筆舊聯絡人**：建立 `Archive - Legacy (Pre-2026-11)`（ID `2284610`），套用至除永久測試學員帳號 `lanyingmin0209+test3@gmail.com`（ID `452937676`）以外之全部 49 筆聯絡人；同時移除其 `Eye Reset` / `Guide - Eye Area` 標籤、自 `A1–A7` 退訂並設為不收行銷信（`unsubscribed: true`，確保日後不誤發給冷名單與主測試信箱）。
   3. **標籤歸零＆保留 `+test3` 完整權限**：自 `452937676` 僅移除 `Eye Reset`，保留 `Customer - Eye Course`、`The Bojin Eye Method` 完整看課權限及 `B1–B8` 訂閱。最終實查 `Eye Reset = 0`、`Guide - Eye Area = 0`、`Customer - Eye Course = 1`、`Archive - Legacy (Pre-2026-11) = 49`，`A1–A7` 目前在線訂閱 `0` 人，準備好以 100% 乾淨數據迎接正式廣告流量。
 - **日期**：2026-11-11 執行完畢並完成 Tags／Contacts／Campaign 後台驗證。
+
+---
+
+## D28：全漏斗 5 頁 Meta Pixel (`751313064707787`) + GA4 + SEO `<title>` + 2 道防流失機關補齊（2026-11-12）
+- **背景**：透過 `/grill-me` 事前屍檢與底層原始碼掃描，發現 5 個 Systeme.io 漏斗頁的後半段（銷售頁 `bojin-eye-method`、結帳頁 `/order`、購後感謝頁 `/85f43e55`）漏裝 Meta Pixel (`751313064707787`)，銷售頁漏裝 GA4 (`G-2VFEVY9Q1F`)，且 3 個漏斗頁分頁 `<title>` 為空白或預設 `Order page`。
+- **正式完成修改並實機驗收**：
+  1. **`facial-tension-check`（免費頁 ID `41476027`）**：補齊英文 `<title>` ➔ `Free 10-Second Eye-Area Tension Check | The Bojin Method`，保留 GA4 + Meta Pixel `PageView`。
+  2. **`thank-you-6a5874551795c`（1:18 觀看頁 ID `41476930`）**：補齊英文 `<title>` ➔ `Watch Step 1: Above-the-Brow Release | The Bojin Method`，保留 GA4 + Meta Pixel `Lead`，並在 `.bojin-cta-stack` 上方自動注入 `#bojin-curiosity-bridge`（「剛體驗完 5 步中的第 1 步，準備好解鎖另外 4 個眼周關鍵區域＋今晚用手指開始嗎？」）。手機 `390px` 實測無水平溢出（`scrollWidth === 390`）。
+  3. **`bojin-eye-method`（`$79` 銷售頁 ID `45013727`）**：於 Raw HTML 區塊 (`rawhtml-dc27f949`) 補齊 GA4 (`G-2VFEVY9Q1F`) + Meta Pixel (`751313064707787`) + `ViewContent ($79 USD)`。
+  4. **`/order`（結帳頁 ID `44335672`）**：將 `<title>` 從 `Order page` 改為 `Secure Enrollment — The Bojin Eye Method ($79)`，補齊 Meta Pixel + `InitiateCheckout ($79 USD)`，並於付款鈕下方 `.bojin-after` 注入 `#bojin-order-reassurance`（含 Module 6 免工具今晚開始、`$79` 低於單次 `$180` SPA 價格錨點、14 天全額退費保證）。手機 `390px` 實測無水平溢出（`scrollWidth === 390`）。
+  5. **`/85f43e55`（購後感謝頁 ID `46476760`）**：補齊 Meta Pixel (`751313064707787`) + 使用 `localStorage` (`bojin_eye_purchase_79_tracked`) 防重整重複計算的 `Purchase ($79 USD)` 與 GA4 `purchase` 事件。
+- **驗收**：`audit_site_static.py` 與 `verify_all_5_pages.py` 對線上 5 頁回傳全數 `True / PASS`。
+
+---
+
+## D29：第一類與第三類補強完成（`og:image`、Vimeo 50% 追蹤、部落格雙軌導流、Order Bump 實查確認）（2026-11-12）
+1. **5 個漏斗頁補齊社交分享縮圖（`og:image`）**：於 `facial-tension-check`、`thank-you-6a5874551795c`、`bojin-eye-method`、`/order`、`/85f43e55` 全部補上 `<meta property="og:image" content="https://bojinfacetension.com/assets/og/home.jpg"/>`，分享連結不再顯示灰色空白框。
+2. **1:18 觀看頁補齊 Vimeo 50% 觀看追蹤（`WatchedDemo50`）**：於 `thank-you-6a5874551795c`（ID `41476930`）加入 Vimeo Player `timeupdate` 監聽，觀看達 50% 時自動回傳 `WatchedDemo50` 至 Meta Pixel 與 `video_progress_50` 至 GA4（每頁僅觸發一次）。
+3. **官網英文部落格雙軌導流（`nav.js`）**：於 `nav.js` 新增 `initBlogCourseTrack()`，在所有英文長文底部的免費領取框（`#watch-free-video`）下方自動加上直通 `$79` 課程銷售頁的溫和次連結。
+4. **結帳頁 `/order` `$29` Order Bump 實查確認**：已於 Funnel `7593650` Step `25415582` 及編輯器 `page/44335672` 實查確認 `Personal Video Review - $29`（One-time payment `$29.00`）Order Bump 已正確掛載並顯示於付款按鈕正上方，無須重複建立。
+5. **誠實邊界（待真實開賣後執行，絕不造假）**：學員真實回饋照片（須等 `B6`/`B7` 首批美國學員回信）與全臉 `$297` 進階課（須等眼周課穩定賣出 10～20 套並完成拍攝上架後）依原定計畫於下一階段啟用。

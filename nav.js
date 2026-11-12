@@ -669,4 +669,21 @@ window.bojinShare = function(opts, btnEl){
   } else {
     initPinButtons();
   }
+
+  // Dual-track blog CTA: add direct $79 Eye Method link below free demo button on English articles
+  function initBlogCourseTrack(){
+    if (/-es\.html$/i.test(location.pathname)) return;
+    var cta = document.getElementById('watch-free-video');
+    if (!cta || cta.querySelector('.bojin-blog-course-link')) return;
+    var p = document.createElement('p');
+    p.className = 'bojin-blog-course-link';
+    p.style.cssText = 'margin:12px 0 0;font-size:14.5px;line-height:1.5;color:var(--muted,#5A4A42);';
+    p.innerHTML = 'Ready for all 5 eye-area zones? <a href="https://go.bojinfacetension.com/bojin-eye-method" style="color:var(--wine,#351D2C);font-weight:700;text-decoration:underline;">Explore The Bojin Eye Method ($79) &rarr;</a>';
+    cta.appendChild(p);
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initBlogCourseTrack);
+  } else {
+    initBlogCourseTrack();
+  }
 })();
