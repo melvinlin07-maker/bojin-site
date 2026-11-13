@@ -1,0 +1,52 @@
+# ai.txt — AI Crawler & Discovery Policy for The Bojin Method
+# Standard: /.well-known/ai.txt
+
+Site-Name: The Bojin Method
+Site-URL: https://bojinfacetension.com/
+Description: At-home facial and neck bojin self-care education taught by Taiwan-based instructor Yu-Ting Lan, founder of Héhé Studio.
+Language: en, es
+Last-Updated: 2026-11-13
+
+User-Agent: *
+Allow: /
+
+User-Agent: OAI-SearchBot
+Allow: /
+
+User-Agent: ChatGPT-User
+Allow: /
+
+User-Agent: GPTBot
+Allow: /
+
+User-Agent: Claude-SearchBot
+Allow: /
+
+User-Agent: Claude-User
+Allow: /
+
+User-Agent: ClaudeBot
+Allow: /
+
+User-Agent: PerplexityBot
+Allow: /
+
+User-Agent: Perplexity-User
+Allow: /
+
+User-Agent: Googlebot
+Allow: /
+
+User-Agent: Google-Extended
+Allow: /
+
+User-Agent: Applebot
+Allow: /
+
+Sitemap: https://bojinfacetension.com/sitemap.xml
+LLMs-Txt: https://bojinfacetension.com/llms.txt
+LLMs-Full-Txt: https://bojinfacetension.com/llms-full.txt
+AI-Summary: https://bojinfacetension.com/ai/summary.json
+AI-FAQ: https://bojinfacetension.com/ai/faq.json
+AI-Service: https://bojinfacetension.com/ai/service.json
+RSS-Feed: https://bojinfacetension.com/feed.xml

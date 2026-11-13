@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>The Bojin Method Journal</title>
+    <link>https://bojinfacetension.com/</link>
+    <description>At-home facial and neck bojin self-care guides by Taiwan-based instructor Yu-Ting Lan.</description>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 13 Nov 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://bojinfacetension.com/feed.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What Is Facial Bojin? Method, Sequence, and Comfortable Contact</title>
+      <link>https://bojinfacetension.com/what-is-bojin.html</link>
+      <guid>https://bojinfacetension.com/what-is-bojin.html</guid>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 +0000</pubDate>
+      <description>An educational introduction to facial bojin (撥筋), how it differs from gua sha, and why gentle placement and sequence matter.</description>
+    </item>
+    <item>
+      <title>Begin Here: The 3-Step Bojin Beginner Path</title>
+      <link>https://bojinfacetension.com/start.html</link>
+      <guid>https://bojinfacetension.com/start.html</guid>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Learn what the Bojin Method teaches, how to approach a demonstration, and what comfort checks to observe before practicing.</description>
+    </item>
+    <item>
+      <title>Brows and Inner Brow: Visual Movement Guide</title>
+      <link>https://bojinfacetension.com/brow-guide.html</link>
+      <guid>https://bojinfacetension.com/brow-guide.html</guid>
+      <pubDate>Tue, 10 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Teacher excerpts, movement comparisons, location illustration, and preparation reminders for the inner-brow area.</description>
+    </item>
+    <item>
+      <title>Is Bojin Safe? When to Pause and What to Ask Before Trying</title>
+      <link>https://bojinfacetension.com/blog-is-bojin-safe.html</link>
+      <guid>https://bojinfacetension.com/blog-is-bojin-safe.html</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 +0000</pubDate>
+      <description>A suitability and precautions overview covering when to pause, comfort checks, and clear non-medical boundaries.</description>
+    </item>
+    <item>
+      <title>Gua Sha and Bojin: How They Differ and Fit Together</title>
+      <link>https://bojinfacetension.com/blog-gua-sha-vs-bojin.html</link>
+      <guid>https://bojinfacetension.com/blog-gua-sha-vs-bojin.html</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 +0000</pubDate>
+      <description>Compare tool shape, contact surface, movement direction, and the role of the supporting hand in gua sha vs. facial bojin.</description>
+    </item>
+  </channel>
+</rss>

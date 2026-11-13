@@ -1,0 +1,28 @@
+{
+  "name": "The Bojin Method",
+  "provider": "Héhé Studio (和合雅築) — Yu-Ting Lan",
+  "url": "https://bojinfacetension.com",
+  "type": "EducationalService",
+  "description": "At-home facial and neck bojin self-care education, including free beginner guides, a 1:18 eye-area demonstration, and a structured 14-lesson online video course.",
+  "offerings": [
+    {
+      "name": "Free 1:18 Above-the-Brow Video Demo (Eye Reset)",
+      "price": "0",
+      "currency": "USD",
+      "url": "https://bojinfacetension.com/landing.html"
+    },
+    {
+      "name": "Free 5-Zone Face Tension Self-Check Guide",
+      "price": "0",
+      "currency": "USD",
+      "url": "https://bojinfacetension.com/guide.html"
+    },
+    {
+      "name": "The Bojin Eye Method — Complete 10-Minute Eye-Area Course",
+      "price": "79",
+      "currency": "USD",
+      "url": "https://go.bojinfacetension.com/bojin-eye-method"
+    }
+  ],
+  "disclaimer": "Educational self-care materials only; not medical diagnosis, treatment, or rehabilitation."
+}

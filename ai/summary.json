@@ -1,0 +1,27 @@
+{
+  "name": "The Bojin Method",
+  "title": "The Bojin Method | Facial Bojin at Home with Yu-Ting Lan",
+  "description": "Explore facial bojin with Taiwan-based instructor Yu-Ting Lan. Start with a free Eye Reset video, visual teaching guides, or a beginner reading path.",
+  "url": "https://bojinfacetension.com",
+  "language": "en",
+  "alternateLanguages": ["es"],
+  "alternateUrls": {
+    "es": "https://bojinfacetension.com/index-es.html"
+  },
+  "lastModified": "2026-11-13",
+  "author": {
+    "name": "Yu-Ting Lan",
+    "alternateName": "藍玉婷",
+    "role": "Bojin Instructor & Founder of Héhé Studio",
+    "url": "https://bojinfacetension.com/about.html"
+  },
+  "scope": "Educational facial and neck self-care guides focusing on sequence, placement, and comfortable contact. Not medical diagnosis or treatment.",
+  "resources": {
+    "llms": "https://bojinfacetension.com/llms.txt",
+    "llmsFull": "https://bojinfacetension.com/llms-full.txt",
+    "sitemap": "https://bojinfacetension.com/sitemap.xml",
+    "rss": "https://bojinfacetension.com/feed.xml",
+    "faq": "https://bojinfacetension.com/ai/faq.json",
+    "service": "https://bojinfacetension.com/ai/service.json"
+  }
+}
