@@ -352,7 +352,10 @@
         '<p class="quiz-zone" style="text-align:left;color:var(--gold-ink)">Priority Focus · '+ZONE_LABEL[top]+'</p>'+
         '<h2 style="font-family:var(--font-serif);font-weight:600;font-size:1.5rem;margin:0 0 .5rem;color:var(--ink)">'+rit.title+'</h2>'+
         '<ol class="ritual">'+steps+'</ol>'+
-        '<p style="margin:1.2rem 0 0"><a class="btn btn--ghost" style="border-color:var(--line-gold);color:var(--ink)" href="'+ARTICLE[top]+'">Read the full '+ZONE_SHORT[top]+' tension guide &rarr;</a></p>'+
+        '<p style="margin:1.2rem 0 0;display:flex;gap:.65rem;flex-wrap:wrap;align-items:center">'+
+          '<a class="btn btn--ghost" style="border-color:var(--line-gold);color:var(--ink)" href="'+ARTICLE[top]+'">Read the full '+ZONE_SHORT[top]+' tension guide &rarr;</a>'+
+          '<button type="button" class="btn btn--ghost" id="copyRoutineBtn" style="font-size:.86rem;padding:.5rem 1.05rem">📋 Copy My Routine</button>'+
+        '</p>'+
       '</div>'+
       '<div class="quiz-video-box">'+
         '<div class="quiz-video-copy">'+
@@ -392,7 +395,21 @@
 
     var qf=document.getElementById('quizForm');
     var pending=false;
-    if(qf){ qf.addEventListener('submit', async function(e){
+    if(qf){
+      var emInput=qf.querySelector('input[type=email]');
+      var statusEl=document.getElementById('quizStatus');
+      function setStatus(text){ if(statusEl){ statusEl.textContent=text; statusEl.hidden=!text; } }
+      if(emInput){
+        emInput.addEventListener('blur', function(){
+          var v=emInput.value.trim();
+          if(v && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ setStatus('Please enter a valid email address.'); }
+        });
+        emInput.addEventListener('input', function(){
+          var v=emInput.value.trim();
+          if(!v || /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v)){ setStatus(''); }
+        });
+      }
+      qf.addEventListener('submit', async function(e){
       e.preventDefault();
       if(pending) return;
       var hp=qf.querySelector('input[name="company"]'); if(hp && hp.value) return;
@@ -434,6 +451,8 @@
     }); }
     var cpBtn=document.getElementById('copyQuizSummaryBtn');
     if(cpBtn){ cpBtn.addEventListener('click', function(){ var sTxt='My Face Tension Profile (The Bojin Method): Primary focus = '+ZONE_LABEL[top]+' ('+Math.round(sc[top])+'/100). Full scores: '+RADAR.map(function(z){return ZONE_SHORT[z]+': '+Math.round(sc[z]);}).join(', ')+'. Free check: https://bojinfacetension.com/quiz.html'; if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(sTxt).then(function(){if(window.bojinToast)window.bojinToast('✓ Your 5-Zone Tension Summary is copied!');cpBtn.textContent='✓ Summary Copied!';});} }); }
+    var rtBtn=document.getElementById('copyRoutineBtn');
+    if(rtBtn){ rtBtn.addEventListener('click', function(){ var rTxt=rit.title+' ('+ZONE_LABEL[top]+'):\n'+rit.steps.map(function(s,idx){return (idx+1)+'. '+s.replace(/<[^>]+>/g,'');}).join('\n')+'\n\nSource: https://bojinfacetension.com/quiz.html'; if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(rTxt).then(function(){if(window.bojinToast)window.bojinToast('✓ Your personalized routine is copied!');rtBtn.textContent='✓ Routine Copied!';});} }); }
     var rs=document.getElementById('quizRestart');
     if(rs){ rs.addEventListener('click', function(){ answers=new Array(QUESTIONS.length).fill(null); cur=0;
       elResult.hidden=true; elResult.innerHTML=''; elIntro.hidden=false; window.scrollTo({top:0,behavior:'smooth'}); }); }
