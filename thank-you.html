@@ -38,13 +38,21 @@
 <main id="top">
 <section class="section reveal" style="padding-top:3.2rem;padding-bottom:4rem">
   <div class="wrap wrap--narrow">
-    <p class="eyebrow">Enrollment Confirmed</p>
+    <p class="eyebrow" id="ty-eyebrow">Enrollment Confirmed</p>
     <hr class="rule">
-    <h1 class="display" style="margin-bottom:1.1rem">Thank you for enrolling in The Bojin Eye Method!</h1>
+    <h1 class="display" id="ty-title" style="margin-bottom:1.1rem">Thank you for enrolling in The Bojin Eye Method!</h1>
 
     <div style="background:var(--card, #ffffff);border:1px solid var(--line, #e3d7c7);border-radius:16px;padding:1.8rem 2rem;margin-top:1.4rem;line-height:1.75">
-      <p style="font-size:1.08rem;margin-top:0">Your payment is confirmed. We will activate your lifetime access and email your login link to your checkout email within 12 hours (often within 1&ndash;2 hours).</p>
+      <p id="ty-body" style="font-size:1.08rem;margin-top:0">Your payment is confirmed. We will activate your lifetime access and email your login link to your checkout email within 12 hours (often within 1&ndash;2 hours).</p>
       <p class="muted" style="margin-bottom:0;font-size:.96rem">Need help or want it sent to a different email? Contact us at <a href="mailto:hello@bojinfacetension.com" style="font-weight:600;text-decoration:underline">hello@bojinfacetension.com</a>.</p>
+    </div>
+
+    <div id="ty-addon-card" style="background:var(--card, #ffffff);border:1.5px dashed #b9935a;border-radius:16px;padding:1.6rem 2rem;margin-top:1.8rem;line-height:1.7">
+      <p style="font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#8a6830;margin:0 0 .45rem">Optional One-Time Add-On &middot; Save $20</p>
+      <h2 style="font-family:'Cormorant Garamond',Georgia,serif;font-size:1.65rem;line-height:1.25;margin:0 0 .6rem">Add 1-on-1 Personal Video Review &mdash; $29 <span style="font-size:1rem;color:#7a6f74;text-decoration:line-through;font-weight:400">$49</span></h2>
+      <p style="margin:0 0 1.1rem;font-size:.98rem">Send a 1-minute practice clip anytime to receive direct 1-on-1 technique adjustments from Master Yu-Ting Lan (hand angle, pressure, and supporting hand placement).</p>
+      <a class="btn" id="ty-addon-btn" href="https://www.paypal.com/ncp/payment/SDJCJ5E35NAVW" style="display:inline-flex;align-items:center;gap:6px">Add Personal Video Review ($29) &rarr;</a>
+      <p class="muted" style="font-size:12.5px;line-height:1.55;margin:.75rem 0 0">Secure checkout via PayPal &mdash; Credit/Debit Card &amp; Apple Pay accepted (no PayPal account needed). Checkout may display our parent studio name (Xin Yan).</p>
     </div>
 
     <p style="margin-top:2rem"><a class="btn btn--ghost" href="index.html">&larr; Return to The Bojin Method</a></p>
@@ -80,13 +88,53 @@
 <script src="nav.js?v=20261023-cover-1"></script>
 <script>
 (function(){
-  var key = 'bojin_eye_purchase_tracked_v1';
+  var params = new URLSearchParams(window.location.search);
+  var isAddon = params.get('addon') === 'review';
+
+  if (isAddon) {
+    var eyebrow = document.getElementById('ty-eyebrow');
+    var title = document.getElementById('ty-title');
+    var body = document.getElementById('ty-body');
+    var card = document.getElementById('ty-addon-card');
+    if (eyebrow) eyebrow.textContent = 'Add-On Confirmed';
+    if (title) title.textContent = 'Thank you for adding Personal Video Review!';
+    if (body) body.textContent = 'Your $29 1-on-1 Personal Video Review is confirmed. Whenever you are ready, simply email your 1-minute practice clip to hello@bojinfacetension.com and Master Yu-Ting Lan will send back your personal technique adjustments.';
+    if (card) card.style.display = 'none';
+  }
+
+  var key = isAddon ? 'bojin_review_purchase_tracked_v1' : 'bojin_eye_purchase_tracked_v1';
+  var val = isAddon ? 29.00 : 79.00;
+  var itemName = isAddon ? 'Personal Video Review - 1-on-1 Technique Feedback' : 'The Bojin Eye Method';
+  var alreadyTracked = false;
   try {
-    if (sessionStorage.getItem(key)) return;
-    sessionStorage.setItem(key, '1');
+    if (sessionStorage.getItem(key)) alreadyTracked = true;
+    else sessionStorage.setItem(key, '1');
   } catch (e) {}
-  if (typeof window.fbq === 'function') {
-    window.fbq('track', 'Purchase', { value: 79.00, currency: 'USD' });
+
+  if (!alreadyTracked) {
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Purchase', { value: val, currency: 'USD' });
+    }
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'purchase', {
+        value: val,
+        currency: 'USD',
+        items: [{ item_name: itemName, price: val, quantity: 1 }]
+      });
+    }
+  }
+
+  var addonBtn = document.getElementById('ty-addon-btn');
+  if (addonBtn) {
+    addonBtn.addEventListener('click', function(e) {
+      if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) return;
+      e.preventDefault();
+      var href = this.href;
+      if (typeof window.fbq === 'function') {
+        window.fbq('track', 'InitiateCheckout', { value: 29.00, currency: 'USD' });
+      }
+      setTimeout(function() { window.location.href = href; }, 250);
+    });
   }
 })();
 </script>
