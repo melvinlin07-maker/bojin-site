@@ -47,10 +47,11 @@
       <div id="ty-review-channels" style="display:none;margin:1.2rem 0 1rem;padding:1.2rem 1.3rem;background:#fbf7f0;border:1px solid #e3d7c7;border-radius:12px">
         <p style="font-weight:700;margin:0 0 .6rem;font-size:.98rem">Choose the easiest way to send your 1-minute practice clip:</p>
         <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:.8rem">
-          <a class="btn" href="mailto:hello@bojinfacetension.com?subject=Personal%20Video%20Review%20(%2429)%20-%20Practice%20Clip" style="font-size:.92rem;padding:10px 16px">Email Video Clip</a>
+          <a class="btn" id="ty-email-btn" href="mailto:hello@bojinfacetension.com?subject=Personal%20Video%20Review%20(%2429)%20-%20Practice%20Clip" style="font-size:.92rem;padding:10px 16px">Email Video Clip</a>
           <a class="btn btn--ghost" href="https://m.me/BojinFacialMethod" target="_blank" rel="noopener" style="font-size:.92rem;padding:10px 16px">Facebook Messenger</a>
           <a class="btn btn--ghost" href="https://wa.me/886982296190?text=Hi%20Master%20Lan%2C%20I%20just%20purchased%20the%20%2429%20Personal%20Video%20Review!%20My%20checkout%20email%20is%3A%20" target="_blank" rel="noopener" style="font-size:.92rem;padding:10px 16px">WhatsApp</a>
         </div>
+        <p id="ty-email-copied" style="display:none;font-size:.86rem;font-weight:600;color:#2f6b48;margin:0 0 .5rem">&#10003; Email copied: hello@bojinfacetension.com (paste into Gmail or any email app)</p>
         <p class="muted" style="font-size:.88rem;margin:0;line-height:1.55"><strong>Tip:</strong> Please include your checkout email when messaging us so we can match your order right away. If your video file is too large for email, Messenger or WhatsApp works great.</p>
       </div>
       <p class="muted" style="margin-bottom:0;font-size:.96rem">Need help or want it sent to a different email? Contact us at <a href="mailto:hello@bojinfacetension.com" style="font-weight:600;text-decoration:underline">hello@bojinfacetension.com</a>.</p>
@@ -133,6 +134,17 @@
         items: [{ item_name: itemName, price: val, quantity: 1 }]
       });
     }
+  }
+
+  var emailBtn = document.getElementById('ty-email-btn');
+  if (emailBtn) {
+    emailBtn.addEventListener('click', function() {
+      var msg = document.getElementById('ty-email-copied');
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText('hello@bojinfacetension.com').catch(function(){});
+      }
+      if (msg) msg.style.display = 'block';
+    });
   }
 
   var addonBtn = document.getElementById('ty-addon-btn');
