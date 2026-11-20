@@ -44,6 +44,15 @@
 
     <div style="background:var(--card, #ffffff);border:1px solid var(--line, #e3d7c7);border-radius:16px;padding:1.8rem 2rem;margin-top:1.4rem;line-height:1.75">
       <p id="ty-body" style="font-size:1.08rem;margin-top:0">Your payment is confirmed. We will activate your lifetime access and email your login link to your checkout email within 12 hours (often within 1&ndash;2 hours).</p>
+      <div id="ty-review-channels" style="display:none;margin:1.2rem 0 1rem;padding:1.2rem 1.3rem;background:#fbf7f0;border:1px solid #e3d7c7;border-radius:12px">
+        <p style="font-weight:700;margin:0 0 .6rem;font-size:.98rem">Choose the easiest way to send your 1-minute practice clip:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:.8rem">
+          <a class="btn" href="mailto:hello@bojinfacetension.com?subject=Personal%20Video%20Review%20(%2429)%20-%20Practice%20Clip" style="font-size:.92rem;padding:10px 16px">Email Video Clip</a>
+          <a class="btn btn--ghost" href="https://m.me/BojinFacialMethod" target="_blank" rel="noopener" style="font-size:.92rem;padding:10px 16px">Facebook Messenger</a>
+          <a class="btn btn--ghost" href="https://wa.me/886982296190?text=Hi%20Master%20Lan%2C%20I%20just%20purchased%20the%20%2429%20Personal%20Video%20Review!%20My%20checkout%20email%20is%3A%20" target="_blank" rel="noopener" style="font-size:.92rem;padding:10px 16px">WhatsApp</a>
+        </div>
+        <p class="muted" style="font-size:.88rem;margin:0;line-height:1.55"><strong>Tip:</strong> Please include your checkout email when messaging us so we can match your order right away. If your video file is too large for email, Messenger or WhatsApp works great.</p>
+      </div>
       <p class="muted" style="margin-bottom:0;font-size:.96rem">Need help or want it sent to a different email? Contact us at <a href="mailto:hello@bojinfacetension.com" style="font-weight:600;text-decoration:underline">hello@bojinfacetension.com</a>.</p>
     </div>
 
@@ -96,10 +105,12 @@
     var title = document.getElementById('ty-title');
     var body = document.getElementById('ty-body');
     var card = document.getElementById('ty-addon-card');
+    var channels = document.getElementById('ty-review-channels');
     if (eyebrow) eyebrow.textContent = 'Add-On Confirmed';
     if (title) title.textContent = 'Thank you for adding Personal Video Review!';
-    if (body) body.textContent = 'Your $29 1-on-1 Personal Video Review is confirmed. Whenever you are ready, simply email your 1-minute practice clip to hello@bojinfacetension.com and Master Yu-Ting Lan will send back your personal technique adjustments.';
+    if (body) body.textContent = 'Your $29 1-on-1 Personal Video Review is confirmed. Whenever you are ready, send your 1-minute practice clip using any option below and Master Yu-Ting Lan will send back your personal technique adjustments.';
     if (card) card.style.display = 'none';
+    if (channels) channels.style.display = 'block';
   }
 
   var key = isAddon ? 'bojin_review_purchase_tracked_v1' : 'bojin_eye_purchase_tracked_v1';
