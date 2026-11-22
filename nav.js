@@ -22,7 +22,25 @@
    stubs and bail, so local development never pollutes the pixel or GA4.
    (Fires PageView on every real page. Lead/Purchase get added later.) */
 (function(){
-  var PROD = /(^|\.)bojinfacetension\.com$/i.test(location.hostname);
+  /* Internal tester opt-out switch: visit ?notrack=1 once to silence GA4 & Meta Pixel
+     on this browser permanently; visit ?notrack=0 to re-enable tracking. */
+  var noTrack = false;
+  try {
+    var qs = new URLSearchParams(location.search);
+    if(qs.get('notrack') === '1') localStorage.setItem('bojin-notrack', '1');
+    else if(qs.get('notrack') === '0') localStorage.removeItem('bojin-notrack');
+    noTrack = localStorage.getItem('bojin-notrack') === '1';
+
+    /* Cross-page attribution sticker: preserve first entry page + ?source / ?pain across navigation */
+    if(!sessionStorage.getItem('bojin_entry_page')){
+      var slug = (location.pathname.replace(/^\/+|\/+$/g, '').replace(/\.html$/i, '') || 'home');
+      sessionStorage.setItem('bojin_entry_page', slug);
+    }
+    if(qs.get('source')) sessionStorage.setItem('bojin_source', qs.get('source'));
+    if(qs.get('pain')) sessionStorage.setItem('bojin_pain', qs.get('pain'));
+  } catch(e) {}
+
+  var PROD = /(^|\.)bojinfacetension\.com$/i.test(location.hostname) && !noTrack;
   window.dataLayer = window.dataLayer || [];
   if(!PROD){
     /* keep any fbq()/gtag() calls elsewhere from throwing off-production */
@@ -91,10 +109,43 @@ window.bojinLead = function(source){
     if(window.__bojinLeadFired[source]) return;
     window.__bojinLeadFired[source] = true;
     var eid = 'lead-' + source + '-' + Date.now() + '-' + Math.round(Math.random()*1e6);
-    if(window.fbq) fbq('track','Lead',{content_name:source},{eventID:eid});
-    if(window.gtag) gtag('event','generate_lead',{source:source});
+    var entryPage = '', savedSource = '', savedPain = '';
+    try {
+      entryPage = sessionStorage.getItem('bojin_entry_page') || '';
+      savedSource = sessionStorage.getItem('bojin_source') || '';
+      savedPain = sessionStorage.getItem('bojin_pain') || '';
+    } catch(e) {}
+    if(window.fbq) fbq('track','Lead',{content_name:source, entry_page:entryPage || undefined},{eventID:eid});
+    if(window.gtag) gtag('event','generate_lead',{
+      source: source,
+      entry_page: entryPage || undefined,
+      saved_source: savedSource || undefined,
+      saved_pain: savedPain || undefined
+    });
   }catch(e){}
 };
+
+/* Track conversion CTA clicks site-wide with entry-page attribution */
+(function(){
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if(!a) return;
+    var href = a.getAttribute('href') || '';
+    if(!/(go\.bojinfacetension\.com|quiz\.html|landing\.html|guide\.html)/i.test(href)) return;
+    try {
+      var entryPage = sessionStorage.getItem('bojin_entry_page') || '';
+      var savedPain = sessionStorage.getItem('bojin_pain') || '';
+      if(window.gtag){
+        gtag('event', 'bojin_cta_click', {
+          source_page: location.pathname,
+          target_url: a.href,
+          entry_page: entryPage || undefined,
+          saved_pain: savedPain || undefined
+        });
+      }
+    } catch(err) {}
+  }, {passive:true});
+})();
 
 /* Guide forms use the existing, verified guide-delivery webhook. Confirm the
    service acknowledgement before showing the download page; never infer success
