@@ -1,13 +1,6 @@
 # Internal notes / handoff / design docs — kept locally, never published to the live site.
 *.md
 
-# Exceptions: project documentation that SHOULD be tracked (added 2026-08-08)
-!PROJECT.md
-!CLAUDE.md
-!DECISIONS.md
-!GEMINI.md
-!AGENTS.md
-!找東西地圖.md
 
 # Raw source photos & videos — kept locally as material, never deployed to the live site.
 # (Optimized, web-ready images live under names like bojin-*.jpg / og/*.jpg and ARE committed.)
@@ -38,3 +31,4 @@ content-library.json
 
 # Local workbench: screenshots, drafts, backups (added 2026-11-23)
 _workbench/
+# Internal docs (CLAUDE/GEMINI/AGENTS/PROJECT/DECISIONS, file map) stay local: the repo and Pages site are public (2026-11-23)
