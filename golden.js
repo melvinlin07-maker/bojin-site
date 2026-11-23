@@ -91,9 +91,10 @@
       if (jaw && !eye) suggested = 'jaw_asymmetry';
       if (eye) suggested = 'eye_cranial';
       if (text) {
-        text.textContent = checked.length === 1
-          ? 'You noticed one side-to-side difference. That is common, and it is useful information: it tells you where to start instead of working the whole face.'
-          : 'You noticed ' + checked.length + ' side-to-side differences. Start with one area only, and compare the two sides again after a few minutes.';
+        // Pages can override the wording with data-msg-one / data-msg-many ({n} = count).
+        var one = box.getAttribute('data-msg-one') || 'You noticed one side-to-side difference. That is common, and it is useful information: it tells you where to start instead of working the whole face.';
+        var many = box.getAttribute('data-msg-many') || 'You noticed {n} side-to-side differences. Start with one area only, and compare the two sides again after a few minutes.';
+        text.textContent = (checked.length === 1 ? one : many).replace('{n}', checked.length);
       }
       result.hidden = false;
     }

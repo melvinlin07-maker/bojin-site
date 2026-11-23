@@ -31,13 +31,15 @@
     else if(qs.get('notrack') === '0') localStorage.removeItem('bojin-notrack');
     noTrack = localStorage.getItem('bojin-notrack') === '1';
 
-    /* Cross-page attribution sticker: preserve first entry page + ?source / ?pain across navigation */
+    /* Cross-page attribution sticker: preserve first entry page + ?source/?src and ?pain/?from/?type across navigation */
     if(!sessionStorage.getItem('bojin_entry_page')){
       var slug = (location.pathname.replace(/^\/+|\/+$/g, '').replace(/\.html$/i, '') || 'home');
       sessionStorage.setItem('bojin_entry_page', slug);
     }
-    if(qs.get('source')) sessionStorage.setItem('bojin_source', qs.get('source'));
-    if(qs.get('pain')) sessionStorage.setItem('bojin_pain', qs.get('pain'));
+    var srcParam = qs.get('source') || qs.get('src');
+    var painParam = qs.get('pain') || qs.get('from') || qs.get('type');
+    if(srcParam) sessionStorage.setItem('bojin_source', srcParam);
+    if(painParam) sessionStorage.setItem('bojin_pain', painParam);
   } catch(e) {}
 
   var PROD = /(^|\.)bojinfacetension\.com$/i.test(location.hostname) && !noTrack;

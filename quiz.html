@@ -249,12 +249,98 @@
   };
 
   var ARTICLE = {
-    'eyes':'blog-tired-puffy-eyes.html',
-    'brows-forehead':'blog-forehead-frown-lines.html',
-    'cheeks-nasolabial':'blog-smile-lines-cheeks.html',
-    'jaw-neck':'blog-jawline-double-chin.html',
-    'glow-circulation':'blog-dull-puffy-glow.html'
+    'eyes':'eyes-and-brows.html',
+    'brows-forehead':'forehead-and-scalp.html',
+    'cheeks-nasolabial':'cheeks-and-smile-lines.html',
+    'jaw-neck':'jaw-and-chin.html',
+    'glow-circulation':'tired-looking-face.html'
   };
+
+  function buildZoneRoute(zone){
+    var cfg = {
+      'eyes': {
+        vb:'200 110 480 480', img:'assets/eyes-route-illustration.webp', title:'Your starting route: above the brow',
+        p1:[312,262], p2:[534,282], r:14, tr:7, sw:4.5,
+        guide:'M330 271 C380 258 440 250 470 260 C490 267 503 276 512 284',
+        paths:['M330.0 271.0 L331.7 270.9 L333.4 270.7 L335.1 270.4 L336.8 270.0 L338.4 269.6 L340.0 269.1 L341.6 268.6 L343.2 268.0 L344.7 267.3 L346.1 266.6 L347.5 265.8 L348.8 265.0 L350.1 264.1 L351.3 263.2 L352.5 262.2 L353.6 261.2 L354.6 260.2 L355.5 259.2 L356.3 258.1 L357.1 257.0 L357.8 255.9 L358.4 254.8 L358.9 253.7 L359.3 252.6 L359.7 251.5 L360.0 250.4 L360.2 249.3 L360.3 248.2 L360.3 247.2 L360.3 246.2 L360.1 245.3 L360.0 244.3 L359.7 243.5 L359.4 242.6 L359.1 241.9 L358.6 241.1 L358.2 240.5 L357.7 239.9 L357.1 239.3 L356.5 238.8 L355.9 238.4 L355.3 238.1 L354.6 237.8 L354.0 237.6 L353.3 237.4 L352.6 237.4 L352.0 237.4 L351.3 237.4 L350.7 237.6 L350.1 237.8 L349.5 238.1 L348.9 238.4 L348.4 238.8 L348.0 239.3 L347.6 239.8 L347.2 240.4 L346.9 241.0 L346.6 241.6 L346.5 242.4 L346.3 243.1 L346.3 243.9 L346.3 244.7 L346.5 245.6 L346.6 246.4 L346.9 247.3 L347.3 248.2 L347.7 249.1 L348.2 250.0 L348.8 250.9 L349.5 251.8 L350.3 252.7 L351.1 253.6 L352.0 254.4 L353.0 255.2 L354.1 256.0 L355.3 256.8 L356.5 257.5 L357.8 258.2 L359.1 258.8 L360.5 259.4 L362.0 259.9 L363.5 260.4 L365.0 260.8 L366.6 261.2 L368.2 261.5 L369.9 261.7 L371.6 261.9 L373.2 262.0 L374.9 262.0 L376.7 261.9 L378.4 261.8 L380.1 261.6 L381.8 261.4 L383.4 261.0 L385.1 260.6 L386.7 260.2 L388.3 259.7 L389.8 259.1 L391.3 258.4 L392.8 257.7 L394.2 257.0 L395.5 256.2 L396.8 255.3 L398.0 254.4 L399.2 253.5 L400.3 252.5 L401.3 251.5 L402.2 250.4 L403.1 249.4 L403.8 248.3 L404.5 247.2 L405.1 246.2 L405.6 245.1 L406.1 244.0 L406.4 242.9 L406.7 241.8 L406.9 240.8 L407.0 239.7 L407.1 238.7 L407.0 237.8 L406.9 236.8 L406.7 235.9 L406.5 235.1 L406.2 234.3 L405.8 233.5 L405.4 232.8 L405.0 232.1 L404.5 231.6 L403.9 231.0 L403.3 230.6 L402.7 230.2 L402.1 229.8 L401.4 229.6 L400.8 229.4 L400.1 229.3 L399.5 229.2 L398.8 229.3 L398.1 229.3 L397.5 229.5 L396.9 229.7 L396.3 230.0 L395.8 230.4 L395.3 230.8 L394.8 231.3 L394.4 231.8 L394.0 232.4 L393.7 233.1 L393.5 233.7 L393.3 234.5 L393.2 235.3 L393.2 236.1 L393.2 236.9 L393.3 237.8 L393.5 238.6 L393.8 239.6 L394.2 240.5 L394.6 241.4 L395.1 242.3 L395.7 243.2 L396.4 244.2 L397.2 245.1 L398.0 245.9 L399.0 246.8 L400.0 247.6 L401.0 248.5 L402.2 249.2 L403.4 250.0 L404.7 250.6 L406.0 251.3 L407.4 251.9 L408.9 252.4 L410.4 252.9 L412.0 253.3 L413.5 253.8 L415.2 254.2 L416.8 254.6 L418.5 254.8 L420.2 255.1 L421.9 255.2 L423.6 255.3 L425.3 255.3 L427.0 255.2 L428.7 255.1 L430.4 254.9 L432.1 254.6 L433.7 254.3 L435.3 253.9 L436.8 253.4 L438.4 252.9 L439.8 252.3 L441.2 251.7 L442.6 251.0 L443.9 250.2 L445.1 249.5 L446.2 248.6 L447.3 247.8 L448.3 246.9 L449.3 246.0 L450.1 245.1 L450.9 244.1 L451.6 243.2 L452.2 242.2 L452.7 241.2 L453.2 240.3 L453.5 239.3 L453.8 238.4 L454.0 237.4 L454.1 236.5 L454.2 235.6 L454.1 234.8 L454.0 234.0 L453.9 233.2 L453.6 232.5 L453.3 231.8 L453.0 231.1 L452.6 230.6 L452.1 230.0 L451.6 229.6 L451.1 229.2 L450.5 228.8 L449.9 228.6 L449.3 228.3 L448.6 228.2 L448.0 228.1 L447.3 228.1 L446.7 228.2 L446.0 228.4 L445.4 228.6 L444.7 228.9 L444.1 229.2 L443.6 229.6 L443.0 230.1 L442.5 230.7 L442.1 231.3 L441.7 231.9 L441.3 232.6 L441.0 233.4 L440.8 234.2 L440.6 235.1 L440.5 236.0 L440.5 236.9 L440.5 237.9 L440.6 238.8 L440.8 239.9 L441.1 240.9 L441.5 241.9 L441.9 243.0 L442.4 244.0 L443.1 245.1 L443.7 246.2 L444.5 247.4 L445.3 248.5 L446.2 249.7 L447.2 250.8 L448.2 251.9 L449.3 252.9 L450.5 253.9 L451.8 254.8 L453.1 255.7 L454.5 256.6 L455.9 257.4 L457.4 258.2 L458.9 258.8 L460.5 259.5 L462.1 260.0 L463.7 260.5 L465.4 260.9 L467.0 261.3 L468.7 261.6 L470.4 261.8 L472.1 262.0 L473.7 262.0 L475.4 262.0 L477.0 262.0 L478.7 261.8 L480.3 261.6 L481.8 261.4 L483.3 261.1 L484.8 260.7 L486.3 260.2 L487.6 259.7 L489.0 259.2 L490.2 258.6 L491.4 258.0 L492.5 257.3 L493.6 256.6 L494.6 255.9 L495.5 255.1 L496.3 254.3 L497.0 253.5 L497.7 252.7 L498.3 251.9 L498.8 251.0 L499.2 250.2 L499.5 249.4 L499.8 248.6 L499.9 247.8 L500.0 247.0 L500.0 246.3 L500.0 245.6 L499.8 244.9 L499.6 244.3 L499.4 243.7 L499.0 243.1 L498.7 242.6 L498.2 242.2 L497.7 241.8 L497.2 241.5 L496.6 241.2 L496.0 241.1 L495.3 241.1 L494.6 241.1 L493.9 241.3 L493.1 241.4 L492.4 241.7 L491.6 242.0 L490.9 242.4 L490.1 242.9 L489.4 243.5 L488.7 244.1 L488.1 244.7 L487.4 245.5 L486.8 246.3 L486.3 247.1 L485.8 248.1 L485.4 249.0 L485.0 250.1 L484.6 251.1 L484.4 252.2 L484.2 253.4 L484.1 254.6 L484.0 255.8 L484.1 257.1 L484.2 258.3 L484.3 259.6 L484.6 260.9 L485.0 262.2 L485.4 263.5 L485.9 264.8 L486.5 266.1 L487.2 267.4 L488.0 268.7 L488.8 269.9 L489.7 271.1 L490.7 272.3 L491.8 273.5 L492.9 274.6 L494.1 275.6 L495.4 276.7 L496.7 277.6 L498.1 278.6 L499.5 279.4 L501.0 280.2 L502.5 281.0 L504.0 281.6 L505.6 282.3 L507.2 282.8 L508.8 283.3 L510.4 283.7 L512.0 284.0'],
+        cap:'<b>1. Start</b> above the inner brow &rarr; <b>2. End</b> at the brow tail (light circles on the bone, never on the eyelid).'
+      },
+      'brows-forehead': {
+        vb:'220 60 460 460', img:'assets/forehead-route-illustration.webp', title:'Your starting route: brow to hairline',
+        p1:[458,336], p2:[292,162], r:14, tr:6.5, sw:4.5,
+        guide:'M435 332 L435 124 M395 330 L395 124 M355 322 L355 140 M315 318 L315 165',
+        paths:['M435 332 L435 124','M395 330 L395 124','M355 322 L355 140','M315 318 L315 165'],
+        cap:'<b>1. Start</b> above the inner brow &rarr; <b>2. End</b> at the hairline (gentle upward lines across to the brow tail).'
+      },
+      'cheeks-nasolabial': {
+        vb:'120 220 560 560', img:'assets/cheeks-route-illustration.webp', title:'Your starting route: under the cheekbone',
+        p1:[236,512], p2:[598,454], r:16, tr:8.5, sw:5.5,
+        guide:'M262 505 C350 538 475 524 575 458',
+        paths:['M262 505 C350 538 475 524 575 458'],
+        cap:'<b>1. Start</b> beside the nose &rarr; <b>2. End</b> in front of the ear (curved lightly along the lower edge of the cheekbone).'
+      },
+      'jaw-neck': {
+        vb:'0 0 1000 1000', img:'assets/jaw-route-illustration.webp', title:'Your starting route: along the lower jawbone',
+        p1:[268,559], p2:[666,514], r:30, tr:14, sw:9,
+        guide:'M268 559 C330 566 430 570 492 562 C530 556 560 528 584 506 C606 494 636 512 666 514',
+        paths:['M268 559 C330 566 430 570 492 562 C530 556 560 528 584 506 C606 494 636 512 666 514'],
+        cap:'<b>1. Start</b> beside the chin &rarr; <b>2. End</b> in the soft hollow behind the earlobe (light glide along the bone edge).'
+      },
+      'glow-circulation': {
+        vb:'320 440 520 520', img:'assets/cheeks-route-illustration.webp', title:'Your finishing route: side of the neck to shoulder',
+        p1:[688,566], p2:[770,900], r:16, tr:8.5, sw:5.5,
+        guide:'M655 575 C668 670 692 780 738 895',
+        paths:['M655 575 C668 670 692 780 738 895'],
+        cap:'<b>1. Start</b> in the soft hollow behind the earlobe &rarr; <b>2. End</b> at the shoulder line (light glide down the side of the neck, never on the front).'
+      }
+    };
+    var c = cfg[zone] || cfg['glow-circulation'];
+    var dur = c.paths.length > 1 ? 0.8 : 3.0;
+    var linesHtml = c.paths.map(function(d, idx){
+      return '<path class="qz-route__line" data-idx="'+idx+'" style="stroke-width:'+c.sw+';animation-delay:'+(idx*0.8)+'s;animation-duration:'+dur+'s" d="'+d+'" fill="none" pathLength="100"/>';
+    }).join('');
+    var tipsHtml = c.paths.map(function(d, idx){
+      return '<circle class="qz-route__tip" data-idx="'+idx+'" r="'+c.tr+'"><animateMotion dur="'+dur+'s" begin="indefinite" fill="freeze" path="'+d+'"/></circle>';
+    }).join('');
+    return '<div class="qz-route" id="quizRouteCard" style="margin:1.1rem 0 1.2rem;padding:1rem;background:var(--paper-2);border:1px solid var(--line-gold);border-radius:12px;display:grid;gap:.8rem;align-items:center">'+
+      '<svg viewBox="'+c.vb+'" style="width:100%;max-width:280px;height:auto;margin:0 auto;display:block;border-radius:10px" role="img" aria-label="'+c.title+'">'+
+        '<image href="'+c.img+'" x="0" y="0" width="1000" height="1000"/>'+
+        '<path d="'+c.guide+'" fill="none" stroke="#FFF6E6" stroke-width="'+(c.sw*0.8)+'" stroke-dasharray="2 10" stroke-linecap="round" opacity=".85"/>'+
+        linesHtml + tipsHtml +
+        '<g><circle cx="'+c.p1[0]+'" cy="'+c.p1[1]+'" r="'+c.r+'" fill="#6E1E2E" stroke="#FFF6E6" stroke-width="2.5"/><text x="'+c.p1[0]+'" y="'+(c.p1[1]+c.r*0.36)+'" fill="#FFF6E6" font-size="'+(c.r*1.15)+'" font-weight="700" text-anchor="middle" font-family="system-ui,sans-serif">1</text>'+
+        '<circle cx="'+c.p2[0]+'" cy="'+c.p2[1]+'" r="'+c.r+'" fill="#6E1E2E" stroke="#FFF6E6" stroke-width="2.5"/><text x="'+c.p2[0]+'" y="'+(c.p2[1]+c.r*0.36)+'" fill="#FFF6E6" font-size="'+(c.r*1.15)+'" font-weight="700" text-anchor="middle" font-family="system-ui,sans-serif">2</text></g>'+
+      '</svg>'+
+      '<div><p style="margin:0 0 .35rem;font-weight:600;color:var(--ink)">'+c.title+'</p>'+
+      '<p style="margin:0 0 .6rem;font-size:.93rem;color:var(--ink-soft);line-height:1.5">'+c.cap+'</p>'+
+      '<button type="button" class="btn btn--ghost" id="quizRouteReplay" style="font-size:.86rem;padding:.4rem .9rem">&#9654; Play route again</button>'+
+      '<p style="margin:.45rem 0 0;font-size:.82rem;color:var(--ink-soft)">Illustration (route only). Glide lightly; never painful.</p></div>'+
+    '</div>'+
+    '<style>.qz-route__line{stroke:#F3C877;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100}.qz-route.is-playing .qz-route__line{animation-name:qz-draw;animation-timing-function:ease-in-out;animation-fill-mode:forwards}.qz-route.is-done .qz-route__line{stroke-dashoffset:0}@keyframes qz-draw{to{stroke-dashoffset:0}}.qz-route__tip{fill:#FFF3D6;stroke:#F3C877;stroke-width:3;opacity:0}.qz-route__tip.is-active{opacity:.95}@media(min-width:640px){.qz-route{grid-template-columns:280px 1fr}}</style>';
+  }
+
+  function wireQuizRoute(){
+    var card = document.getElementById('quizRouteCard'); if(!card) return;
+    var tips = card.querySelectorAll('.qz-route__tip');
+    var timers = [];
+    function clearAll(){ timers.forEach(clearTimeout); timers = []; tips.forEach(function(t){ t.classList.remove('is-active'); }); }
+    function play(){
+      clearAll();
+      card.classList.remove('is-playing','is-done'); void card.offsetWidth;
+      card.classList.add('is-playing');
+      var multi = tips.length > 1;
+      tips.forEach(function(tip, i){
+        var m = tip.querySelector('animateMotion');
+        timers.push(setTimeout(function(){
+          tips.forEach(function(t){ t.classList.remove('is-active'); });
+          tip.classList.add('is-active');
+          try { m.beginElement(); } catch(e) {}
+        }, multi ? i * 800 : 0));
+      });
+      timers.push(setTimeout(function(){ clearAll(); card.classList.remove('is-playing'); card.classList.add('is-done'); }, multi ? 3350 : 3200));
+    }
+    var btn = document.getElementById('quizRouteReplay'); if(btn) btn.addEventListener('click', play);
+    setTimeout(play, 250);
+  }
 
   /* ---------- state + elements ---------- */
   var answers = new Array(QUESTIONS.length).fill(null);
@@ -351,6 +437,7 @@
       '<div class="quiz-card" style="margin-top:1.6rem;text-align:left">'+
         '<p class="quiz-zone" style="text-align:left;color:var(--gold-ink)">Priority Focus · '+ZONE_LABEL[top]+'</p>'+
         '<h2 style="font-family:var(--font-serif);font-weight:600;font-size:1.5rem;margin:0 0 .5rem;color:var(--ink)">'+rit.title+'</h2>'+
+        buildZoneRoute(top)+
         '<ol class="ritual">'+steps+'</ol>'+
         '<p style="margin:1.2rem 0 0;display:flex;gap:.65rem;flex-wrap:wrap;align-items:center">'+
           '<a class="btn btn--ghost" style="border-color:var(--line-gold);color:var(--ink)" href="'+ARTICLE[top]+'">Read the full '+ZONE_SHORT[top]+' tension guide &rarr;</a>'+
@@ -371,7 +458,7 @@
       '<div class="band-jade" style="margin-top:1.6rem;border-radius:16px;padding:2rem 1.5rem;text-align:center">'+
         '<p class="eyebrow">Keep it going</p><hr class="rule" style="margin-inline:auto">'+
         '<h2 style="font-family:var(--font-serif);font-weight:600;font-size:clamp(1.5rem,3.2vw,1.9rem)">Get the 5-Zone starter guide.</h2>'+
-        '<p class="lead" style="margin-inline:auto">Leave your email for the shared 5-Zone starter guide. Your personal quiz result remains above; the PDF covers all five zones.</p>'+
+        '<p class="lead" style="margin-inline:auto">Leave your email for the shared 5-Zone starter guide. Your personal quiz result remains above; the PDF covers all five zones. We’ll also email you once when the full-face course opens.</p>'+
         '<form class="signup" id="quizForm" style="justify-content:center" novalidate>'+
           '<input type="text" name="company" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">'+
           '<input class="field" type="email" name="email" placeholder="you@email.com" aria-label="Your email" required>'+
@@ -391,6 +478,7 @@
       '<p class="center" style="margin-top:2rem"><button class="restart" id="quizRestart">Start over</button></p>';
 
     elStage.hidden=true; elIntro.hidden=true; elResult.hidden=false;
+    wireQuizRoute();
     window.scrollTo({top:0,behavior:'smooth'});
 
     var qf=document.getElementById('quizForm');
