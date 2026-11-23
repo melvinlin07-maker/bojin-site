@@ -114,8 +114,10 @@
     if (channels) channels.style.display = 'block';
   }
 
-  var key = isAddon ? 'bojin_review_purchase_tracked_v1' : 'bojin_eye_purchase_tracked_v1';
-  var val = isAddon ? 29.00 : 79.00;
+  // ref=gift = friend paid the $59 referral price (GIFT20, D33). Add-on takes precedence.
+  var isGift = !isAddon && params.get('ref') === 'gift';
+  var key = isAddon ? 'bojin_review_purchase_tracked_v1' : (isGift ? 'bojin_eye_gift_purchase_tracked_v1' : 'bojin_eye_purchase_tracked_v1');
+  var val = isAddon ? 29.00 : (isGift ? 59.00 : 79.00);
   var itemName = isAddon ? 'Personal Video Review - 1-on-1 Technique Feedback' : 'The Bojin Eye Method';
   var alreadyTracked = false;
   try {
