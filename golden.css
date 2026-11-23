@@ -1,0 +1,122 @@
+/* =====================================================================
+   golden.css — The Bojin Method "Golden Standard" article components (v1)
+   Shared by every upgraded SEO x GEO page. Prefix: .gs-  (+ .answer)
+   Uses only the design tokens already defined in styles.css.
+   Components:
+     .gs-meta-row        visible date + author + mobile language button
+     .answer             top-of-page definition capsule (RAG answer block)
+     .gs-capsule         80-120 word answer paragraph under each H2
+     .gs-table-wrap      scrollable, mobile-safe comparison table
+     .gs-video           self-hosted demo video + timestamped transcript
+     .gs-steps           numbered step cards
+     .gs-limit           "why fingertips stop at the surface" break point
+     .gs-mirror          10-second mirror asymmetry self-check (3 cards)
+     .gs-selector        3-second tension-type selector + dynamic CTA
+     .gs-refs            reference list (external authority sources)
+   ===================================================================== */
+
+/* ---------- visible date / author row (+ mobile language button) ---------- */
+.gs-meta-row{ font-family:var(--font-sans); font-size:.85rem; color:var(--ink-soft); margin:0 0 1.4rem; }
+.gs-meta-row .gs-meta{ display:flex; flex-wrap:wrap; gap:.45rem; align-items:center; }
+.gs-meta-row .gs-meta b{ color:var(--ink); }
+.gs-meta-row .gs-meta a{ color:var(--jade-deep); font-weight:600; }
+.gs-meta-row .dot{ opacity:.5; }
+
+/* ---------- answer capsule ---------- */
+.answer{ background:var(--paper-2); border:1px solid var(--line-gold); border-left:4px solid var(--jade); border-radius:16px; padding:1.4rem 1.5rem; margin:0 0 2rem; box-shadow:var(--shadow); }
+.answer__label{ font-family:var(--font-sans); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-ink); font-weight:700; margin:0 0 .55rem; }
+.answer p{ font-family:var(--font-serif); font-size:clamp(1.15rem,2.4vw,1.4rem); line-height:1.45; color:var(--ink); margin:0; }
+.answer p b{ color:var(--jade-deep); }
+.answer__chips{ display:flex; flex-wrap:wrap; gap:.45rem; margin-top:1rem; }
+.answer__chips span{ font-family:var(--font-sans); font-size:.78rem; background:var(--paper-3); border:1px solid var(--line); border-radius:999px; padding:.3rem .75rem; color:var(--ink); }
+.answer__chips b{ color:var(--jade-deep); }
+
+/* ---------- H2 capsule paragraph ---------- */
+.gs-capsule{ font-size:1.04rem; line-height:1.62; color:var(--ink); border-left:2px solid var(--line-gold); padding-left:1rem; margin:.6rem 0 1.2rem; }
+
+/* ---------- comparison table (mobile: horizontal scroll inside its own box) ---------- */
+.gs-table-wrap{ width:100%; max-width:100%; overflow-x:auto; -webkit-overflow-scrolling:touch; margin:1.4rem 0 .6rem; border:1px solid var(--line-gold); border-radius:14px; background:var(--paper-2); box-shadow:var(--shadow); }
+.gs-table{ width:100%; min-width:560px; border-collapse:collapse; font-family:var(--font-sans); font-size:.9rem; line-height:1.45; }
+.gs-table caption{ caption-side:top; text-align:left; padding:.9rem 1rem .4rem; font-size:.78rem; letter-spacing:.08em; text-transform:uppercase; color:var(--gold-ink); font-weight:700; }
+.gs-table th, .gs-table td{ padding:.7rem .85rem; border-top:1px solid var(--line); vertical-align:top; text-align:left; }
+.gs-table thead th{ background:var(--paper-3); color:var(--ink); font-weight:700; border-top:0; }
+.gs-table tbody th{ color:var(--ink); font-weight:600; width:24%; }
+.gs-table .gs-col-hl{ background:color-mix(in srgb, var(--jade) 7%, transparent); }
+.gs-table-note{ font-size:.8rem; color:var(--ink-soft); margin:0 0 1.4rem; }
+@media (max-width:640px){ .gs-table-scrollhint{ display:block; font-size:.75rem; color:var(--ink-soft); padding:0 1rem .6rem; } }
+@media (min-width:641px){ .gs-table-scrollhint{ display:none; } }
+
+/* ---------- video + transcript ---------- */
+.gs-video{ background:var(--paper-2); border:1px solid var(--line-gold); border-radius:18px; overflow:hidden; box-shadow:var(--shadow-lift); margin:1.4rem 0; }
+.gs-video video{ width:100%; display:block; aspect-ratio:16/9; background:#1E1714; }
+.gs-video__body{ padding:1.1rem 1.3rem 1.3rem; }
+.gs-video__title{ font-family:var(--font-serif); font-size:1.2rem; color:var(--ink); margin:0 0 .3rem; }
+.gs-video__note{ font-size:.85rem; color:var(--ink-soft); margin:0 0 .9rem; }
+.gs-transcript{ list-style:none; margin:0; padding:0; border-top:1px solid var(--line); }
+.gs-transcript li{ display:grid; grid-template-columns:7.2rem 1fr; gap:.8rem; padding:.6rem 0; border-bottom:1px solid var(--line); font-size:.93rem; line-height:1.5; }
+.gs-transcript li:last-child{ border-bottom:0; }
+.gs-transcript time{ font-family:var(--font-sans); font-weight:700; color:var(--jade-deep); font-size:.82rem; white-space:nowrap; }
+.gs-transcript button{ all:unset; cursor:pointer; font-family:var(--font-sans); font-weight:700; color:var(--jade-deep); font-size:.82rem; white-space:nowrap; text-decoration:underline; text-underline-offset:3px; }
+@media (max-width:480px){ .gs-transcript li{ grid-template-columns:1fr; gap:.15rem; } }
+
+/* ---------- step cards ---------- */
+.gs-steps{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin:1.4rem 0; counter-reset:gs-step; }
+@media (max-width:760px){ .gs-steps{ grid-template-columns:1fr; } }
+.gs-step{ background:var(--paper-2); border:1px solid var(--line-gold); border-radius:16px; padding:1.3rem 1.2rem; box-shadow:var(--shadow); }
+.gs-step::before{ counter-increment:gs-step; content:"0" counter(gs-step); display:block; font-family:var(--font-serif); font-size:2.2rem; line-height:1; color:var(--jade); font-weight:600; }
+.gs-step h3{ font-size:1.08rem; margin:.6rem 0 .35rem; }
+.gs-step p{ font-size:.92rem; line-height:1.55; margin:0; }
+.gs-step .gs-step__time{ display:inline-block; margin-top:.6rem; font-family:var(--font-sans); font-size:.75rem; font-weight:700; color:var(--gold-ink); letter-spacing:.06em; text-transform:uppercase; }
+
+/* ---------- mechanism 1: the surface limit ---------- */
+.gs-limit{ background:var(--paper-3); border:1px dashed var(--cta-border); border-radius:16px; padding:1.4rem 1.4rem; margin:1.8rem 0; }
+.gs-limit__label{ font-family:var(--font-sans); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-ink); font-weight:700; margin:0 0 .6rem; }
+.gs-limit h3{ margin:0 0 .6rem; font-size:1.25rem; }
+.gs-limit p{ margin:0 0 .8rem; }
+.gs-limit p:last-child{ margin-bottom:0; }
+.gs-limit__bar{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:.5rem; margin:1rem 0; font-family:var(--font-sans); font-size:.78rem; }
+.gs-limit__bar div{ border-radius:10px; padding:.6rem .7rem; border:1px solid var(--line); background:var(--paper-2); }
+.gs-limit__bar b{ display:block; color:var(--jade-deep); font-size:.85rem; }
+@media (max-width:560px){ .gs-limit__bar{ grid-template-columns:1fr; } }
+
+/* ---------- mechanism 2: 10-second mirror self-check ---------- */
+.gs-mirror{ margin:1.8rem 0; }
+.gs-mirror__grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; margin-top:1rem; }
+@media (max-width:760px){ .gs-mirror__grid{ grid-template-columns:1fr; } }
+.gs-mirror__card{ position:relative; display:block; background:var(--paper-2); border:1px solid var(--line-gold); border-radius:16px; padding:1.2rem 1.15rem 1.1rem; cursor:pointer; transition:border-color .15s, box-shadow .15s; }
+.gs-mirror__card:hover{ border-color:var(--jade); }
+.gs-mirror__card input{ position:absolute; top:1rem; right:1rem; width:1.2rem; height:1.2rem; accent-color:var(--jade); }
+.gs-mirror__card .num{ font-family:var(--font-serif); font-size:1.8rem; color:var(--jade); line-height:1; }
+.gs-mirror__card h3{ font-size:1.02rem; margin:.5rem 2rem .4rem 0; }
+.gs-mirror__card p{ font-size:.88rem; line-height:1.5; margin:0; }
+.gs-mirror__card .gs-yes{ display:block; margin-top:.6rem; font-family:var(--font-sans); font-size:.78rem; font-weight:700; color:var(--gold-ink); }
+.gs-mirror__card:has(input:checked){ border-color:var(--jade); box-shadow:var(--shadow-lift); background:color-mix(in srgb, var(--jade) 6%, var(--paper-2)); }
+.gs-mirror__result{ margin-top:1rem; background:var(--paper-3); border:1px solid var(--line-gold); border-radius:12px; padding:.9rem 1.1rem; font-size:.95rem; }
+.gs-mirror__result[hidden]{ display:none; }
+
+/* ---------- mechanism 3: 3-second selector + dynamic CTA ---------- */
+.gs-selector{ background:var(--paper-2); border:1px solid var(--line-gold); border-radius:20px; padding:1.6rem 1.4rem; box-shadow:var(--shadow-lift); margin:2rem 0; }
+.gs-selector__label{ font-family:var(--font-sans); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold-ink); font-weight:700; margin:0 0 .5rem; }
+.gs-selector h3{ font-size:1.35rem; margin:0 0 .4rem; }
+.gs-selector fieldset{ border:0; padding:0; margin:1rem 0 0; display:grid; gap:.7rem; }
+.gs-selector legend{ font-size:.92rem; color:var(--ink-soft); margin-bottom:.4rem; padding:0; }
+.gs-option{ display:flex; gap:.8rem; align-items:flex-start; border:1px solid var(--line-gold); border-radius:14px; padding:.9rem 1rem; cursor:pointer; background:var(--paper); transition:border-color .15s, background .15s; }
+.gs-option:hover{ border-color:var(--jade); }
+.gs-option input{ margin-top:.25rem; width:1.1rem; height:1.1rem; accent-color:var(--jade); flex:0 0 auto; }
+.gs-option b{ display:block; color:var(--ink); font-size:1rem; }
+.gs-option span{ display:block; font-size:.86rem; color:var(--ink-soft); line-height:1.45; }
+.gs-option:has(input:checked){ border-color:var(--jade); background:color-mix(in srgb, var(--jade) 7%, var(--paper)); }
+.gs-cta{ margin-top:1.2rem; border-top:1px solid var(--line); padding-top:1.1rem; }
+.gs-cta__msg{ font-size:.97rem; margin:0 0 .9rem; }
+.gs-cta__btns{ display:flex; flex-wrap:wrap; gap:.7rem; }
+.gs-cta__btns .btn{ white-space:normal; text-align:center; max-width:100%; }
+.gs-cta__fine{ font-size:.78rem; color:var(--ink-soft); margin:.8rem 0 0; }
+
+/* ---------- references ---------- */
+.gs-refs{ font-size:.86rem; line-height:1.55; color:var(--ink-soft); padding-left:1.2rem; }
+.gs-refs li{ margin:.35rem 0; overflow-wrap:anywhere; }
+.gs-refs a{ color:var(--jade-deep); }
+
+/* ---------- global mobile safety for golden pages ---------- */
+.gs-page main{ overflow-x:clip; }
+.gs-page .article img, .gs-page .gs-video video{ max-width:100%; height:auto; }
