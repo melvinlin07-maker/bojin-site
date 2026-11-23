@@ -1,7 +1,9 @@
 # GEMINI.md — Antigravity 專案永久行為規則（The Bojin Method 美國站）
 
 > 本檔由 Antigravity 自動載入，為本專案的最高常駐規則。任何操作皆須同時遵守 `CLAUDE.md`、`PROJECT.md` 與 `DECISIONS.md`。
-> **更新日期：2026-10-26**
+> **更新日期：2026-11-23**
+> 找不到檔案先看 `找東西地圖.md`（根目錄；含所有 MD 分類與搬移對照）。
+> **🔴 2026-11-23 進行中：全站重盤。** 改任何頁面前先讀 `US_SITE_REBUILD_BLUEPRINT_2026-11-23.md`（藍圖，含已定案決定與目前 Phase）與 `DECISIONS.md` D32。`US_SEO_GEO_CRO_AUDIT_2026-11-22.md` 只當數據參考，不再當施工清單。
 
 ---
 

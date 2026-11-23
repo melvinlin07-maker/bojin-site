@@ -250,3 +250,66 @@
 4. **美國站 GEO（AI 搜尋友善度）最後 2 個缺口補齊**：
    - 更新 `llms.txt`：將示範頁更正為 `1:18 Above-the-Brow Demo`（`https://go.bojinfacetension.com/facial-tension-check`），並於 `Start here` 加入 `$79` 完整眼周課程（`https://go.bojinfacetension.com/bojin-eye-method`）。
    - 補齊 `blog-after-you-cry-puffy-eyes-pause.html` 與 `blog-when-your-shoulders-wont-drop.html` 的 `Article`、`FAQPage`、`BreadcrumbList` JSON-LD 標記（其餘 2 筆無標記檔確認為 `noindex,follow` 跳轉舊頁）。
+
+---
+
+## D31：PayPal 訪客直接刷卡排雷與改用 PayPal 原生付款連結（NCP）直跳架構（2026-11-16 ～ 2026-11-20）
+- **遇到問題與根因確診**：
+  1. **現象**：境外買家與無痕實測 Systeme.io 結帳頁（`go.bojinfacetension.com/order`）時，PayPal 彈窗強制要求登入或 `Create an Account`，不顯示直接刷信用卡選項。
+  2. **排雷排除**：確認 PayPal 商業後台 `PayPal Account Optional` 已為 `On`、聯繫 PayPal 客服刷新權限並於 Systeme.io 斷開重連 PayPal，且在 Systeme.io 新建無 Upsell／無 `$29` Order Bump 的極簡對照漏斗（`PAYPAL-TEST-MINIMAL`，已於測畢刪除）進行無痕驗證，依然只出現 `Create an Account`。
+  3. **根因結論**：台灣身分無法直接開通美國 Stripe；而 Systeme.io 呼叫 PayPal 時僅傳送單一 `fundingSource=paypal` 參數，加上對台灣商戶與海外買家的動態風控，導致無法在 Systeme.io 原生結帳頁保證顯示信用卡直刷。
+  4. **PayPal 商業資料品牌對齊**：為避免美國買家於信用卡帳單看到 `SHIN HUNG / LIN SHIN HUNG` 誤認盜刷，已將 PayPal 商業資訊的 **信用卡月結單名稱** 改為 `THE BOJIN`（短）／`THE BOJIN METHOD`（長），**公司網站** 改為 `https://bojinfacetension.com`，**客服信箱** 改為 `hello@bojinfacetension.com`（法定 `業務名稱` `鑫彥瑜珈運動館` 維持不動，避免觸發文件重審）。
+- **最終架構決策（前 10 單零額外成本測試方案）**：
+  1. **啟用 PayPal 官方新版原生付款連結（NCP）**：建立 `$79.00 USD` 固定價格連結 `https://www.paypal.com/ncp/payment/UYRNENASN4M98`（關閉運送地址收集、支援信用卡 / Debit Card / Apple Pay / PayPal、Auto-Return URL 設為 `https://bojinfacetension.com/thank-you.html`）。
+  2. **銷售頁全數替換直跳（`page/45013727`）**：將 `go.bojinfacetension.com/bojin-eye-method` 全部 4 處購買按鈕（Hero、Pricing Card、頁底 CTA、Sticky Bar）由舊 `/order` 改為 `https://www.paypal.com/ncp/payment/UYRNENASN4M98`，於 3 處主按鈕下方加入 3 句英文安心小字（含信用卡＆Apple Pay 免帳號說明、母工作室 `Xin Yan` 預告、12 小時內寄送登入信），並加上 250ms 安全延遲之 Meta Pixel `InitiateCheckout ($79 USD)`。
+  3. **新建主站靜態感謝頁與 `$29` 加價購閉環**：新增 `thank-you.html`（`https://bojinfacetension.com/thank-you.html`，`noindex, nofollow`），搭配 `sessionStorage` 防重複觸發 Meta Pixel `Purchase` 與 GA4 `purchase` 雙追蹤：
+     - 買完 `$79` 跳回 `thank-you.html`：觸發 `$79 USD` 成交事件，並顯示 `$29` 一對一影片指導加購卡（PayPal NCP 連結 `https://www.paypal.com/ncp/payment/SDJCJ5E35NAVW`，關閉運送地址，點擊觸發 250ms `InitiateCheckout $29`）。
+     - 加購 `$29` 跳回 `thank-you.html?addon=review`：自動切換確認文案、觸發 `$29 USD` 成交事件（獨立防重複 key），並顯示三合一影片回傳按鈕（Email 一鍵複製 + `mailto:`、Facebook Messenger `m.me/BojinFacialMethod`、WhatsApp `wa.me/886982296190` 預填英文開場白與核對 Email 提醒）（commit `c2b5da3` → `845bdcf` → `0f053ab` → `dab6dec`）。
+  4. **Meta 事件管理與廣告直欄就位**：
+     - 於 Meta 事件管理工具（像素 `751313064707787`）將 `bojinfacetension.com`（含子網域 `go.bojinfacetension.com`）加入網站許可清單，診斷警告歸零（`0` 待處理錯誤），並經「測試事件（Test Events）」實測確認 `PageView` 與 `Purchase ($79 USD)` 均為 `已處理` 綠燈。
+     - 於 Meta 廣告管理員（帳號 `LIN 337528548518199`）建立並套用新預設直欄 **`美國撥筋漏斗追蹤`**（含 `潛在顧客`、`內容瀏覽次數`、`開始結帳次數/成本`、`購買次數/轉換值/成本`），保留原 `流量網站評估`。
+  5. **前 10 單手動開課與標籤自動化閉環**：於 Systeme.io 新增自動化規則 **`Tag added: Customer - Eye Course` ➔ 自動退訂 `A1-A7` ＋ 自動訂閱 `B1-B7`**，並將完整操作備忘（含 `$79` 與 `$29` 雙 PayPal NCP 連結）存於 `_audit/funnel-20261106/paypal-invoice-fallback-sop.md`。
+- **後續滾動跟進**：前 10 單驗證美國買家轉換率與廣告投報率穩定後，可評估以「Gumroad + n8n Webhook 自動開課」或「美國 LLC + 美國 Stripe」接回全自動結帳。
+
+---
+
+## D33：開賣前 P0 檢查結論——轉介 `GIFT20` 的兌現方式、B8 與舊結帳頁（2026-11-23）
+> 完整清單與證據見 `US_COURSE_79_LAUNCH_CHECK_2026-11-23.md`。本節只記「已拍板的結論」，避免之後的 AI／Session 重複詢問。
+
+1. **`GIFT20` 是「學員轉介紹」專屬優惠，不是行銷折扣，必須保留。**
+   - 設計（D15／D16／D17 已定案）：學員購後第 18 天（過 14 天退款期）收到 Email B8；朋友用碼買課折 $20（$79 → **$59**）；學員回信告知朋友名字後，帳戶存入 $20 忠誠折抵金，用於未來全臉頭部大課（人工登記，Gmail 綠色「GIFT20 推薦登記」標籤）。
+   - **不要把 B8 的「$20 off」拿掉、不要當成可刪的促銷。** 使用者 2026-11-23 親自確認這是轉介機制。
+2. **斷點原因**：`GIFT20` 只能輸入在舊 Systeme 結帳頁 `/order`；D31 之後 $79 改走 PayPal 原生固定價連結（NCP），朋友無處輸入折扣碼，所以 B8 的承諾在新路徑上兌現不了（不是機制錯，是結帳路徑換了）。
+3. **決策（方案 A，使用者 2026-11-23 選定）**：在 PayPal 另建一條 **$59 固定價格 NCP 連結**專供轉介，B8 按鈕改連該連結，朋友不必輸入任何碼。
+   - 該連結的 Auto-Return 設為 `https://bojinfacetension.com/thank-you.html?ref=gift`。
+   - `thank-you.html` 需新增 `ref=gift` 判斷，Purchase／purchase 事件改回報 **$59**（目前固定回報 $79，會多報 $20）。
+   - 外洩風險與原本「無限次、不過期」的 `GIFT20` 相同，視為可接受。
+   - 否決：方案 B（B8 改回信索取、手動開 $59 發票）因多一步摩擦而不採用，但仍可當個案備援（見 `paypal-invoice-fallback-sop.md` 第一步）；方案 C（修好 `/order` 刷卡）已於 D31 排雷證實不可行。
+4. **現況（誠實標示，截至 2026-11-23）— 以下都還沒做**：
+   - ❌ PayPal $59 連結尚未建立（使用者操作，或明確授權後由 AI 代操作）。
+   - ❌ Systeme Email B8（campaign `1230295`，step `6273477`）按鈕仍連 `https://go.bojinfacetension.com/order`。
+   - ❌ `thank-you.html` 尚未加 `ref=gift` 判斷。
+   - **時間壓力不大**：目前無任何真實買家，B8 要等第一位真實買家購後 18 天才會寄出；只要在那之前完成即可。
+5. **同次盤點的其他結論（Systeme 唯讀實查，未改任何設定）**：
+   - A1–A7、B1–B7 全部信件連結正常；只有 **B8** 與**挽回工作流第 1 封**連到 `/order`（工作流第 2 封未逐一開啟）。
+   - 規則「Tag added `Customer - Eye Course` → 退訂 A1–A7 ＋ 訂閱 B 系列」Active 且正確。
+   - B 系列實際為 **8 封（B1–B8）**，Campaign 名稱 `(B1-B7)` 只是沒更新，不是少一封。
+   - 挽回工作流（觸發：拜訪 Order Form）現在幾乎不會被觸發；`/order` 仍上線 HTTP 200，建議改成自動轉址到銷售頁（待使用者點頭）。
+   - 2026-11-19 Systeme 的兩筆 Order Form 聯絡人是**使用者自己的測試**，不是流失的真實買家，無須追蹤。
+   - 線上銷售頁（桌面與手機 390px 皆確認）仍同時顯示「Instant access」與「within 12 hours」，且有 `5.0 on Google (324 reviews)` 來源待釐清；`Coming Soon` 為 11 個隱藏區塊，訪客看不到。見檢查檔 P0-1、P0-4。
+
+---
+
+## D32：全站重盤（結構優先）與 6 項定案（2026-11-23）
+- **決策**：美國站改版改為「先結構、後文案」。依 `US_SITE_REBUILD_BLUEPRINT_2026-11-23.md`（以下簡稱「藍圖」）分 Phase 0～4 執行；`US_SEO_GEO_CRO_AUDIT_2026-11-22.md` 降為數據參考，不再當施工清單。
+- **新架構**：6 個痛點主頁（Eyes & Brows／Forehead & Scalp／Cheeks & Smile Lines／Jaw & Chin／Neck & Shoulders／Tired-Looking Face）＋ 3 個支柱（What is Bojin・vs Gua Sha／Is It Safe?／Learn the Method）。103 篇文章歸隊表見藍圖 4.3。
+- **6 項定案**（使用者 2026-11-23 授權 Claude 依最優解決定）：
+  1. 免費影片對外統一稱「Free 1:18 Above-the-Brow Demo」；「Eye Reset」只留作 Systeme 內部名稱，後台與網址不改。
+  2. 下顎／下巴／臉頰／脖子讀者主 CTA 改為 Quiz 或 5-Zone PDF；1:18 示範降為次要。
+  3. 導覽列移除「Eye Reset」，改「Your Concern ▾」選單。
+  4. 先做三項低風險合併（改正 straight-talk 標題、刪兩個 glow 殘頁、gua-sha-new-name 併入 gua-sha-vs-bojin）；其餘合併 Phase 3 讀完原文再定。
+  5. `what-is-bojin.html` Phase 2 瘦身成 1,500～1,800 字支柱頁。
+  6. 標題拿掉年齡字眼（網址不動）；目標讀者暫定 35–55 到 55+，年齡為待測假設。
+- **不採用**：關鍵字密度目標；把 `?src=&type=` 改名為 `?source=&pain=`；每頁套同一組互動模組；改網址 slug。
+- **原因**：GSC 90 天約 420 曝光／4 點擊，主要問題是文章無主頁可歸隊、導覽只有眼周、文章總目錄（`articles.html`）被藏、全站單一出口導致意圖錯位。
+- **重新檢討**：Phase 4（上線 28 天後）GSC 點擊與 GA4 主頁→CTA 點擊沒有改善時。

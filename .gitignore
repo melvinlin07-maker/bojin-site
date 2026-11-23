@@ -6,6 +6,8 @@
 !CLAUDE.md
 !DECISIONS.md
 !GEMINI.md
+!AGENTS.md
+!找東西地圖.md
 
 # Raw source photos & videos — kept locally as material, never deployed to the live site.
 # (Optimized, web-ready images live under names like bojin-*.jpg / og/*.jpg and ARE committed.)
@@ -33,3 +35,6 @@ content-library.json
 # (Git history already holds every past version, so these are belt-and-braces only.)
 撥筋美國網站-圖片備份/
 撥筋美國網站-優化後預覽/
+
+# Local workbench: screenshots, drafts, backups (added 2026-11-23)
+_workbench/
