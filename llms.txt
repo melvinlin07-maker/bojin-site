@@ -1,86 +1,52 @@
 # The Bojin Method
 
-> At-home facial self-care education from Taiwan-based Bojin instructor Yu-Ting Lan, founder of Héhé Studio (和合雅築).
+> Gentle face and neck self-care for women over 50, taught by Taiwan-based bojin instructor Yu-Ting Lan (藍玉婷), founder of Héhé Studio (和合雅築). Practice with the fingertips or a stainless steel bojin stick, about twice a week, about 1 minute per area per side. It is self-care, not medical care.
 
-This file is a selected navigation summary. Use the linked pages for their full context, sources, limitations, and current details. The journal directory lists the articles; this file is not a complete article archive or a clinical reference.
+This file is a short map of the site. The full list of all 101 guides, with a one-line summary of each, is in llms-full.txt. Please use the linked pages for full context and limits.
 
-## Scope
-- The Bojin Method teaches optional facial self-care. It is not medical diagnosis, treatment, or rehabilitation.
-- Bojin and gua sha are distinct practices. Evidence or instructions about gua sha do not automatically establish Bojin benefits or suitable technique.
-- A subjective feeling of comfort or relaxation does not establish deeper tissue release, structural lifting, improved skincare absorption, or a lasting cosmetic result.
-- Do not treat pain, bruising, redness, or stronger sensation as a goal. A comfortable sensation alone does not establish that a practice is appropriate for a person's health, skin, medication, or recovery after a procedure.
-- Eye Reset is the free 1:18 Above-the-Brow Release demonstration, not a complete face routine. The 1-minute Face Tension Profile quiz and the 5-Zone Face Tension Self-Check guide are separate resources, not diagnostic tools.
+## Key facts (teacher-confirmed, updated 2026-11-24)
+- How often: about twice a week, with rest days between. Older copies of this site said "two to three times a week"; the current answer is about twice a week.
+- How long: about 1 minute per area, per side, in three slow passes. This is practice time, not a promise of results.
+- Angle: a low angle, about 30 to 45 degrees, when using the bojin stick.
+- Pressure: comfortable. Never painful, and no redness, bruising or tugging.
+- Claims: the site makes no lifting, tightening, draining or wrinkle-removal claims. Changes people notice are gentle and temporary.
+- Gua sha is a tool; bojin is a method (placement, order, angle and pressure). They do different jobs, and evidence about gua sha does not automatically apply to bojin.
+- The free demo is 1 minute 18 seconds and shows one step, just above the brow. It is not a full routine.
 
-## Site overview
-- [Full AI Knowledge Index — All 99 Articles & Method Matrix (llms-full.txt)](https://bojinfacetension.com/llms-full.txt)
-- [Interactive 5-Zone Face Tension Map](https://bojinfacetension.com/map.html)
-- [What is Bojin?](https://bojinfacetension.com/what-is-bojin.html)
-- [Begin here](https://bojinfacetension.com/start.html)
-- [About Yu-Ting Lan](https://bojinfacetension.com/about.html)
+## Full knowledge file
+- [llms-full.txt: all 101 guides by area, practice facts and corrections](https://bojinfacetension.com/llms-full.txt)
 
-## Guides by concern
-- [Journal: watch and read](https://bojinfacetension.com/blog.html): choose visual technique guides or the article archive.
-- [Eye-area movement guides](https://bojinfacetension.com/eye-area-guides.html): browse three eye-area regions; the inner-brow guide is available, and the other region guides are previews in production.
-- [Brows and inner brow: visual guide](https://bojinfacetension.com/brow-guide.html): teacher excerpts, movement comparisons, a location illustration, preparation reminders, and links to further learning.
-- [Browse all 99 articles](https://bojinfacetension.com/articles.html): the searchable article archive organized by concern.
-- [Tired, puffy eyes](https://bojinfacetension.com/blog-tired-puffy-eyes.html): why eyes look puffy after 40, and a gentle 5-minute morning eye reset.
-- [Softer jawline and double chin](https://bojinfacetension.com/blog-jawline-double-chin.html): the role of tension, sluggish drainage and tech-neck posture, plus a 5-minute jaw and neck release.
-- [Smile lines and cheeks](https://bojinfacetension.com/blog-smile-lines-cheeks.html): why smile lines deepen and a gentle cheek-lifting ritual.
-- [Frown lines and a tense brow](https://bojinfacetension.com/blog-forehead-frown-lines.html): separate visible lines from a held feeling, and explore a local brow movement without a wrinkle-removal promise.
-- [Dull, puffy skin and glow](https://bojinfacetension.com/blog-dull-puffy-glow.html): a full-face bojin sweep for circulation and glow.
-- [Jowls along the jawline](https://bojinfacetension.com/blog-jowls-sagging-along-jawline.html): why jowls aren't a double chin or just weight, and what a gentle release can honestly reach.
-- ["Necklace" lines on the neck](https://bojinfacetension.com/blog-necklace-lines-horizontal-neck.html): horizontal neck folds from years of looking down, and what eases them.
-- [Hollow, sunken under-eyes (tear troughs)](https://bojinfacetension.com/blog-tear-trough-hollow-under-eyes.html): the shadow is three layers — a hollow, thin skin, and pooled fluid — and only two respond to a gentle release.
-- [Crepey skin on the neck and under the eyes](https://bojinfacetension.com/blog-crepey-skin-neck-under-eyes.html): a texture problem, not a line problem, and what hydration and circulation can honestly soften.
-- [Sallow, dull, grey complexion](https://bojinfacetension.com/blog-sallow-dull-grey-complexion.html): often about circulation, not products, and a gentle way to turn it back up.
+## Start with your area (one gentle line on each page, plus a 10-second mirror check)
+- [Eyes and brows](https://bojinfacetension.com/eyes-and-brows.html): fingertips just above the inner end of the brow, light circles out along the brow bone to the tail. Stay on the bone, never on the eyelid.
+- [Forehead and scalp](https://bojinfacetension.com/forehead-and-scalp.html): fingertips just above the brow, glide lightly straight up to the hairline, working across the forehead a little at a time.
+- [Cheeks and smile lines](https://bojinfacetension.com/cheeks-and-smile-lines.html): glide lightly along the lower edge of the cheekbone, from beside the nose out toward the ear, beside the fold rather than into it.
+- [Jaw and chin](https://bojinfacetension.com/jaw-and-chin.html): glide lightly along the lower edge of the jawbone, from beside the chin to the soft hollow just behind the earlobe.
+- [Neck and shoulder line](https://bojinfacetension.com/neck-and-shoulders.html): from the hollow behind the earlobe, glide down the side of the neck to the edge of the shoulder, staying behind the pulse at the front.
+- [Tired-looking face](https://bojinfacetension.com/tired-looking-face.html): a gentle finish for the whole face, from the chin back along the jaw to behind the ears, then down the side of the neck.
 
-## Learn (the method and common questions)
-- [After Bojin: Redness, Soreness, Bruising, and When to Get Help](https://bojinfacetension.com/blog-what-is-normal-after-bojin-vs-warning-sign.html): after-session decisions, product reactions, bruising, and help-seeking; no fixed normal-redness interval or universal restart formula.
-- [Dry or with oil? Slip, pressure, and skin comfort](https://bojinfacetension.com/blog-dry-or-with-oil-bojin-slip.html)
-- [Sore hands or a weak grip? When to pause or adjust Bojin](https://bojinfacetension.com/blog-bojin-with-sore-hands-or-weak-grip.html)
-- [Gua sha and bojin: how they fit together](https://bojinfacetension.com/blog-gua-sha-vs-bojin.html)
-- [The simple morning face ritual](https://bojinfacetension.com/blog-morning-face-ritual.html)
-- [Gua sha not working? Check expectations, comfort, and technique](https://bojinfacetension.com/blog-gua-sha-not-working.html)
-- [You don't need expensive facials](https://bojinfacetension.com/blog-skip-expensive-facials.html)
-- [Bojin vs. face yoga](https://bojinfacetension.com/blog-bojin-vs-face-yoga.html)
-- [Bojin vs. the jade roller](https://bojinfacetension.com/blog-bojin-vs-jade-roller.html)
-- [Bojin vs. microcurrent: cost, evidence, and daily use](https://bojinfacetension.com/blog-bojin-vs-microcurrent-devices.html)
-- [How Long Until Bojin Results? Evidence and Personal Expectations](https://bojinfacetension.com/blog-how-long-until-you-see-a-difference.html): limits of result deadlines, personal experience and photo comparisons, with no prescribed trial duration or blame for a lack of visible change.
-- [Are nasolabial folds permanent?](https://bojinfacetension.com/blog-are-nasolabial-folds-permanent.html)
-- [Which oil or cream to use for bojin](https://bojinfacetension.com/blog-which-oil-or-cream-for-bojin.html)
-- [Is Bojin Safe? When to Pause and What to Ask Before Trying](https://bojinfacetension.com/blog-is-bojin-safe.html): a suitability and precautions overview with professional questions and symptom-guide links; no universal safety assurance, safe-zone map, or practice frequency.
-- [What Bojin Can and Cannot Do: Evidence and Expectations](https://bojinfacetension.com/blog-what-bojin-can-and-cannot-do.html): personal experience versus cosmetic claims, limits of gua sha and general massage evidence, and practical decisions before investing in a routine.
-- [Can bojin make your face saggier?](https://bojinfacetension.com/blog-can-bojin-make-your-face-saggier.html)
+## Core pages
+- [What is bojin?](https://bojinfacetension.com/what-is-bojin.html): the method, the stainless steel bojin stick, and how it differs from gua sha.
+- [Start here](https://bojinfacetension.com/start.html): how to begin safely at home.
+- [About Yu-Ting Lan](https://bojinfacetension.com/about.html): her story, teaching background and instructor appointments. She has taught more than a thousand students across Taiwan, Hong Kong and Malaysia.
+- [The Bojin Journal](https://bojinfacetension.com/blog.html): all 101 guides, sorted by area, with search.
+
+## In-depth guides
+- [How often should you do gua sha or bojin? About twice a week](https://bojinfacetension.com/blog-how-often-should-you-do-bojin.html)
+- [Heavy, low brows: why they sit lower and what helps](https://bojinfacetension.com/blog-heavy-low-brows-lift.html)
+- [Hooded, heavy eyelids: why they happen and what helps](https://bojinfacetension.com/blog-hooded-heavy-eyelids.html)
+- [Under-eye bags: what causes them and what actually helps](https://bojinfacetension.com/blog-under-eye-bags-over-50.html)
+- [Pebble chin or dimpled chin: the small muscle behind it](https://bojinfacetension.com/blog-dimpled-pebbly-chin.html)
+- [Jowls along the jawline: what causes them and what helps](https://bojinfacetension.com/blog-jowls-sagging-along-jawline.html)
+- [Are nasolabial folds permanent? What can and can't soften them](https://bojinfacetension.com/blog-are-nasolabial-folds-permanent.html)
+
+## Safety
+- [Is bojin safe? Who should skip it and how to start gently](https://bojinfacetension.com/blog-is-bojin-safe.html)
 - [Who should skip bojin for now](https://bojinfacetension.com/blog-who-should-not-do-bojin-contraindications.html)
-- [How Much Pressure for Bojin? Comfort, Control, and When to Stop](https://bojinfacetension.com/blog-how-much-pressure.html): comfort and control checks; no minimum ache, redness target, or validated force setting.
-- [The two ends of the bojin stick](https://bojinfacetension.com/blog-two-ends-of-the-bojin-stick.html)
-- [Bojin Tool Angle: Read the Demonstration Without Chasing Depth](https://bojinfacetension.com/blog-the-angle-of-the-bojin-tool.html): review contact surface, placement, and movement; no universal degree setting or tissue-depth map.
-- [Sensations During Bojin: What to Notice and When to Stop](https://bojinfacetension.com/blog-what-each-sensation-means.html): responses to discomfort and faint sensation, with symptom-care boundaries; no good-ache target or diagnosis from sensation.
-- [Bojin Routine Order: Follow a Lesson Without Forcing a Full Session](https://bojinfacetension.com/blog-why-the-order-matters.html): sequence as a learning aid, shorter practice and stopping decisions; no mandatory neck drainage or results-duration claim.
-- [The supporting hand](https://bojinfacetension.com/blog-the-supporting-hand.html)
-- [Bojin Behind the Ear: No Required Drainage Point](https://bojinfacetension.com/blog-the-point-behind-your-ear.html): limits of checkpoint claims, tenderness and lump precautions, and when to seek care; not an ear or neck massage technique.
-- [The two-minute bad-day routine](https://bojinfacetension.com/blog-the-two-minute-bad-day-routine.html)
-- [Should you chill your bojin stick?](https://bojinfacetension.com/blog-should-you-chill-your-bojin-stick.html)
-- [Mirror or by feel?](https://bojinfacetension.com/blog-mirror-or-by-feel.html)
-- [Which hand should hold the tool?](https://bojinfacetension.com/blog-which-hand-should-hold-the-tool.html)
-- [Wear glasses? How to work around your frames](https://bojinfacetension.com/blog-bojin-when-you-wear-glasses.html)
-- [How to clean and care for your bojin stick](https://bojinfacetension.com/blog-how-to-clean-your-bojin-stick.html)
-- [How to End a Bojin Session: Stop, Put the Tool Down, and Move On](https://bojinfacetension.com/blog-how-you-end-a-session.html): end contact, set down and care for the tool, with an optional quiet pause; no required neck sweeps or lost-effect claim.
-- [Clench or grind your teeth? An honest look at jaw tension and bojin](https://bojinfacetension.com/blog-jaw-clenching-grinding-and-bojin.html)
-- [Neck tension and a tired-looking face](https://bojinfacetension.com/blog-neck-tension-showing-in-your-face.html)
-- [Screen use and forehead tension](https://bojinfacetension.com/blog-screen-to-forehead-tension-chain.html)
-- [Scalp, temple, and facial tension](https://bojinfacetension.com/blog-scalp-and-temple-tightness-and-your-face.html)
-- [Rounded shoulders and facial appearance](https://bojinfacetension.com/blog-rounded-shoulders-and-a-heavier-looking-face.html)
-- [Why your face looks more tired at 9 PM than at 9 AM](https://bojinfacetension.com/blog-why-your-face-looks-more-tired-at-night.html)
+- [Redness, soreness or a warning sign after bojin](https://bojinfacetension.com/blog-what-is-normal-after-bojin-vs-warning-sign.html)
+- [How much pressure for bojin](https://bojinfacetension.com/blog-how-much-pressure.html)
 
-- [How to Hold a Bojin Stick: Comfortable Grip and Control](https://bojinfacetension.com/blog-how-to-hold-the-handle.html)
-
-## Start here
-- [The Bojin Eye Method — Complete 10-Minute Eye-Area Course ($79)](https://go.bojinfacetension.com/bojin-eye-method): 14 step-by-step video lessons by Yu-Ting Lan, lifetime access, 3 printable English PDF guides, and Module 6 gentle fingertip start (no tool required tonight).
-- [Free 1:18 Above-the-Brow Demo (Step 1 of 5)](https://go.bojinfacetension.com/facial-tension-check): free 10-second eye-area tension check and guided Step 1 video demonstration.
-- [1-minute Face Tension Profile quiz](https://bojinfacetension.com/quiz.html)
-- [Free 5-Zone Face Tension Self-Check](https://bojinfacetension.com/guide.html)
-- [Free Eye Reset Overview](https://bojinfacetension.com/landing.html)
-
-## About the instructor
-Yu-Ting Lan (藍玉婷) is the founder of Héhé Studio (和合雅築) and a Taiwan-based Bojin instructor. See the About page for her teaching background and the credentials presented on this site.
+## Free resources and the course
+- [Free 1:18 above-the-brow demo](https://bojinfacetension.com/landing.html): one step, just above the brow, sent by email.
+- [1-minute Face Tension Profile](https://bojinfacetension.com/quiz.html): checks five areas of the face and neck; result on screen, no email.
+- [Free 5-Zone Self-Check PDF](https://bojinfacetension.com/guide.html): one page per zone plus a one-side test.
+- [The Bojin Eye Method ($79)](https://go.bojinfacetension.com/bojin-eye-method): the full eye-area routine, in order, taught by Yu-Ting Lan.
