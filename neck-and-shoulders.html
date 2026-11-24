@@ -20,7 +20,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..600;1,400..500&family=Hanken+Grotesk:wght@400..600&display=swap" media="print" onload="this.media='all'"><noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..600;1,400..500&family=Hanken+Grotesk:wght@400..600&display=swap"></noscript>
-  <link rel="stylesheet" href="styles.css?v=12">
+  <link rel="stylesheet" href="styles.css?v=13">
   <link rel="stylesheet" href="golden.css?v=1">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
@@ -28,29 +28,6 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#351D2C">
   <style>
-    /* --- New site nav (Phase 1). Moves into styles.css?v=12 in step C. --- */
-    .nav-links{ gap:1.15rem; }
-    .nav-drop{ position:relative; }
-    .nav-drop__btn{ font-family:var(--font-sans); font-size:.9rem; font-weight:500; letter-spacing:.09em; text-transform:uppercase;
-      color:var(--brand-muted); background:none; border:0; padding:0; cursor:pointer; display:inline-flex; align-items:center; gap:.3rem; }
-    .nav-drop__btn:hover, .nav-drop__btn.active{ color:var(--gold); }
-    .nav-drop__btn svg{ width:10px; height:10px; transition:transform .15s; }
-    .nav-drop__menu{ display:none; position:absolute; top:calc(100% + .9rem); left:50%; transform:translateX(-50%); min-width:250px;
-      background:var(--brand-bg); border:1px solid color-mix(in srgb, var(--gold) 38%, transparent); border-radius:12px; box-shadow:var(--shadow); padding:.45rem 0; z-index:50; }
-    .nav-drop__menu::before{ content:""; position:absolute; left:0; right:0; top:-1rem; height:1rem; }
-    .nav-drop__menu a{ display:block; padding:.6rem 1.1rem; text-transform:none; letter-spacing:.02em; font-size:.95rem; }
-    .nav-drop__menu a small{ display:block; font-size:.78rem; letter-spacing:0; color:var(--brand-muted); opacity:.85; }
-    .nav-drop:hover .nav-drop__menu, .nav-drop:focus-within .nav-drop__menu, .nav-drop.is-open .nav-drop__menu{ display:block; }
-    .nav-drop:hover .nav-drop__btn svg, .nav-drop.is-open .nav-drop__btn svg{ transform:rotate(180deg); }
-    @media (max-width:1250px){
-      .nav-links{ max-height:calc(100vh - 70px); overflow-y:auto; }
-      .nav-drop__btn{ display:none; }
-      .nav-drop__menu{ display:block; position:static; transform:none; min-width:0; border:0; border-radius:0; box-shadow:none; padding:0; background:transparent; }
-      .nav-drop__menu{ text-align:center; border-top:1px solid color-mix(in srgb, var(--gold) 22%, transparent); border-bottom:1px solid color-mix(in srgb, var(--gold) 22%, transparent); margin:.25rem 0; }
-      .nav-drop__menu::before{ content:"Your concern"; position:static; display:block; height:auto; padding:.75rem 28px .25rem; font-family:var(--font-sans); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); text-align:center; }
-      .nav-drop__menu a{ padding:.7rem 28px; min-height:44px; text-align:center; }
-      .nav-drop__menu a small{ display:none; }
-    }
     /* --- page --- */
     .jump-nav{ position:sticky; top:0; z-index:30; background:color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter:saturate(1.1) blur(6px); border-bottom:1px solid var(--line); }
     .jump-nav .wrap{ display:flex; gap:.5rem; flex-wrap:wrap; justify-content:center; padding-top:.7rem; padding-bottom:.7rem; }

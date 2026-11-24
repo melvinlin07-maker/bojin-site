@@ -1525,25 +1525,31 @@ body.unlocked .gate{ display:none; }
 }
 
 /* --- Site-wide "Your Concern" dropdown nav (Phase 1) --- */
+.site-header{ z-index:200 !important; }
 .nav-links{ gap:1.15rem; }
 .nav-drop{ position:relative; }
 .nav-drop__btn{ font-family:var(--font-sans); font-size:.9rem; font-weight:500; letter-spacing:.09em; text-transform:uppercase;
-  color:var(--brand-muted); background:none; border:0; padding:0; cursor:pointer; display:inline-flex; align-items:center; gap:.3rem; }
+  color:var(--brand-muted); background:none; border:0; padding:0; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:.35rem; }
 .nav-drop__btn:hover, .nav-drop__btn.active{ color:var(--gold); }
-.nav-drop__btn svg{ width:10px; height:10px; transition:transform .15s; }
+.nav-drop__btn svg{ width:10px; height:10px; transition:transform .18s ease; }
 .nav-drop__menu{ display:none; position:absolute; top:calc(100% + .9rem); left:50%; transform:translateX(-50%); min-width:250px;
-  background:var(--brand-bg); border:1px solid color-mix(in srgb, var(--gold) 38%, transparent); border-radius:12px; box-shadow:var(--shadow); padding:.45rem 0; z-index:50; }
+  background:var(--brand-bg); border:1px solid color-mix(in srgb, var(--gold) 38%, transparent); border-radius:12px; box-shadow:var(--shadow); padding:.45rem 0; z-index:220; }
 .nav-drop__menu::before{ content:""; position:absolute; left:0; right:0; top:-1rem; height:1rem; }
 .nav-drop__menu a{ display:block; padding:.6rem 1.1rem; text-transform:none; letter-spacing:.02em; font-size:.95rem; }
 .nav-drop__menu a small{ display:block; font-size:.78rem; letter-spacing:0; color:var(--brand-muted); opacity:.85; }
-.nav-drop:hover .nav-drop__menu, .nav-drop:focus-within .nav-drop__menu, .nav-drop.is-open .nav-drop__menu{ display:block; }
-.nav-drop:hover .nav-drop__btn svg, .nav-drop.is-open .nav-drop__btn svg{ transform:rotate(180deg); }
+@media (min-width:1251px){
+  .nav-drop:hover .nav-drop__menu, .nav-drop:focus-within .nav-drop__menu, .nav-drop.is-open .nav-drop__menu{ display:block; }
+  .nav-drop:hover .nav-drop__btn svg, .nav-drop.is-open .nav-drop__btn svg{ transform:rotate(180deg); }
+}
 @media (max-width:1250px){
-  .nav-links{ max-height:calc(100vh - 70px); overflow-y:auto; }
-  .nav-drop__btn{ display:none; }
-  .nav-drop__menu{ display:block; position:static; transform:none; min-width:0; border:0; border-radius:0; box-shadow:none; padding:0; background:transparent;
-    text-align:center; border-top:1px solid color-mix(in srgb, var(--gold) 22%, transparent); border-bottom:1px solid color-mix(in srgb, var(--gold) 22%, transparent); margin:.25rem 0; }
-  .nav-drop__menu::before{ content:"Your concern"; position:static; display:block; height:auto; padding:.75rem 28px .25rem; font-family:var(--font-sans); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--gold); text-align:center; }
-  .nav-drop__menu a{ padding:.7rem 28px; min-height:44px; text-align:center; }
+  .nav-links{ max-height:calc(100vh - 64px); overflow-y:auto; z-index:210; }
+  .nav-drop{ width:100%; text-align:center; }
+  .nav-drop__btn{ display:inline-flex; width:100%; justify-content:center; padding:.75rem 28px; min-height:44px; font-size:.95rem; }
+  .nav-drop__menu{ display:none; position:static; transform:none; min-width:0; border:0; border-radius:0; box-shadow:none; padding:.2rem 0 .45rem; background:rgba(0,0,0,.18);
+    text-align:center; border-top:1px solid color-mix(in srgb, var(--gold) 22%, transparent); border-bottom:1px solid color-mix(in srgb, var(--gold) 22%, transparent); margin:0; }
+  .nav-drop__menu::before{ display:none; }
+  .nav-drop.is-open .nav-drop__menu{ display:block; }
+  .nav-drop.is-open .nav-drop__btn svg{ transform:rotate(180deg); }
+  .nav-drop__menu a{ padding:.6rem 28px; min-height:42px; text-align:center; font-size:.92rem; }
   .nav-drop__menu a small{ display:none; }
 }
