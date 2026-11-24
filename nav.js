@@ -40,6 +40,20 @@
     var painParam = qs.get('pain') || qs.get('from') || qs.get('type');
     if(srcParam) sessionStorage.setItem('bojin_source', srcParam);
     if(painParam) sessionStorage.setItem('bojin_pain', painParam);
+
+    /* Forward ?from= (pain or entry page) onto outbound go.bojinfacetension.com (Systeme) links */
+    function decorateSystemeLinks(){
+      var tag = sessionStorage.getItem('bojin_pain') || sessionStorage.getItem('bojin_entry_page') || '';
+      if(!tag) return;
+      document.querySelectorAll('a[href*="go.bojinfacetension.com"]').forEach(function(a){
+        try {
+          var u = new URL(a.href);
+          if(!u.searchParams.has('from')){ u.searchParams.set('from', tag); a.href = u.toString(); }
+        } catch(e) {}
+      });
+    }
+    if(document.readyState==='loading') document.addEventListener('DOMContentLoaded', decorateSystemeLinks);
+    else decorateSystemeLinks();
   } catch(e) {}
 
   var PROD = /(^|\.)bojinfacetension\.com$/i.test(location.hostname) && !noTrack;
