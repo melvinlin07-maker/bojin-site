@@ -740,3 +740,19 @@ window.bojinShare = function(opts, btnEl){
     initBlogCourseTrack();
   }
 })();
+
+/* Site-wide "Your Concern" dropdown click & Escape handler */
+(function(){
+  function wireDrops(){
+    document.querySelectorAll('.nav-drop').forEach(function(d){
+      if(d.getAttribute('data-navdrop-wired')) return;
+      d.setAttribute('data-navdrop-wired','1');
+      var b=d.querySelector('.nav-drop__btn');
+      if(!b) return;
+      b.addEventListener('click',function(e){ e.stopPropagation(); var o=d.classList.toggle('is-open'); b.setAttribute('aria-expanded',o?'true':'false'); });
+      document.addEventListener('click',function(e){ if(!d.contains(e.target)){ d.classList.remove('is-open'); b.setAttribute('aria-expanded','false'); } });
+      d.addEventListener('keydown',function(e){ if(e.key==='Escape'){ d.classList.remove('is-open'); b.setAttribute('aria-expanded','false'); b.focus(); } });
+    });
+  }
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',wireDrops); else wireDrops();
+})();

@@ -18,7 +18,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..600;1,400..500&amp;family=Hanken+Grotesk:wght@400..600&amp;display=swap" media="print" onload="this.media='all'" rel="stylesheet"/><noscript><link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..600;1,400..500&amp;family=Hanken+Grotesk:wght@400..600&amp;display=swap" rel="stylesheet"/></noscript>
-<link href="styles.css?v=9" rel="stylesheet"/>
+<link href="styles.css?v=12" rel="stylesheet"/>
 <link href="favicon.svg" rel="icon" type="image/svg+xml"/>
 <link href="favicon-32.png" rel="icon" sizes="32x32" type="image/png"/>
 <link href="apple-touch-icon.png" rel="apple-touch-icon"/>
@@ -32,14 +32,23 @@
 <nav aria-label="Primary" class="nav">
 <a class="brand" href="index.html"><svg aria-hidden="true" class="mark" style="width:26px;height:16px;color:var(--jade)" viewbox="0 0 120 70"><path d="M12 50 C 40 26, 82 20, 110 30 C 100 36, 58 38, 20 52 C 16 53, 12 52, 12 50 Z" fill="currentColor"></path></svg><span>The Bojin Method</span></a>
 <div class="nav-links">
-<a href="index.html">Home</a>
-<a href="start.html">Begin here</a>
-<a href="about.html">About</a>
-<a href="what-is-bojin.html">What is Bojin?</a>
-<a href="results.html">Results</a>
-<a href="landing.html">Eye Reset</a>
-<a class="active" href="blog.html">Journal</a>
-</div>
+      <a href="what-is-bojin.html">What is Bojin?</a>
+      <div class="nav-drop">
+        <button class="nav-drop__btn" type="button" aria-expanded="false" aria-controls="concern-menu">Your Concern <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></button>
+        <div class="nav-drop__menu" id="concern-menu">
+          <a href="eyes-and-brows.html">Eyes &amp; Brows<small>Heavy lids, low brows, screen-tired eyes</small></a>
+          <a href="forehead-and-scalp.html">Forehead &amp; Scalp<small>Frown lines, a tight forehead and scalp</small></a>
+          <a href="cheeks-and-smile-lines.html">Cheeks &amp; Smile Lines<small>Smile lines, puffy or flat cheeks</small></a>
+          <a href="jaw-and-chin.html">Jaw &amp; Chin<small>Tight jaw, pebbly chin, one side fuller</small></a>
+          <a href="neck-and-shoulders.html">Neck &amp; Shoulder Line<small>The side of the neck down to the shoulder line</small></a>
+          <a href="tired-looking-face.html">Tired-Looking Face<small>Whole face, sleep, menopause changes</small></a>
+        </div>
+      </div>
+      <a href="start.html">Learn the Method</a>
+      <a href="blog-is-bojin-safe.html">Is It Safe?</a>
+      <a href="about.html">About</a>
+      <a href="https://go.bojinfacetension.com/bojin-eye-method" style="color:var(--gold);font-weight:600">Eye Course ($79)</a>
+    </div>
 <button aria-expanded="false" aria-label="Open menu" class="nav-toggle" data-nav-toggle=""><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24" width="20"><line x1="4" x2="20" y1="7" y2="7"></line><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="17" y2="17"></line></svg></button>
 <div class="nav-cta">
 <button aria-label="Toggle light or dark theme" class="theme-toggle" data-theme-toggle="">◑</button>
@@ -104,7 +113,7 @@
 <ul>
 <li><a href="#what-can-i-expect"><span class="bojin-toc-dot">◆</span> What can I expect?</a></li>
 <li><a href="#quick-answers"><span class="bojin-toc-dot">◆</span> Frequently Asked Questions</a></li>
-<li><a href="#watch-free-video"><span class="bojin-toc-dot">◆</span> Free 3-Min Video Guide</a></li>
+<li><a href="#watch-free-video"><span class="bojin-toc-dot">◆</span> Free 1:18 Above-the-Brow Demo</a></li>
 </ul>
 </div>
 </div>
@@ -200,8 +209,8 @@
 </div>
 <div class="article-cta" id="watch-free-video">
 <h3>Want to see the method for yourself?</h3>
-<p>I've put the whole brightening eye reset into a free 3-minute video, so you can see the order, the angle, and exactly where to work, and feel the right pressure for yourself. It's the method to add to whatever tool you're holding.</p>
-<a class="btn" href="landing.html#get">Watch the free 3-min video</a>
+<p>I've put the whole brightening eye reset into a free 1:18 Above-the-Brow demonstration, so you can see the order, the angle, and exactly where to work, and feel the right pressure for yourself. It's the method to add to whatever tool you're holding.</p>
+<a class="btn" href="landing.html#get">Watch the free 1:18 Above-the-Brow demo</a>
 </div>
 <nav aria-label="Where to go next" class="related">
 <h3 class="related-title">Where to go next</h3>
@@ -225,7 +234,8 @@
 <a aria-label="The Bojin Method on Facebook" href="https://www.facebook.com/BojinFacialMethod" rel="noopener me" target="_blank"><svg aria-hidden="true" fill="currentColor" viewbox="0 0 24 24"><path d="M13.5 21v-7.6h2.6l.4-3H13.5V8.4c0-.9.25-1.5 1.55-1.5h1.65V4.2C16.4 4.1 15.4 4 14.2 4c-2.5 0-4.2 1.5-4.2 4.3v2.1H7.4v3h2.6V21Z"></path></svg></a>
 <a aria-label="The Bojin Method on Instagram" href="https://www.instagram.com/bojinfacialmethod" rel="noopener me" target="_blank"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" viewbox="0 0 24 24"><rect height="17" rx="4.5" width="17" x="3.5" y="3.5"></rect><circle cx="12" cy="12" r="3.6"></circle><circle cx="17.2" cy="6.8" fill="currentColor" r="1" stroke="none"></circle></svg></a>
 </nav>
-<p class="foot-copy">© 2026 The Bojin Method · Yu-Ting Lan · Gentle self-care, not medical treatment.</p>
+<nav class="foot-legal" aria-label="Your concern"><a href="eyes-and-brows.html">Eyes &amp; Brows</a><a href="forehead-and-scalp.html">Forehead &amp; Scalp</a><a href="cheeks-and-smile-lines.html">Cheeks &amp; Smile Lines</a><a href="jaw-and-chin.html">Jaw &amp; Chin</a><a href="neck-and-shoulders.html">Neck &amp; Shoulder Line</a><a href="tired-looking-face.html">Tired-Looking Face</a><a href="blog.html">Journal</a></nav>
+    <p class="foot-copy">© 2026 The Bojin Method · Yu-Ting Lan · Gentle self-care, not medical treatment.</p>
 <nav aria-label="Legal" class="foot-legal"><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms of Service</a></nav>
 </div>
 </footer>
@@ -243,6 +253,6 @@
   } else { document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in');}); }
 })();
 </script>
-<script src="nav.js?v=20261023-cover-1"></script>
+<script src="nav.js?v=20261106-funnel"></script>
 </body>
 </html>
