@@ -555,6 +555,46 @@ window.bojinShare = function(opts, btnEl){
     }, {passive: true});
   }
 
+  /* 1b. GA4 Funnel Diagnostics: 10s visible engagement + 25/50/75/90% scroll milestones (all pages) */
+  if(!window.__bojinGa4DepthInit){
+    window.__bojinGa4DepthInit = true;
+    var engaged10sFired = false;
+    var visibleMs = 0, lastVisibleAt = (document.visibilityState === 'visible') ? Date.now() : 0;
+    function tickVisible(){
+      if(engaged10sFired) return;
+      var now = Date.now();
+      if(document.visibilityState === 'visible'){
+        if(lastVisibleAt) visibleMs += (now - lastVisibleAt);
+        lastVisibleAt = now;
+      } else {
+        lastVisibleAt = 0;
+      }
+      if(visibleMs >= 10000){
+        engaged10sFired = true;
+        if(window.gtag) gtag('event', 'page_engaged_10s', { page_path: location.pathname });
+      }
+    }
+    var engTimer = setInterval(function(){
+      tickVisible();
+      if(engaged10sFired) clearInterval(engTimer);
+    }, 1000);
+    document.addEventListener('visibilitychange', tickVisible);
+
+    var milestones = [25, 50, 75, 90], firedMilestones = {};
+    function checkScrollMilestones(){
+      var docH = document.documentElement.scrollHeight || 1;
+      var pct = Math.min(100, Math.round(((window.scrollY + window.innerHeight) / docH) * 100));
+      milestones.forEach(function(m){
+        if(!firedMilestones[m] && pct >= m){
+          firedMilestones[m] = true;
+          if(window.gtag) gtag('event', 'scroll_depth_milestone', { percent: m, scroll_percent: m, page_path: location.pathname });
+        }
+      });
+    }
+    window.addEventListener('scroll', checkScrollMilestones, {passive: true});
+    setTimeout(checkScrollMilestones, 600);
+  }
+
   /* 2. Inline 10-Second Micro-Commitment Self-Check Handler (Pack 02) */
   document.querySelectorAll('.bojin-inline-quiz').forEach(function(card){
     if(card.getAttribute('data-biq-wired')) return;
