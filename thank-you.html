@@ -128,13 +128,28 @@
   var key = isAddon ? 'bojin_review_purchase_tracked_v1' : (isGift ? 'bojin_eye_gift_purchase_tracked_v1' : 'bojin_eye_purchase_tracked_v1');
   var val = isAddon ? 29.00 : (isGift ? 59.00 : 79.00);
   var itemName = isAddon ? 'Personal Video Review - 1-on-1 Technique Feedback' : 'The Bojin Eye Method';
+
+  // Anti-misfire lock: only fire Purchase when returning from PayPal (referrer or PayPal return params)
+  // and deduplicate persistently via localStorage so refreshes/crawlers/self-checks never pollute Meta/GA4.
+  var refHost = '';
+  try {
+    if (document.referrer) refHost = new URL(document.referrer).hostname.toLowerCase();
+  } catch (e) {}
+  var fromPayPal = /(^|\.)paypal\.com$/i.test(refHost);
+  var hasPayPalParams = !!(params.get('tx') || params.get('PayerID') || params.get('st') || params.get('token'));
+  var isNoTrack = params.get('notrack') === '1';
+  try {
+    if (localStorage.getItem('bojin_notrack') === '1') isNoTrack = true;
+  } catch (e) {}
+  var isVerifiedReturn = fromPayPal || hasPayPalParams;
+
   var alreadyTracked = false;
   try {
-    if (sessionStorage.getItem(key)) alreadyTracked = true;
-    else sessionStorage.setItem(key, '1');
+    if (localStorage.getItem(key)) alreadyTracked = true;
   } catch (e) {}
 
-  if (!alreadyTracked) {
+  if (isVerifiedReturn && !isNoTrack && !alreadyTracked) {
+    try { localStorage.setItem(key, '1'); } catch (e) {}
     if (typeof window.fbq === 'function') {
       window.fbq('track', 'Purchase', { value: val, currency: 'USD' });
     }
