@@ -1,0 +1,1726 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://bojinfacetension.com/eye-inspector.html">
+  <title>Free 3-Zone Eye Inspector &amp; Bojin Bone-Edge Map | The Bojin Method</title>
+  <meta name="description" content="A camera can map your bone edge, but only your fingertips can feel where tension is hiding. A free, on-device look at under-eye shadow, tear troughs and outer-corner lines, plus your Bojin bone-edge map.">
+  <meta name="author" content="Yu-Ting Lan">
+  <meta property="og:title" content="Free 3-Zone Eye Inspector &amp; Bojin Bone-Edge Map | The Bojin Method">
+  <meta property="og:description" content="Take a close look at three eye zones and see the brow-bone line Bojin stays on. It runs on your device, and your photo is never uploaded.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://bojinfacetension.com/eye-inspector.html">
+  <meta property="og:image" content="https://bojinfacetension.com/assets/og/eyes-and-brows.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://bojinfacetension.com/assets/og/eyes-and-brows.jpg">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <meta name="theme-color" content="#120B10">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "The Bojin Method — 3-Zone Eye Inspector & Bone-Edge Map",
+    "url": "https://bojinfacetension.com/eye-inspector.html",
+    "applicationCategory": "LifestyleApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+    "description": "Free on-device photo tool that maps the brow bone above the eye, marks the eyelid area to leave alone, and shows three eye-area zones. Photos are never uploaded.",
+    "author": { "@type": "Person", "name": "Yu-Ting Lan" }
+  }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2VFEVY9Q1F"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-2VFEVY9Q1F');
+    window.bojinTrack = function(name, params) {
+      try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch (e) {}
+    };
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Hanken+Grotesk:wght@400;500;600;700&display=swap">
+  <style>
+    :root {
+      --bg: #0E090C;
+      --shell: #150E13;
+      --card: #1D141A;
+      --card-2: #251A21;
+      --border: rgba(243, 200, 119, 0.14);
+      --border-strong: rgba(243, 200, 119, 0.36);
+      --ink: #F7F1EB;
+      --ink-soft: #B9A9B1;
+      --ink-dim: #85747D;
+      --gold: #F3C877;
+      --gold-soft: rgba(243, 200, 119, 0.14);
+      --jade: #58D1A3;
+      --jade-bg: rgba(88, 209, 163, 0.14);
+      --amber: #F5B461;
+      --amber-bg: rgba(245, 180, 97, 0.14);
+      --rose: #F08A9B;
+      --rose-bg: rgba(240, 138, 155, 0.14);
+      --violet: #C084FC;
+      --font-serif: "Cormorant Garamond", Georgia, serif;
+      --font-sans: "Hanken Grotesk", system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: radial-gradient(circle at 50% 0%, #261521 0%, var(--bg) 52%);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      line-height: 1.55;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .app-shell {
+      max-width: 680px;
+      margin: 0 auto;
+      min-height: 100vh;
+      background: var(--shell);
+      border-left: 1px solid rgba(255,255,255,.05);
+      border-right: 1px solid rgba(255,255,255,.05);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .chat-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(21, 14, 19, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(255,255,255,.06);
+      padding: .75rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: .6rem;
+    }
+    .portrait-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: var(--card-2);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: .28rem .8rem .28rem .32rem;
+      color: var(--ink);
+      font-size: .8rem;
+      font-weight: 600;
+      text-decoration: none;
+    }
+    .portrait-avatar { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; border: 1px solid var(--gold); }
+    .header-right { display: flex; align-items: center; gap: .45rem; }
+    .hdr-btn {
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.1);
+      color: var(--ink-soft);
+      font-family: inherit;
+      font-size: .76rem;
+      font-weight: 600;
+      padding: .34rem .75rem;
+      border-radius: 999px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: .16s ease;
+    }
+    .hdr-btn:hover { color: var(--ink); border-color: var(--border-strong); }
+
+    .chat-feed { flex: 1; padding: 1.15rem 1rem 6.5rem; display: flex; flex-direction: column; gap: 1.05rem; }
+
+    /* Welcome */
+    .welcome-box { text-align: center; padding: 2rem .8rem 1.4rem; }
+    .welcome-eyebrow { font-size: .72rem; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); font-weight: 700; margin: 0 0 .5rem; }
+    .welcome-box h1 { font-family: var(--font-serif); font-size: clamp(1.9rem, 4.8vw, 2.5rem); font-weight: 600; line-height: 1.14; margin: 0 0 .7rem; color: #FFFDFC; }
+    .moat-quote {
+      font-family: var(--font-serif);
+      font-style: italic;
+      font-size: 1.12rem;
+      color: var(--gold);
+      max-width: 500px;
+      margin: 0 auto 1.15rem;
+      padding: .65rem 1rem;
+      border-left: 2px solid var(--gold);
+      background: rgba(243,200,119,.06);
+      border-radius: 0 12px 12px 0;
+      text-align: left;
+    }
+    .privacy-line {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .75rem;
+      color: var(--jade);
+      background: var(--jade-bg);
+      border: 1px solid rgba(88,209,163,.22);
+      padding: .32rem .82rem;
+      border-radius: 999px;
+      margin-bottom: 1.35rem;
+    }
+    .starter-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; max-width: 520px; margin: 0 auto .9rem; }
+    @media (max-width: 480px) { .starter-grid { grid-template-columns: 1fr; } }
+    .starter-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 1.1rem 1rem;
+      text-align: left;
+      cursor: pointer;
+      color: var(--ink);
+      font-family: inherit;
+      transition: .18s ease;
+    }
+    .starter-card:hover { border-color: var(--gold); transform: translateY(-2px); background: var(--card-2); }
+    .starter-card .icon { font-size: 1.35rem; display: block; margin-bottom: .45rem; }
+    .starter-card strong { display: block; font-size: .92rem; margin-bottom: .18rem; color: #FFFDFC; }
+    .starter-card span { font-size: .78rem; color: var(--ink-soft); display: block; }
+    .demo-link-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.14);
+      color: var(--gold);
+      font-family: inherit;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: .46rem 1rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .demo-link-btn:hover { background: var(--gold-soft); }
+
+    /* Chat Bubbles */
+    .user-row { display: flex; flex-direction: column; align-items: flex-end; gap: .55rem; animation: fadeUp .28s ease; }
+    .user-pill { background: #2C2128; color: var(--ink); padding: .52rem .95rem; border-radius: 18px 18px 4px 18px; font-size: .86rem; font-weight: 500; }
+    .user-thumb { width: 160px; max-height: 200px; border-radius: 16px; object-fit: cover; border: 1px solid var(--border); display: block; }
+
+    .bot-row { display: flex; flex-direction: column; gap: .85rem; animation: fadeUp .32s ease; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+    .bot-dot-head { display: flex; align-items: center; gap: .5rem; font-size: .76rem; color: var(--ink-dim); }
+    .bot-dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), #C7A466); box-shadow: 0 0 10px rgba(243,200,119,.5); }
+
+    /* Quality Banner */
+    .quality-bar { display: flex; align-items: center; justify-content: space-between; gap: .6rem; padding: .6rem .9rem; border-radius: 12px; font-size: .77rem; font-weight: 600; }
+    .quality-ok { background: var(--jade-bg); color: var(--jade); border: 1px solid rgba(88,209,163,.25); }
+    .quality-warn { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(245,180,97,.3); }
+
+    /* 3-Zone Eye Concern Spotlight Cards (Skin.Chat Image 2 style!) */
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: .5rem;
+      padding: 0 .1rem;
+    }
+    .section-head strong { font-size: .88rem; color: #FFFDFC; }
+    .section-head span { font-size: .73rem; color: var(--gold); }
+
+    .carousel-track {
+      display: flex;
+      gap: .75rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: .45rem;
+      -webkit-overflow-scrolling: touch;
+    }
+    .carousel-track::-webkit-scrollbar { height: 5px; }
+    .carousel-track::-webkit-scrollbar-thumb { background: rgba(243,200,119,.28); border-radius: 999px; }
+
+    .zone-card {
+      flex: 0 0 265px;
+      scroll-snap-align: start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: .18s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .zone-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .zone-cvs-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3.5;
+      background: #0A0608;
+      overflow: hidden;
+    }
+    .zone-cvs-wrap canvas { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .tap-zoom-pill {
+      position: absolute;
+      bottom: 9px;
+      right: 9px;
+      background: rgba(14, 9, 12, 0.82);
+      backdrop-filter: blur(8px);
+      color: var(--gold);
+      border: 1px solid rgba(243,200,119,.4);
+      border-radius: 999px;
+      padding: .2rem .58rem;
+      font-size: .67rem;
+      font-weight: 700;
+    }
+    .zone-card-body { padding: .78rem .88rem .88rem; }
+    .zone-top { display: flex; justify-content: space-between; align-items: center; gap: .4rem; margin-bottom: .35rem; }
+    .zone-title { font-size: .88rem; font-weight: 700; color: #FFFDFC; }
+    .level-pill { font-size: .69rem; font-weight: 700; padding: .14rem .48rem; border-radius: 6px; }
+    .lv-mild { background: var(--jade-bg); color: var(--jade); }
+    .lv-mod { background: var(--amber-bg); color: var(--amber); }
+    .lv-high { background: var(--rose-bg); color: var(--rose); }
+    .mini-bar-bg { height: 5px; border-radius: 999px; background: rgba(255,255,255,.08); overflow: hidden; margin-bottom: .4rem; }
+    .mini-bar-fill { height: 100%; border-radius: 999px; }
+    .zone-sub { font-size: .74rem; color: var(--ink-soft); margin: 0; }
+
+    /* Honest Geometric Card */
+    .metric-card { background: var(--card); border: 1px solid rgba(255,255,255,.07); border-radius: 16px; padding: .92rem 1.02rem; }
+    .obs-row { display: flex; justify-content: space-between; align-items: center; gap: .5rem; padding: .34rem 0; border-bottom: 1px dashed rgba(255,255,255,.07); font-size: .84rem; }
+    .obs-row:last-child { border-bottom: 0; }
+    .obs-row .k { color: var(--ink-soft); }
+    .obs-row .v { font-weight: 700; color: #FFFDFC; text-align: right; }
+
+    /* Teacher-Standard 3-Question Touch Check */
+    .touch-card { background: var(--card); border: 1px solid var(--border-strong); border-radius: 18px; padding: 1.05rem; }
+    .touch-card h3 { font-family: var(--font-serif); font-size: 1.3rem; margin: 0 0 .22rem; color: var(--gold); }
+    .touch-sub { font-size: .8rem; color: var(--ink-soft); margin: 0 0 .85rem; }
+    .q-block { margin-bottom: .82rem; }
+    .q-block:last-of-type { margin-bottom: 0; }
+    .q-label { font-size: .8rem; font-weight: 700; color: #FFFDFC; margin-bottom: .4rem; display: block; }
+    .q-chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+    .q-chip {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.12);
+      color: var(--ink-soft);
+      font-family: inherit;
+      font-size: .78rem;
+      font-weight: 600;
+      padding: .4rem .76rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+    .q-chip:hover { border-color: var(--gold); color: var(--ink); }
+    .q-chip.active { background: var(--gold); color: #150E13; border-color: var(--gold); }
+    .teacher-verdict {
+      margin-top: .88rem;
+      padding: .82rem .92rem;
+      background: rgba(88,209,163,.1);
+      border: 1px solid rgba(88,209,163,.28);
+      border-radius: 14px;
+      font-size: .83rem;
+      color: var(--ink);
+      display: none;
+    }
+    .teacher-verdict.show { display: block; animation: fadeUp .25s ease; }
+    .teacher-verdict strong { color: var(--gold); }
+
+    /* Bojin Macro Route Carousel */
+    .side-pills { display: inline-flex; background: var(--card); border: 1px solid var(--border); border-radius: 999px; padding: 2px; gap: 2px; }
+    .side-pill { border: 0; background: transparent; color: var(--ink-soft); font-family: inherit; font-size: .72rem; font-weight: 700; padding: .24rem .62rem; border-radius: 999px; cursor: pointer; }
+    .side-pill.active { background: var(--gold); color: #150E13; }
+
+    .overlay-card {
+      flex: 0 0 295px;
+      scroll-snap-align: start;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .overlay-card:hover { border-color: var(--gold); }
+    .overlay-canvas-wrap { position: relative; width: 100%; aspect-ratio: 4 / 3.7; background: #0A0608; overflow: hidden; }
+    .overlay-canvas-wrap canvas { width: 100%; height: 100%; display: block; object-fit: cover; }
+    .card-badge-tl {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(14, 9, 12, 0.8);
+      backdrop-filter: blur(8px);
+      color: var(--ink);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      padding: .2rem .58rem;
+      font-size: .66rem;
+      font-weight: 700;
+    }
+    .card-toggle-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(14, 9, 12, 0.8);
+      backdrop-filter: blur(8px);
+      color: var(--gold);
+      border: 1px solid rgba(243,200,119,.4);
+      border-radius: 999px;
+      padding: .22rem .6rem;
+      font-family: inherit;
+      font-size: .68rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .overlay-card-foot { padding: .76rem .9rem .86rem; display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+    .overlay-card-foot .title { font-size: .86rem; font-weight: 700; color: #FFFDFC; display: block; }
+    .overlay-card-foot .tag { display: inline-block; font-size: .7rem; font-weight: 700; padding: .14rem .5rem; border-radius: 6px; margin-top: .2rem; }
+    .tag-jade { background: var(--jade-bg); color: var(--jade); }
+    .tag-amber { background: var(--amber-bg); color: var(--amber); }
+    .tag-rose { background: var(--rose-bg); color: var(--rose); }
+    .tag-lock { background: rgba(255,255,255,.08); color: var(--gold); }
+    .step-badge { width: 34px; height: 34px; border-radius: 50%; border: 2px solid var(--gold); display: flex; align-items: center; justify-content: center; font-size: .74rem; font-weight: 700; color: var(--gold); flex-shrink: 0; }
+
+    /* Step 1 Action + Feel Check */
+    .action-card { background: var(--card); border: 1px solid var(--border); border-radius: 18px; padding: 1rem 1.05rem; }
+    .action-card h3 { font-family: var(--font-serif); font-size: 1.26rem; margin: 0 0 .32rem; color: var(--gold); }
+    .action-card p { font-size: .84rem; color: var(--ink-soft); margin: 0 0 .75rem; }
+    .timer-row { display: flex; align-items: center; justify-content: space-between; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08); border-radius: 12px; padding: .6rem .85rem; margin-bottom: .8rem; }
+    .timer-big { font-family: var(--font-serif); font-size: 1.45rem; font-weight: 700; color: #FFFDFC; }
+    .feel-pills { display: grid; gap: .42rem; }
+    .feel-pill { text-align: left; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.1); color: var(--ink); font-family: inherit; font-size: .82rem; font-weight: 600; padding: .56rem .82rem; border-radius: 12px; cursor: pointer; }
+    .feel-pill:hover { border-color: var(--gold); background: rgba(243,200,119,.08); }
+    .feel-pill.selected { background: var(--gold); color: #150E13; border-color: var(--gold); }
+    .feel-answer { display: none; margin-top: .7rem; padding: .75rem .85rem; background: var(--jade-bg); border: 1px solid rgba(88,209,163,.25); border-radius: 12px; font-size: .81rem; color: var(--ink); }
+    .feel-answer.show { display: block; }
+
+    /* Rec Cards + Q&A */
+    .rec-track { display: grid; grid-template-columns: repeat(2, 1fr); gap: .75rem; }
+    @media (max-width: 520px) { .rec-track { grid-template-columns: 1fr; } }
+    .rec-card { background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: .95rem; display: flex; flex-direction: column; justify-content: space-between; gap: .65rem; }
+    .rec-card .kicker { font-size: .7rem; text-transform: uppercase; letter-spacing: .1em; color: var(--gold); font-weight: 700; }
+    .rec-card strong { font-size: .95rem; color: #FFFDFC; display: block; margin: .15rem 0 .25rem; }
+    .rec-card p { font-size: .78rem; color: var(--ink-soft); margin: 0; }
+    .rec-cta { width: 100%; padding: .58rem .85rem; border-radius: 999px; border: 0; background: var(--gold); color: #150E13; font-family: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none; display: block; }
+    .rec-cta-dark { background: rgba(255,255,255,.09); color: var(--ink); border: 1px solid var(--border-strong); }
+    .email-form { display: flex; gap: .4rem; margin-top: .45rem; }
+    .email-form input { flex: 1; min-width: 0; background: rgba(255,255,255,.07); border: 1px solid var(--border-strong); border-radius: 999px; padding: .5rem .8rem; color: #fff; font-family: inherit; font-size: .8rem; }
+
+    .qa-pills { display: grid; gap: .45rem; }
+    .qa-pill { text-align: left; background: var(--card); border: 1px solid rgba(255,255,255,.08); color: var(--ink); font-family: inherit; font-size: .83rem; padding: .68rem .95rem; border-radius: 12px; cursor: pointer; }
+    .qa-pill:hover { border-color: var(--gold); background: var(--card-2); }
+
+    /* Bottom Composer */
+    .composer { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 680px; background: rgba(21, 14, 19, 0.92); backdrop-filter: blur(14px); border-top: 1px solid rgba(255,255,255,.07); padding: .65rem 1rem .7rem; z-index: 45; }
+    .composer-row { display: flex; align-items: center; gap: .5rem; }
+    .comp-btn { background: var(--card-2); border: 1px solid var(--border); color: var(--ink); font-family: inherit; font-size: .78rem; font-weight: 600; padding: .46rem .82rem; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+    .comp-btn:hover { border-color: var(--gold); color: var(--gold); }
+    .comp-disclaimer { text-align: center; font-size: .68rem; color: var(--ink-dim); margin-top: .45rem; }
+
+    /* ==================== SKIN.CHAT-STYLE FULLSCREEN INSPECTOR LIGHTBOX ==================== */
+    .inspector-bg {
+      position: fixed;
+      inset: 0;
+      background: rgba(8, 5, 7, 0.92);
+      backdrop-filter: blur(12px);
+      z-index: 95;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: .75rem;
+    }
+    .inspector-bg.open { display: flex; animation: fadeUp .2s ease; }
+    .inspector-shell {
+      background: var(--shell);
+      border: 1px solid var(--border-strong);
+      border-radius: 22px;
+      max-width: 620px;
+      width: 100%;
+      max-height: 94vh;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .insp-topbar {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .75rem .9rem;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      overflow-x: auto;
+    }
+    .insp-back {
+      background: rgba(255,255,255,.08);
+      border: 0;
+      color: var(--ink);
+      font-family: inherit;
+      font-size: .78rem;
+      font-weight: 700;
+      padding: .36rem .72rem;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .insp-tab {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,.1);
+      color: var(--ink-soft);
+      font-family: inherit;
+      font-size: .76rem;
+      font-weight: 600;
+      padding: .34rem .72rem;
+      border-radius: 999px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .insp-tab.active {
+      background: var(--gold);
+      color: #150E13;
+      border-color: var(--gold);
+    }
+
+    .insp-stage {
+      position: relative;
+      background: #090507;
+      width: 100%;
+      aspect-ratio: 4 / 3.4;
+      max-height: 390px;
+      overflow: hidden;
+    }
+    #inspCanvas { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+    /* Bottom-Left Skin.Chat Mask Toggle Switch */
+    .mask-switch-pill {
+      position: absolute;
+      bottom: 14px;
+      left: 14px;
+      background: rgba(14, 9, 12, 0.84);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 999px;
+      padding: .34rem .55rem .34rem .8rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .55rem;
+      font-size: .76rem;
+      font-weight: 600;
+      color: var(--ink);
+      cursor: pointer;
+    }
+    .toggle-track {
+      width: 34px;
+      height: 19px;
+      border-radius: 999px;
+      background: #4A3A43;
+      position: relative;
+      transition: .18s ease;
+    }
+    .toggle-track.on { background: var(--gold); }
+    .toggle-knob {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      background: #FFFDFC;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: .18s ease;
+    }
+    .toggle-track.on .toggle-knob { left: 17px; }
+
+    /* Right-Edge Vertical + / - Zoom Control (Exact Skin.Chat Image 3 & 4!) */
+    .zoom-rail {
+      position: absolute;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(14, 9, 12, 0.82);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.16);
+      border-radius: 999px;
+      padding: .45rem .32rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+    }
+    .zoom-btn {
+      background: transparent;
+      border: 0;
+      color: var(--ink);
+      font-size: 1rem;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .zoom-slider-v {
+      writing-mode: vertical-lr;
+      direction: rtl;
+      height: 92px;
+      width: 18px;
+      accent-color: var(--gold);
+      cursor: pointer;
+    }
+
+    .insp-body { padding: 1.05rem 1.15rem 1.25rem; display: grid; gap: .8rem; }
+    .insp-res-head { display: flex; justify-content: space-between; align-items: baseline; gap: .5rem; }
+    .insp-res-head h3 { font-family: var(--font-serif); font-size: 1.38rem; margin: 0; color: #FFFDFC; }
+    .insp-bar-bg { height: 7px; border-radius: 999px; background: rgba(255,255,255,.09); overflow: hidden; }
+    .insp-bar-fill { height: 100%; border-radius: 999px; transition: width .3s ease; }
+    .insp-desc-box { background: var(--card); border: 1px solid rgba(255,255,255,.07); border-radius: 14px; padding: .85rem .95rem; }
+    .insp-desc-box h4 { margin: 0 0 .3rem; font-size: .84rem; color: var(--gold); }
+    .insp-desc-box p { margin: 0; font-size: .82rem; color: var(--ink-soft); }
+    .insp-switch-btn {
+      width: 100%;
+      padding: .72rem 1rem;
+      border-radius: 999px;
+      border: 0;
+      background: linear-gradient(135deg, #F3C877, #D5A857);
+      color: #150E13;
+      font-family: inherit;
+      font-size: .86rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .45rem;
+    }
+    .insp-switch-btn:hover { filter: brightness(1.06); }
+
+    /* Camera & Video Modals */
+    .modal-bg { position: fixed; inset: 0; background: rgba(8, 5, 7, 0.85); backdrop-filter: blur(8px); z-index: 90; display: none; align-items: center; justify-content: center; padding: 1rem; }
+    .modal-bg.open { display: flex; }
+    .modal-box { background: var(--card); border: 1px solid var(--border-strong); border-radius: 20px; max-width: 520px; width: 100%; overflow: hidden; }
+    .modal-head { padding: .85rem 1.05rem; border-bottom: 1px solid rgba(255,255,255,.08); display: flex; justify-content: space-between; align-items: center; }
+    .modal-head strong { font-size: .95rem; color: var(--gold); }
+    .modal-close { background: transparent; border: 1px solid rgba(255,255,255,.2); color: #fff; width: 28px; height: 28px; border-radius: 50%; cursor: pointer; }
+    .modal-body { padding: 1rem; text-align: center; }
+    .modal-body video { width: 100%; border-radius: 14px; background: #000; max-height: 360px; object-fit: cover; }
+    .cam-mirror { transform: scaleX(-1); }
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="chat-header">
+      <a class="portrait-pill" href="index.html">
+        <img class="portrait-avatar" src="assets/yu-ting-lan-course-portrait.webp" alt="Yu-Ting Lan">
+        <span>Eye Map · Bojin</span>
+      </a>
+      <div class="header-right">
+        <button type="button" class="hdr-btn" id="newChatBtn">New Scan</button>
+        <a class="hdr-btn js-course-link" href="https://go.bojinfacetension.com/bojin-eye-method?utm_source=eye_inspector&utm_medium=header" style="color:var(--gold);border-color:var(--border-strong);">Eye Course ($79)</a>
+      </div>
+    </header>
+
+    <main class="chat-feed" id="chatFeed">
+      <section class="welcome-box" id="welcomeBox">
+        <p class="welcome-eyebrow">The Bojin Method · 3-Zone Eye Inspector</p>
+        <h1>Take a close look at your eye area—then find the bone line to stay on.</h1>
+        <blockquote class="moat-quote">
+          “A camera can map your bone edge—but only your fingertips can feel where the tension is hiding.”
+        </blockquote>
+        <div class="privacy-line">🔒 Stays on your device · 468-point face map · Photo never uploaded</div>
+
+        <div class="starter-grid">
+          <button type="button" class="starter-card" id="startUploadBtn">
+            <span class="icon">🖼️</span>
+            <strong>Upload a Photo</strong>
+            <span>See 3 eye zones and your bone-edge maps</span>
+          </button>
+          <button type="button" class="starter-card" id="startCamBtn">
+            <span class="icon">📷</span>
+            <strong>Take a Quick Selfie</strong>
+            <span>Take off your glasses for the clearest under-eye read</span>
+          </button>
+        </div>
+        <button type="button" class="demo-link-btn" id="startDemoBtn">✨ Try it first with a sample face</button>
+      </section>
+    </main>
+
+    <footer class="composer">
+      <div class="composer-row">
+        <button type="button" class="comp-btn" id="barUploadBtn">🖼️ Upload</button>
+        <button type="button" class="comp-btn" id="barCamBtn">📷 Selfie</button>
+        <button type="button" class="comp-btn" id="barDemoBtn">✨ Sample Face</button>
+        <button type="button" class="comp-btn" id="barDownloadBtn" style="margin-left:auto;display:none;color:var(--gold);">⬇ Save Card</button>
+      </div>
+      <div class="comp-disclaimer">
+        Self-care observation only, not medical care · Processed on your device · The Bojin Method
+      </div>
+    </footer>
+  </div>
+
+  <input type="file" id="photoInput" accept="image/jpeg,image/png,image/webp" hidden>
+
+  <!-- ==================== FULLSCREEN DETAIL INSPECTOR LIGHTBOX ==================== -->
+  <div class="inspector-bg" id="inspectorModal" role="dialog" aria-modal="true">
+    <div class="inspector-shell">
+      <div class="insp-topbar">
+        <button type="button" class="insp-back" id="closeInspBtn">← Back</button>
+        <button type="button" class="insp-tab active" data-it="darkCircles">Under-Eye Shadow</button>
+        <button type="button" class="insp-tab" data-it="tearTrough">Tear Trough / Puff</button>
+        <button type="button" class="insp-tab" data-it="crowsFeet">Outer-Corner Lines</button>
+        <button type="button" class="insp-tab" data-it="bojinRoute">⚡ Bojin Bone Route</button>
+      </div>
+
+      <div class="insp-stage">
+        <canvas id="inspCanvas" width="720" height="610"></canvas>
+
+        <button type="button" class="mask-switch-pill" id="inspMaskBtn">
+          <span>Show Mask</span>
+          <span class="toggle-track on" id="inspMaskTrack"><span class="toggle-knob"></span></span>
+        </button>
+
+        <div class="zoom-rail" aria-label="Zoom control">
+          <button type="button" class="zoom-btn" id="zoomInBtn">+</button>
+          <input type="range" id="zoomSlider" class="zoom-slider-v" min="100" max="240" value="145">
+          <button type="button" class="zoom-btn" id="zoomOutBtn">−</button>
+        </div>
+      </div>
+
+      <div class="insp-body">
+        <div class="insp-res-head">
+          <h3 id="inspTitle">Under-Eye Shadow</h3>
+          <span class="level-pill lv-mod" id="inspLevelPill">Moderate</span>
+        </div>
+        <div class="insp-bar-bg"><div class="insp-bar-fill" id="inspBarFill" style="width:62%;background:var(--amber);"></div></div>
+        <div style="font-size:.72rem;color:var(--ink-dim);margin-top:-.45rem;" id="inspTechNote">
+          Measured on your device by comparing each eye zone with your own cheek in the same photo. Lighting and glasses can change the reading.
+        </div>
+
+        <div class="insp-desc-box">
+          <h4 id="inspWhyTitle">Why does this show up around the eyes?</h4>
+          <p id="inspWhyText"></p>
+        </div>
+
+        <button type="button" class="insp-switch-btn" id="inspActionBtn">
+          <span>⚡ Show My Matching Bone Route</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Camera Modal -->
+  <div class="modal-bg" id="camModal">
+    <div class="modal-box">
+      <div class="modal-head">
+        <strong>Take a Relaxed Front-Facing Selfie</strong>
+        <button type="button" class="modal-close" id="closeCamBtn">✕</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:.8rem;color:var(--ink-soft);margin:0 0 .7rem;">👓 Tip: Keep your head level, take off your glasses, and face a soft light.</p>
+        <video id="camVideo" class="cam-mirror" playsinline autoplay muted></video>
+        <div style="margin-top:.85rem;display:flex;gap:.5rem;justify-content:center;">
+          <button type="button" class="rec-cta" id="snapSelfieBtn" style="max-width:240px;">📸 Take Photo &amp; Check My Eyes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 15s Course Video Modal -->
+  <div class="modal-bg" id="videoModal">
+    <div class="modal-box" style="max-width:620px;">
+      <div class="modal-head">
+        <strong>How Yu-Ting Anchors the Upper Orbital Rim (15s)</strong>
+        <button type="button" class="modal-close" id="closeVidBtn">✕</button>
+      </div>
+      <div class="modal-body">
+        <video id="courseVid" controls playsinline preload="none" poster="assets/facial-tension-journey/guiding-hand-teaser-hd.jpg">
+          <source src="assets/facial-tension-journey/guiding-hand-teaser-hd.mp4" type="video/mp4">
+        </video>
+        <div style="margin-top:.85rem;">
+          <a class="rec-cta js-course-link" href="https://go.bojinfacetension.com/bojin-eye-method?utm_source=eye_inspector&utm_medium=video_modal">Explore The Bojin Eye Method ($79) →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { FaceLandmarker, FilesetResolver } from "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/vision_bundle.mjs";
+
+    const chatFeed = document.getElementById("chatFeed");
+    const welcomeBox = document.getElementById("welcomeBox");
+    const photoInput = document.getElementById("photoInput");
+    const camModal = document.getElementById("camModal");
+    const camVideo = document.getElementById("camVideo");
+    const videoModal = document.getElementById("videoModal");
+    const courseVid = document.getElementById("courseVid");
+    const barDownloadBtn = document.getElementById("barDownloadBtn");
+
+    // Inspector Lightbox DOM
+    const inspectorModal = document.getElementById("inspectorModal");
+    const inspCanvas = document.getElementById("inspCanvas");
+    const inspMaskTrack = document.getElementById("inspMaskTrack");
+    const zoomSlider = document.getElementById("zoomSlider");
+
+    let faceLandmarker = null;
+    let camStream = null;
+    const isVipMode = new URLSearchParams(window.location.search).get("vip") === "unlocked";
+    let isUnlocked = isVipMode;
+    let latestImg = null;
+    let latestLandmarks = null;
+    let latestGeo = null;
+    let eyeMetrics = null;
+    let activeSide = "right";
+    let cardCanvases = [];
+    let touchState = { q1: null, q2: null, q3: null };
+
+    // Inspector state
+    let inspOpen = false;
+    let inspTab = "darkCircles"; // 'darkCircles' | 'tearTrough' | 'crowsFeet' | 'bojinRoute'
+    let inspShowMask = true;
+    let inspZoom = 1.45;
+    let inspRouteStep = 1; // 1 (Diagram 4) or 3 (Diagram 6)
+
+    async function loadTracker() {
+      if (faceLandmarker) return faceLandmarker;
+      const vision = await FilesetResolver.forVisionTasks(
+        "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@0.10.14/wasm"
+      );
+      faceLandmarker = await FaceLandmarker.createFromOptions(vision, {
+        baseOptions: {
+          modelAssetPath: "https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/1/face_landmarker.task",
+          delegate: "GPU"
+        },
+        runningMode: "IMAGE",
+        numFaces: 1
+      });
+      return faceLandmarker;
+    }
+
+    // --- REAL ON-DEVICE PIXEL CONTRAST ENGINE FOR 3 FOCUSED EYE ZONES ($0 FREE!) ---
+    function measureEyePixelZones(imgEl, lms) {
+      const off = document.createElement("canvas");
+      const W = Math.min(640, imgEl.naturalWidth);
+      const H = Math.round(W * (imgEl.naturalHeight / imgEl.naturalWidth));
+      off.width = W; off.height = H;
+      const octx = off.getContext("2d", { willReadFrequently: true });
+      octx.drawImage(imgEl, 0, 0, W, H);
+      const imgData = octx.getImageData(0, 0, W, H).data;
+
+      const lumAt = (x, y) => {
+        const ix = Math.max(0, Math.min(W - 1, Math.round(x)));
+        const iy = Math.max(0, Math.min(H - 1, Math.round(y)));
+        const k = (iy * W + ix) * 4;
+        return 0.299 * imgData[k] + 0.587 * imgData[k + 1] + 0.114 * imgData[k + 2];
+      };
+
+      const avgPatchLum = (indices) => {
+        let sum = 0, cnt = 0;
+        indices.forEach(idx => {
+          const cx = lms[idx].x * W, cy = lms[idx].y * H;
+          for (let dx = -2; dx <= 2; dx += 2) {
+            for (let dy = -2; dy <= 2; dy += 2) {
+              sum += lumAt(cx + dx, cy + dy);
+              cnt++;
+            }
+          }
+        });
+        return cnt ? sum / cnt : 128;
+      };
+
+      const patchEdgeDensity = (indices) => {
+        let sum = 0, cnt = 0;
+        indices.forEach(idx => {
+          const cx = lms[idx].x * W, cy = lms[idx].y * H;
+          for (let dx = -4; dx <= 4; dx += 2) {
+            for (let dy = -4; dy <= 4; dy += 2) {
+              const gx = Math.abs(lumAt(cx + dx + 1, cy + dy) - lumAt(cx + dx - 1, cy + dy));
+              const gy = Math.abs(lumAt(cx + dx, cy + dy + 1) - lumAt(cx + dx, cy + dy - 1));
+              sum += (gx + gy) * 0.5;
+              cnt++;
+            }
+          }
+        });
+        return cnt ? sum / cnt : 5;
+      };
+
+      // Baseline smooth cheek luminance & texture
+      const cheekLum = avgPatchLum([116, 123, 50, 345, 352, 280]);
+      const cheekEdge = Math.max(2.5, patchEdgeDensity([123, 50, 352, 280]));
+
+      // 1. Under-Eye Shadow (Luminance drop vs own cheek)
+      const underEyeLum = avgPatchLum([111, 117, 118, 119, 120, 121, 340, 346, 347, 348, 349, 350]);
+      const shadowDrop = Math.max(0, (cheekLum - underEyeLum) / Math.max(40, cheekLum)) * 100;
+      const darkPct = Math.max(18, Math.min(92, Math.round(24 + shadowDrop * 2.4)));
+      const darkLevel = darkPct >= 66 ? "Priority" : darkPct >= 42 ? "Moderate" : "Mild";
+
+      // 2. Tear-Trough & Puffiness Shadow Gradient (vertical valley below lower rim)
+      const rimLum = avgPatchLum([145, 153, 154, 374, 380, 381]);
+      const troughLum = avgPatchLum([119, 120, 121, 348, 349, 350]);
+      const valleyContrast = Math.abs(rimLum - troughLum) / Math.max(40, cheekLum) * 100 + shadowDrop * 0.45;
+      const troughPct = Math.max(20, Math.min(92, Math.round(26 + valleyContrast * 2.2)));
+      const troughLevel = troughPct >= 66 ? "Priority" : troughPct >= 44 ? "Moderate" : "Mild";
+
+      // 3. Outer-Corner Fine-Line Texture (high-frequency edge ratio vs own cheek)
+      const cornerEdge = patchEdgeDensity([130, 143, 35, 226, 359, 372, 265, 446]);
+      const edgeRatio = cornerEdge / cheekEdge;
+      const linesPct = Math.max(18, Math.min(92, Math.round(18 + Math.max(0, edgeRatio - 0.85) * 44)));
+      const linesLevel = linesPct >= 66 ? "Priority" : linesPct >= 42 ? "Moderate" : "Mild";
+
+      return {
+        darkCircles: {
+          key: "darkCircles",
+          title: "Under-Eye Shadow",
+          pct: darkPct,
+          level: darkLevel,
+          lvlCls: darkLevel === "Priority" ? "lv-high" : darkLevel === "Moderate" ? "lv-mod" : "lv-mild",
+          color: darkLevel === "Priority" ? "#F08A9B" : darkLevel === "Moderate" ? "#F5B461" : "#58D1A3",
+          short: `Contrast vs. cheek: ${darkLevel}`,
+          whyTitle: "Why can the under-eye look darker?",
+          whyText: "Genetics and thin skin play a part. So does a long day of screens, when the brow and cheek can feel tight and the under-eye often looks darker by late afternoon. Bojin works on the bone edge around this area, never by tugging the thin skin itself.",
+          matchStep: 1
+        },
+        tearTrough: {
+          key: "tearTrough",
+          title: "Tear Trough & Puffiness",
+          pct: troughPct,
+          level: troughLevel,
+          lvlCls: troughLevel === "Priority" ? "lv-high" : troughLevel === "Moderate" ? "lv-mod" : "lv-mild",
+          color: troughLevel === "Priority" ? "#F08A9B" : troughLevel === "Moderate" ? "#F5B461" : "#58D1A3",
+          short: `Shadow below the rim: ${troughLevel}`,
+          whyTitle: "Why does the under-eye hollow look deeper when you’re tired?",
+          whyText: "On tired days the under-eye can look puffier, and a tight feeling along the eye socket’s bone rim makes the shadow below it look deeper. In The Bojin Eye Method, we never press into the soft, puffy area. We work only along the bone rim around it.",
+          matchStep: 3
+        },
+        crowsFeet: {
+          key: "crowsFeet",
+          title: "Outer-Corner Lines",
+          pct: linesPct,
+          level: linesLevel,
+          lvlCls: linesLevel === "Priority" ? "lv-high" : linesLevel === "Moderate" ? "lv-mod" : "lv-mild",
+          color: linesLevel === "Priority" ? "#F08A9B" : linesLevel === "Moderate" ? "#F5B461" : "#58D1A3",
+          short: `Outer-corner texture: ${linesLevel}`,
+          whyTitle: "Why does tension gather at the outer eye corner?",
+          whyText: "Squinting at screens and smiling a lot work the small muscle ring at the outer corner of the eye all day. Start with the brow bone. The course then teaches Yu-Ting’s 45° outer-corner fan, done with the Guiding Hand, for when that corner feels pulled tight.",
+          matchStep: 3
+        }
+      };
+    }
+
+    function measureRealGeometry(lms) {
+      const rOut = lms[33], lOut = lms[263];
+      const cx = (rOut.x + lOut.x) / 2, cy = (rOut.y + lOut.y) / 2;
+      const rollRad = Math.atan2(lOut.y - rOut.y, lOut.x - rOut.x);
+      const rollDeg = Math.abs(rollRad * 180 / Math.PI);
+      const cosR = Math.cos(-rollRad), sinR = Math.sin(-rollRad);
+      const rot = (p) => { const dx = p.x - cx, dy = p.y - cy; return { x: dx * cosR - dy * sinR, y: dx * sinR + dy * cosR }; };
+      const span = Math.hypot(lOut.x - rOut.x, lOut.y - rOut.y) || 0.25;
+      const browDiffPct = ((-rot(lms[105]).y - (-rot(lms[334]).y)) / span) * 100;
+      const absDiff = Math.min(9.9, Math.abs(browDiffPct));
+      const lowerSide = browDiffPct < 0 ? "Right" : "Left";
+      const isNearlyLevel = absDiff < 1.0;
+      activeSide = isNearlyLevel ? "right" : (lowerSide === "Left" ? "left" : "right");
+      return {
+        rollDeg: rollDeg.toFixed(1),
+        tiltWarn: rollDeg > 5.0,
+        horizonText: isNearlyLevel ? `~${absDiff.toFixed(1)}% (Nearly level)` : `${lowerSide} brow ~${absDiff.toFixed(1)}% lower`
+      };
+    }
+
+    function buildSpiral(anchors, loops, radius) {
+      if (anchors.length < 2) return [];
+      const lens = []; let total = 0;
+      for (let i = 0; i < anchors.length - 1; i++) {
+        const d = Math.hypot(anchors[i + 1].x - anchors[i].x, anchors[i + 1].y - anchors[i].y);
+        lens.push(d); total += d;
+      }
+      const samples = loops * 22, out = [];
+      for (let s = 0; s <= samples; s++) {
+        const t = s / samples; let d = t * total, idx = 0;
+        while (idx < lens.length - 1 && d > lens[idx]) { d -= lens[idx]; idx++; }
+        const lt = lens[idx] > 0 ? d / lens[idx] : 0;
+        const p0 = anchors[idx], p1 = anchors[idx + 1];
+        const bx = p0.x + (p1.x - p0.x) * lt, by = p0.y + (p1.y - p0.y) * lt;
+        const dx = p1.x - p0.x, dy = p1.y - p0.y, L = Math.hypot(dx, dy) || 1;
+        const tx = dx / L, ty = dy / L, nx = -ty, ny = tx;
+        const th = t * loops * Math.PI * 2;
+        const env = Math.sin(Math.min(1, t * 7) * Math.PI * .5) * Math.sin(Math.min(1, (1 - t) * 7) * Math.PI * .5);
+        const r = radius * (0.5 + 0.5 * env);
+        out.push({ x: bx + Math.cos(th) * r * .7 * tx + Math.sin(th) * r * nx, y: by + Math.cos(th) * r * .7 * ty + Math.sin(th) * r * ny });
+      }
+      return out;
+    }
+
+    function drawPin(ctx, p, num, label) {
+      ctx.save();
+      ctx.fillStyle = "#150E13"; ctx.strokeStyle = "#F3C877"; ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.arc(p.x, p.y, 8.5, 0, Math.PI * 2); ctx.fill(); ctx.stroke();
+      ctx.fillStyle = "#F3C877"; ctx.font = "700 10px 'Hanken Grotesk', sans-serif";
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText(String(num), p.x, p.y + 0.5);
+      if (label) {
+        ctx.font = "600 10px 'Hanken Grotesk', sans-serif";
+        const tw = ctx.measureText(label).width;
+        ctx.fillStyle = "rgba(14, 9, 12, 0.84)";
+        ctx.beginPath(); ctx.roundRect(p.x - tw / 2 - 5, p.y - 25, tw + 10, 15, 7); ctx.fill();
+        ctx.fillStyle = "#F7F1EB"; ctx.fillText(label, p.x, p.y - 17.5);
+      }
+      ctx.restore();
+    }
+
+    // Shared Renderer for BOTH Carousel Cards AND Fullscreen Inspector Lightbox
+    function renderFaceCanvas(canvas, type, showLines, nowMs, zoomFactor = 1.0) {
+      const ctx = canvas.getContext("2d");
+      const cw = canvas.width, ch = canvas.height;
+      ctx.clearRect(0, 0, cw, ch);
+      ctx.fillStyle = "#0A0608";
+      ctx.fillRect(0, 0, cw, ch);
+      if (!latestImg) return;
+
+      const sw = latestImg.naturalWidth, sh = latestImg.naturalHeight;
+      let sx = 0, sy = 0, sWidth = sw, sHeight = sh;
+
+      if (latestLandmarks && type !== "horizon") {
+        const rTemple = latestLandmarks[127], lTemple = latestLandmarks[356];
+        const browTop = latestLandmarks[10], noseMid = latestLandmarks[1];
+        const cx = ((rTemple.x + lTemple.x) / 2) * sw;
+        const cy = ((browTop.y * 0.36 + noseMid.y * 0.64)) * sh;
+        const eyeSpanPx = Math.abs(lTemple.x - rTemple.x) * sw;
+        const baseCropW = Math.min(sw, Math.max(eyeSpanPx * 1.42, sw * 0.36));
+        const cropW = Math.max(sw * 0.18, baseCropW / zoomFactor);
+        const cropH = cropW * (ch / cw);
+        sx = Math.max(0, Math.min(sw - cropW, cx - cropW / 2));
+        sy = Math.max(0, Math.min(sh - cropH, cy - cropH * 0.5));
+        sWidth = Math.min(sw - sx, cropW);
+        sHeight = Math.min(sh - sy, cropH);
+      } else {
+        const targetRatio = cw / ch, imgRatio = sw / sh;
+        if (imgRatio > targetRatio) { sWidth = sh * targetRatio; sx = (sw - sWidth) / 2; }
+        else { sHeight = sw / targetRatio; sy = (sh - sHeight) / 2; }
+      }
+
+      ctx.drawImage(latestImg, sx, sy, sWidth, sHeight, 0, 0, cw, ch);
+      if (!latestLandmarks || !showLines) return;
+
+      const pt = (i) => ({
+        x: ((latestLandmarks[i].x * sw - sx) / sWidth) * cw,
+        y: ((latestLandmarks[i].y * sh - sy) / sHeight) * ch
+      });
+      const lerp = (a, b, t) => ({ x: a.x + (b.x - a.x) * t, y: a.y + (b.y - a.y) * t });
+      const eyeW = Math.hypot(pt(263).x - pt(33).x, pt(263).y - pt(33).y);
+      const prog = (nowMs % 4400) / 4400;
+
+      const drawOrganicMask = (poly, fill, stroke) => {
+        ctx.save();
+        ctx.beginPath();
+        poly.forEach((p, i) => {
+          if (i === 0) ctx.moveTo(p.x, p.y);
+          else {
+            const prev = poly[i - 1];
+            ctx.quadraticCurveTo(prev.x, prev.y, (prev.x + p.x) / 2, (prev.y + p.y) / 2);
+          }
+        });
+        ctx.closePath();
+        ctx.fillStyle = fill;
+        ctx.fill();
+        ctx.shadowColor = stroke;
+        ctx.shadowBlur = 10;
+        ctx.strokeStyle = stroke;
+        ctx.lineWidth = 1.8;
+        ctx.stroke();
+        ctx.restore();
+      };
+
+      const drawGlowPath = (pts, stroke = "#F3C877", lw = 2.8) => {
+        if (pts.length < 2) return;
+        ctx.save();
+        ctx.beginPath();
+        pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+        ctx.shadowColor = stroke; ctx.shadowBlur = 10; ctx.strokeStyle = stroke;
+        ctx.lineWidth = lw; ctx.lineCap = "round"; ctx.stroke();
+        const hi = Math.min(pts.length - 1, Math.floor(prog * (pts.length - 1)));
+        ctx.shadowColor = "#FFF"; ctx.shadowBlur = 14; ctx.fillStyle = "#FFF";
+        ctx.beginPath(); ctx.arc(pts[hi].x, pts[hi].y, 4.6, 0, Math.PI * 2); ctx.fill();
+        ctx.restore();
+      };
+
+      // --- 3 EYE-CONCERN MASKS (Skin.Chat Image 2 Organic Glow Style!) ---
+      if (type === "darkCircles") {
+        const rPoly = [33, 7, 163, 144, 145, 153, 154, 155, 133, 243, 190, 121, 120, 119, 118, 117, 111].map(pt);
+        const lPoly = [263, 249, 390, 373, 374, 380, 381, 382, 362, 463, 414, 350, 349, 348, 347, 346, 340].map(pt);
+        drawOrganicMask(rPoly, "rgba(155, 89, 182, 0.32)", "rgba(216, 155, 255, 0.9)");
+        drawOrganicMask(lPoly, "rgba(155, 89, 182, 0.32)", "rgba(216, 155, 255, 0.9)");
+        return;
+      }
+      if (type === "tearTrough") {
+        const rTrough = [133, 155, 154, 153, 145, 144, 163, 117, 118, 119, 120, 121, 128].map(pt);
+        const lTrough = [362, 382, 381, 380, 374, 373, 390, 346, 347, 348, 349, 350, 357].map(pt);
+        drawOrganicMask(rTrough, "rgba(235, 87, 120, 0.30)", "rgba(248, 138, 162, 0.92)");
+        drawOrganicMask(lTrough, "rgba(235, 87, 120, 0.30)", "rgba(248, 138, 162, 0.92)");
+        return;
+      }
+      if (type === "crowsFeet") {
+        const rFan = [130, 226, 35, 143, 111, 116, 127, 71, 70].map(pt);
+        const lFan = [359, 446, 265, 372, 340, 345, 356, 301, 300].map(pt);
+        drawOrganicMask(rFan, "rgba(245, 180, 97, 0.28)", "rgba(243, 200, 119, 0.92)");
+        drawOrganicMask(lFan, "rgba(245, 180, 97, 0.28)", "rgba(243, 200, 119, 0.92)");
+        return;
+      }
+
+      if (type === "horizon") {
+        const pR = pt(33), pL = pt(263);
+        const dxL = pL.x - pR.x, dyL = pL.y - pR.y, len = Math.hypot(dxL, dyL) || 1;
+        const ux = dxL / len, uy = dyL / len, ext = len * 0.4;
+        ctx.save();
+        ctx.strokeStyle = "rgba(243,200,119,0.92)"; ctx.lineWidth = 1.4; ctx.setLineDash([5, 4]);
+        ctx.beginPath(); ctx.moveTo(pR.x - ux * ext, pR.y - uy * ext); ctx.lineTo(pL.x + ux * ext, pL.y + uy * ext); ctx.stroke();
+        ctx.setLineDash([]);
+        [105, 334].forEach((idx, k) => {
+          const a = pt(idx), proj = (a.x - pR.x) * ux + (a.y - pR.y) * uy;
+          const foot = { x: pR.x + ux * proj, y: pR.y + uy * proj };
+          ctx.strokeStyle = "#FFF"; ctx.lineWidth = 1.1;
+          ctx.beginPath(); ctx.moveTo(foot.x, foot.y); ctx.lineTo(a.x, a.y); ctx.stroke();
+          ctx.fillStyle = "#F3C877"; ctx.beginPath(); ctx.arc(a.x, a.y, 4, 0, Math.PI * 2); ctx.fill();
+          ctx.font = "700 11px sans-serif"; ctx.fillText(k === 0 ? "R" : "L", a.x - 4, a.y - 10);
+        });
+        ctx.restore();
+        return;
+      }
+
+      // --- BOJIN BONE-EDGE ROUTES (Diagrams 4, 5, 6) ---
+      const sideMap = {
+        right: {
+          bIn: 107, bMidIn: 66, bArch: 105, bMidOut: 63, bTail: 70,
+          aIn: 108, aMidIn: 69, aArch: 104, aMidOut: 68, aTail: 71,
+          lid: [55,52,65,53,46,156,130,247,30,29,27,28,56,190],
+          rim: [193,221,222,223,224,225,113,226],
+          mBrow: [9,108,69,104,68,71,70,63,105,66,107,55],
+          corner: 130, tHi: 71, tMid: 139
+        },
+        left: {
+          bIn: 336, bMidIn: 296, bArch: 334, bMidOut: 293, bTail: 300,
+          aIn: 337, aMidIn: 299, aArch: 333, aMidOut: 298, aTail: 301,
+          lid: [285,282,295,283,276,383,359,467,260,259,257,258,286,414],
+          rim: [417,441,442,443,444,445,342,446],
+          mBrow: [9,337,299,333,298,301,300,293,334,296,336,285],
+          corner: 359, tHi: 301, tMid: 368
+        }
+      };
+
+      const routeType = type === "bojinRoute" ? (inspRouteStep === 3 ? "step3" : "step1") : type;
+      const sides = activeSide === "both" ? ["right", "left"] : [activeSide];
+
+      for (const sKey of sides) {
+        const S = sideMap[sKey];
+        drawOrganicMask(S.lid.map(pt), "rgba(240, 138, 155, 0.2)", "rgba(240, 138, 155, 0.45)");
+
+        if (routeType === "step1") {
+          drawOrganicMask(S.mBrow.map(pt), "rgba(218, 92, 128, 0.2)", "rgba(243, 200, 119, 0.35)");
+          const anchors = [
+            pt(9), lerp(pt(S.bIn), pt(S.aIn), 0.35), lerp(pt(S.bMidIn), pt(S.aMidIn), 0.42),
+            lerp(pt(S.bArch), pt(S.aArch), 0.45), lerp(pt(S.bMidOut), pt(S.aMidOut), 0.42), lerp(pt(S.bTail), pt(S.aTail), 0.35)
+          ];
+          drawGlowPath(buildSpiral(anchors, 6, Math.max(5.5, eyeW * 0.042)), "#F3C877", 2.8);
+          if (sKey === sides[0]) { drawPin(ctx, pt(9), 1, "Center"); drawPin(ctx, lerp(pt(S.bArch), pt(S.aArch), 0.85), 2, "Arch"); }
+        } else if (routeType === "step2") {
+          if (isUnlocked) {
+            const bs = [pt(S.bIn), pt(S.bMidIn), pt(S.bArch), pt(S.bMidOut), pt(S.bTail)];
+            const ts = [pt(S.aIn), pt(S.aMidIn), pt(S.aArch), pt(S.aMidOut), pt(S.aTail)];
+            bs.forEach((b, i) => drawGlowPath([b, lerp(b, ts[i], 0.62)], "#58D1A3", 2.6));
+            if (sKey === sides[0]) { drawPin(ctx, bs[0], 1, "Inner"); drawPin(ctx, bs[2], 2, "Arch"); drawPin(ctx, bs[4], 3, "Tail"); }
+          }
+        } else if (routeType === "step3") {
+          if (isUnlocked || type === "bojinRoute") {
+            const rimPts = S.rim.map(pt);
+            drawGlowPath(rimPts, "#F3C877", 3.0);
+            const c = pt(S.corner);
+            drawGlowPath([c, lerp(c, pt(S.tHi), 0.65)], "#F08A9B", 2.2);
+            drawGlowPath([c, lerp(c, pt(S.tMid), 0.62)], "#F08A9B", 2.2);
+            if (sKey === sides[0]) { drawPin(ctx, rimPts[0], 1, "Inner Rim"); drawPin(ctx, c, 2, "Outer Rim"); }
+          }
+        }
+      }
+
+      if ((routeType === "step2" || routeType === "step3") && !isUnlocked && type !== "bojinRoute") {
+        ctx.fillStyle = "rgba(14,9,12,0.56)"; ctx.fillRect(0, 0, cw, ch);
+        ctx.fillStyle = "#F3C877"; ctx.font = "700 14px 'Hanken Grotesk', sans-serif"; ctx.textAlign = "center";
+        ctx.fillText(routeType === "step2" ? "🔒 Unlock This Map Free Below" : "🔒 Taught in the Course", cw / 2, ch / 2);
+      }
+    }
+
+    function animateAll(nowMs) {
+      cardCanvases.forEach(item => renderFaceCanvas(item.canvas, item.type, item.showLines, nowMs, 1.0));
+      if (inspOpen) renderFaceCanvas(inspCanvas, inspTab, inspShowMask, nowMs, inspZoom);
+      requestAnimationFrame(animateAll);
+    }
+    requestAnimationFrame(animateAll);
+
+    // --- Inspector Lightbox Logic ---
+    function openInspector(tabKey) {
+      inspTab = tabKey;
+      inspOpen = true;
+      inspShowMask = true;
+      inspMaskTrack.classList.add("on");
+      inspectorModal.classList.add("open");
+      updateInspectorPanel();
+    }
+
+    function updateInspectorPanel() {
+      document.querySelectorAll(".insp-tab").forEach(t => t.classList.toggle("active", t.dataset.it === inspTab));
+      const titleEl = document.getElementById("inspTitle");
+      const pillEl = document.getElementById("inspLevelPill");
+      const barEl = document.getElementById("inspBarFill");
+      const whyTitle = document.getElementById("inspWhyTitle");
+      const whyText = document.getElementById("inspWhyText");
+      const actBtn = document.getElementById("inspActionBtn");
+
+      if (inspTab === "bojinRoute") {
+        titleEl.textContent = inspRouteStep === 3 ? "Your Bone Route · Step 3: Upper Orbital Rim" : "Your Bone Route · Step 1: Above-the-Brow Spiral";
+        pillEl.textContent = inspRouteStep === 3 ? "Taught in the Course" : "Free Step";
+        pillEl.className = "level-pill " + (inspRouteStep === 3 ? "lv-high" : "lv-mild");
+        barEl.style.width = "100%"; barEl.style.background = "var(--gold)";
+        whyTitle.textContent = "Stay on the bone. Never pull the eyelid.";
+        whyText.textContent = inspRouteStep === 3
+          ? "See the glowing groove just above the pink eyelid area? That groove is the bone edge; the pink area is hands-off. In the $79 Bojin Eye Method, Yu-Ting teaches the Guiding Hand (Module 5), so you can work this groove and the 45° outer corner without pulling the eyelid."
+          : "With a little facial oil, start at 1. Center, between the brows. Trace small, slow spirals along the bone above the brow out to 2. Arch.";
+        actBtn.innerHTML = `<span>← Back to My Eye Zones</span>`;
+      } else if (eyeMetrics && eyeMetrics[inspTab]) {
+        const m = eyeMetrics[inspTab];
+        inspRouteStep = m.matchStep;
+        titleEl.textContent = m.title;
+        pillEl.textContent = m.level;
+        pillEl.className = "level-pill " + m.lvlCls;
+        barEl.style.width = m.pct + "%";
+        barEl.style.background = m.color;
+        whyTitle.textContent = m.whyTitle;
+        whyText.textContent = m.whyText;
+        actBtn.innerHTML = `<span>⚡ Show My Matching Bone Route</span>`;
+      }
+    }
+
+    document.querySelectorAll(".insp-tab").forEach(t => t.addEventListener("click", () => { inspTab = t.dataset.it; updateInspectorPanel(); }));
+    document.getElementById("closeInspBtn").addEventListener("click", () => { inspOpen = false; inspectorModal.classList.remove("open"); });
+    inspectorModal.addEventListener("click", (e) => { if (e.target === inspectorModal) { inspOpen = false; inspectorModal.classList.remove("open"); } });
+    document.getElementById("inspMaskBtn").addEventListener("click", () => { inspShowMask = !inspShowMask; inspMaskTrack.classList.toggle("on", inspShowMask); });
+    zoomSlider.addEventListener("input", (e) => { inspZoom = Number(e.target.value) / 100; });
+    document.getElementById("zoomInBtn").addEventListener("click", () => { zoomSlider.value = Math.min(240, Number(zoomSlider.value) + 20); inspZoom = Number(zoomSlider.value) / 100; });
+    document.getElementById("zoomOutBtn").addEventListener("click", () => { zoomSlider.value = Math.max(100, Number(zoomSlider.value) - 20); inspZoom = Number(zoomSlider.value) / 100; });
+    document.getElementById("inspActionBtn").addEventListener("click", () => {
+      if (inspTab === "bojinRoute") inspTab = "tearTrough";
+      else inspTab = "bojinRoute";
+      updateInspectorPanel();
+    });
+
+    function evaluateTeacherStandard(verdictEl) {
+      const { q1, q2, q3 } = touchState;
+      if (!q1 && !q2 && !q3) return;
+      const sideName = q3 === "left" ? "Left Eye" : q3 === "right" ? "Right Eye" : "your heavier-feeling side";
+      let headline = "Your Starting Plan", guidance = "";
+      if (q1 === "tender" || q2 === "grainy") {
+        headline = `Start Feather-Light on ${sideName}`;
+        guidance = `A tender inner brow or small gritty spots along the bone are common after years of hard-working eyes. <strong>Don’t press hard.</strong> Add a little more facial oil and glide in very light spirals on Step 1 below for 30 seconds.`;
+      } else if (q1 === "stiff" || q2 === "uneven") {
+        headline = `Start with a One-Side Check on ${sideName}`;
+        guidance = `A tight side, or a clear left-right difference, often means one side does more of the daily work. Work only on <strong>${sideName}</strong> for 30 seconds, then close your eyes and compare how the two brow bones feel.`;
+      } else {
+        headline = `Start with a Gentle Warm-Up`;
+        guidance = `The top of your brow bone feels fairly smooth. Tiredness may sit lower, along the brow ridge (Step 2) or the upper orbital rim (Step 3). Try the 30-second spiral warm-up first, then look at Steps 2 &amp; 3 below.`;
+      }
+      verdictEl.innerHTML = `<strong>${headline}</strong><br>${guidance}`;
+      verdictEl.classList.add("show");
+    }
+
+    async function runPortraitAnalysis(imgEl, promptLabel = "Inspect my eye zone") {
+      welcomeBox.style.display = "none";
+      latestImg = imgEl;
+      cardCanvases = [];
+      touchState = { q1: null, q2: null, q3: null };
+
+      const userRow = document.createElement("div");
+      userRow.className = "user-row";
+      userRow.innerHTML = `<div class="user-pill">${promptLabel}</div>`;
+      const thumb = document.createElement("img");
+      thumb.className = "user-thumb";
+      thumb.src = imgEl.src;
+      userRow.appendChild(thumb);
+      chatFeed.appendChild(userRow);
+      userRow.scrollIntoView({ behavior: "smooth", block: "start" });
+
+      const loadingEl = document.createElement("div");
+      loadingEl.className = "bot-row";
+      loadingEl.innerHTML = `<div class="bot-dot-head"><span class="bot-dot"></span><span>Reading your 3 eye zones and mapping 468 points, all on your device…</span></div>`;
+      chatFeed.appendChild(loadingEl);
+
+      try {
+        const tracker = await loadTracker();
+        const res = tracker.detect(imgEl);
+        latestLandmarks = res.faceLandmarks?.[0] || null;
+      } catch (e) { latestLandmarks = null; }
+      loadingEl.remove();
+
+      if (!latestLandmarks) {
+        const errRow = document.createElement("div");
+        errRow.className = "bot-row";
+        errRow.innerHTML = `<div class="metric-card">We couldn’t find a clear, front-facing face. Face a soft light, keep your head level, and try again.</div>`;
+        chatFeed.appendChild(errRow);
+        return;
+      }
+
+      latestGeo = measureRealGeometry(latestLandmarks);
+      eyeMetrics = measureEyePixelZones(imgEl, latestLandmarks);
+      const g = latestGeo;
+      barDownloadBtn.style.display = "inline-block";
+      window.bojinTrack("eye_inspector_scan", { mode: promptLabel, vip: isVipMode ? "1" : "0" });
+
+      const bot = document.createElement("div");
+      bot.className = "bot-row";
+      bot.innerHTML = `
+        <div class="bot-dot-head"><span class="bot-dot"></span><span>Your 3-zone eye read · Tap any card to zoom in or see your bone route</span></div>
+
+        <div class="quality-bar ${g.tiltWarn ? 'quality-warn' : 'quality-ok'}">
+          <span>${g.tiltWarn ? `⚠ Head tilt ~${g.rollDeg}° (auto-leveled)` : `✓ Head is level (${g.rollDeg}°)`}</span>
+          <span>Brow line: ${g.horizonText}</span>
+        </div>
+
+        <!-- TOP SPOTLIGHT: 3 Focused Eye-Zone Cards (Tap to open Fullscreen Inspector!) -->
+        <div class="section-head">
+          <strong>Your 3 Eye Zones</strong>
+          <span>Tap a card to look closer 🔍</span>
+        </div>
+        <div class="carousel-track" id="eyeZonesTrack"></div>
+
+        <!-- Teacher-Standard 3-Question Touch Check -->
+        <div class="touch-card">
+          <h3>Now Check with Your Fingertips (10-Second Touch Check)</h3>
+          <p class="touch-sub">Lighting and glasses can fool a camera. Your fingertips are the better judge. Answer three quick questions and you’ll get Yu-Ting’s suggested starting point:</p>
+          <div class="q-block">
+            <span class="q-label">1. Rest a fingertip on the inner end of your brow bone:</span>
+            <div class="q-chips" data-q="q1">
+              <button type="button" class="q-chip" data-val="tender">Tender spot</button>
+              <button type="button" class="q-chip" data-val="stiff">Feels tight</button>
+              <button type="button" class="q-chip" data-val="fine">Feels mostly fine</button>
+            </div>
+          </div>
+          <div class="q-block">
+            <span class="q-label">2. Glide lightly along the bone above your brow:</span>
+            <div class="q-chips" data-q="q2">
+              <button type="button" class="q-chip" data-val="grainy">Small bumpy or gritty spots</button>
+              <button type="button" class="q-chip" data-val="uneven">One side feels tighter</button>
+              <button type="button" class="q-chip" data-val="smooth">Smooth, glides easily</button>
+            </div>
+          </div>
+          <div class="q-block">
+            <span class="q-label">3. Which eye feels heavier or tighter today?</span>
+            <div class="q-chips" data-q="q3">
+              <button type="button" class="q-chip" data-val="right">Right Eye</button>
+              <button type="button" class="q-chip" data-val="left">Left Eye</button>
+              <button type="button" class="q-chip" data-val="both">About the Same</button>
+            </div>
+          </div>
+          <div class="teacher-verdict" id="teacherVerdict"></div>
+        </div>
+
+        <!-- Macro Bojin Bone-Edge Route Cards -->
+        <div class="section-head">
+          <strong>Your Bone-Edge Routes, Up Close</strong>
+          <div class="side-pills">
+            <button type="button" class="side-pill ${activeSide === 'right' ? 'active' : ''}" data-side="right">Right</button>
+            <button type="button" class="side-pill ${activeSide === 'left' ? 'active' : ''}" data-side="left">Left</button>
+            <button type="button" class="side-pill ${activeSide === 'both' ? 'active' : ''}" data-side="both">Both</button>
+          </div>
+        </div>
+        <div class="carousel-track" id="bojinTrack"></div>
+
+        <!-- Inline Step 1 Timer + Feel Check -->
+        <div class="action-card">
+          <h3>Try Step 1 Free: Above-the-Brow Spiral</h3>
+          <p>Smooth on a little facial oil. Using your map above, start at <strong>1. Center</strong>, between the brows, and trace small, gentle spirals along the bone above the brow out to <strong>2. Arch</strong>. Stay off the eyelid.</p>
+          <div class="timer-row">
+            <div><span class="timer-big" id="inlineTimer">00:30</span> <span style="font-size:.74rem;color:var(--ink-soft);">Slow, easy spirals</span></div>
+            <button type="button" class="hdr-btn" id="inlineTimerBtn" style="background:var(--gold);color:#150E13;border:0;">▶ Start 30s</button>
+          </div>
+          <p style="font-size:.78rem;color:var(--ink-soft);margin:0 0 .5rem;"><strong>5-Second Feel Check:</strong> Close your eyes for 5 seconds. How does that side <em>feel</em> next to the side you didn’t touch?</p>
+          <div class="feel-pills">
+            <button type="button" class="feel-pill" data-feel="lighter">✨ Lighter, warmer, or slightly softer</button>
+            <button type="button" class="feel-pill" data-feel="tender">🎯 I found tender or tight spots on the bone</button>
+            <button type="button" class="feel-pill" data-feel="barely">🤔 I barely noticed a difference</button>
+          </div>
+          <div class="feel-answer" id="inlineFeelAnswer"></div>
+        </div>
+
+        <div class="rec-track">
+          <div class="rec-card" id="unlockRecCard">
+            ${isUnlocked ? `
+            <div>
+              <span class="kicker" style="color:var(--jade);">✨ Unlocked for You</span>
+              <strong>All 3 Bone-Route Maps Are Open</strong>
+              <p>Steps 1, 2 &amp; 3 are open on the route cards above. Save your personal card and compare again in 7 days.</p>
+            </div>
+            <button type="button" class="rec-cta" id="dlNowBtn">⬇ Download 7-Day Report Card</button>
+            ` : `
+            <div>
+              <span class="kicker">Free Unlock · Steps 2 &amp; 3</span>
+              <strong>Unlock 2 More Maps + Your 7-Day Card</strong>
+              <p>See the Brow-Bone Sweeps and the upper orbital rim up close, then save your personal photo card.</p>
+            </div>
+            <form class="email-form" id="inlineUnlockForm">
+              <input type="email" required placeholder="you@example.com">
+              <button type="submit" class="hdr-btn" style="background:var(--gold);color:#150E13;border:0;">Unlock</button>
+            </form>
+            `}
+          </div>
+
+          <div class="rec-card">
+            <div>
+              <span class="kicker">The Bojin Eye Method · $79</span>
+              <strong>Learn the Upper &amp; Lower Orbital Rims</strong>
+              <p>Yu-Ting walks you through the Guiding Hand (Module 5), the 45° angle, and the full eye routine, in order.</p>
+            </div>
+            <div style="display:grid;gap:.4rem;">
+              <button type="button" class="rec-cta rec-cta-dark" id="inlineVidBtn">▶ Watch Guiding Hand Demo</button>
+              <a class="rec-cta js-course-link" href="https://go.bojinfacetension.com/bojin-eye-method?utm_source=eye_inspector&utm_medium=${isVipMode ? 'vip_thankyou' : 'organic'}">See the $79 Eye Course →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="qa-pills">
+          <button type="button" class="qa-pill" data-qa="asym">Why does one brow or eye feel tighter than the other?</button>
+          <button type="button" class="qa-pill" data-qa="orbital">Can I do the upper orbital rim (Step 3) on my own, without the Guiding Hand?</button>
+          <button type="button" class="qa-pill" data-qa="oil">What oil or cream works best so I don’t tug thin eye skin?</button>
+        </div>
+      `;
+      chatFeed.appendChild(bot);
+
+      // 1. Populate 3 Eye-Zone Concern Cards (Tap to open Inspector Lightbox!)
+      const eyeTrack = bot.querySelector("#eyeZonesTrack");
+      ["darkCircles", "tearTrough", "crowsFeet"].forEach(k => {
+        const m = eyeMetrics[k];
+        const card = document.createElement("div");
+        card.className = "zone-card";
+        card.innerHTML = `
+          <div class="zone-cvs-wrap">
+            <canvas width="360" height="315"></canvas>
+            <span class="tap-zoom-pill">🔍 Zoom</span>
+          </div>
+          <div class="zone-card-body">
+            <div class="zone-top">
+              <span class="zone-title">${m.title}</span>
+              <span class="level-pill ${m.lvlCls}">${m.level}</span>
+            </div>
+            <div class="mini-bar-bg"><div class="mini-bar-fill" style="width:${m.pct}%;background:${m.color};"></div></div>
+            <p class="zone-sub">${m.short} · Tap to look closer</p>
+          </div>
+        `;
+        cardCanvases.push({ canvas: card.querySelector("canvas"), type: k, showLines: true });
+        card.addEventListener("click", () => openInspector(k));
+        eyeTrack.appendChild(card);
+      });
+
+      // 2. Populate Macro Bojin Route Cards
+      const bojinTrack = bot.querySelector("#bojinTrack");
+      const routeDefs = [
+        { type: "step1", badge: "Close-Up", title: "Step 1 · Above-Brow Spiral", tag: "Free Step", tagCls: "tag-jade", num: "01" },
+        { type: "step2", badge: "Close-Up", title: "Step 2 · Brow-Bone Sweeps", tag: isUnlocked ? "Unlocked" : "Free with Email", tagCls: "tag-lock", num: "02" },
+        { type: "step3", badge: "Close-Up", title: "Step 3 · Upper Orbital Rim", tag: "Taught in the Course", tagCls: "tag-rose", num: "03" },
+        { type: "horizon", badge: "Full Face", title: "Brow Level Line", tag: g.horizonText, tagCls: "tag-amber", num: "00" }
+      ];
+      routeDefs.forEach(def => {
+        const card = document.createElement("div");
+        card.className = "overlay-card";
+        card.innerHTML = `
+          <div class="overlay-canvas-wrap">
+            <canvas width="400" height="370"></canvas>
+            <span class="card-badge-tl">${def.badge}</span>
+            <button type="button" class="card-toggle-btn">👁 Lines On</button>
+          </div>
+          <div class="overlay-card-foot">
+            <div>
+              <span class="title">${def.title}</span>
+              <span class="tag ${def.tagCls}">${def.tag}</span>
+            </div>
+            <div class="step-badge">${def.num}</div>
+          </div>
+        `;
+        const item = { canvas: card.querySelector("canvas"), type: def.type, showLines: true };
+        cardCanvases.push(item);
+        const tBtn = card.querySelector(".card-toggle-btn");
+        tBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          item.showLines = !item.showLines;
+          tBtn.textContent = item.showLines ? "👁 Lines On" : "👁 Lines Off";
+        });
+        card.addEventListener("click", () => {
+          inspRouteStep = def.type === "step3" ? 3 : 1;
+          openInspector("bojinRoute");
+        });
+        bojinTrack.appendChild(card);
+      });
+
+      const syncSides = (s) => { activeSide = s; bot.querySelectorAll(".side-pill").forEach(p => p.classList.toggle("active", p.dataset.side === s)); };
+      bot.querySelectorAll(".side-pill").forEach(p => p.addEventListener("click", () => syncSides(p.dataset.side)));
+
+      const verdictEl = bot.querySelector("#teacherVerdict");
+      bot.querySelectorAll(".q-chips").forEach(group => {
+        const qKey = group.dataset.q;
+        group.querySelectorAll(".q-chip").forEach(chip => {
+          chip.addEventListener("click", () => {
+            group.querySelectorAll(".q-chip").forEach(c => c.classList.remove("active"));
+            chip.classList.add("active");
+            touchState[qKey] = chip.dataset.val;
+            if (qKey === "q3") syncSides(chip.dataset.val);
+            evaluateTeacherStandard(verdictEl);
+          });
+        });
+      });
+
+      let sec = 30, tInt = null;
+      const tBtn = bot.querySelector("#inlineTimerBtn"), tDisp = bot.querySelector("#inlineTimer");
+      tBtn.addEventListener("click", () => {
+        if (tInt) { clearInterval(tInt); tInt = null; tBtn.textContent = "▶ Resume"; return; }
+        if (sec <= 0) sec = 30;
+        tBtn.textContent = "⏸ Pause";
+        tInt = setInterval(() => {
+          sec--; tDisp.textContent = `00:${String(sec).padStart(2, "0")}`;
+          if (sec <= 0) { clearInterval(tInt); tInt = null; tBtn.textContent = "↻ Again"; }
+        }, 1000);
+      });
+
+      const feelAnswers = {
+        lighter: "<strong>That’s worth noticing.</strong> A lighter, warmer feeling after slow, light work is what Step 1 is for. Steps 2 &amp; 3 below show the Brow-Bone Sweeps and the upper orbital rim.",
+        tender: "<strong>That’s common, especially on the side that feels heavier.</strong> Tender spots along the bone may be part of why one eye feels heavier. Save your 7-day card below so you can compare next week.",
+        barely: "<strong>That’s normal for a first try.</strong> Step 1 covers only the top edge of the brow bone. Steps 2 &amp; 3 work lower, along the brow ridge and the upper orbital rim. You’ll find them below."
+      };
+      bot.querySelectorAll(".feel-pill").forEach(btn => {
+        btn.addEventListener("click", () => {
+          bot.querySelectorAll(".feel-pill").forEach(b => b.classList.remove("selected"));
+          btn.classList.add("selected");
+          const ans = bot.querySelector("#inlineFeelAnswer");
+          ans.innerHTML = feelAnswers[btn.dataset.feel];
+          ans.classList.add("show");
+        });
+      });
+
+      const inlineForm = bot.querySelector("#inlineUnlockForm");
+      if (inlineForm) {
+        inlineForm.addEventListener("submit", (e) => {
+          e.preventDefault(); isUnlocked = true;
+          window.bojinTrack("eye_inspector_unlock", { source: "inline_form" });
+          const card = bot.querySelector("#unlockRecCard");
+          card.innerHTML = `
+            <div><span class="kicker" style="color:var(--jade);">✓ Unlocked</span><strong>Steps 2 &amp; 3 Are Now Open Above</strong><p>Swipe through the route cards above, or save your 7-day card.</p></div>
+            <button type="button" class="rec-cta" id="dlNowBtn">⬇ Download 7-Day Report Card</button>`;
+          card.querySelector("#dlNowBtn").addEventListener("click", downloadReportCard);
+        });
+      }
+      const vipDlBtn = bot.querySelector("#dlNowBtn");
+      if (vipDlBtn) vipDlBtn.addEventListener("click", downloadReportCard);
+
+      bot.querySelector("#inlineVidBtn").addEventListener("click", () => {
+        videoModal.classList.add("open"); courseVid.currentTime = 0; courseVid.play().catch(() => {});
+      });
+
+      const qaAnswers = {
+        asym: "Most of us have a dominant eye, a favorite sleep side, or small jaw and shoulder habits. Over the years, one side of the brow bone can end up holding more tension. That’s why Yu-Ting always starts with a One-Side Check, so you can feel the difference for yourself.",
+        orbital: "Please learn the Guiding Hand (Module 5) first. The upper orbital rim sits very close to the eye, under the thinnest skin on your face. Your supporting hand holds that skin still so it doesn’t crease, and the pressure stays on the bone.",
+        oil: "A light facial oil such as squalane or jojoba, or a rich cream with good slip. Use enough that your fingertips or the stainless-steel Bojin stick glide without pulling the skin at all."
+      };
+      bot.querySelectorAll(".qa-pill").forEach(pill => {
+        pill.addEventListener("click", () => {
+          const qText = pill.textContent, aText = qaAnswers[pill.dataset.qa];
+          pill.remove();
+          const u = document.createElement("div"); u.className = "user-row"; u.innerHTML = `<div class="user-pill">${qText}</div>`;
+          const b = document.createElement("div"); b.className = "bot-row"; b.innerHTML = `<div class="bot-dot-head"><span class="bot-dot"></span><span>Yu-Ting’s Bojin Guide</span></div><div class="metric-card" style="font-size:.86rem;color:var(--ink);">${aText}</div>`;
+          chatFeed.appendChild(u); chatFeed.appendChild(b); b.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        });
+      });
+    }
+
+    function downloadReportCard() {
+      if (!latestImg || !latestGeo || !eyeMetrics) return;
+      const W = 900, H = 1420;
+      const out = document.createElement("canvas");
+      out.width = W; out.height = H;
+      const c = out.getContext("2d");
+
+      // Background
+      c.fillStyle = "#150E13";
+      c.fillRect(0, 0, W, H);
+      c.strokeStyle = "rgba(243,200,119,0.28)";
+      c.lineWidth = 2;
+      c.strokeRect(18, 18, W - 36, H - 36);
+
+      const now = new Date();
+      const today = now.toISOString().slice(0, 10);
+      const next7 = new Date(now.getTime() + 7 * 86400000).toISOString().slice(0, 10);
+
+      // Header
+      c.fillStyle = "#F3C877";
+      c.font = "700 13px 'Hanken Grotesk', sans-serif";
+      c.fillText("THE BOJIN METHOD · SELF-CARE OBSERVATION, MADE ON YOUR DEVICE", 44, 62);
+      c.fillStyle = "#FFFDFC";
+      c.font = "600 32px Georgia, serif";
+      c.fillText("My Eye & Brow-Bone Card", 44, 102);
+
+      // Right date & 7-day check-in pill
+      c.fillStyle = "#B9A9B1";
+      c.font = "500 13px 'Hanken Grotesk', sans-serif";
+      c.textAlign = "right";
+      c.fillText(`Photo Date: ${today}`, W - 44, 64);
+      c.fillStyle = "rgba(243,200,119,0.16)";
+      c.beginPath(); c.roundRect(W - 252, 76, 208, 30, 15); c.fill();
+      c.strokeStyle = "rgba(243,200,119,0.45)"; c.lineWidth = 1; c.stroke();
+      c.fillStyle = "#F3C877";
+      c.font = "700 13px 'Hanken Grotesk', sans-serif";
+      c.fillText(`7-Day Check-In: ${next7}`, W - 58, 96);
+      c.textAlign = "left";
+
+      // Pick highest-contrast eye zone for Tile 2
+      const zonesArr = [eyeMetrics.darkCircles, eyeMetrics.tearTrough, eyeMetrics.crowsFeet];
+      const topZone = [...zonesArr].sort((a, b) => b.pct - a.pct)[0];
+
+      // 2x2 Quad Grid
+      const tiles = [
+        { type: "horizon", label: "01 · Brow Level Line", sub: latestGeo.horizonText },
+        { type: topZone.key, label: `02 · Closer Look: ${topZone.title}`, sub: `${topZone.level} (visual contrast)` },
+        { type: "step1", label: "03 · Step 1: Above-Brow Spiral", sub: "1. Center → 2. Arch (Free Step)" },
+        { type: "step2", label: "04 · Step 2: Brow-Bone Sweeps", sub: "1. Inner → 2. Arch → 3. Tail" }
+      ];
+
+      const prevUnlock = isUnlocked;
+      isUnlocked = true; // ensure Diagram 5 renders cleanly on report card
+      const tileW = 398, tileH = 328, gap = 16, startX = 44, startY = 132;
+      const tmp = document.createElement("canvas");
+      tmp.width = 440; tmp.height = 330;
+
+      tiles.forEach((t, i) => {
+        const col = i % 2, row = Math.floor(i / 2);
+        const x = startX + col * (tileW + gap);
+        const y = startY + row * (tileH + gap);
+
+        // Card bg
+        c.fillStyle = "#1E141B";
+        c.beginPath(); c.roundRect(x, y, tileW, tileH, 16); c.fill();
+        c.strokeStyle = "rgba(243,200,119,0.22)"; c.lineWidth = 1.2; c.stroke();
+
+        // Render face tile
+        renderFaceCanvas(tmp, t.type, true, 1800, 1.0);
+        c.save();
+        c.beginPath(); c.roundRect(x + 8, y + 8, tileW - 16, 252, 12); c.clip();
+        c.drawImage(tmp, x + 8, y + 8, tileW - 16, 252);
+        c.restore();
+
+        // Tile caption
+        c.fillStyle = "#FFFDFC";
+        c.font = "700 14px 'Hanken Grotesk', sans-serif";
+        c.fillText(t.label, x + 14, y + 286);
+        c.fillStyle = "#F3C877";
+        c.font = "500 12px 'Hanken Grotesk', sans-serif";
+        c.fillText(t.sub, x + 14, y + 308);
+      });
+      isUnlocked = prevUnlock;
+
+      // Section 3: 3-Zone Visual Summary Bars
+      const sec3Y = 824;
+      c.fillStyle = "#1E141B";
+      c.beginPath(); c.roundRect(44, sec3Y, W - 88, 224, 16); c.fill();
+      c.strokeStyle = "rgba(243,200,119,0.22)"; c.stroke();
+
+      c.fillStyle = "#F3C877";
+      c.font = "700 14px 'Hanken Grotesk', sans-serif";
+      c.fillText("3-ZONE EYE SUMMARY (LIGHT AND SHADOW IN YOUR PHOTO)", 68, sec3Y + 34);
+
+      zonesArr.forEach((z, idx) => {
+        const ry = sec3Y + 64 + idx * 50;
+        c.fillStyle = "#F7F1EB";
+        c.font = "600 14px 'Hanken Grotesk', sans-serif";
+        c.fillText(z.title, 68, ry);
+        c.fillStyle = z.color;
+        c.textAlign = "right";
+        c.fillText(z.level, W - 68, ry);
+        c.textAlign = "left";
+
+        c.fillStyle = "rgba(255,255,255,0.08)";
+        c.beginPath(); c.roundRect(68, ry + 10, W - 136, 9, 5); c.fill();
+        c.fillStyle = z.color;
+        c.beginPath(); c.roundRect(68, ry + 10, ((W - 136) * z.pct) / 100, 9, 5); c.fill();
+      });
+
+      // Section 4: Teacher Standard & Safety Reminder
+      const sec4Y = 1068;
+      c.fillStyle = "#1E141B";
+      c.beginPath(); c.roundRect(44, sec4Y, W - 88, 232, 16); c.fill();
+      c.strokeStyle = "rgba(88,209,163,0.3)"; c.stroke();
+
+      c.fillStyle = "#58D1A3";
+      c.font = "700 14px 'Hanken Grotesk', sans-serif";
+      c.fillText("YU-TING’S NOTES: STAY GENTLE, STAY ON THE BONE", 68, sec4Y + 34);
+
+      const sideLabel = activeSide === "left" ? "Left Eye" : activeSide === "both" ? "Both Eyes" : "Right Eye";
+      const feelNote = touchState.q1 === "tender" || touchState.q2 === "grainy"
+        ? "Fingertip Check: Tender or gritty spots noted. Use extra facial oil and feather-light spirals. Never dig in."
+        : touchState.q1 === "stiff" || touchState.q2 === "uneven"
+        ? `Fingertip Check: One side felt different. Start on ${sideLabel} for 30 seconds, then compare both sides.`
+        : `Start on: ${sideLabel} · Brow line: ${latestGeo.horizonText}`;
+
+      const notes = [
+        `• ${feelNote}`,
+        "• Stay on the bone ridge. Never press on the soft eyelid.",
+        "• The orbital rim (Step 3) needs the Guiding Hand (Module 5) to keep the thin skin still.",
+        "• Ready for the full eye routine? See The Bojin Eye Method ($79) at bojinfacetension.com"
+      ];
+      c.fillStyle = "#F7F1EB";
+      c.font = "500 13.5px 'Hanken Grotesk', sans-serif";
+      notes.forEach((line, i) => c.fillText(line, 68, sec4Y + 72 + i * 36));
+
+      // Footer
+      c.fillStyle = "#85747D";
+      c.font = "400 12.5px 'Hanken Grotesk', sans-serif";
+      c.fillText("Made on your device; your photo was never uploaded · Self-care observation only, not medical care", 44, 1344);
+      c.fillStyle = "#F3C877";
+      c.font = "700 14px 'Hanken Grotesk', sans-serif";
+      c.fillText("bojinfacetension.com  ·  Save this card and compare again in 7 days", 44, 1374);
+
+      const a = document.createElement("a");
+      a.download = `bojin-eye-report-4grid-${today}.png`;
+      a.href = out.toDataURL("image/png");
+      a.click();
+      window.bojinTrack("eye_inspector_download_card", { vip: isVipMode ? "1" : "0" });
+    }
+
+    const openUpload = () => photoInput.click();
+    const loadDemo = () => { const img = new Image(); img.crossOrigin = "anonymous"; img.onload = () => runPortraitAnalysis(img, "Try Demo Portrait"); img.src = "assets/bojin-evening-portrait-hero.webp"; };
+    async function openCamera() {
+      camModal.classList.add("open");
+      try { camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user", width: { ideal: 960 }, height: { ideal: 720 } }, audio: false }); camVideo.srcObject = camStream; await camVideo.play(); }
+      catch (e) { camModal.classList.remove("open"); alert("The camera isn’t available right now. Please use Upload Photo instead."); }
+    }
+    const closeCamera = () => { camModal.classList.remove("open"); if (camStream) { camStream.getTracks().forEach(t => t.stop()); camStream = null; } };
+
+    document.getElementById("snapSelfieBtn").addEventListener("click", () => {
+      if (!camVideo.videoWidth) return;
+      const c = document.createElement("canvas"); c.width = camVideo.videoWidth; c.height = camVideo.videoHeight;
+      const cx = c.getContext("2d"); cx.translate(c.width, 0); cx.scale(-1, 1); cx.drawImage(camVideo, 0, 0);
+      const img = new Image(); img.onload = () => { closeCamera(); runPortraitAnalysis(img, "Inspect my selfie"); }; img.src = c.toDataURL("image/jpeg", 0.92);
+    });
+    photoInput.addEventListener("change", (e) => {
+      const f = e.target.files?.[0]; if (!f) return;
+      const img = new Image(); img.onload = () => runPortraitAnalysis(img, "Inspect my photo"); img.src = URL.createObjectURL(f); photoInput.value = "";
+    });
+
+    document.getElementById("startUploadBtn").addEventListener("click", openUpload);
+    document.getElementById("barUploadBtn").addEventListener("click", openUpload);
+    document.getElementById("startCamBtn").addEventListener("click", openCamera);
+    document.getElementById("barCamBtn").addEventListener("click", openCamera);
+    document.getElementById("startDemoBtn").addEventListener("click", loadDemo);
+    document.getElementById("barDemoBtn").addEventListener("click", loadDemo);
+    document.getElementById("closeCamBtn").addEventListener("click", closeCamera);
+    barDownloadBtn.addEventListener("click", downloadReportCard);
+    document.getElementById("newChatBtn").addEventListener("click", () => {
+      [...chatFeed.children].forEach(ch => { if (ch !== welcomeBox) ch.remove(); });
+      welcomeBox.style.display = "block"; cardCanvases = []; barDownloadBtn.style.display = "none";
+    });
+    const closeV = () => { videoModal.classList.remove("open"); courseVid.pause(); };
+    document.getElementById("closeVidBtn").addEventListener("click", closeV);
+    videoModal.addEventListener("click", (e) => { if (e.target === videoModal) closeV(); });
+
+    loadTracker().catch(() => {});
+    if (isVipMode) {
+      const pill = document.querySelector(".portrait-pill span");
+      if (pill) pill.textContent = "Eye Map · ✨ Unlocked";
+      document.querySelectorAll(".js-course-link").forEach(el => {
+        el.href = "https://go.bojinfacetension.com/bojin-eye-method?utm_source=eye_inspector&utm_medium=vip_thankyou";
+      });
+    }
+    document.addEventListener("click", (e) => {
+      const link = e.target.closest?.(".js-course-link");
+      if (link) window.bojinTrack("eye_inspector_course_click", { vip: isVipMode ? "1" : "0", href: link.href });
+    });
+  </script>
+</body>
+</html>
