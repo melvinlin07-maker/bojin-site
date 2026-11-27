@@ -35,8 +35,24 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-2VFEVY9Q1F');
+    window.bojinUtm = (function() {
+      try {
+        var p = new URLSearchParams(window.location.search);
+        var keys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content'];
+        var out = {};
+        keys.forEach(function(k) {
+          var v = p.get(k) || sessionStorage.getItem('bojin_' + k) || '';
+          if (v) { out[k] = v; sessionStorage.setItem('bojin_' + k, v); }
+        });
+        return out;
+      } catch (e) { return {}; }
+    })();
     window.bojinTrack = function(name, params) {
-      try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch (e) {}
+      try {
+        if (typeof gtag === 'function') {
+          gtag('event', name, Object.assign({}, window.bojinUtm || {}, params || {}));
+        }
+      } catch (e) {}
     };
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -70,16 +86,20 @@
     html, body {
       margin: 0;
       padding: 0;
+      width: 100%;
+      max-width: 100vw;
       background: radial-gradient(circle at 50% 0%, #261521 0%, var(--bg) 52%);
       color: var(--ink);
       font-family: var(--font-sans);
       line-height: 1.55;
       min-height: 100vh;
+      overflow-x: clip;
       -webkit-font-smoothing: antialiased;
     }
 
     .app-shell {
       max-width: 680px;
+      width: 100%;
       margin: 0 auto;
       min-height: 100vh;
       background: var(--shell);
@@ -88,6 +108,7 @@
       display: flex;
       flex-direction: column;
       position: relative;
+      min-width: 0;
     }
 
     .chat-header {
@@ -133,7 +154,7 @@
     }
     .hdr-btn:hover { color: var(--ink); border-color: var(--border-strong); }
 
-    .chat-feed { flex: 1; padding: 1.15rem 1rem 6.5rem; display: flex; flex-direction: column; gap: 1.05rem; }
+    .chat-feed { flex: 1; padding: 1.15rem 1rem 6.5rem; display: flex; flex-direction: column; gap: 1.05rem; min-width: 0; width: 100%; }
 
     /* Welcome */
     .welcome-box { text-align: center; padding: 2rem .8rem 1.4rem; }
@@ -195,19 +216,27 @@
     .demo-link-btn:hover { background: var(--gold-soft); }
 
     /* Chat Bubbles */
-    .user-row { display: flex; flex-direction: column; align-items: flex-end; gap: .55rem; animation: fadeUp .28s ease; }
+    .user-row { display: flex; flex-direction: column; align-items: flex-end; gap: .55rem; animation: fadeUp .28s ease; min-width: 0; max-width: 100%; }
     .user-pill { background: #2C2128; color: var(--ink); padding: .52rem .95rem; border-radius: 18px 18px 4px 18px; font-size: .86rem; font-weight: 500; }
     .user-thumb { width: 160px; max-height: 200px; border-radius: 16px; object-fit: cover; border: 1px solid var(--border); display: block; }
 
-    .bot-row { display: flex; flex-direction: column; gap: .85rem; animation: fadeUp .32s ease; }
+    .bot-row { display: flex; flex-direction: column; gap: .85rem; animation: fadeUp .32s ease; min-width: 0; max-width: 100%; }
     @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
     .bot-dot-head { display: flex; align-items: center; gap: .5rem; font-size: .76rem; color: var(--ink-dim); }
     .bot-dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), #C7A466); box-shadow: 0 0 10px rgba(243,200,119,.5); }
 
     /* Quality Banner */
-    .quality-bar { display: flex; align-items: center; justify-content: space-between; gap: .6rem; padding: .6rem .9rem; border-radius: 12px; font-size: .77rem; font-weight: 600; }
+    .quality-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .4rem .6rem; padding: .6rem .9rem; border-radius: 12px; font-size: .77rem; font-weight: 600; line-height: 1.45; }
     .quality-ok { background: var(--jade-bg); color: var(--jade); border: 1px solid rgba(88,209,163,.25); }
     .quality-warn { background: var(--amber-bg); color: var(--amber); border: 1px solid rgba(245,180,97,.3); }
+    @media (max-width: 440px) {
+      .chat-header { padding: .6rem .75rem; gap: .4rem; }
+      .portrait-pill { font-size: .74rem; padding: .24rem .62rem .24rem .26rem; gap: .38rem; }
+      .portrait-avatar { width: 22px; height: 22px; }
+      .hdr-btn { font-size: .7rem; padding: .3rem .56rem; white-space: nowrap; }
+      .chat-feed { padding: .9rem .8rem 7.2rem; }
+      .welcome-box { padding: 1.25rem .35rem 1rem; }
+    }
 
     /* 3-Zone Eye Concern Spotlight Cards (Skin.Chat Image 2 style!) */
     .section-head {
@@ -227,6 +256,8 @@
       scroll-snap-type: x mandatory;
       padding-bottom: .45rem;
       -webkit-overflow-scrolling: touch;
+      min-width: 0;
+      max-width: 100%;
     }
     .carousel-track::-webkit-scrollbar { height: 5px; }
     .carousel-track::-webkit-scrollbar-thumb { background: rgba(243,200,119,.28); border-radius: 999px; }
@@ -421,6 +452,8 @@
     .inspector-bg {
       position: fixed;
       inset: 0;
+      max-width: 100vw;
+      overflow-x: hidden;
       background: rgba(8, 5, 7, 0.92);
       backdrop-filter: blur(12px);
       z-index: 95;
@@ -434,20 +467,24 @@
       background: var(--shell);
       border: 1px solid var(--border-strong);
       border-radius: 22px;
-      max-width: 620px;
+      max-width: min(620px, 100%);
       width: 100%;
+      min-width: 0;
       max-height: 94vh;
       overflow-y: auto;
+      overflow-x: hidden;
       display: flex;
       flex-direction: column;
     }
     .insp-topbar {
       display: flex;
+      flex-wrap: wrap;
       align-items: center;
-      gap: .5rem;
-      padding: .75rem .9rem;
+      gap: .38rem;
+      padding: .65rem .8rem;
       border-bottom: 1px solid rgba(255,255,255,.08);
-      overflow-x: auto;
+      min-width: 0;
+      max-width: 100%;
     }
     .insp-back {
       background: rgba(255,255,255,.08);
@@ -627,6 +664,9 @@
           “A camera can map your bone edge—but only your fingertips can feel where the tension is hiding.”
         </blockquote>
         <div class="privacy-line">🔒 Stays on your device · 468-point face map · Photo never uploaded</div>
+        <div class="quality-bar quality-warn" id="preGlassesTip" style="max-width:520px;margin:0 auto .95rem;justify-content:center;text-align:center;">
+          <span>👓 Remove glasses &amp; face even light for an accurate read</span>
+        </div>
 
         <div class="starter-grid">
           <button type="button" class="starter-card" id="startUploadBtn">
@@ -843,30 +883,69 @@
         return cnt ? sum / cnt : 5;
       };
 
+      const lumAtPoint = (nx, ny) => {
+        const cx = nx * W, cy = ny * H;
+        let sum = 0, cnt = 0;
+        for (let dx = -2; dx <= 2; dx += 2) {
+          for (let dy = -2; dy <= 2; dy += 2) { sum += lumAt(cx + dx, cy + dy); cnt++; }
+        }
+        return cnt ? sum / cnt : 128;
+      };
+      const edgeAtPoint = (nx, ny) => {
+        const cx = nx * W, cy = ny * H;
+        let sum = 0, cnt = 0;
+        for (let dx = -4; dx <= 4; dx += 2) {
+          for (let dy = -4; dy <= 4; dy += 2) {
+            const gx = Math.abs(lumAt(cx + dx + 1, cy + dy) - lumAt(cx + dx - 1, cy + dy));
+            const gy = Math.abs(lumAt(cx + dx, cy + dy + 1) - lumAt(cx + dx, cy + dy - 1));
+            sum += (gx + gy) * 0.5; cnt++;
+          }
+        }
+        return cnt ? sum / cnt : 4;
+      };
+      const midPt = (a, b, t) => ({ x: lms[a].x + (lms[b].x - lms[a].x) * t, y: lms[a].y + (lms[b].y - lms[a].y) * t });
+
       // Baseline smooth cheek luminance & texture
       const cheekLum = avgPatchLum([116, 123, 50, 345, 352, 280]);
       const cheekEdge = Math.max(2.5, patchEdgeDensity([123, 50, 352, 280]));
 
-      // 1. Under-Eye Shadow (Luminance drop vs own cheek)
-      const underEyeLum = avgPatchLum([111, 117, 118, 119, 120, 121, 340, 346, 347, 348, 349, 350]);
+      // 1. Under-Eye Shadow (skin below lower lashes vs. own upper cheek)
+      const uePts = [midPt(145, 119, 0.5), midPt(153, 120, 0.5), midPt(374, 348, 0.5), midPt(380, 349, 0.5)];
+      const underEyeLum = uePts.reduce((s, p) => s + lumAtPoint(p.x, p.y), 0) / uePts.length;
       const shadowDrop = Math.max(0, (cheekLum - underEyeLum) / Math.max(40, cheekLum)) * 100;
-      const darkPct = Math.max(18, Math.min(92, Math.round(24 + shadowDrop * 2.4)));
+      const darkPct = Math.max(16, Math.min(92, Math.round(18 + shadowDrop * 2.8)));
       const darkLevel = darkPct >= 66 ? "Priority" : darkPct >= 42 ? "Moderate" : "Mild";
 
-      // 2. Tear-Trough & Puffiness Shadow Gradient (vertical valley below lower rim)
-      const rimLum = avgPatchLum([145, 153, 154, 374, 380, 381]);
-      const troughLum = avgPatchLum([119, 120, 121, 348, 349, 350]);
-      const valleyContrast = Math.abs(rimLum - troughLum) / Math.max(40, cheekLum) * 100 + shadowDrop * 0.45;
-      const troughPct = Math.max(20, Math.min(92, Math.round(26 + valleyContrast * 2.2)));
-      const troughLevel = troughPct >= 66 ? "Priority" : troughPct >= 44 ? "Moderate" : "Mild";
+      // 2. Tear-Trough Groove Contrast (off the eyelashes: upper under-eye skin vs. tear-trough groove vs. cheek)
+      const troughGrooveLum = avgPatchLum([121, 120, 119, 350, 349, 348]);
+      const grooveDrop = Math.max(0, ((underEyeLum + cheekLum) * 0.5 - troughGrooveLum) / Math.max(40, cheekLum)) * 100;
+      const valleyContrast = grooveDrop + shadowDrop * 0.35;
+      const troughPct = Math.max(16, Math.min(92, Math.round(20 + valleyContrast * 2.8)));
+      const troughLevel = troughPct >= 66 ? "Priority" : troughPct >= 42 ? "Moderate" : "Mild";
 
-      // 3. Outer-Corner Fine-Line Texture (high-frequency edge ratio vs own cheek)
-      const cornerEdge = patchEdgeDensity([130, 143, 35, 226, 359, 372, 265, 446]);
+      // 3. Outer-Corner Fine-Line Texture (skin fan beside outer corner, shifted off dark eyelid corner)
+      const fanPts = [midPt(130, 143, 0.55), midPt(130, 35, 0.55), midPt(359, 372, 0.55), midPt(359, 265, 0.55)];
+      const cornerEdge = fanPts.reduce((s, p) => s + edgeAtPoint(p.x, p.y), 0) / fanPts.length;
       const edgeRatio = cornerEdge / cheekEdge;
-      const linesPct = Math.max(18, Math.min(92, Math.round(18 + Math.max(0, edgeRatio - 0.85) * 44)));
+      const linesPct = Math.max(16, Math.min(92, Math.round(16 + Math.max(0, edgeRatio - 0.9) * 48)));
       const linesLevel = linesPct >= 66 ? "Priority" : linesPct >= 42 ? "Moderate" : "Mild";
 
+      // 4. Zero-cost Auto-Detect: Glasses frame edges (bridge 168/6 & lower rim) OR strong side-shadow/backlight
+      const bridgeEdge = patchEdgeDensity([168, 6]);
+      const lowRimL = midPt(374, 348, 0.72), lowRimR = midPt(145, 119, 0.72);
+      const lowerRimEdge = (edgeAtPoint(lowRimR.x, lowRimR.y) + edgeAtPoint(lowRimL.x, lowRimL.y)) * 0.5;
+      const rightCheekLum = avgPatchLum([116, 123, 50]);
+      const leftCheekLum = avgPatchLum([345, 352, 280]);
+      const sideAsym = Math.abs(leftCheekLum - rightCheekLum) / Math.max(40, (leftCheekLum + rightCheekLum) * 0.5);
+      const bridgeDark = (cheekLum - avgPatchLum([168, 6])) > 32;
+      const glassesDetected = ((bridgeEdge > 28 && bridgeEdge / cheekEdge > 4.8 && (bridgeDark || (lowerRimEdge > 24 && lowerRimEdge / cheekEdge > 3.8))));
+      const lightingWarn = (sideAsym > 0.62 || cheekLum < 38);
+      const glassesOrLightWarn = glassesDetected || lightingWarn;
+
       return {
+        glassesOrLightWarn,
+        glassesDetected,
+        lightingWarn,
         darkCircles: {
           key: "darkCircles",
           title: "Under-Eye Shadow",
@@ -980,16 +1059,18 @@
       let sx = 0, sy = 0, sWidth = sw, sHeight = sh;
 
       if (latestLandmarks && type !== "horizon") {
+        const isZoneCard = type === "darkCircles" || type === "tearTrough" || type === "crowsFeet";
         const rTemple = latestLandmarks[127], lTemple = latestLandmarks[356];
-        const browTop = latestLandmarks[10], noseMid = latestLandmarks[1];
+        const browArchY = (latestLandmarks[105].y + latestLandmarks[334].y) / 2;
+        const cheekAppleY = (latestLandmarks[50].y + latestLandmarks[280].y) / 2;
         const cx = ((rTemple.x + lTemple.x) / 2) * sw;
-        const cy = ((browTop.y * 0.36 + noseMid.y * 0.64)) * sh;
+        const cy = (isZoneCard ? (browArchY * 0.44 + cheekAppleY * 0.56) : (latestLandmarks[10].y * 0.36 + latestLandmarks[1].y * 0.64)) * sh;
         const eyeSpanPx = Math.abs(lTemple.x - rTemple.x) * sw;
-        const baseCropW = Math.min(sw, Math.max(eyeSpanPx * 1.42, sw * 0.36));
-        const cropW = Math.max(sw * 0.18, baseCropW / zoomFactor);
+        const baseCropW = Math.min(sw, Math.max(eyeSpanPx * (isZoneCard ? 1.12 : 1.38), sw * 0.3));
+        const cropW = Math.max(sw * 0.16, baseCropW / zoomFactor);
         const cropH = cropW * (ch / cw);
         sx = Math.max(0, Math.min(sw - cropW, cx - cropW / 2));
-        sy = Math.max(0, Math.min(sh - cropH, cy - cropH * 0.5));
+        sy = Math.max(0, Math.min(sh - cropH, cy - cropH * 0.48));
         sWidth = Math.min(sw - sx, cropW);
         sHeight = Math.min(sh - sy, cropH);
       } else {
@@ -1043,37 +1124,57 @@
         ctx.restore();
       };
 
-      // --- 3 EYE-CONCERN MASKS (Distinct Anatomical Shapes!) ---
+      // --- 3 EYE-CONCERN MASKS (Clinical Micro-Line, Zero Sticker Look!) ---
       if (type === "darkCircles") {
-        // Soft diffused crescent directly under lower lash line (no boxy edges)
-        const drawShadowCrescent = (pts) => {
-          const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
-          const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
-          const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
-          const rad = Math.hypot(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys)) * 0.62;
+        // Ultra-fine dotted under-eye contour + Dual Sampling Points (Under-Eye vs. Cheek baseline)
+        const drawShadowReadout = (arcPts, eyeSample, cheekSample) => {
           ctx.save();
+          // Fine dotted crescent outline (no filled purple sticker)
           ctx.beginPath();
-          pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+          arcPts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
           ctx.closePath();
-          const g = ctx.createRadialGradient(cx, cy, 2, cx, cy, rad);
-          g.addColorStop(0, "rgba(155, 89, 182, 0.42)");
-          g.addColorStop(0.7, "rgba(155, 89, 182, 0.22)");
-          g.addColorStop(1, "rgba(155, 89, 182, 0)");
-          ctx.fillStyle = g;
-          ctx.fill();
-          ctx.strokeStyle = "rgba(216, 155, 255, 0.65)";
-          ctx.setLineDash([3, 3]);
-          ctx.lineWidth = 1.2;
+          ctx.strokeStyle = "rgba(216, 175, 255, 0.72)";
+          ctx.setLineDash([2.5, 3.5]);
+          ctx.lineWidth = 1.0;
           ctx.stroke();
+
+          // Hairline connector between under-eye sample & cheek baseline sample
+          ctx.beginPath();
+          ctx.moveTo(eyeSample.x, eyeSample.y);
+          ctx.lineTo(cheekSample.x, cheekSample.y);
+          ctx.strokeStyle = "rgba(255, 250, 240, 0.55)";
+          ctx.setLineDash([2, 2]);
+          ctx.lineWidth = 0.9;
+          ctx.stroke();
+          ctx.setLineDash([]);
+
+          // Two crisp micro-sampling dots
+          [
+            { p: eyeSample, fill: "#D8AFFF" },
+            { p: cheekSample, fill: "#F3C877" }
+          ].forEach(d => {
+            ctx.fillStyle = "rgba(14, 9, 12, 0.8)";
+            ctx.beginPath(); ctx.arc(d.p.x, d.p.y, 4.2, 0, Math.PI * 2); ctx.fill();
+            ctx.fillStyle = d.fill;
+            ctx.beginPath(); ctx.arc(d.p.x, d.p.y, 2.4, 0, Math.PI * 2); ctx.fill();
+          });
           ctx.restore();
         };
-        drawShadowCrescent([33, 7, 163, 144, 145, 153, 154, 155, 133, 243, 120, 119, 118, 117].map(pt));
-        drawShadowCrescent([263, 249, 390, 373, 374, 380, 381, 382, 362, 463, 349, 348, 347, 346].map(pt));
+        drawShadowReadout(
+          [33, 163, 144, 145, 153, 154, 133, 121, 120, 119, 118, 117].map(pt),
+          lerp(pt(145), pt(119), 0.5),
+          pt(50)
+        );
+        drawShadowReadout(
+          [263, 390, 373, 374, 380, 381, 362, 350, 349, 348, 347, 346].map(pt),
+          lerp(pt(374), pt(348), 0.5),
+          pt(280)
+        );
         return;
       }
       if (type === "tearTrough") {
-        // True diagonal tear-trough / nasojugal groove arc from inner corner curving obliquely downward & outward
-        const drawGrooveArc = (pts) => {
+        // True inverted-V tear-trough ligament line: inner corner curving obliquely down to beneath pupil
+        const drawTearTroughLine = (pts) => {
           ctx.save();
           ctx.beginPath();
           ctx.moveTo(pts[0].x, pts[0].y);
@@ -1083,51 +1184,47 @@
             ctx.quadraticCurveTo(pts[i].x, pts[i].y, mx, my);
           }
           ctx.lineTo(pts[pts.length - 1].x, pts[pts.length - 1].y);
-          // Soft rose glow halo along the groove
-          ctx.strokeStyle = "rgba(240, 110, 138, 0.34)";
-          ctx.lineWidth = 11;
+          // Whisper rose aura
+          ctx.strokeStyle = "rgba(240, 138, 155, 0.24)";
+          ctx.lineWidth = 5.5;
           ctx.lineCap = "round";
           ctx.stroke();
-          // Crisp luminous groove centerline
-          ctx.shadowColor = "rgba(248, 138, 162, 0.95)";
-          ctx.shadowBlur = 8;
-          ctx.strokeStyle = "#FF8FA8";
-          ctx.lineWidth = 2.6;
+          // Fine anatomical groove hairline
+          ctx.strokeStyle = "rgba(255, 162, 182, 0.92)";
+          ctx.lineWidth = 1.5;
           ctx.stroke();
-          // Inner-corner anchor dot
-          ctx.shadowBlur = 0;
+          // Inner-corner origin pinpoint
           ctx.fillStyle = "#FFFDFC";
-          ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, 3.2, 0, Math.PI * 2); ctx.fill();
+          ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, 2.5, 0, Math.PI * 2); ctx.fill();
           ctx.restore();
         };
-        drawGrooveArc([133, 128, 121, 120, 119, 118, 117].map(pt));
-        drawGrooveArc([362, 357, 350, 349, 348, 347, 346].map(pt));
+        // Right inner corner (133) -> obliquely down-out to beneath right pupil (119)
+        drawTearTroughLine([pt(133), lerp(pt(133), pt(121), 0.55), pt(121), pt(120), pt(119)]);
+        // Left inner corner (362) -> obliquely down-out to beneath left pupil (348)
+        drawTearTroughLine([pt(362), lerp(pt(362), pt(350), 0.55), pt(350), pt(349), pt(348)]);
         return;
       }
       if (type === "crowsFeet") {
-        // Distinct 3-ray radiating outer-corner fan (Tongziliao 45° area)
-        const drawFanRays = (origin, targets) => {
+        // Ultra-fine low-opacity sector positioning frame around outer eye corner
+        const drawSectorFrame = (origin, topPt, midPtOut, botPt) => {
           ctx.save();
-          targets.forEach(t => {
-            ctx.beginPath();
-            ctx.moveTo(origin.x, origin.y);
-            ctx.lineTo(t.x, t.y);
-            ctx.strokeStyle = "rgba(245, 180, 97, 0.32)";
-            ctx.lineWidth = 7;
-            ctx.lineCap = "round";
-            ctx.stroke();
-            ctx.shadowColor = "rgba(243, 200, 119, 0.95)";
-            ctx.shadowBlur = 6;
-            ctx.strokeStyle = "#F3C877";
-            ctx.lineWidth = 1.9;
-            ctx.stroke();
-          });
+          ctx.beginPath();
+          ctx.moveTo(origin.x, origin.y);
+          ctx.lineTo(topPt.x, topPt.y);
+          ctx.quadraticCurveTo(midPtOut.x, midPtOut.y, botPt.x, botPt.y);
+          ctx.closePath();
+          ctx.fillStyle = "rgba(243, 200, 119, 0.10)";
+          ctx.fill();
+          ctx.strokeStyle = "rgba(243, 200, 119, 0.62)";
+          ctx.setLineDash([3, 3]);
+          ctx.lineWidth = 0.95;
+          ctx.stroke();
           ctx.restore();
         };
         const rC = pt(130);
-        drawFanRays(rC, [lerp(rC, pt(70), 0.72), lerp(rC, pt(139), 0.65), lerp(rC, pt(143), 0.75)]);
+        drawSectorFrame(rC, lerp(rC, pt(70), 0.72), lerp(rC, pt(139), 0.78), lerp(rC, pt(143), 0.78));
         const lC = pt(359);
-        drawFanRays(lC, [lerp(lC, pt(300), 0.72), lerp(lC, pt(368), 0.65), lerp(lC, pt(372), 0.75)]);
+        drawSectorFrame(lC, lerp(lC, pt(300), 0.72), lerp(lC, pt(368), 0.78), lerp(lC, pt(372), 0.78));
         return;
       }
 
@@ -1303,10 +1400,6 @@
       const userRow = document.createElement("div");
       userRow.className = "user-row";
       userRow.innerHTML = `<div class="user-pill">${promptLabel}</div>`;
-      const thumb = document.createElement("img");
-      thumb.className = "user-thumb";
-      thumb.src = imgEl.src;
-      userRow.appendChild(thumb);
       chatFeed.appendChild(userRow);
       userRow.scrollIntoView({ behavior: "smooth", block: "start" });
 
@@ -1332,9 +1425,18 @@
 
       latestGeo = measureRealGeometry(latestLandmarks);
       eyeMetrics = measureEyePixelZones(imgEl, latestLandmarks);
+      if (promptLabel === "Try Sample Portrait") eyeMetrics.glassesOrLightWarn = false;
       const g = latestGeo;
       barDownloadBtn.style.display = "inline-block";
-      window.bojinTrack("eye_inspector_scan", { mode: promptLabel, vip: isVipMode ? "1" : "0" });
+      window.bojinTrack("eye_inspector_scan", {
+        mode: promptLabel,
+        vip: isVipMode ? "1" : "0",
+        glasses_or_light_warn: eyeMetrics.glassesOrLightWarn ? "1" : "0"
+      });
+
+      const warnText = curLang === "es"
+        ? "👓 Se detectaron lentes o sombra lateral fuerte: los resultados son estimados; vuelve a escanear sin lentes para mayor precisión."
+        : "👓 Glasses or strong side-shadow detected — results are an estimate; re-scan bare-faced for best accuracy.";
 
       const bot = document.createElement("div");
       bot.className = "bot-row";
@@ -1345,6 +1447,7 @@
           <span>${g.tiltWarn ? `⚠ Head tilt ~${g.rollDeg}° (auto-leveled)` : `✓ Head is level (${g.rollDeg}°)`}</span>
           <span>Brow line: ${g.horizonText}</span>
         </div>
+        ${eyeMetrics.glassesOrLightWarn ? `<div class="quality-bar quality-warn" id="autoGlassesWarn"><span>${warnText}</span></div>` : ""}
 
         <!-- TOP SPOTLIGHT: 3 Focused Eye-Zone Cards (Tap to open Fullscreen Inspector!) -->
         <div class="section-head">
@@ -1581,6 +1684,7 @@
       }
       const vipDlBtn = bot.querySelector("#dlNowBtn");
       if (vipDlBtn) vipDlBtn.addEventListener("click", downloadReportCard);
+      syncCourseLinks();
 
       bot.querySelector("#inlineVidBtn").addEventListener("click", () => {
         videoModal.classList.add("open"); courseVid.currentTime = 0; courseVid.play().catch(() => {});
@@ -1791,13 +1895,27 @@
     videoModal.addEventListener("click", (e) => { if (e.target === videoModal) closeV(); });
 
     loadTracker().catch(() => {});
+    function syncCourseLinks() {
+      document.querySelectorAll(".js-course-link").forEach(el => {
+        try {
+          const u = new URL(el.href);
+          if (isVipMode) {
+            u.searchParams.set("utm_source", "eye_inspector");
+            u.searchParams.set("utm_medium", "vip_thankyou");
+          }
+          if (window.bojinUtm && window.bojinUtm.utm_source) {
+            u.searchParams.set("via", window.bojinUtm.utm_source);
+            if (window.bojinUtm.utm_campaign) u.searchParams.set("campaign", window.bojinUtm.utm_campaign);
+          }
+          el.href = u.toString();
+        } catch (e) {}
+      });
+    }
     if (isVipMode) {
       const pill = document.querySelector(".portrait-pill span");
       if (pill) pill.textContent = "Eye Map · ✨ Unlocked";
-      document.querySelectorAll(".js-course-link").forEach(el => {
-        el.href = "https://go.bojinfacetension.com/bojin-eye-method?utm_source=eye_inspector&utm_medium=vip_thankyou";
-      });
     }
+    syncCourseLinks();
     document.addEventListener("click", (e) => {
       const link = e.target.closest?.(".js-course-link");
       if (link) window.bojinTrack("eye_inspector_course_click", { vip: isVipMode ? "1" : "0", href: link.href });
@@ -1813,6 +1931,7 @@
         h1: "Take a close look at your eye area—then find the bone line to stay on.",
         quote: "“A camera can map your bone edge—but only your fingertips can feel where the tension is hiding.”",
         privacy: "🔒 Stays on your device · 468-point face map · Photo never uploaded",
+        glassesTip: "👓 Remove glasses & face even light for an accurate read",
         upTitle: "Upload a Photo",
         upSub: "See 3 eye zones and your bone-edge maps",
         camTitle: "Take a Quick Selfie",
@@ -1833,6 +1952,7 @@
         h1: "Observa de cerca tu contorno de ojos y ubica la línea ósea de la ceja.",
         quote: "“Una cámara puede mostrar la línea del hueso, pero solo tus dedos sienten dónde se guarda la tensión (observación táctil de 10 segundos).”",
         privacy: "🔒 100% en tu dispositivo · Mapa facial de 468 puntos · Tu foto nunca se sube",
+        glassesTip: "👓 Quítate los lentes y busca luz frontal uniforme para una lectura precisa",
         upTitle: "Subir una Foto",
         upSub: "Ver 3 zonas oculares y el mapa sobre el hueso",
         camTitle: "Tomar una Selfie",
@@ -1858,6 +1978,7 @@
       setTxt(".welcome-box h1", t.h1);
       setTxt(".moat-quote", t.quote);
       setTxt(".privacy-line", t.privacy);
+      setTxt("#preGlassesTip", t.glassesTip);
       setTxt("#startUploadBtn strong", t.upTitle);
       setTxt("#startUploadBtn span:last-child", t.upSub);
       setTxt("#startCamBtn strong", t.camTitle);
