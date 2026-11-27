@@ -403,11 +403,19 @@
     .qa-pill:hover { border-color: var(--gold); background: var(--card-2); }
 
     /* Bottom Composer */
-    .composer { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 680px; background: rgba(21, 14, 19, 0.92); backdrop-filter: blur(14px); border-top: 1px solid rgba(255,255,255,.07); padding: .65rem 1rem .7rem; z-index: 45; }
-    .composer-row { display: flex; align-items: center; gap: .5rem; }
-    .comp-btn { background: var(--card-2); border: 1px solid var(--border); color: var(--ink); font-family: inherit; font-size: .78rem; font-weight: 600; padding: .46rem .82rem; border-radius: 999px; cursor: pointer; white-space: nowrap; }
+    .composer { position: fixed; bottom: 0; left: 50%; transform: translateX(-50%); width: 100%; max-width: 680px; background: rgba(21, 14, 19, 0.92); backdrop-filter: blur(14px); border-top: 1px solid rgba(255,255,255,.07); padding: .6rem .85rem .65rem; z-index: 45; }
+    .composer-row { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+    .comp-btn { background: var(--card-2); border: 1px solid var(--border); color: var(--ink); font-family: inherit; font-size: .74rem; font-weight: 600; padding: .42rem .66rem; border-radius: 999px; cursor: pointer; white-space: nowrap; }
     .comp-btn:hover { border-color: var(--gold); color: var(--gold); }
     .comp-disclaimer { text-align: center; font-size: .68rem; color: var(--ink-dim); margin-top: .45rem; }
+    .app-shell, .chat-feed { overflow-x: clip; }
+    .hero-eyebrow-row { display: flex; align-items: center; justify-content: center; gap: .6rem; flex-wrap: wrap; margin-bottom: .5rem; }
+    .hero-eyebrow-row .welcome-eyebrow { margin: 0; }
+    .lang-toggle-mobile { display: none; }
+    @media (max-width: 1250px) {
+      .lang-toggle-desktop { display: none !important; }
+      .lang-toggle-mobile { display: inline-flex !important; }
+    }
 
     /* ==================== SKIN.CHAT-STYLE FULLSCREEN INSPECTOR LIGHTBOX ==================== */
     .inspector-bg {
@@ -602,6 +610,7 @@
         <span>Eye Map · Bojin</span>
       </a>
       <div class="header-right">
+        <button type="button" class="hdr-btn lang-toggle-desktop js-lang-toggle">🌐 Español</button>
         <button type="button" class="hdr-btn" id="newChatBtn">New Scan</button>
         <a class="hdr-btn js-course-link" href="https://go.bojinfacetension.com/bojin-eye-method?utm_source=eye_inspector&utm_medium=header" style="color:var(--gold);border-color:var(--border-strong);">Eye Course ($79)</a>
       </div>
@@ -609,7 +618,10 @@
 
     <main class="chat-feed" id="chatFeed">
       <section class="welcome-box" id="welcomeBox">
-        <p class="welcome-eyebrow">The Bojin Method · 3-Zone Eye Inspector</p>
+        <div class="hero-eyebrow-row">
+          <p class="welcome-eyebrow">The Bojin Method · 3-Zone Eye Inspector</p>
+          <button type="button" class="hdr-btn lang-toggle-mobile js-lang-toggle">🌐 Español</button>
+        </div>
         <h1>Take a close look at your eye area—then find the bone line to stay on.</h1>
         <blockquote class="moat-quote">
           “A camera can map your bone edge—but only your fingertips can feel where the tension is hiding.”
@@ -646,6 +658,7 @@
   </div>
 
   <input type="file" id="photoInput" accept="image/jpeg,image/png,image/webp" hidden>
+  <iframe name="systeme-capture" title="subscription" style="display:none;width:0;height:0;border:0" aria-hidden="true"></iframe>
 
   <!-- ==================== FULLSCREEN DETAIL INSPECTOR LIGHTBOX ==================== -->
   <div class="inspector-bg" id="inspectorModal" role="dialog" aria-modal="true">
@@ -1030,26 +1043,91 @@
         ctx.restore();
       };
 
-      // --- 3 EYE-CONCERN MASKS (Skin.Chat Image 2 Organic Glow Style!) ---
+      // --- 3 EYE-CONCERN MASKS (Distinct Anatomical Shapes!) ---
       if (type === "darkCircles") {
-        const rPoly = [33, 7, 163, 144, 145, 153, 154, 155, 133, 243, 190, 121, 120, 119, 118, 117, 111].map(pt);
-        const lPoly = [263, 249, 390, 373, 374, 380, 381, 382, 362, 463, 414, 350, 349, 348, 347, 346, 340].map(pt);
-        drawOrganicMask(rPoly, "rgba(155, 89, 182, 0.32)", "rgba(216, 155, 255, 0.9)");
-        drawOrganicMask(lPoly, "rgba(155, 89, 182, 0.32)", "rgba(216, 155, 255, 0.9)");
+        // Soft diffused crescent directly under lower lash line (no boxy edges)
+        const drawShadowCrescent = (pts) => {
+          const xs = pts.map(p => p.x), ys = pts.map(p => p.y);
+          const cx = (Math.min(...xs) + Math.max(...xs)) / 2;
+          const cy = (Math.min(...ys) + Math.max(...ys)) / 2;
+          const rad = Math.hypot(Math.max(...xs) - Math.min(...xs), Math.max(...ys) - Math.min(...ys)) * 0.62;
+          ctx.save();
+          ctx.beginPath();
+          pts.forEach((p, i) => i === 0 ? ctx.moveTo(p.x, p.y) : ctx.lineTo(p.x, p.y));
+          ctx.closePath();
+          const g = ctx.createRadialGradient(cx, cy, 2, cx, cy, rad);
+          g.addColorStop(0, "rgba(155, 89, 182, 0.42)");
+          g.addColorStop(0.7, "rgba(155, 89, 182, 0.22)");
+          g.addColorStop(1, "rgba(155, 89, 182, 0)");
+          ctx.fillStyle = g;
+          ctx.fill();
+          ctx.strokeStyle = "rgba(216, 155, 255, 0.65)";
+          ctx.setLineDash([3, 3]);
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+          ctx.restore();
+        };
+        drawShadowCrescent([33, 7, 163, 144, 145, 153, 154, 155, 133, 243, 120, 119, 118, 117].map(pt));
+        drawShadowCrescent([263, 249, 390, 373, 374, 380, 381, 382, 362, 463, 349, 348, 347, 346].map(pt));
         return;
       }
       if (type === "tearTrough") {
-        const rTrough = [133, 155, 154, 153, 145, 144, 163, 117, 118, 119, 120, 121, 128].map(pt);
-        const lTrough = [362, 382, 381, 380, 374, 373, 390, 346, 347, 348, 349, 350, 357].map(pt);
-        drawOrganicMask(rTrough, "rgba(235, 87, 120, 0.30)", "rgba(248, 138, 162, 0.92)");
-        drawOrganicMask(lTrough, "rgba(235, 87, 120, 0.30)", "rgba(248, 138, 162, 0.92)");
+        // True diagonal tear-trough / nasojugal groove arc from inner corner curving obliquely downward & outward
+        const drawGrooveArc = (pts) => {
+          ctx.save();
+          ctx.beginPath();
+          ctx.moveTo(pts[0].x, pts[0].y);
+          for (let i = 1; i < pts.length - 1; i++) {
+            const mx = (pts[i].x + pts[i + 1].x) / 2;
+            const my = (pts[i].y + pts[i + 1].y) / 2;
+            ctx.quadraticCurveTo(pts[i].x, pts[i].y, mx, my);
+          }
+          ctx.lineTo(pts[pts.length - 1].x, pts[pts.length - 1].y);
+          // Soft rose glow halo along the groove
+          ctx.strokeStyle = "rgba(240, 110, 138, 0.34)";
+          ctx.lineWidth = 11;
+          ctx.lineCap = "round";
+          ctx.stroke();
+          // Crisp luminous groove centerline
+          ctx.shadowColor = "rgba(248, 138, 162, 0.95)";
+          ctx.shadowBlur = 8;
+          ctx.strokeStyle = "#FF8FA8";
+          ctx.lineWidth = 2.6;
+          ctx.stroke();
+          // Inner-corner anchor dot
+          ctx.shadowBlur = 0;
+          ctx.fillStyle = "#FFFDFC";
+          ctx.beginPath(); ctx.arc(pts[0].x, pts[0].y, 3.2, 0, Math.PI * 2); ctx.fill();
+          ctx.restore();
+        };
+        drawGrooveArc([133, 128, 121, 120, 119, 118, 117].map(pt));
+        drawGrooveArc([362, 357, 350, 349, 348, 347, 346].map(pt));
         return;
       }
       if (type === "crowsFeet") {
-        const rFan = [130, 226, 35, 143, 111, 116, 127, 71, 70].map(pt);
-        const lFan = [359, 446, 265, 372, 340, 345, 356, 301, 300].map(pt);
-        drawOrganicMask(rFan, "rgba(245, 180, 97, 0.28)", "rgba(243, 200, 119, 0.92)");
-        drawOrganicMask(lFan, "rgba(245, 180, 97, 0.28)", "rgba(243, 200, 119, 0.92)");
+        // Distinct 3-ray radiating outer-corner fan (Tongziliao 45° area)
+        const drawFanRays = (origin, targets) => {
+          ctx.save();
+          targets.forEach(t => {
+            ctx.beginPath();
+            ctx.moveTo(origin.x, origin.y);
+            ctx.lineTo(t.x, t.y);
+            ctx.strokeStyle = "rgba(245, 180, 97, 0.32)";
+            ctx.lineWidth = 7;
+            ctx.lineCap = "round";
+            ctx.stroke();
+            ctx.shadowColor = "rgba(243, 200, 119, 0.95)";
+            ctx.shadowBlur = 6;
+            ctx.strokeStyle = "#F3C877";
+            ctx.lineWidth = 1.9;
+            ctx.stroke();
+          });
+          ctx.restore();
+        };
+        const rC = pt(130);
+        drawFanRays(rC, [lerp(rC, pt(70), 0.72), lerp(rC, pt(139), 0.65), lerp(rC, pt(143), 0.75)]);
+        const lC = pt(359);
+        drawFanRays(lC, [lerp(lC, pt(300), 0.72), lerp(lC, pt(368), 0.65), lerp(lC, pt(372), 0.75)]);
         return;
       }
 
@@ -1349,8 +1427,8 @@
               <strong>Unlock 2 More Maps + Your 7-Day Card</strong>
               <p>See the Brow-Bone Sweeps and the upper orbital rim up close, then save your personal photo card.</p>
             </div>
-            <form class="email-form" id="inlineUnlockForm">
-              <input type="email" required placeholder="you@example.com">
+            <form class="email-form" id="inlineUnlockForm" method="post" action="https://systeme.io/embedded/42586344/subscription" target="systeme-capture">
+              <input type="email" name="email" required placeholder="you@example.com" aria-label="Email address">
               <button type="submit" class="hdr-btn" style="background:var(--gold);color:#150E13;border:0;">Unlock</button>
             </form>
             `}
@@ -1488,14 +1566,17 @@
 
       const inlineForm = bot.querySelector("#inlineUnlockForm");
       if (inlineForm) {
-        inlineForm.addEventListener("submit", (e) => {
-          e.preventDefault(); isUnlocked = true;
-          window.bojinTrack("eye_inspector_unlock", { source: "inline_form" });
-          const card = bot.querySelector("#unlockRecCard");
-          card.innerHTML = `
-            <div><span class="kicker" style="color:var(--jade);">✓ Unlocked</span><strong>Steps 2 &amp; 3 Are Now Open Above</strong><p>Swipe through the route cards above, or save your 7-day card.</p></div>
-            <button type="button" class="rec-cta" id="dlNowBtn">⬇ Download 7-Day Report Card</button>`;
-          card.querySelector("#dlNowBtn").addEventListener("click", downloadReportCard);
+        inlineForm.addEventListener("submit", () => {
+          isUnlocked = true;
+          window.bojinTrack("eye_inspector_unlock", { source: "inline_form_systeme" });
+          setTimeout(() => {
+            const card = bot.querySelector("#unlockRecCard");
+            if (!card) return;
+            card.innerHTML = `
+              <div><span class="kicker" style="color:var(--jade);">✓ Unlocked</span><strong>Steps 2 &amp; 3 Are Now Open Above</strong><p>Swipe through the route cards above, or save your 7-day card.</p></div>
+              <button type="button" class="rec-cta" id="dlNowBtn">⬇ Download 7-Day Report Card</button>`;
+            card.querySelector("#dlNowBtn").addEventListener("click", downloadReportCard);
+          }, 180);
         });
       }
       const vipDlBtn = bot.querySelector("#dlNowBtn");
@@ -1674,7 +1755,7 @@
     }
 
     const openUpload = () => photoInput.click();
-    const loadDemo = () => { const img = new Image(); img.crossOrigin = "anonymous"; img.onload = () => runPortraitAnalysis(img, "Try Demo Portrait"); img.src = "assets/bojin-evening-portrait-hero.webp"; };
+    const loadDemo = () => { const img = new Image(); img.crossOrigin = "anonymous"; img.onload = () => runPortraitAnalysis(img, "Try Sample Portrait"); img.src = "assets/eye-inspector-sample-us.jpg"; };
     async function openCamera() {
       camModal.classList.add("open");
       try { camStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "user", width: { ideal: 960 }, height: { ideal: 720 } }, audio: false }); camVideo.srcObject = camStream; await camVideo.play(); }
@@ -1720,6 +1801,78 @@
     document.addEventListener("click", (e) => {
       const link = e.target.closest?.(".js-course-link");
       if (link) window.bojinTrack("eye_inspector_course_click", { vip: isVipMode ? "1" : "0", href: link.href });
+    });
+
+    // Bilingual EN / ES Toggle (Default 100% English per site rule)
+    let curLang = "en";
+    const i18nStatic = {
+      en: {
+        langBtn: "🌐 Español",
+        newScan: "New Scan",
+        eyebrow: "The Bojin Method · 3-Zone Eye Inspector",
+        h1: "Take a close look at your eye area—then find the bone line to stay on.",
+        quote: "“A camera can map your bone edge—but only your fingertips can feel where the tension is hiding.”",
+        privacy: "🔒 Stays on your device · 468-point face map · Photo never uploaded",
+        upTitle: "Upload a Photo",
+        upSub: "See 3 eye zones and your bone-edge maps",
+        camTitle: "Take a Quick Selfie",
+        camSub: "Take off your glasses for the clearest under-eye read",
+        demoBtn: "✨ Try it first with a sample face",
+        barUp: "🖼️ Upload",
+        barCam: "📷 Selfie",
+        barDemo: "✨ Sample Face",
+        barSave: "⬇ Save Card",
+        disclaimer: "Self-care observation only, not medical care · Processed on your device · The Bojin Method",
+        back: "← Back",
+        maskLbl: "Show Mask"
+      },
+      es: {
+        langBtn: "🌐 English",
+        newScan: "Nuevo Escaneo",
+        eyebrow: "The Bojin Method · Autocuidado Manual Ocular",
+        h1: "Observa de cerca tu contorno de ojos y ubica la línea ósea de la ceja.",
+        quote: "“Una cámara puede mostrar la línea del hueso, pero solo tus dedos sienten dónde se guarda la tensión (observación táctil de 10 segundos).”",
+        privacy: "🔒 100% en tu dispositivo · Mapa facial de 468 puntos · Tu foto nunca se sube",
+        upTitle: "Subir una Foto",
+        upSub: "Ver 3 zonas oculares y el mapa sobre el hueso",
+        camTitle: "Tomar una Selfie",
+        camSub: "Quítate los lentes suavemente para mayor claridad",
+        demoBtn: "✨ Probar primero con un rostro de ejemplo",
+        barUp: "🖼️ Foto",
+        barCam: "📷 Selfie",
+        barDemo: "✨ Ejemplo",
+        barSave: "⬇ Guardar Tarjeta",
+        disclaimer: "Solo observación de autocuidado manual, no es atención médica · Procesado en tu dispositivo · The Bojin Method",
+        back: "← Volver",
+        maskLbl: "Mostrar Máscara"
+      }
+    };
+    function applyLang(lang) {
+      curLang = lang;
+      document.documentElement.lang = lang;
+      const t = i18nStatic[lang];
+      document.querySelectorAll(".js-lang-toggle").forEach(b => b.textContent = t.langBtn);
+      const setTxt = (sel, val) => { const el = document.querySelector(sel); if (el) el.textContent = val; };
+      setTxt("#newChatBtn", t.newScan);
+      setTxt(".welcome-eyebrow", t.eyebrow);
+      setTxt(".welcome-box h1", t.h1);
+      setTxt(".moat-quote", t.quote);
+      setTxt(".privacy-line", t.privacy);
+      setTxt("#startUploadBtn strong", t.upTitle);
+      setTxt("#startUploadBtn span:last-child", t.upSub);
+      setTxt("#startCamBtn strong", t.camTitle);
+      setTxt("#startCamBtn span:last-child", t.camSub);
+      setTxt("#startDemoBtn", t.demoBtn);
+      setTxt("#barUploadBtn", t.barUp);
+      setTxt("#barCamBtn", t.barCam);
+      setTxt("#barDemoBtn", t.barDemo);
+      setTxt("#barDownloadBtn", t.barSave);
+      setTxt(".comp-disclaimer", t.disclaimer);
+      setTxt("#closeInspBtn", t.back);
+      setTxt("#inspMaskBtn span:first-child", t.maskLbl);
+    }
+    document.querySelectorAll(".js-lang-toggle").forEach(btn => {
+      btn.addEventListener("click", () => applyLang(curLang === "en" ? "es" : "en"));
     });
   </script>
 </body>
